@@ -1,0 +1,31 @@
+# Dépendances
+node_modules/
+dist/
+.next/
+.astro/
+
+# Données clients (jamais commitées)
+clients/*
+!clients/.gitkeep
+
+# Audits générés
+audits/
+
+# Env / secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# OS / éditeurs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs
+*.log
+npm-debug.log*
