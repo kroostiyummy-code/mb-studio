@@ -85,7 +85,7 @@ Voir `references/playbook.md` pour la liste complète des problèmes typiques ea
 Trois leviers concrets que MB Studio peut activer. Toujours formulés en **bénéfice patron**, pas en jargon tech :
 
 - ✗ "Implémentation de Schema.org Restaurant"
-- ✓ "Tu apparaîtras dans les recherches type 'restaurant italien Chartres' avec ton menu et tes prix directement dans Google"
+- ✓ "Vous apparaîtrez dans les recherches type 'restaurant italien Chartres' avec votre menu et vos prix directement dans Google"
 
 ### Étape 5 — Génération de l'output (template tablette)
 
@@ -95,7 +95,7 @@ Remplir le template `templates/audit-tablette.md` avec les données collectées.
 
 ## Format d'output (imposé)
 
-**Toujours** suivre cette structure exacte. Une seule page. Pas de préambule. Pas de conclusion.
+**Toujours** suivre cette structure exacte. Une seule page. Pas de préambule. Pas de conclusion. **Vouvoiement par défaut** (un audit imprimé/envoyé garde le "vous" — on bascule au "tu" oralement pendant la visite si le patron tutoie en premier).
 
 ```markdown
 # Audit gratuit — [Nom du restaurant]
@@ -107,7 +107,7 @@ Remplir le template `templates/audit-tablette.md` avec les données collectées.
 
 - [1 à 3 points positifs courts, pour ne pas être négatif à 100%]
 
-## 3 choses qui te coûtent des clients
+## 3 choses qui vous coûtent des clients
 
 ### 1. [Titre court et concret]
 [1-2 phrases en langage patron. Pas de jargon. Mention d'un chiffre quand possible.]
@@ -118,10 +118,10 @@ Remplir le template `templates/audit-tablette.md` avec les données collectées.
 ### 3. [Titre court et concret]
 [Idem]
 
-## 3 leviers que je peux activer pour toi
+## 3 leviers que je peux activer pour vous
 
 ### 🎯 [Levier 1]
-[Bénéfice patron en 1 phrase. Ex: "Apparaître dans Google Maps pour 'restaurant italien Chartres' avec ton menu visible directement."]
+[Bénéfice patron en 1 phrase. Ex: "Apparaître dans Google Maps pour 'restaurant italien Chartres' avec votre menu visible directement."]
 
 ### 🎯 [Levier 2]
 [Idem]
@@ -133,17 +133,18 @@ Remplir le template `templates/audit-tablette.md` avec les données collectées.
 
 **Pack Resto Chartres — 490€ (tarif lancement)**
 
-- Nouveau site rapide, beau, modifiable par toi
-- Setup complet de ta fiche Google
+- Nouveau site rapide, beau, que vous modifiez vous-même
+- Setup complet de votre fiche Google
 - Livré en 10 jours
 - Paiement unique, jamais d'abonnement
-- Tu n'es pas content après la maquette ? 100% remboursé.
+- Vous n'êtes pas satisfait après la maquette ? 100% remboursé.
 
-**Prochaine étape :** je te prépare une maquette personnalisée gratuite sous 7 jours. Tu valides ou pas, sans engagement.
+**Prochaine étape :** je vous prépare une maquette personnalisée gratuite sous 7 jours. Vous validez ou pas, sans engagement.
 ```
 
 ### Règles de format strictes
 
+- **Vouvoiement par défaut** sur toute version écrite (audit imprimé, envoyé par mail, montré sur tablette). Le tutoiement reste possible à l'oral pendant la visite si le patron tutoie en premier.
 - **Une page max** quand affichée sur tablette en portrait (police 14-16pt)
 - **Aucun emoji autre que 🎯** (et seulement sur les leviers)
 - **Aucune mention** de : "stack", "framework", "Lighthouse score", "Core Web Vitals", "Schema.org" (langage patron uniquement)
@@ -155,15 +156,15 @@ Remplir le template `templates/audit-tablette.md` avec les données collectées.
 
 ## Règles d'or
 
-1. **Pas de chiffres inventés.** Si on n'a pas pu mesurer un truc (ex: pas accès aux Core Web Vitals), on ne dit pas "ton site est lent" sans preuve. On dit "j'ai mesuré le chargement de ta page d'accueil à X secondes".
+1. **Pas de chiffres inventés.** Si on n'a pas pu mesurer un truc (ex: pas accès aux Core Web Vitals), on ne dit pas "votre site est lent" sans preuve. On dit "j'ai mesuré le chargement de votre page d'accueil à X secondes".
 
-2. **Pas de comparaison agressive nominative.** On ne nomme pas le concurrent dans le rapport ("Le Pichet est plus rapide que toi"). On peut dire "un autre resto chartrain dans ta catégorie charge en 2x moins de temps".
+2. **Pas de comparaison agressive nominative.** On ne nomme pas le concurrent dans le rapport ("Le Pichet est plus rapide que vous"). On peut dire "un autre resto chartrain dans votre catégorie charge en 2x moins de temps".
 
-3. **Toujours 1-3 points positifs au début.** Sinon le patron se braque dans les 5 premières secondes. Même si le site est catastrophique, trouver 1 chose ("ton menu est bien à jour", "ta photo de façade est belle").
+3. **Toujours 1-3 points positifs au début.** Sinon le patron se braque dans les 5 premières secondes. Même si le site est catastrophique, trouver 1 chose ("votre menu est bien à jour", "votre photo de façade est belle").
 
 4. **Langage patron uniquement.** Test : si la phrase contient un mot anglais (hors noms propres) ou un sigle (SEO, CMS, HTTP), la reformuler.
 
-5. **Audit = ouvre-porte, pas devis.** Le but n'est pas de tout résoudre dans le rapport. Le but est de provoquer la phrase "et donc tu ferais quoi à ma place ?". À ce moment, on enchaîne sur la maquette gratuite.
+5. **Audit = ouvre-porte, pas devis.** Le but n'est pas de tout résoudre dans le rapport. Le but est de provoquer la phrase "et donc, qu'est-ce que vous feriez à ma place ?". À ce moment, on enchaîne sur la maquette gratuite.
 
 6. **Données sensibles GMB.** Si on détecte des avis négatifs récents, NE PAS les mentionner dans le rapport (sujet vexant en face-à-face). Garder pour soi, en parler oralement si pertinent.
 

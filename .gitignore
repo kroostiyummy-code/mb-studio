@@ -11,6 +11,9 @@ clients/*
 # Audits générés
 audits/
 
+# Claude Code local settings (jamais commitées, propres à chaque poste)
+.claude/settings.local.json
+
 # Env / secrets
 .env
 .env.local

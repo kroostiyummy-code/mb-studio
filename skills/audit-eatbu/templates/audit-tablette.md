@@ -13,11 +13,11 @@
 
 ---
 
-## 3 choses qui te coûtent des clients
+## 3 choses qui vous coûtent des clients
 
 ### 1. {TITRE_PROBLEME_1}
 
-{DESCRIPTION_PROBLEME_1 — 1 à 2 phrases en langage patron, avec un chiffre concret quand possible}
+{DESCRIPTION_PROBLEME_1 — 1 à 2 phrases en langage patron au vouvoiement, avec un chiffre concret quand possible}
 
 ### 2. {TITRE_PROBLEME_2}
 
@@ -29,7 +29,7 @@
 
 ---
 
-## 3 leviers que je peux activer pour toi
+## 3 leviers que je peux activer pour vous
 
 ### 🎯 {LEVIER_1}
 
@@ -49,13 +49,13 @@
 
 **Pack Resto Chartres — 490€ (tarif lancement)**
 
-- Nouveau site rapide, beau, modifiable par toi
-- Setup complet de ta fiche Google
+- Nouveau site rapide, beau, que vous modifiez vous-même
+- Setup complet de votre fiche Google
 - Livré en 10 jours
 - Paiement unique, jamais d'abonnement
-- Tu n'es pas content après la maquette ? 100% remboursé.
+- Vous n'êtes pas satisfait après la maquette ? 100% remboursé.
 
-**Prochaine étape :** je te prépare une maquette personnalisée gratuite sous 7 jours. Tu valides ou pas, sans engagement.
+**Prochaine étape :** je vous prépare une maquette personnalisée gratuite sous 7 jours. Vous validez ou pas, sans engagement.
 
 ---
 
