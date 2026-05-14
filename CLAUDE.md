@@ -22,6 +22,9 @@ Lire `README.md` pour l'offre complète et `BRAND.md` pour l'identité visuelle.
 3. **0€ d'hébergement par site client livré** (Astro + Cloudflare Pages)
 4. **Édition autonome** par le client (Decap CMS) → c'est l'argument de vente
 5. **Chaque client = ambassadeur potentiel** (footer signé, commission 100€, photo Instagram)
+6. **Sous-promettre, sur-livrer** : chaque livraison contient un petit cadeau non annoncé (favicon perso, page 404 rigolote, animation discrète…) — voir `process.md` pour la liste. Promettre moins à l'oral, livrer plus à l'écran.
+7. **Patron toujours propriétaire à 100%** : domaine acheté sur SON compte registrar, fiche GMB où Mike est gestionnaire (pas propriétaire), site éditable seul. Le jour où il veut partir, il garde tout sans rien transférer.
+8. **Vouvoiement par défaut à l'écrit** (audit envoyé, mail, devis, support imprimé). Tutoiement possible à l'oral pendant la visite si le patron tutoie en premier.
 
 ## Stack technique imposée
 
@@ -30,41 +33,70 @@ Lire `README.md` pour l'offre complète et `BRAND.md` pour l'identité visuelle.
 - **Pas de Next.js** (SSR inutile, coût Vercel imprévisible)
 - **Pas de WordPress** (maintenance + sécu + hébergement payant = antagonique au pitch)
 
+## Process opérationnel
+
+Le process complet (5 étapes, du 1er contact au suivi mensuel) vit dans `process.md` à la racine du repo. **À lire systématiquement avant toute session liée à un client.**
+
+Résumé : 4 visites client maximum (présentation, brief, livraison, suivi J+30), tout le reste se passe chez Mike. Pack Solo 490€ (paiement 50/50, acompte après brief). Pack Suivi mensuel optionnel 50€/mois, **jamais poussé en début de pitch**, mentionné uniquement à la fin avec emphase sur "résiliable à tout moment".
+
 ## Skills (outillage Claude Code interne)
 
 Le repo héberge les skills MB Studio dans `skills/` au format SKILL.md (compatible Claude Code).
 
 | Skill | Statut | Rôle |
 |---|---|---|
-| `audit-eatbu` | En cours | Audit gratuit en porte-à-porte (5 min, sur tablette) |
-| `maquette-flash` | À venir | Maquette validable en 1h depuis brief court |
-| `refonte-eatbu` | À venir | Plan de refonte complet (scrape contenu + setup GMB + Schema.org) |
-| `site-from-brief` | À venir | Génération site complet depuis brief structuré |
+| `audit-eatbu` | ✅ Fait | Audit gratuit pré-rempli avant visite porte-à-porte |
+| `maquette-flash` | À construire | Génère la maquette du futur site avant le 1er rdv terrain |
+| `brief-client` | À construire | Questionnaire structuré pour récolter tout le contenu en 1h |
+| `site-from-brief` | À construire | Génère le site Astro complet depuis le brief rempli |
+| `gmb-setup` | À construire | Checklist et procédure d'optimisation de la fiche Google Business |
+| `monthly-report` | À construire | Rapport mensuel : Umami + GMB Insights + PageSpeed → 1 page patron-friendly |
+| `relance-patron` | À venir (plus tard) | Script de relance pour patrons ayant vu la maquette sans signer |
 
-**Ordre de construction** :
-1. `audit-eatbu` (débloque la prospection)
-2. Test terrain : 5 visites restos, valider hypothèse prix (médiane ≥ 500€)
-3. `maquette-flash` (transforme audit en proposition)
-4. `refonte-eatbu` + `site-from-brief` (quand 1er client signé)
-5. **Vitrine MB Studio** (en dernier, quand 2-3 cas clients livrés)
+**Ordre de construction (validé) :**
+
+1. **Template Astro `site-resto/`** : extraire la structure de `Kroostiyummy.fr` (site déjà fait par Mike avec Claude) et en faire le template réutilisable. C'est le socle de toute la suite.
+2. **Skills de production** dans l'ordre : `maquette-flash` → `brief-client` → `site-from-brief` → `gmb-setup` → `monthly-report`
+3. **Supports commerciaux** : pitch porte-à-porte, réponses aux objections, bon de commande type, carte de visite (déjà dans `process.md` mais à matérialiser)
+4. **5 visites terrain** seulement quand 1-2-3 sont prêts (Mike veut arriver "lancé", pas "en train de se lancer")
+5. **Vitrine MB Studio** construite avec le même template que les sites clients, avec Kroostiyummy.fr comme premier cas client. Pas avant le 3ème client signé.
+
+**Stack de tracking installée sur chaque site client (gratuit, RGPD-friendly) :**
+- Umami ou Plausible auto-hébergé sur Cloudflare (analytics sans cookie banner)
+- Google Search Console (mots-clés Google)
+- GMB Insights (gestion via accès gestionnaire)
+- PageSpeed Insights mensuel (vitesse + Core Web Vitals)
+
+Ces 4 sources alimentent `monthly-report` et justifient l'abonnement Suivi à 50€/mois.
 
 ## Anti-patterns à refuser
 
 - Ajouter Next.js, React SSR, framework lourd
 - Proposer WordPress
 - Promettre du SEO garanti
-- Ajouter des dépendances payantes (CMS payant, hébergement payant)
-- Coder le vitrine avant d'avoir des cas clients réels
+- Ajouter des dépendances payantes (CMS payant, hébergement payant, analytics payant Google Analytics inclus)
 - Parler "agence" / "équipe" / "nous" (Mike est solo, c'est sa force)
 - Utiliser du jargon tech dans les supports clients
+- Pousser l'abonnement Suivi mensuel en début de pitch (ça crée la peur de dépendance, ça casse la vente)
+- Promettre des choses qui ne seront pas dans le bon de commande (les "cadeaux surprise" se découvrent à la livraison, ne se promettent jamais)
+- Mettre un effet visuel lourd (vidéo scroll-driven, animations complexes) sur un site resto — antagonique avec "site rapide" et avec "édition autonome par le patron"
 
 ## État du projet (mai 2026)
 
-- Stratégie figée (offre, prix, process, stack, anti-promesses)
-- Repo squelette en place
-- Skill `audit-eatbu` en construction
-- **Prochain jalon Mike** : 5 visites terrain restos chartrains pour valider hypothèse prix (médiane ≥ 500€)
+- Stratégie figée : offre, prix, process complet (`process.md`), pitchs scriptés, packs définis
+- Skill `audit-eatbu` ✅ écrit et testé en démo (Le Cochon Dingue)
+- Stratégie ciblage 5 premiers clients : **Option 1 validée** = sélection manuelle par feeling terrain (accroche relationnelle + transformation visible à raconter)
+- **Prochain jalon Mike** : construire le template `site-resto/` à partir de Kroostiyummy.fr, puis les 5 skills de production, AVANT toute visite terrain. Mike veut arriver "lancé".
+- **Cas client zéro** : Kroostiyummy.fr (le site du foodtruck de Mike, 170 avis 5 étoiles, refait avec Claude) sert de premier cas client pour la vitrine MB Studio
 - Statut juridique : à régulariser (ajout activité secondaire BIC service à la micro foodtruck) **avant 1ère facture**
+
+## Profil de Mike — ce qu'il faut garder en tête à chaque session
+
+- **Très bon en relationnel/vente**, vit déjà du contact client direct (foodtruck à Chartres)
+- **Faible en technique** par auto-évaluation, mais a déjà refait Kroostiyummy.fr avec Claude (preuve qu'il maîtrise la stack en pratique)
+- Léger **syndrome de l'imposteur** : a besoin de systèmes clairs, simples, duplicables pour se sentir pro même quand il doute
+- N'est **pas dev** : ne jamais lui demander de comprendre le code, lui parler en français, en bénéfices, en "ce que ça change pour le client"
+- **Tutoiement entre Claude et Mike** dans les discussions internes (style direct, pair-à-pair). Le vouvoiement est réservé aux contenus destinés aux clients du resto.
 
 ## Conventions de commit
 
