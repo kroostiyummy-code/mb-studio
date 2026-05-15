@@ -87,6 +87,9 @@ Ce mode démontre mon expertise (j'ai choisi pour lui, je ne suis pas un prestat
 
 **Objectif :** repartir avec tout le contenu nécessaire à la production, sans avoir à recontacter le patron pour des questions de détail.
 
+**À faire AVANT le rdv (chez moi, 30 sec) :**
+- **Capture eatbu** : 2 screenshots (mobile + desktop) + Lighthouse de l'ancien site eatbu du patron, sauvegardés dans `briefs/{slug}/eatbu-snapshot/`. Servira au skill `audit-livraison` pour la comparaison "avant/après" présentée à la livraison. Détail dans `skills/brief-client/SKILL.md` (Étape 0).
+
 **Ce que je fais sur place :**
 1. **Brief contenu** via skill `brief-client` (questionnaire structuré sur tablette, on remplit ensemble)
    - Nom, slogan, baseline

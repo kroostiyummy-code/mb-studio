@@ -34,9 +34,32 @@ Demander à Mike, en une seule passe d'ouverture :
 > "OK on lance. Donne-moi :
 > 1. Le nom du resto (qui servira de slug pour les fichiers)
 > 2. La signature retenue par le patron (brutalist / elegant / tradition)
-> 3. Sa couleur dominante (peux être déduite du logo, ou choisie au feeling)"
+> 3. Sa couleur dominante (peux être déduite du logo, ou choisie au feeling)
+> 4. As-tu fait la capture eatbu ? (oui / pas encore — voir étape 0 ci-dessous)"
 
-Si l'une des 3 manque, demander en une phrase courte. Pas de questions imbriquées : Mike est en rdv, le tempo doit être rapide.
+Si l'une des 4 manque, demander en une phrase courte. Pas de questions imbriquées : Mike est en rdv, le tempo doit être rapide.
+
+---
+
+## Étape 0 — Capture du site eatbu (avant d'arriver chez le patron)
+
+**Pourquoi** : pour pouvoir comparer plus tard l'ancien site vs le nouveau dans le rapport de mise en service présenté au patron à la livraison (voir skill `audit-livraison`). Sans cette capture, la comparaison "avant/après" devient impossible.
+
+**Quand** : à faire **avant** le rdv brief, depuis chez Mike. Pas pendant le brief (Mike est dans le rdv, focus patron).
+
+**Comment** (30 secondes, à faire une fois) :
+
+1. Ouvrir l'URL eatbu du patron (déjà connue depuis `audit-eatbu`).
+2. Faire une capture pleine page **mobile** (375px de large, c'est le format majoritaire des visites).
+3. Faire une capture pleine page **desktop** (1280px).
+4. Lancer un Lighthouse mobile sur l'URL eatbu. Noter les 4 scores (Performance, Accessibilité, SEO, Bonnes pratiques) et le temps de chargement (FCP + LCP).
+5. Sauvegarder dans `briefs/{slug}/eatbu-snapshot/` :
+   - `mobile.png`
+   - `desktop.png`
+   - `lighthouse.json` (rapport brut Lighthouse)
+   - `metrics.md` (résumé 4 lignes : scores + LCP + URL + date capture)
+
+**Si Mike répond "pas encore"** au démarrage du brief : ne PAS bloquer le brief. Le rappeler en fin de session avec un "Pense à faire la capture eatbu en rentrant ce soir, avant de lancer la production." Le brief n'a pas besoin du snapshot pour fonctionner — c'est seulement `audit-livraison` qui en aura besoin plus tard.
 
 ---
 
