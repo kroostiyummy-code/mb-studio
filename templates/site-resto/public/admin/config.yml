@@ -102,6 +102,65 @@ collections:
                 fields:
                   - { name: titre, label: "Titre", widget: string, hint: "Ex: 100% Halal, Cuisine bio, Sans gluten" }
                   - { name: sub, label: "Sous-titre", widget: string, required: false, hint: "Ex: — Certifié" }
+          - name: mode
+            label: "Mode de localisation"
+            widget: select
+            options: ["fixe", "foodtruck"]
+            default: "fixe"
+            hint: "Choisissez 'fixe' si vous avez UNE adresse fixe, 'foodtruck' si vous tournez sur plusieurs lieux dans la semaine. Remplissez ENSUITE uniquement la grille qui correspond à votre mode ci-dessous."
+
+          - name: google_maps_embed_url
+            label: "Lien Google Maps embed (mode fixe uniquement)"
+            widget: string
+            required: false
+            hint: "Sur Google Maps : Partager > Intégrer une carte > Copier le HTML > collez UNIQUEMENT le contenu de src=\"...\" ici."
+
+          - name: horaires
+            label: "Horaires hebdomadaires (mode FIXE)"
+            widget: list
+            required: false
+            collapsed: true
+            hint: "Un jour par entrée. Laissez les créneaux vides pour les jours fermés. Format heure : 12:00 (avec les deux-points)."
+            fields:
+              - name: jour
+                label: "Jour"
+                widget: select
+                options: ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
+              - name: creneaux
+                label: "Créneaux d'ouverture"
+                label_singular: "Créneau"
+                widget: list
+                required: false
+                fields:
+                  - { name: ouvre, label: "Ouvre à", widget: string, hint: "Ex: 12:00" }
+                  - { name: ferme, label: "Ferme à", widget: string, hint: "Ex: 14:00" }
+
+          - name: horaires_foodtruck
+            label: "Tournée hebdomadaire (mode FOODTRUCK)"
+            widget: list
+            required: false
+            collapsed: true
+            hint: "Un jour par entrée. Pour chaque créneau, précisez le lieu, la ville, midi/soir, et les heures."
+            fields:
+              - name: jour
+                label: "Jour"
+                widget: select
+                options: ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
+              - name: creneaux
+                label: "Créneaux du jour"
+                label_singular: "Créneau"
+                widget: list
+                required: false
+                fields:
+                  - { name: lieu, label: "Lieu (nom court)", widget: string, hint: "Ex: Marché Chartres, Leroy Merlin" }
+                  - { name: ville, label: "Ville ou quartier", widget: string, hint: "Ex: Bd Chasles, Luisant" }
+                  - name: moment
+                    label: "Moment"
+                    widget: select
+                    options: ["midi", "soir"]
+                  - { name: ouvre, label: "Ouvre à", widget: string, hint: "Ex: 11:30" }
+                  - { name: ferme, label: "Ferme à", widget: string, hint: "Ex: 13:30" }
+
           - name: reseaux
             label: "Réseaux sociaux"
             widget: object

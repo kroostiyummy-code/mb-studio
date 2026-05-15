@@ -172,6 +172,95 @@ Ce mode démontre mon expertise (j'ai choisi pour lui, je ne suis pas un prestat
 
 ---
 
+## Étape 6 — Support après livraison
+
+> Cette section cadre **ce qui se passe quand le téléphone sonne**. Sans cadre, je dis oui à tout et je m'épuise. Avec cadre, je tiens dans la durée et le patron sait à quoi s'attendre. **Affichage public obligatoire** dans la mention légale du site client (RGPD + transparence + cadrage des attentes).
+
+### Cadre temporel
+
+- **Garantie technique 30 jours** : tout bug lié à une cause technique (site ne charge plus, Decap ne sauvegarde plus, formulaire cassé) → corrigé **gratuitement sous 24h ouvrables**. Sans condition, sans question.
+- **Au-delà des 30 jours**, 3 options :
+  1. **1 modification gratuite par an** incluse dans le Pack Solo (le patron me la demande quand il veut, j'ai 7 jours pour la faire)
+  2. **Pack Suivi mensuel 50€/mois** : 1 modification incluse chaque mois + rapport + café (résiliable à tout moment)
+  3. **Tarif horaire 50€/h** : pour les modifications ponctuelles hors-garantie hors-Suivi. Devis ferme avant le travail, paiement après livraison.
+
+### Engagements de délais
+
+| Période | Engagement |
+|---|---|
+| **Lundi-vendredi 9h-19h** | Réponse dans la journée. Correction d'un incident bloquant sous 24h. |
+| **Soir et weekend** | Best effort. Pas de garantie de réponse immédiate. Si je suis dispo et que c'est urgent, je traite. |
+| **Vacances/absence prolongée** | Message vocal automatique sur le téléphone pro + autorépondeur mail annonçant la durée d'absence. |
+
+**Important** : ces engagements sont affichés **textuellement** sur la page mentions légales du site client. Pas de promesse cachée, pas de surprise.
+
+### Incidents typiques et qui fait quoi
+
+#### Cas 1 — Le site ne charge plus
+- **Cause la plus probable** : domaine expiré (renouvellement annuel oublié par le patron). Plus rare : Cloudflare en panne globale.
+- **Si domaine expiré** : c'est la responsabilité du patron (le domaine est sur son compte). Je lui rappelle, il renouvelle, le site revient en ligne sous 1-2h. J'envoie une **notification 30 jours avant** la date d'expiration pour éviter ça.
+- **Si Cloudflare en panne** : pas mon problème technique, mais je communique au patron (SMS) que c'est en cours, je donne l'ETA Cloudflare officiel.
+- **Si lié à un déploiement de mon côté** : correction immédiate, sans frais, dans la garantie 30j ou hors-garantie peu importe (c'est moi qui ai cassé, je répare).
+
+#### Cas 2 — Le patron a cassé son contenu via Decap
+- **Cause typique** : suppression accidentelle d'un champ obligatoire, mauvais format de date, image trop lourde.
+- **Sous garantie 30j** : je corrige gratuitement + je lui explique l'erreur en 2 minutes pour qu'il évite de la refaire.
+- **Hors garantie** : Pack Suivi inclut 1 modif/mois → couvre ce cas naturellement. Sinon 50€/h (typiquement 0,5h donc 25€).
+
+#### Cas 3 — Le patron veut modifier la structure du site (nouvelle section, refonte)
+- **Toujours hors garantie** : c'est un nouveau périmètre, pas un bug.
+- **Devis personnalisé** selon l'ampleur :
+  - Ajouter une section optionnelle déjà prévue dans le template (Bandeau, Exigence, Réseaux…) : ~30€
+  - Créer une section sur-mesure : 100-300€ selon complexité
+  - Refonte complète (nouvelle signature, nouveau ton) : retour au Pack Solo 490€ (tarif lancement) ou 890€ (tarif normal)
+- Si le patron demande **beaucoup d'évolutions** régulières → introduire le **Pack Pro 120€/mois** (tournage photo mensuel + posts GMB hebdo + réponses aux avis) après le 6e client.
+
+#### Cas 4 — Cloudflare down ou problème infra
+- **Pas la responsabilité MB Studio** : Cloudflare Pages est un service tiers gratuit, sans SLA contractuel envers MB Studio ni envers le patron.
+- **Action Mike** : vérifier le statut Cloudflare sur `https://www.cloudflarestatus.com/`, informer le patron par SMS si l'incident dépasse 1h, suivre la résolution.
+- **Aucun remboursement possible** : la gratuité de l'hébergement signifie qu'il n'y a pas de niveau de service garanti.
+- **Mention écrite** dans les mentions légales du site client : *"Site hébergé chez Cloudflare. MB Studio décline toute responsabilité en cas d'indisponibilité de l'infrastructure tierce."*
+
+#### Cas 5 — Le patron veut récupérer son site (résiliation, changement de prestataire)
+- **Engagement contractuel** (cf principe non-négociable #7) : **archive complète du repo Git fournie sous 48h** sur simple demande, sans frais.
+- Le patron récupère : le code source complet, son contenu YAML/Markdown, ses photos, ses scripts Decap.
+- MB Studio supprime ses accès Cloudflare Pages et son rôle gestionnaire GMB dans la foulée.
+- **Aucune pénalité, aucun frais, aucune négociation**. C'est l'ADN MB Studio et ça doit rester aussi clair que ça.
+- En pratique : si le patron part vers un autre prestataire, je lui transfère l'invitation collaborateur sur le repo GitHub MB Studio. Il fork ou clone, il fait ce qu'il veut.
+
+### Garanties à mentionner sur le bon de commande
+
+- ✅ Site livré en **10 jours max** après brief signé
+- ✅ **Garantie 30j** sur les bugs techniques (correction sous 24h ouvrables)
+- ✅ **Archive complète** du repo fournie sous 48h sur demande
+- ✅ **Formation CMS** de 30 min à la livraison (le patron fait 1 modification devant moi)
+- ✅ **Guide papier** remis à la livraison (1 page A4 avec les 3 actions les plus fréquentes)
+- ✅ **1 modification gratuite par an** dans le Pack Solo
+
+### Anti-promesses à NE PAS faire
+
+- ❌ Pas de **SLA infra** (Cloudflare est tiers gratuit, je ne peux pas garantir 99,99% de uptime)
+- ❌ Pas de **modifications illimitées** (1/an gratos hors Pack Suivi, sinon 50€/h)
+- ❌ Pas de **support 24/7** (réponse en journée semaine, best effort week-end)
+- ❌ Pas de **garantie de référencement Google** (le SEO dépend de facteurs externes : avis, photos, posts GMB, concurrence)
+
+### Outils support à mettre en place avant le 1er client
+
+- [ ] **Numéro pro MB Studio** avec autorépondeur configuré (annonce des délais de réponse)
+- [ ] **Adresse mail pro** `mike@mb-studio.fr` (à créer après statut juridique) avec signature mail standardisée
+- [ ] **Bookmark Cloudflare Status** dans le navigateur Mike pour vérifier rapidement en cas d'alerte
+- [ ] **Fichier `incident-response.md`** dans chaque repo client (checklist Mike-friendly pour les 5 cas typiques ci-dessus)
+- [ ] **Notification J-30 de renouvellement de domaine** : ajouter au calendrier Mike dès la livraison du site, alerte 30j avant l'échéance annuelle
+- [ ] **Skill `incident`** (à construire plus tard) : `/incident [URL client]` → Claude pull le repo, lit les logs Cloudflare via API, diagnostique
+
+### Phrase à donner au patron à la livraison
+
+> "Si un jour vous voyez que le site ne charge plus, vous m'envoyez un SMS et je m'en occupe sous 24h en semaine. Si c'est le weekend, je traite dès que je suis dispo. Pour modifier votre contenu vous-même, votre formation suffit dans 90% des cas. Si vous bloquez quelque part, vous me dites, c'est inclus la première année dans la limite de 1 modification."
+
+Phrase calme, qui pose les attentes sans être anxiogène. Le patron repart serein, je ne suis pas piégé.
+
+---
+
 ## Tarifs et règles d'argent
 
 ### Packs

@@ -103,10 +103,10 @@ Ces 4 sources alimentent `monthly-report` et justifient l'abonnement Suivi à 50
 
 ## TODO bloquants avant 1er client (ne pas oublier)
 
-- [ ] **Protocole support patron** : graver dans `process.md` une section "Support après livraison" — incidents typiques (patron casse contenu, build échoue, Cloudflare down, modif demandée), qui fait quoi, délais réalistes ("réponse dans la journée en semaine"), garantie 30j post-livraison, modifs au-delà (1 gratos/an OU Pack Suivi 50€/mois OU 50€/h). Indispensable avant de promettre quoi que ce soit oralement.
-- [ ] **Fichier `incident-response.md`** à créer dans le template `site-resto/` (sera dupliqué chez chaque client). Checklist Mike-friendly : "site ne charge plus → faire ça", "patron a cassé son contenu via Decap → faire ça", "Cloudflare en panne → faire ça". À écrire en français pas-tech.
+- [x] ~~**Protocole support patron**~~ ✅ Fait. Section "Étape 6 — Support après livraison" gravée dans `process.md` : cadre temporel (garantie 30j), engagements de délais (semaine/weekend), 5 cas typiques d'incidents avec qui fait quoi, garanties/anti-promesses pour le bon de commande, outils support à mettre en place, phrase à donner au patron à la livraison.
+- [x] ~~**Fichier `incident-response.md`**~~ ✅ Fait. Créé à la racine du template `site-resto/incident-response.md` (sera dupliqué chez chaque client). Checklist Mike-friendly en français pas-tech, 5 cas typiques alignés sur le protocole support, numéros utiles, procédure "quand tout a échoué".
 - [ ] **Skill `incident`** à construire plus tard : `/incident [URL client]` → Claude pull le repo, lit logs Cloudflare, diagnostique. Pas urgent mais utile dès le 2-3e client.
-- [ ] **Decap config** à compléter pour `mode`, `horaires`, `horaires_foodtruck`, `google_maps_embed_url` avant le 1er client mode fixe qui voudrait modifier ses horaires.
+- [x] ~~**Decap config**~~ ✅ Fait. Champs `mode`, `google_maps_embed_url`, `horaires` (mode fixe), `horaires_foodtruck` (mode foodtruck) exposés au patron avec widgets select + list imbriqués + hints clairs.
 - [x] ~~Dogfood template hors-Kroosti~~ ✅ Fait (gastro elegant + bistrot tradition validés).
 
 ## Profil de Mike — ce qu'il faut garder en tête à chaque session
