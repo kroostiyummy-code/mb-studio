@@ -1,0 +1,112 @@
+# Fixture : Le Buisson Ardent (gastronomique à Tours, fictif)
+# Signature : Elegant · Mode : fixe · Dominante : vert sombre forêt
+# Cas test : restaurant raffiné avec carte du marché, ambiance bistronomique.
+# Pour activer : copier le contenu de ce fichier dans src/content/settings/site.yml
+
+site:
+  nom: "Le Buisson Ardent"
+  slogan: "Cuisine française moderne"
+  baseline: "Brasserie raffinée · Carte du marché · Cave de vignerons"
+  est_year: 2018
+  ville: "Tours"
+  region_code: "FR-37"
+  signature: "elegant"
+  dominante: "#1a4d3a"
+
+  # Pas de prix d'appel pour un gastronomique (ce serait contre-productif)
+  telephone: "+33247000000"
+  telephone_display: "02 47 00 00 00"
+  adresse: "12 quai d'Anjou, 37000 Tours"
+  geo:
+    lat: 47.3941
+    lng: 0.6848
+  google_avis_url: "https://maps.google.com/?cid=000"
+  reseaux:
+    instagram: "https://www.instagram.com/buisson.ardent"
+    facebook: "https://www.facebook.com/buissonardent"
+    # Pas de TikTok ni Snap pour un gastro
+
+  hero_image: "/images/foodtruck.jpg"
+  hero_image_alt: "Le Buisson Ardent — salle de restaurant à Tours"
+
+  # Pas de combo (pas de formule à mettre en avant pour un gastro)
+
+  reservation:
+    kicker: "Une table en vue ?"
+    titre: "Réservez votre soirée."
+    perks:
+      - "Service à la française"
+      - "Carte renouvelée chaque semaine"
+      - "Accueil personnalisé"
+
+  histoire:
+    statement_lead: "Cuisine du"
+    statement_accent: "marché."
+    body: "Ouvert en 2018 par le chef Lucas Vermeulen, Le Buisson Ardent propose une cuisine **bistronomique** au plus près des producteurs ligériens. La carte change **chaque semaine** selon les arrivages du marché des Halles."
+    lancement_year: 2018
+
+  avis_google:
+    note: 4.7
+    count: 87
+
+  bandeau:
+    messages:
+      - "Carte du marché renouvelée chaque mercredi"
+      - "Cave de 200 vignerons sélectionnés"
+      - "Service du midi 12h—14h"
+      - "Fermé dimanche et lundi"
+
+  exigence:
+    headline_parts:
+      - "Le marché."
+      - "**Vraiment.** Que."
+      - "Le marché."
+    items:
+      - "Légumes du maraîcher de Vouvray"
+      - "Poissons du Croisic, livrés deux fois par semaine"
+      - "Viandes de la boucherie Lambert (Tours)"
+      - "Pains de la fournée du jour"
+      - "Vins exclusivement de vignerons indépendants"
+    banner:
+      titre: "Maître Restaurateur"
+      sub: "— Titre d'État, depuis 2021"
+
+  mode: "fixe"
+  google_maps_embed_url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2700.0!2d0.6848!3d47.3941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDIzJzM4LjgiTiAwwrA0MScwNS4zIkU!5e0!3m2!1sfr!2sfr!4v0!5m2!1sfr!2sfr"
+
+  horaires:
+    - jour: "lundi"
+      creneaux: []
+    - jour: "mardi"
+      creneaux:
+        - { ouvre: "12:00", ferme: "14:00" }
+        - { ouvre: "19:30", ferme: "22:00" }
+    - jour: "mercredi"
+      creneaux:
+        - { ouvre: "12:00", ferme: "14:00" }
+        - { ouvre: "19:30", ferme: "22:00" }
+    - jour: "jeudi"
+      creneaux:
+        - { ouvre: "12:00", ferme: "14:00" }
+        - { ouvre: "19:30", ferme: "22:30" }
+    - jour: "vendredi"
+      creneaux:
+        - { ouvre: "12:00", ferme: "14:00" }
+        - { ouvre: "19:30", ferme: "23:00" }
+    - jour: "samedi"
+      creneaux:
+        - { ouvre: "12:00", ferme: "14:30" }
+        - { ouvre: "19:30", ferme: "23:00" }
+    - jour: "dimanche"
+      creneaux: []
+
+  sections:
+    bandeau: true
+    histoire: true
+    avis: true
+    reservation: true
+    menu: true
+    exigence: true
+    galerie: true
+    localisation: true
+    reseaux: true
