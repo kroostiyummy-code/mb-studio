@@ -68,6 +68,15 @@ collections:
               - { name: statement_accent, label: "Mot fort (sera affiché en accent visuel)", widget: string, hint: "Ex: Chartres." }
               - { name: body, label: "Corps du texte (2-3 phrases)", widget: text, hint: "Entourez les mots à mettre en valeur avec **étoiles**." }
               - { name: lancement_year, label: "Année de lancement", widget: number, value_type: int, hint: "Ex: 2023" }
+          - name: avis_google
+            label: "Avis Google"
+            widget: object
+            required: false
+            collapsed: true
+            hint: "Le bloc s'affiche uniquement si note >= 4.0 ET nombre d'avis >= 20 (sinon caché auto)."
+            fields:
+              - { name: note, label: "Note moyenne (sur 5)", widget: number, value_type: float, min: 0, max: 5, step: 0.1, hint: "Ex: 4.7" }
+              - { name: count, label: "Nombre d'avis", widget: number, value_type: int, min: 0, hint: "Ex: 170" }
           - name: reseaux
             label: "Réseaux sociaux"
             widget: object

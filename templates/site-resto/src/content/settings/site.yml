@@ -60,6 +60,11 @@ site:
     body: "On a lancé Kroosti Yummy il y a **3 ans** à Chartres, quand personne ne parlait encore du riz crousty. Aujourd'hui c'est partout. Mais à Chartres, **le 1er, c'est nous**. Et on est toujours là."
     lancement_year: 2023
 
+  # Avis Google — Auto-hide si note < 4.0 OU count < 20 (cf lib/conditions.ts)
+  avis_google:
+    note: 5.0
+    count: 170
+
   # Mode de localisation : "fixe" (resto avec 1 adresse) ou "foodtruck" (tournées hebdo).
   # Kroosti = foodtruck. Les 5 premiers clients resto = "fixe".
   mode: "foodtruck"

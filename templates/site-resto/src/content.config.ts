@@ -52,6 +52,11 @@ const settings = defineCollection({
       body: z.string(),                   // 2-3 phrases, **mot** = emphase accent
       lancement_year: z.number().int(),   // ex: 2023
     }).optional(),
+    // Avis Google — note moyenne + nombre. Auto-hide si note < 4.0 OU count < 20
+    avis_google: z.object({
+      note: z.number().min(0).max(5),    // ex: 5.0
+      count: z.number().int().min(0),    // ex: 170
+    }).optional(),
     // Mode de localisation : "fixe" (défaut, resto avec 1 adresse) ou "foodtruck" (tournées hebdo)
     mode: z.enum(['fixe', 'foodtruck']).default('fixe'),
     // Mode fixe : horaires hebdomadaires (créneaux midi / soir / continu)
