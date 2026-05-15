@@ -1,0 +1,224 @@
+---
+name: scoring-prospects
+description: "Génère 3 listes triées de prospects restaurants chartrains à démarcher en porte-à-porte (avec site eatbu / avec site autre / sans site), chacune scorée 0-100 avec tier A/B/C combinant 'valeur qu'on peut apporter' et 'probabilité que le patron accepte'. Sources publiques : Overpass OpenStreetMap + Google PageSpeed API + Wayback Machine. Output : fiches markdown avec top 3 arguments factuels à pitcher + CSV récap importable. Tourne UNE fois pour démarrer, puis ponctuellement (tous les 3-6 mois). MANDATORY TRIGGERS: 'score les prospects', 'scoring prospects', 'génère la liste des prospects', 'qui je démarche en premier', 'prospects chartres'. STRONG TRIGGERS (avec contexte): 'fais-moi la liste des restos à visiter', 'j'ai besoin de prioriser mes visites', 'qui pitcher en premier à Chartres'. Ne pas déclencher pour : audit d'un site spécifique (c'est audit-eatbu), préparation d'une visite déjà décidée (c'est maquette-flash)."
+---
+
+# Scoring Prospects
+
+Skill MB Studio **priorité 1** : produit la liste triée des restos chartrains à démarcher, AVANT la première visite terrain. Sans lui, Mike choisit au feeling et risque un taux de conversion 1/5 démoralisant sur ses premières visites. Avec lui, il attaque les cibles faciles en premier (effet boule de neige : 3 signatures sur 5 = témoignages + photos Insta + confiance).
+
+L'output : 3 fiches markdown triées + 1 CSV récap. Chaque fiche porte un score, 2 sous-scores, et les **3 arguments les plus forts à pitcher** basés sur des métriques objectives mesurées sur LE site du patron.
+
+---
+
+## Quand déclencher ce skill
+
+**Bons cas :** "score les prospects", "qui je démarche en premier", "fais-moi la liste des restos à visiter à Chartres".
+
+**Mauvais cas (ne pas déclencher) :**
+- Audit d'un site précis → `audit-eatbu`
+- Préparer une visite déjà décidée → `maquette-flash`
+
+---
+
+## Inputs requis au démarrage
+
+Demander à Mike, en une passe :
+
+> "OK on lance le scoring. Donne-moi :
+> 1. La ville (défaut : Chartres) + rayon en km (défaut : 5 km autour du centre).
+> 2. Une clé API Google PageSpeed (procédure 1-fois ci-dessous si tu n'en as pas). Sans elle, je tourne en mode dégradé (score moins précis, pas de mesure de vitesse).
+> 3. Tu as déjà fait tourner ce skill ? Si oui je réutilise le cache."
+
+Si Mike dit "pas de clé, tant pis" → continuer en **mode dégradé** (voir `references/scoring-formula.md` section dédiée) en l'annonçant clairement.
+
+### Procédure 1-fois pour la clé Google PageSpeed
+
+À afficher à Mike s'il n'a pas de clé :
+
+```
+1. https://console.cloud.google.com/
+2. Créer un projet "MB Studio Scoring"
+3. Activer l'API "PageSpeed Insights API"
+4. Identifiants → Créer → Clé API
+5. Restreindre la clé à l'API PageSpeed Insights (sécurité)
+6. La stocker dans ~/.mb-studio/secrets.env :
+   GOOGLE_PAGESPEED_API_KEY=AIza...
+Gratuit jusqu'à 25 000 req/jour (on en utilise ~450 max).
+```
+
+Lire la clé via : `grep GOOGLE_PAGESPEED_API_KEY ~/.mb-studio/secrets.env` (Bash) ou équivalent. Ne JAMAIS écrire la clé dans le repo, les fiches, ou un commit.
+
+---
+
+## Outils à utiliser (adaptation au réel)
+
+- **Appels API JSON** (Overpass, Nominatim, PageSpeed, Wayback CDX) : utiliser **Bash `curl`** (ou PowerShell `Invoke-RestMethod`), PAS WebFetch — WebFetch résume/altère le JSON brut, on a besoin du JSON exact pour parser.
+- **Cache** : fichiers JSON sous `prospects/cache/`. Vérifier le TTL avant chaque appel réseau (si cache frais, ne pas re-appeler).
+- **Écriture des fiches** : outil Write vers `prospects/{ville}-{YYYY-MM-DD}/`.
+- `prospects/` est git-ignored (données agrégées sensibles, garde-fou #7). Ne jamais commiter le contenu généré.
+
+---
+
+## Pipeline en 7 étapes
+
+### Étape 1 — Récupération des restos via Overpass (OSM)
+
+Centre Chartres : `48.4439, 1.4892`. Rayon défaut 5000 m.
+
+```bash
+curl -s -G "https://overpass-api.de/api/interpreter" \
+  -H "User-Agent: MB-Studio-Scoring/1.0 (contact: kroostiyummy@gmail.com)" \
+  --data-urlencode 'data=[out:json][timeout:25];(node["amenity"~"restaurant|cafe|fast_food|bar|pub"]["name"](around:5000,48.4439,1.4892);way["amenity"~"restaurant|cafe|fast_food|bar|pub"]["name"](around:5000,48.4439,1.4892););out center tags;' \
+  -o prospects/cache/overpass-chartres-5000.json
+```
+
+**⚠️ Adaptation réelle vérifiée le 2026-05-15 :** le header `User-Agent` identifiable est **OBLIGATOIRE** sur `overpass-api.de` — sans lui, réponse `406 Not Acceptable` (HTML, pas du JSON). Toujours inclure `-H "User-Agent: MB-Studio-Scoring/1.0 (contact: kroostiyummy@gmail.com)"`. Idem pour Nominatim (étape 2) et recommandé pour Wayback. Dry-run validé : 104 POI sur Chartres centre 1,5 km, montée cohérente attendue à ~150 sur 5 km.
+
+Pour chaque POI : `name`, `addr:street`, `addr:housenumber`, `addr:postcode`, `addr:city`, `cuisine`, `website`, `phone`, `opening_hours`, lat/lon (champ `center` pour les `way`).
+
+Volume attendu Chartres 5 km : 80-150 POI. ~70-80 % des restos réels (limite OSM connue, acceptable).
+
+**Cache** : `prospects/cache/overpass-{ville}-{rayon}.json`, TTL 30 jours (ne pas re-fetch si fichier < 30 j).
+
+### Étape 2 — Détection du site (classification en 3 buckets)
+
+Pour chaque resto :
+1. Si tag OSM `website` présent → URL connue.
+2. Sinon → requête Nominatim (gratuit) sur le nom + ville pour récupérer plus de tags :
+   `curl -s "https://nominatim.openstreetmap.org/search?q={nom}+{ville}&format=json&extratags=1&limit=1" -H "User-Agent: MB-Studio-Scoring/1.0"`
+   (Nominatim exige un User-Agent identifiable, sinon 403.)
+3. Sinon → marquer "site inconnu". Lister ces restos et **demander à Mike** en un seul batch les URLs qu'il connaît (cap à 20 max à vérifier manuellement — au-delà, laisser en `pas-de-site`).
+
+Buckets :
+- **`eatbu`** : URL contient `eatbu.com`
+- **`autre-site`** : URL existe, pas eatbu
+- **`pas-de-site`** : aucune URL
+
+### Étape 3 — Lighthouse via PageSpeed API (batch parallèle)
+
+Pour chaque resto des buckets `eatbu` + `autre-site` :
+
+```bash
+curl -s "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url={URL}&strategy=mobile&category=PERFORMANCE&category=ACCESSIBILITY&category=SEO&category=BEST_PRACTICES&key={KEY}"
+```
+
+Extraire : 4 scores (Performance / Accessibilité / SEO / Bonnes pratiques, ×100), LCP, CLS, INP/FID, FCP, poids total transféré (`lighthouseResult.audits['total-byte-weight']`).
+
+**Parallélisation : 4 requêtes max en parallèle** (politesse + anti rate-limit). En pratique : traiter par lots de 4, attendre, lot suivant.
+
+**Cache** : `prospects/cache/lighthouse/{slug}.json`, TTL 30 j.
+
+**Mode dégradé** (pas de clé) : skip cette étape entièrement, scores Lighthouse = `null`, formule recalculée (cf `references/scoring-formula.md`).
+
+### Étape 4 — Ancienneté du site (Wayback CDX)
+
+Pour chaque site trouvé :
+
+```bash
+curl -s "https://web.archive.org/cdx/search/cdx?url={URL}&output=json&limit=1&from=2010"
+```
+
+Première capture → `âge_site` en années. Si Wayback vide → `âge_site = null` → la formule utilise le défaut médian 2 ans (cf scoring-formula.md, tableau "Données manquantes").
+
+**Cache** : `prospects/cache/wayback/{slug}.json`, TTL 90 j.
+
+### Étape 5 — Filtres d'exclusion (AVANT scoring)
+
+Exclure et router vers `prospects-exclus.md` (avec la raison) :
+
+1. **Chaînes nationales** : nom matche `references/chaines-nationales.md` (règles de matching dans ce fichier : insensible casse, match nom de marque comme segment, ne pas sur-matcher, en cas de doute NE PAS exclure).
+2. **Sites custom modernes** : `bucket == autre-site` ET `lighthouse_perf ≥ 85` ET `lighthouse_seo ≥ 85` (le patron a déjà investi, aucune valeur à apporter).
+
+Transparent : Mike peut overrider une exclusion via `mike_override` dans le CSV (conservé entre runs).
+
+### Étape 6 — Calcul du score
+
+Appliquer **strictement** `references/scoring-formula.md` :
+- Sous-score Valeur apportée (0-100), formule selon bucket
+- Sous-score Probabilité d'acceptation (0-100), additif
+- `score_total = 0.5·valeur + 0.5·proba`, arrondi entier
+- Tier : A ≥ 75, B 50-74, C < 50
+- Mode dégradé : redistribution des poids Lighthouse documentée dans scoring-formula.md
+- Données manquantes : valeurs par défaut du tableau dédié
+
+Ne PAS recopier la formule en dur ici — toujours lire `scoring-formula.md` (source unique de vérité, modifiable sans toucher au SKILL).
+
+### Étape 7 — Génération des outputs
+
+Dans `prospects/{ville}-{YYYY-MM-DD}/` :
+
+1. `prospects-avec-site-eatbu.md` — fiches bucket eatbu, triées score décroissant
+2. `prospects-avec-site-autre.md` — fiches bucket autre-site, triées score décroissant
+3. `prospects-sans-site.md` — fiches bucket pas-de-site, triées score décroissant
+4. `prospects-exclus.md` — exclus + raison (chaîne nationale / site custom moderne)
+5. `tableau-recap.csv` — toutes les données brutes (colonnes = en-tête de `templates/tableau-recap.csv`), importable Google Sheets
+
+Chaque fiche suit `templates/fiche-prospect.md`. Le "Top 3 arguments" est généré en piochant dans `references/argument-library.md` selon la **pire métrique mesurée** sur CE resto (1er argument = point le plus douloureux et le plus prouvable). Drapeau rouge ajouté selon les règles de l'argument-library.
+
+En fin de run, afficher à Mike un récap :
+```
+✅ Scoring terminé — {ville}, rayon {km} km
+   {N} restos analysés, {X} exclus
+   eatbu : {a} fiches (top : {nom} — {score}/100)
+   autre-site : {b} fiches
+   pas-de-site : {c} fiches
+   {mode normal | ⚠️ MODE DÉGRADÉ — clé PageSpeed absente}
+📁 prospects/{ville}-{date}/
+🎯 Top 3 cibles toutes listes : {3 noms + scores}
+👉 Prochaine action : lance `maquette-flash` sur ta cible n°1 avant d'aller la voir.
+```
+
+---
+
+## Garde-fous critiques (NON négociables)
+
+1. **Aucun email/téléphone scrappé pour du cold outreach automatisé.** Les fiches servent à des visites en personne. Pas de spam, pas d'envoi auto.
+2. **Pas de comparaison nominative entre prospects** dans les listes. Chaque fiche est autonome (le n°3 ne mentionne jamais le n°1).
+3. **Le skill ne juge pas la valeur humaine d'un patron.** Score bas = "pas le bon timing/la bonne cible aujourd'hui", jamais "mauvais resto".
+4. **Sources publiques uniquement** : OSM, Wayback, PageSpeed API. **Pas de scraping Google Maps (ToS)**, pas de scraping GMB en masse. Enrichissement GMB = Mike à la main pour 5-10 cibles prioritaires max.
+5. **Override Mike persistant** : champ `mike_override` du CSV conservé entre runs. Mike a toujours le dernier mot.
+6. **Le score n'est pas un oracle.** Outil d'aide à la priorisation. Le dire dans le récap.
+7. **Confidentialité** : ne JAMAIS publier ces listes hors du repo MB Studio (privé). `prospects/` est git-ignored exprès. Ne jamais coller le contenu d'une fiche dans un canal externe.
+
+---
+
+## Décisions Mike validées (NE PAS reposer ces questions)
+
+- Source : Overpass OSM auto + complément GMB manuel ciblé
+- Score 0-100, tiers A (≥75) / B (50-74) / C (<50)
+- Exclusions auto : chaînes nationales + sites custom modernes (Lighthouse ≥85 et pas eatbu)
+- 3 listes (eatbu / autre-site / pas-de-site), pas 2
+- Pondération : 50 % valeur + 50 % probabilité
+- Clé PageSpeed obligatoire en mode normal, mode dégradé documenté et accepté comme fallback
+
+---
+
+## Hors-scope (NE PAS implémenter)
+
+- Cold emailing / cold calling automatisé
+- Détection du patron sur LinkedIn
+- Score d'évolution dans le temps (un seul snapshot suffit pour démarrer)
+- Intégration CRM (le CSV suffit pour les 20 premiers clients)
+- Géocodage avancé / clustering de tournées (Mike connaît Chartres par cœur)
+- Scoring "déjà client d'une autre agence" (indétectable de façon fiable)
+
+---
+
+## Resources
+
+- `references/chaines-nationales.md` — liste statique des chaînes à exclure + règles de matching
+- `references/scoring-formula.md` — formule de score détaillée (source unique de vérité, mode dégradé inclus)
+- `references/argument-library.md` — bibliothèque de phrases d'arguments + drapeaux rouges
+- `templates/fiche-prospect.md` — squelette de fiche
+- `templates/tableau-recap.csv` — en-tête du CSV récap
+
+---
+
+## Exemple d'invocation
+
+```
+Mike : Score les prospects. Chartres, 5 km. J'ai mis ma clé PageSpeed dans secrets.env.
+```
+
+Le skill : récupère ~110 restos via Overpass → classe en 3 buckets → lance Lighthouse sur les ~70 avec site (lots de 4) → âge via Wayback → exclut 12 chaînes + 4 sites modernes → score les ~95 restants → génère 4 fichiers .md + 1 CSV dans `prospects/chartres-2026-05-15/` → affiche le top 3 toutes listes + invite à lancer `maquette-flash` sur la cible n°1.

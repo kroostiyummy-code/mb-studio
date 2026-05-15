@@ -12,6 +12,10 @@ clients/*
 audits/
 .audit-*/
 
+# Prospects générés (données agrégées sensibles, jamais hors repo — cf scoring-prospects garde-fou #7)
+prospects/*
+!prospects/.gitkeep
+
 # Claude Code local settings (jamais commitées, propres à chaque poste)
 .claude/settings.local.json
 
