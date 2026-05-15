@@ -1,7 +1,8 @@
 /* Signature Élégante — gastronomique, bistrot raffiné
    Activée par class `signature-elegant` sur <body>.
 
-   Mode : texte foncé sur fond clair (cream = fond, slate = texte, dominante = accent visuel). */
+   Mode : texte foncé sur fond clair (cream = fond, slate = texte, dominante = accent visuel).
+   ADN : aération maximale, hairlines, italiques sobres, pas de texture, pas de capitales. */
 
 .signature-elegant {
   /* Typographie */
@@ -19,8 +20,8 @@
   --mb-bg-body: var(--mb-cream);
   --mb-bg-section-alt: var(--mb-cream-dirty);
   --mb-bg-section-light: var(--mb-cream);
-  --mb-border: color-mix(in oklab, var(--mb-slate) 70%, transparent);
-  --mb-border-subtle: rgba(58, 48, 48, 0.15);
+  --mb-border: color-mix(in oklab, var(--mb-slate) 50%, transparent);
+  --mb-border-subtle: rgba(58, 48, 48, 0.08);
 
   font-family: var(--mb-sans);
   font-weight: 400;
@@ -28,14 +29,23 @@
   color: var(--mb-text-body);
 }
 
-/* Surcharges typographiques propres à l'Élégance : titres serif, pas tout en majuscules,
-   letter-spacing détendu — bref, l'inverse du Brutalisme. */
-.signature-elegant .mb-display,
+/* Aération : +30% sur les sections par rapport au Brutaliste */
+.signature-elegant section {
+  padding-block: 65px;
+}
+@media (min-width: 900px) {
+  .signature-elegant section {
+    padding-block: 105px;
+  }
+}
+
+/* Titres sans uppercase, en italique pour les sous-libellés */
 .signature-elegant h1,
 .signature-elegant h2 {
   font-family: var(--mb-display);
   text-transform: none;
   letter-spacing: -0.01em;
+  font-weight: 600;
 }
 
 .signature-elegant .mb-tag {
@@ -47,9 +57,10 @@
   border-radius: 999px;
   font-family: var(--mb-sans);
   font-size: 0.7rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--mb-text-body);
+  font-style: italic;
 }
 .signature-elegant .mb-tag.solid {
   background: var(--mb-dominante);
@@ -57,17 +68,19 @@
   border-color: var(--mb-dominante);
 }
 
+/* Divider hairline + italique discret */
 .signature-elegant .mb-divider {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px var(--mb-section-px);
+  padding: 28px var(--mb-section-px);
   font-family: var(--mb-display);
   font-size: 0.95rem;
   font-style: italic;
   letter-spacing: 0.04em;
   color: var(--mb-dominante);
   background: transparent;
+  text-transform: none;
 }
 .signature-elegant .mb-divider::before,
 .signature-elegant .mb-divider::after {
@@ -75,7 +88,34 @@
   flex: 1;
   height: 1px;
   background: var(--mb-border-subtle);
-  margin: 0 18px;
+  margin: 0 22px;
+}
+
+/* Section stubs : tout en italique, bordures hairline, contraste minimal */
+.signature-elegant .section-stub {
+  border-color: var(--mb-border-subtle);
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-style: solid;
+}
+.signature-elegant .section-stub .stub-label {
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--mb-display);
+  font-size: 0.85rem;
+  color: var(--mb-dominante);
+  opacity: 0.7;
+}
+.signature-elegant .section-stub .stub-name {
+  font-family: var(--mb-display);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+.signature-elegant .section-stub p {
+  font-style: italic;
+  opacity: 0.6;
 }
 
 .signature-elegant.js-loaded .mb-reveal {
