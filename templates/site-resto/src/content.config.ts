@@ -88,4 +88,16 @@ const menu = defineCollection({
   }),
 });
 
-export const collections = { settings, menu };
+// Galerie photo — 1 fichier YAML avec liste de photos (le patron ajoute/réordonne via Decap)
+const galerie = defineCollection({
+  loader: file('src/content/galerie/galerie.yml'),
+  schema: z.object({
+    photos: z.array(z.object({
+      src: z.string(),
+      alt: z.string(),
+      legende: z.string().optional(),
+    })).default([]),
+  }),
+});
+
+export const collections = { settings, menu, galerie };

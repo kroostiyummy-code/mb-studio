@@ -92,6 +92,6 @@ site:
     reservation: true
     menu: true
     exigence: true
-    galerie: false   # désactivé tant que < 4 photos uploadées
+    galerie: true    # 6 photos dans galerie.yml, seuil 4 respecté
     localisation: true
     reseaux: true

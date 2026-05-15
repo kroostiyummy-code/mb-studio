@@ -71,6 +71,25 @@ collections:
               - { name: localisation, label: "Où nous trouver", widget: boolean, default: true }
               - { name: reseaux, label: "Réseaux sociaux", widget: boolean, default: false }
 
+  - name: "galerie"
+    label: "Galerie photo"
+    description: "Photos affichées dans la section Galerie. Minimum 4 photos pour que la section s'affiche (auto-hide sinon)."
+    files:
+      - name: "galerie"
+        label: "Galerie"
+        file: "src/content/galerie/galerie.yml"
+        fields:
+          - name: photos
+            label: "Photos"
+            label_singular: "Photo"
+            widget: list
+            min: 0
+            hint: "Ajoutez au moins 4 photos pour que la section s'affiche. Idéal : 6 à 12 photos (plats, salle, équipe)."
+            fields:
+              - { name: src, label: "Photo", widget: image }
+              - { name: alt, label: "Description (pour Google et l'accessibilité)", widget: string }
+              - { name: legende, label: "Légende (optionnelle)", widget: string, required: false }
+
   - name: "menu"
     label: "Carte (sections du menu)"
     label_singular: "Section de menu"
