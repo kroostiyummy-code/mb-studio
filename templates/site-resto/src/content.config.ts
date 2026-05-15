@@ -45,6 +45,13 @@ const settings = defineCollection({
       titre: z.string().optional(),
       perks: z.array(z.string()).default([]),
     }).optional(),
+    // Bloc Histoire — storytelling court avec statement + emphase + timeline
+    histoire: z.object({
+      statement_lead: z.string(),         // ex: "N°1 à"
+      statement_accent: z.string(),       // ex: "Chartres." → rendu en accent
+      body: z.string(),                   // 2-3 phrases, **mot** = emphase accent
+      lancement_year: z.number().int(),   // ex: 2023
+    }).optional(),
     // Mode de localisation : "fixe" (défaut, resto avec 1 adresse) ou "foodtruck" (tournées hebdo)
     mode: z.enum(['fixe', 'foodtruck']).default('fixe'),
     // Mode fixe : horaires hebdomadaires (créneaux midi / soir / continu)
