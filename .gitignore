@@ -10,6 +10,7 @@ clients/*
 
 # Audits générés
 audits/
+.audit-*/
 
 # Claude Code local settings (jamais commitées, propres à chaque poste)
 .claude/settings.local.json

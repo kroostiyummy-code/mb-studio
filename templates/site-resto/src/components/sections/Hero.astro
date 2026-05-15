@@ -1,0 +1,168 @@
+---
+import { getEntry } from 'astro:content';
+const entry = await getEntry('settings', 'site');
+const s = entry!.data;
+---
+<header class="hero">
+  <div class="hero-photo-full">
+    <img src={s.hero_image} alt={s.hero_image_alt} loading="eager" />
+    <div class="hero-photo-overlay"></div>
+    <div class="hero-tags-overlay">
+      <span class="mb-tag"><span class="mb-blink"></span>EN SERVICE</span>
+    </div>
+  </div>
+
+  <div class="hero-text">
+    <h1 class="hero-headline">
+      {s.nom}<span class="accent">.</span>
+      <span class="hero-headline-sub">— {s.slogan}</span>
+    </h1>
+
+    <div class="hero-subline">
+      <div class="hero-since">
+        Depuis<br />
+        <strong>{s.est_year}</strong>
+      </div>
+      {s.prix_appel && (
+        <div class="hero-price-display">
+          <span class="from">Menu complet dès</span>
+          <span class="num">{s.prix_appel}</span>
+        </div>
+      )}
+    </div>
+  </div>
+</header>
+
+<style>
+  .hero {
+    position: relative;
+    border-bottom: 2px solid var(--mb-border);
+    z-index: 2;
+  }
+  .hero-photo-full {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+  .hero-photo-full img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      color-mix(in oklab, var(--mb-dominante) 90%, transparent) 0%,
+      transparent 30%,
+      transparent 70%,
+      color-mix(in oklab, var(--mb-dominante) 60%, transparent) 100%);
+    pointer-events: none;
+  }
+  .hero-tags-overlay {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  /* Les tags sur photo gardent toujours un fond foncé semi-transparent (sur photo on
+     a toujours du clair / sombre lisible, peu importe la signature du reste). */
+  .hero-tags-overlay :global(.mb-tag) {
+    background: rgba(13, 3, 3, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-color: rgba(244, 234, 213, 0.3);
+    color: var(--mb-text-on-photo);
+  }
+
+  .hero-text {
+    padding: 30px var(--mb-section-px) 26px;
+  }
+
+  .hero-headline {
+    font-family: var(--mb-display);
+    font-size: clamp(3rem, 12vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    color: var(--mb-text-emphasis);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    word-break: normal;
+  }
+  .hero-headline .accent {
+    color: var(--mb-accent);
+  }
+  .hero-headline-sub {
+    display: block;
+    font-family: var(--mb-condensed);
+    font-size: 0.36em;
+    letter-spacing: 0.04em;
+    color: var(--mb-dominante);
+    margin-top: 0.25em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .hero-subline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    padding-top: 18px;
+    border-top: 2px solid var(--mb-border);
+    margin-top: 18px;
+  }
+  .hero-since {
+    font-family: var(--mb-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    line-height: 1.4;
+    color: var(--mb-text-body);
+  }
+  .hero-since strong {
+    display: block;
+    font-size: 1.4rem;
+    font-family: var(--mb-display);
+    letter-spacing: -0.02em;
+    color: var(--mb-text-emphasis);
+  }
+  .hero-price-display {
+    text-align: right;
+  }
+  .hero-price-display .from {
+    font-family: var(--mb-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    display: block;
+    margin-bottom: 2px;
+    color: var(--mb-text-muted);
+  }
+  .hero-price-display .num {
+    font-family: var(--mb-display);
+    font-size: 2.4rem;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--mb-dominante);
+  }
+
+  /* Surcharges signature : l'Élégance ne met pas le titre en uppercase */
+  :global(.signature-elegant) .hero-headline {
+    text-transform: none;
+    letter-spacing: -0.02em;
+  }
+  :global(.signature-tradition) .hero-headline {
+    text-transform: none;
+  }
+
+  @media (min-width: 900px) {
+    .hero-photo-full {
+      aspect-ratio: 21 / 9;
+    }
+  }
+</style>

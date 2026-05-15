@@ -1,0 +1,61 @@
+# Decap CMS — interface d'édition exposée au patron du resto
+# Frontière à respecter : le patron ne voit JAMAIS les champs `signature` et `accent_override`
+# (ils sont contrôlés par Mike via le frontmatter du brief, voir CLAUDE.md).
+
+backend:
+  name: github
+  repo: USER/REPO   # à customiser par client lors de la création du repo
+  branch: main
+
+# Permet l'édition en local via `npx decap-server`
+local_backend: true
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "settings"
+    label: "Paramètres du site"
+    description: "Informations générales du restaurant"
+    files:
+      - name: "site"
+        label: "Site"
+        file: "src/content/settings/site.yml"
+        fields:
+          - { name: nom, label: "Nom du restaurant", widget: string }
+          - { name: slogan, label: "Slogan (1 ligne)", widget: string }
+          - { name: baseline, label: "Sous-slogan (optionnel)", widget: string, required: false }
+          - { name: est_year, label: "Année de lancement", widget: number }
+          - { name: ville, label: "Ville", widget: string }
+          - { name: region_code, label: "Code région (ex: FR-28)", widget: string }
+          - { name: dominante, label: "Couleur dominante", widget: color, allowInput: true, hint: "Couleur principale de votre enseigne (ex: #8b0e0e)" }
+          - { name: prix_appel, label: "Prix d'appel (optionnel)", widget: string, required: false, hint: "Ex: 13,90€" }
+          - { name: telephone, label: "Téléphone (format international)", widget: string, hint: "Ex: +33749592462" }
+          - { name: telephone_display, label: "Téléphone (à afficher)", widget: string, hint: "Ex: 07 49 59 24 62" }
+          - { name: adresse, label: "Adresse", widget: string, required: false }
+          - { name: hero_image, label: "Photo principale", widget: image }
+          - { name: hero_image_alt, label: "Description de la photo (pour Google et l'accessibilité)", widget: string }
+          - { name: google_avis_url, label: "Lien vers vos avis Google", widget: string, required: false }
+          - name: reseaux
+            label: "Réseaux sociaux"
+            widget: object
+            required: false
+            collapsed: true
+            fields:
+              - { name: instagram, label: "Lien Instagram", widget: string, required: false }
+              - { name: facebook, label: "Lien Facebook", widget: string, required: false }
+              - { name: tiktok, label: "Lien TikTok", widget: string, required: false }
+              - { name: snapchat, label: "Lien Snapchat", widget: string, required: false }
+          - name: sections
+            label: "Sections à afficher sur la page"
+            widget: object
+            fields:
+              - { name: bandeau, label: "Bandeau d'actualités en haut", widget: boolean, default: false }
+              - { name: histoire, label: "Notre histoire", widget: boolean, default: true }
+              - { name: avis, label: "Avis Google", widget: boolean, default: true, hint: "Auto-caché si note < 4 ou moins de 20 avis" }
+              - { name: reservation, label: "Réservation", widget: boolean, default: true }
+              - { name: menu, label: "La carte", widget: boolean, default: true }
+              - { name: exigence, label: "Notre exigence (fait maison, local, halal…)", widget: boolean, default: false }
+              - { name: galerie, label: "Galerie photos", widget: boolean, default: true, hint: "Auto-cachée si moins de 4 photos" }
+              - { name: localisation, label: "Où nous trouver", widget: boolean, default: true }
+              - { name: reseaux, label: "Réseaux sociaux", widget: boolean, default: false }

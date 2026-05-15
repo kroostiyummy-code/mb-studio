@@ -1,0 +1,96 @@
+/* Signature Élégante — gastronomique, bistrot raffiné
+   Activée par class `signature-elegant` sur <body>.
+
+   Mode : texte foncé sur fond clair (cream = fond, slate = texte, dominante = accent visuel). */
+
+.signature-elegant {
+  /* Typographie */
+  --mb-display: 'Playfair Display', Georgia, serif;
+  --mb-condensed: 'Playfair Display', Georgia, serif;
+  --mb-sans: 'Inter', system-ui, sans-serif;
+  --mb-mono: 'JetBrains Mono', monospace;
+
+  /* Sémantiques */
+  --mb-text-emphasis: var(--mb-slate);
+  --mb-text-body: var(--mb-slate);
+  --mb-text-muted: color-mix(in oklab, var(--mb-slate) 60%, transparent);
+  --mb-text-on-photo: var(--mb-cream);
+  --mb-text-on-accent: var(--mb-black);
+  --mb-bg-body: var(--mb-cream);
+  --mb-bg-section-alt: var(--mb-cream-dirty);
+  --mb-bg-section-light: var(--mb-cream);
+  --mb-border: color-mix(in oklab, var(--mb-slate) 70%, transparent);
+  --mb-border-subtle: rgba(58, 48, 48, 0.15);
+
+  font-family: var(--mb-sans);
+  font-weight: 400;
+  background: var(--mb-bg-body);
+  color: var(--mb-text-body);
+}
+
+/* Surcharges typographiques propres à l'Élégance : titres serif, pas tout en majuscules,
+   letter-spacing détendu — bref, l'inverse du Brutalisme. */
+.signature-elegant .mb-display,
+.signature-elegant h1,
+.signature-elegant h2 {
+  font-family: var(--mb-display);
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+.signature-elegant .mb-tag {
+  border: 1px solid var(--mb-border);
+  padding: 4px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  font-family: var(--mb-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mb-text-body);
+}
+.signature-elegant .mb-tag.solid {
+  background: var(--mb-dominante);
+  color: var(--mb-cream);
+  border-color: var(--mb-dominante);
+}
+
+.signature-elegant .mb-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px var(--mb-section-px);
+  font-family: var(--mb-display);
+  font-size: 0.95rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--mb-dominante);
+  background: transparent;
+}
+.signature-elegant .mb-divider::before,
+.signature-elegant .mb-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--mb-border-subtle);
+  margin: 0 18px;
+}
+
+.signature-elegant.js-loaded .mb-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.signature-elegant.js-loaded .mb-reveal.show {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .signature-elegant.js-loaded .mb-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -24,12 +24,14 @@ Lire `README.md` pour l'offre complète et `BRAND.md` pour l'identité visuelle.
 5. **Chaque client = ambassadeur potentiel** (footer signé, commission 100€, photo Instagram)
 6. **Sous-promettre, sur-livrer** : chaque livraison contient un petit cadeau non annoncé (favicon perso, page 404 rigolote, animation discrète…) — voir `process.md` pour la liste. Promettre moins à l'oral, livrer plus à l'écran.
 7. **Patron toujours propriétaire à 100%** : domaine acheté sur SON compte registrar, fiche GMB où Mike est gestionnaire (pas propriétaire), site éditable seul. Le jour où il veut partir, il garde tout sans rien transférer.
+   - **Implication technique** : 1 repo Git séparé par client (jamais de mono-repo, voir Stack technique). Le bon de commande engage MB Studio à fournir au patron une archive complète de son repo sous 48h sur simple demande.
 8. **Vouvoiement par défaut à l'écrit** (audit envoyé, mail, devis, support imprimé). Tutoiement possible à l'oral pendant la visite si le patron tutoie en premier.
 
 ## Stack technique imposée
 
 - **Sites clients** : Astro + Decap CMS + Cloudflare Pages
 - **Vitrine MB Studio** : même stack (cohérence)
+- **1 repo Git par client** (jamais de mono-repo) — découle du principe non-négociable #7, garantit la transférabilité immédiate au patron sans extraction. Tous les repos clients vivent sous le compte GitHub MB Studio.
 - **Pas de Next.js** (SSR inutile, coût Vercel imprévisible)
 - **Pas de WordPress** (maintenance + sécu + hébergement payant = antagonique au pitch)
 
@@ -49,6 +51,7 @@ Le repo héberge les skills MB Studio dans `skills/` au format SKILL.md (compati
 | `maquette-flash` | À construire | Génère la maquette du futur site avant le 1er rdv terrain |
 | `brief-client` | À construire | Questionnaire structuré pour récolter tout le contenu en 1h |
 | `site-from-brief` | À construire | Génère le site Astro complet depuis le brief rempli |
+| `new-client` | À construire | Automatise le scaffolding par client : création repo GitHub dédié, copie du template site-resto/, setup Cloudflare Pages, init Decap CMS, premier commit. Réduit la friction du "1 repo par client". |
 | `gmb-setup` | À construire | Checklist et procédure d'optimisation de la fiche Google Business |
 | `monthly-report` | À construire | Rapport mensuel : Umami + GMB Insights + PageSpeed → 1 page patron-friendly |
 | `relance-patron` | À venir (plus tard) | Script de relance pour patrons ayant vu la maquette sans signer |
@@ -56,7 +59,7 @@ Le repo héberge les skills MB Studio dans `skills/` au format SKILL.md (compati
 **Ordre de construction (validé) :**
 
 1. **Template Astro `site-resto/`** : extraire la structure de `Kroostiyummy.fr` (site déjà fait par Mike avec Claude) et en faire le template réutilisable. C'est le socle de toute la suite.
-2. **Skills de production** dans l'ordre : `maquette-flash` → `brief-client` → `site-from-brief` → `gmb-setup` → `monthly-report`
+2. **Skills de production** dans l'ordre de construction : `maquette-flash` → `brief-client` → `site-from-brief` → `new-client` → `gmb-setup` → `monthly-report`. Note : à l'exécution terrain, `new-client` tourne en amont de `site-from-brief` (on crée le repo avant de générer le site dedans), mais sa construction vient après car il automatise autour du template.
 3. **Supports commerciaux** : pitch porte-à-porte, réponses aux objections, bon de commande type, carte de visite (déjà dans `process.md` mais à matérialiser)
 4. **5 visites terrain** seulement quand 1-2-3 sont prêts (Mike veut arriver "lancé", pas "en train de se lancer")
 5. **Vitrine MB Studio** construite avec le même template que les sites clients, avec Kroostiyummy.fr comme premier cas client. Pas avant le 3ème client signé.
@@ -88,6 +91,11 @@ Ces 4 sources alimentent `monthly-report` et justifient l'abonnement Suivi à 50
 - Stratégie ciblage 5 premiers clients : **Option 1 validée** = sélection manuelle par feeling terrain (accroche relationnelle + transformation visible à raconter)
 - **Prochain jalon Mike** : construire le template `site-resto/` à partir de Kroostiyummy.fr, puis les 5 skills de production, AVANT toute visite terrain. Mike veut arriver "lancé".
 - **Cas client zéro** : Kroostiyummy.fr (le site du foodtruck de Mike, 170 avis 5 étoiles, refait avec Claude) sert de premier cas client pour la vitrine MB Studio
+- **Décisions architecture (2026-05-15)** posées en session avant le build du template :
+  - 12 sections génériques validées pour `site-resto/` (voir mémoire `project-template-sections-finales`)
+  - 3 signatures typo MB Studio : Brutaliste / Élégante / Tradition (voir mémoire `project-design-system-template`)
+  - Sections optionnelles = composants Astro conditionnels au build, pas du CSS display:none (voir mémoire `feedback-template-architecture`)
+  - 1 repo Git par client (jamais mono-repo) — confirmé conséquence directe du principe #7
 - Statut juridique : à régulariser (ajout activité secondaire BIC service à la micro foodtruck) **avant 1ère facture**
 
 ## Profil de Mike — ce qu'il faut garder en tête à chaque session

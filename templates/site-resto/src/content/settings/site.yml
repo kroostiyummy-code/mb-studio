@@ -1,0 +1,50 @@
+# Settings du site — édité par Mike avant brief patron, puis raffiné par le patron via Decap CMS
+# Le patron ne touche JAMAIS : signature, accent_override, sections (ces 3 champs sont pilotés par Mike)
+# La clé racine `site:` est requise par Astro Content Collections (loader file()).
+
+site:
+  nom: "Kroosti Yummy"
+  slogan: "Le 1er Riz Kroosti à Chartres"
+  baseline: "Foodtruck halal · Tout fait maison · 170+ avis 5★"
+  est_year: 2023
+  ville: "Chartres"
+  region_code: "FR-28"
+
+  # Signature pilotée par Mike d'après la question identité au brief
+  signature: "brutalist"
+
+  # Dominante = couleur du patron (color picker Decap)
+  dominante: "#8b0e0e"
+
+  # accent_override : champ Mike, jamais exposé Decap. Décommenter en cas de conflit visuel.
+  # accent_override: "#ffec00"
+
+  prix_appel: "13,90€"
+  telephone: "+33749592462"
+  telephone_display: "07 49 59 24 62"
+  adresse: "Chartres · Eure-et-Loir"
+  geo:
+    lat: 48.4469
+    lng: 1.4886
+
+  google_avis_url: "https://share.google/pV3doyAtlEjtCqBzA"
+
+  reseaux:
+    instagram: "https://www.instagram.com/kroosti.yummy"
+    facebook: "https://www.facebook.com/share/18PF6q7NQT/"
+    snapchat: "https://www.snapchat.com/add/kroostiyummy"
+
+  hero_image: "/images/foodtruck.jpg"
+  hero_image_alt: "Kroosti Yummy — foodtruck halal à Chartres"
+
+  # ON/OFF des sections (pilotage Mike, exposé Decap comme toggles)
+  sections:
+    bandeau: true
+    histoire: true
+    avis: true
+    reservation: true
+    menu: true
+    exigence: true
+    galerie: false   # désactivé tant que < 4 photos uploadées
+    localisation: true
+    reseaux: true
