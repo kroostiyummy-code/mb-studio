@@ -56,6 +56,7 @@ Le repo héberge les skills MB Studio dans `skills/` au format SKILL.md (compati
 | `gmb-setup` | ✅ Fait | Optimisation fiche Google Business pendant la production silencieuse (étape 3bis). 9 étapes : audit avant, catégorie+secondaires, description 750 char, 12+ photos, horaires précis, attributs, FAQ pré-publiée, 1er post hebdo, réponses à tous avis non-répondus. Output : captures avant/après + rapport pour livraison + planning posts hebdo. |
 | `monthly-report` | ✅ Fait | Génère le rapport mensuel patron (1 page A4) en agrégeant 4 sources (Umami + GMB Insights + Search Console + PageSpeed). Étape 5 du process (J+30) puis récurrent pour Pack Suivi 50€/mois. 2 actions concrètes recommandées par rapport. Justifie l'abonnement. |
 | `scoring-prospects` | Spec écrite (`skills/scoring-prospects/SPEC.md`) — **priorité 1** | Génère 3 listes triées (avec site eatbu / avec site autre / sans site) de prospects chartrains à démarcher, scoring 0-100 + tier A/B/C combinant "valeur apportée" et "probabilité d'accepter". Output : fiches markdown avec top 3 arguments à pitcher + CSV récap. Source : Overpass OSM + PageSpeed API + Wayback Machine. À coder par le terminal Claude AVANT audit-livraison. |
+| `pilote-client` | Spec écrite (`skills/pilote-client/SPEC.md`) — **point d'entrée central** | Méta-skill chef d'orchestre. Pilote Mike comme un tunnel du scoring au suivi J+30 : une seule action affichée à la fois, gates bloquantes (pas de prod sans acompte, pas de livraison sans audit vert), carnet de bord auto-maintenu par client, suivi des délais avec cadeau "livraison anticipée" structurel. Orchestre tous les autres skills sans réimplémenter leur logique. |
 | `relance-patron` | À venir (plus tard) | Script de relance pour patrons ayant vu la maquette sans signer |
 
 **Ordre de construction (validé) :**
@@ -64,8 +65,9 @@ Le repo héberge les skills MB Studio dans `skills/` au format SKILL.md (compati
 2. **Skills de production** dans l'ordre de construction : `maquette-flash` → `brief-client` → `site-from-brief` → `new-client` → `gmb-setup` → `monthly-report`. Note : à l'exécution terrain, `new-client` tourne en amont de `site-from-brief` (on crée le repo avant de générer le site dedans), mais sa construction vient après car il automatise autour du template.
 3. **Supports commerciaux** : pitch porte-à-porte, réponses aux objections, bon de commande type, carte de visite (déjà dans `process.md` mais à matérialiser)
 4. **`scoring-prospects`** (priorité 1 ajoutée 2026-05-15) : génère la liste triée des cibles avant la 1ère visite terrain. Maximise le taux de conversion sur les 5 premières signatures.
-5. **5 visites terrain** seulement quand 1-2-3-4 sont prêts (Mike veut arriver "lancé", pas "en train de se lancer")
-6. **Vitrine MB Studio** construite avec le même template que les sites clients, avec Kroostiyummy.fr comme premier cas client. Pas avant le 3ème client signé.
+5. **`pilote-client`** (point d'entrée central ajouté 2026-05-15) : méta-skill tunnel qui orchestre tout le reste. À coder en dernier (il appelle tous les autres), mais c'est LE skill que Mike lancera au quotidien — il ne retient que celui-là.
+6. **5 visites terrain** seulement quand 1-2-3-4-5 sont prêts (Mike veut arriver "lancé", pas "en train de se lancer")
+7. **Vitrine MB Studio** construite avec le même template que les sites clients, avec Kroostiyummy.fr comme premier cas client. Pas avant le 3ème client signé.
 
 **Stack de tracking installée sur chaque site client (gratuit, RGPD-friendly) :**
 - Umami ou Plausible auto-hébergé sur Cloudflare (analytics sans cookie banner)
