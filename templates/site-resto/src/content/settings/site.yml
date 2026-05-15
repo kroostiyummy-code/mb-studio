@@ -44,6 +44,15 @@ site:
     formule: "RIZ + CROQ + BOISSON"
     prix: "13,90"
 
+  # Bloc Réservation (textes éditables par patron). Si absent, défauts dans le composant.
+  reservation:
+    kicker: "Pas envie de faire la queue ?"
+    titre: "Réservez votre commande."
+    perks:
+      - "Évitez la queue"
+      - "Prêt à votre arrivée"
+      - "Service rapide"
+
   # Mode de localisation : "fixe" (resto avec 1 adresse) ou "foodtruck" (tournées hebdo).
   # Kroosti = foodtruck. Les 5 premiers clients resto = "fixe".
   mode: "foodtruck"

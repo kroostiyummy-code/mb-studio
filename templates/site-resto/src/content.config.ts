@@ -39,6 +39,12 @@ const settings = defineCollection({
       formule: z.string(),
       prix: z.string(),
     }).optional(),
+    // Bloc Réservation — textes éditables par patron (sinon défauts dans le composant)
+    reservation: z.object({
+      kicker: z.string().optional(),
+      titre: z.string().optional(),
+      perks: z.array(z.string()).default([]),
+    }).optional(),
     // Mode de localisation : "fixe" (défaut, resto avec 1 adresse) ou "foodtruck" (tournées hebdo)
     mode: z.enum(['fixe', 'foodtruck']).default('fixe'),
     // Mode fixe : horaires hebdomadaires (créneaux midi / soir / continu)

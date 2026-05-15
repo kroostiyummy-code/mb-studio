@@ -47,6 +47,16 @@ collections:
               - { name: tag, label: "Étiquette", widget: string, default: "★ COMBO" }
               - { name: formule, label: "Formule (séparée par +)", widget: string, hint: "Ex: RIZ + CROQ + BOISSON" }
               - { name: prix, label: "Prix (sans €)", widget: string, hint: "Ex: 13,90" }
+          - name: reservation
+            label: "Bloc Réservation (textes personnalisables)"
+            widget: object
+            required: false
+            collapsed: true
+            hint: "Si vous laissez vide, des textes par défaut s'afficheront."
+            fields:
+              - { name: kicker, label: "Petite phrase d'accroche", widget: string, required: false, hint: "Ex: Pas envie de faire la queue ?" }
+              - { name: titre, label: "Titre principal", widget: string, required: false, hint: "Ex: Réservez votre table." }
+              - { name: perks, label: "Avantages (3 max)", widget: list, default: [], required: false, hint: "Ex: Service rapide, Accueil chaleureux, À votre arrivée" }
           - name: reseaux
             label: "Réseaux sociaux"
             widget: object
