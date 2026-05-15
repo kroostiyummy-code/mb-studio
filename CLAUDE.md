@@ -100,6 +100,14 @@ Ces 4 sources alimentent `monthly-report` et justifient l'abonnement Suivi à 50
   - 1 repo Git par client (jamais mono-repo) — confirmé conséquence directe du principe #7
 - Statut juridique : à régulariser (ajout activité secondaire BIC service à la micro foodtruck) **avant 1ère facture**
 
+## TODO bloquants avant 1er client (ne pas oublier)
+
+- [ ] **Protocole support patron** : graver dans `process.md` une section "Support après livraison" — incidents typiques (patron casse contenu, build échoue, Cloudflare down, modif demandée), qui fait quoi, délais réalistes ("réponse dans la journée en semaine"), garantie 30j post-livraison, modifs au-delà (1 gratos/an OU Pack Suivi 50€/mois OU 50€/h). Indispensable avant de promettre quoi que ce soit oralement.
+- [ ] **Fichier `incident-response.md`** à créer dans le template `site-resto/` (sera dupliqué chez chaque client). Checklist Mike-friendly : "site ne charge plus → faire ça", "patron a cassé son contenu via Decap → faire ça", "Cloudflare en panne → faire ça". À écrire en français pas-tech.
+- [ ] **Skill `incident`** à construire plus tard : `/incident [URL client]` → Claude pull le repo, lit logs Cloudflare, diagnostique. Pas urgent mais utile dès le 2-3e client.
+- [ ] **Decap config** à compléter pour `mode`, `horaires`, `horaires_foodtruck`, `google_maps_embed_url` avant le 1er client mode fixe qui voudrait modifier ses horaires.
+- [ ] **Dogfood template hors-Kroosti** : tester avec 2-3 settings différents (gastro elegant + bistrot tradition) pour révéler bugs cachés avant d'en construire les skills par-dessus.
+
 ## Profil de Mike — ce qu'il faut garder en tête à chaque session
 
 - **Très bon en relationnel/vente**, vit déjà du contact client direct (foodtruck à Chartres)
