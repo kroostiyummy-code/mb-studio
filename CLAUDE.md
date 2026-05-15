@@ -13,7 +13,7 @@
 
 MB Studio = micro-agence web locale, niche **restaurants/commerce de bouche à Chartres** ayant un site eatbu.com.
 
-Lire `README.md` pour l'offre complète et `BRAND.md` pour l'identité visuelle.
+Lire `README.md` pour l'offre complète et `BRAND.md` pour l'identité visuelle. Les idées stratégiques en cours de réflexion (non décidées) vivent dans `idees-roadmap.md` — y aller chercher la mémoire des pistes brainstormées.
 
 ## Principes non-négociables
 
