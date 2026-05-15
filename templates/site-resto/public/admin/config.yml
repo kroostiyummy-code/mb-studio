@@ -77,6 +77,31 @@ collections:
             fields:
               - { name: note, label: "Note moyenne (sur 5)", widget: number, value_type: float, min: 0, max: 5, step: 0.1, hint: "Ex: 4.7" }
               - { name: count, label: "Nombre d'avis", widget: number, value_type: int, min: 0, hint: "Ex: 170" }
+          - name: bandeau
+            label: "Bandeau actualités (ticker défilant en haut)"
+            widget: object
+            required: false
+            collapsed: true
+            hint: "Liste de messages courts qui défilent en haut de page. Idéal pour le plat du jour ou une ouverture exceptionnelle."
+            fields:
+              - { name: messages, label: "Messages (3 à 6 idéal)", widget: list, default: [], required: false }
+          - name: exigence
+            label: "Bloc Notre exigence (qualité, certifications)"
+            widget: object
+            required: false
+            collapsed: true
+            hint: "Checklist sur la qualité (fait maison, local, halal…). Utilisez **mot** dans le titre pour mettre un mot en accent."
+            fields:
+              - { name: headline_parts, label: "Titre en plusieurs lignes", widget: list, default: [], hint: "Une ligne par entrée. Ex: 'Tout.', 'Vraiment **tout.**', 'Fait maison.'" }
+              - { name: items, label: "Points qualité", widget: list, default: [], hint: "Un par champ. Ex: 'Riz cuit minute', 'Sauce maison'" }
+              - name: banner
+                label: "Bannière qualité (optionnelle)"
+                widget: object
+                required: false
+                collapsed: true
+                fields:
+                  - { name: titre, label: "Titre", widget: string, hint: "Ex: 100% Halal, Cuisine bio, Sans gluten" }
+                  - { name: sub, label: "Sous-titre", widget: string, required: false, hint: "Ex: — Certifié" }
           - name: reseaux
             label: "Réseaux sociaux"
             widget: object

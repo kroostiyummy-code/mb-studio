@@ -57,6 +57,19 @@ const settings = defineCollection({
       note: z.number().min(0).max(5),    // ex: 5.0
       count: z.number().int().min(0),    // ex: 170
     }).optional(),
+    // Bandeau actualités — ticker défilant en haut de page (messages courts)
+    bandeau: z.object({
+      messages: z.array(z.string()).default([]),
+    }).optional(),
+    // Bloc Notre exigence — checklist "fait maison/local/halal..." + bannière optionnelle
+    exigence: z.object({
+      headline_parts: z.array(z.string()).default([]),  // ex: ["Tout.", "Vraiment **tout.**", "Fait maison."]
+      items: z.array(z.string()).default([]),           // ex: ["Riz cuit minute", "Sauce maison"]
+      banner: z.object({
+        titre: z.string(),
+        sub: z.string().optional(),
+      }).optional(),
+    }).optional(),
     // Mode de localisation : "fixe" (défaut, resto avec 1 adresse) ou "foodtruck" (tournées hebdo)
     mode: z.enum(['fixe', 'foodtruck']).default('fixe'),
     // Mode fixe : horaires hebdomadaires (créneaux midi / soir / continu)

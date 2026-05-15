@@ -65,6 +65,31 @@ site:
     note: 5.0
     count: 170
 
+  # Bandeau actualités — ticker défilant en haut de page (séparateurs auto)
+  bandeau:
+    messages:
+      - "★ Le 1er Riz Kroosti à Chartres"
+      - "170+ avis 5 étoiles"
+      - "Foodtruck Halal"
+      - "Tout Fait Maison"
+      - "Lucé · Chartres · Luisant · Mainvilliers"
+
+  # Notre exigence — checklist qualité + bannière optionnelle (signature, certif…)
+  exigence:
+    headline_parts:
+      - "Tout."
+      - "Vraiment **tout.**"
+      - "Fait maison."
+    items:
+      - "Riz cuit minute, sur place"
+      - "Poulet mariné, pané maison"
+      - "Sauce Yummy maison"
+      - "Croq maison"
+      - "Cookie maison"
+    banner:
+      titre: "100% Halal"
+      sub: "— Certifié"
+
   # Mode de localisation : "fixe" (resto avec 1 adresse) ou "foodtruck" (tournées hebdo).
   # Kroosti = foodtruck. Les 5 premiers clients resto = "fixe".
   mode: "foodtruck"
