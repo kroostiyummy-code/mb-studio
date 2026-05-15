@@ -42,6 +42,18 @@
 3. Pour chaque cible, lancer le skill `maquette-flash` → maquette du futur site prête
 4. Sauvegarder les 5 dossiers sur la tablette dans un format clair (un PDF par resto contenant audit + maquette)
 
+### Stratégie maquette : 1 primaire + 2 alternatives en backup
+
+Le skill `maquette-flash` génère systématiquement les **3 signatures** (Brutaliste / Élégante / Tradition) à partir de 1 à 4 liens publics du resto cible (fiche Google Business, Facebook, Instagram, site existant). Mais en stratégie de présentation au patron, le mode est **"1 primaire + 2 alternatives en backup"** :
+
+1. **Avant la visite**, je regarde le profil visuel du resto (photos GMB, esthétique Insta, ambiance des avis) et je détermine l'intuition de la signature qui colle : urbain/street → Brutaliste, classique/familial → Tradition, raffiné/gastro → Élégante.
+2. **Au rendez-vous**, je montre d'abord la maquette dans MA signature recommandée. Pitch : *"En regardant votre fiche Google, j'ai senti que vous étiez plutôt sur l'univers [X]. Voilà ce que ça donne."* Je laisse le patron réagir.
+3. **Si le patron tique ou hésite**, je ressors les 2 autres signatures. Pitch : *"Si vous préférez plus [adjectif], j'ai aussi cette version-là."*
+
+Ce mode démontre mon expertise (j'ai choisi pour lui, je ne suis pas un prestataire qui demande "alors, qu'est-ce que vous voulez ?") tout en gardant la souplesse pour ouvrir si besoin. Il évite deux pièges : la *choice paralysis* (poser 3 maquettes face au patron qui ne sait plus laquelle choisir) et le piège du *"je veux les couleurs du 1 avec les photos du 3"* qui m'oblige à du custom hors devis.
+
+**Note sur la fidélité des maquettes :** Les liens publics donnent environ 70% des infos nécessaires (nom, adresse, horaires, photos, note GMB, ambiance). Les 30% restants — histoire personnelle du patron, ton éditorial, menu détaillé, allergènes, anecdotes — restent à caler au brief de l'étape 2. La maquette de prospection **n'a PAS besoin d'être 100% juste** : elle doit être suffisamment crédible pour que le patron se voie dedans en moins de 30 secondes. Tout ce qui sera affiné après brief signé.
+
 **Outils :** skill `audit-eatbu`, skill `maquette-flash`
 
 **Durée :** 1 demi-journée pour 5 restos
