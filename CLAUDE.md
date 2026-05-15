@@ -106,7 +106,7 @@ Ces 4 sources alimentent `monthly-report` et justifient l'abonnement Suivi à 50
 - [ ] **Fichier `incident-response.md`** à créer dans le template `site-resto/` (sera dupliqué chez chaque client). Checklist Mike-friendly : "site ne charge plus → faire ça", "patron a cassé son contenu via Decap → faire ça", "Cloudflare en panne → faire ça". À écrire en français pas-tech.
 - [ ] **Skill `incident`** à construire plus tard : `/incident [URL client]` → Claude pull le repo, lit logs Cloudflare, diagnostique. Pas urgent mais utile dès le 2-3e client.
 - [ ] **Decap config** à compléter pour `mode`, `horaires`, `horaires_foodtruck`, `google_maps_embed_url` avant le 1er client mode fixe qui voudrait modifier ses horaires.
-- [ ] **Dogfood template hors-Kroosti** : tester avec 2-3 settings différents (gastro elegant + bistrot tradition) pour révéler bugs cachés avant d'en construire les skills par-dessus.
+- [x] ~~Dogfood template hors-Kroosti~~ ✅ Fait (gastro elegant + bistrot tradition validés).
 
 ## Profil de Mike — ce qu'il faut garder en tête à chaque session
 
