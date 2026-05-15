@@ -1,0 +1,39 @@
+# Carnet de bord — auto-maintenu par pilote-client. Mike n'édite pas à la main.
+slug: la-casa-tropical
+nom_resto: "La Casa Tropical"
+etape_actuelle: 1                 # 0=scoring fait → 1=préparation visite
+sous_etape: "à préparer : audit-eatbu + maquette-flash"
+signature_retenue: ""
+
+dates:
+  premier_contact: null
+  presentation: null
+  brief: null
+  date_promise_patron: null
+  date_cible_interne: null
+  livraison_reelle: null
+  suivi_j30: null
+
+gates:
+  acompte_encaisse: false
+  domaine_achete_compte_patron: false
+  acces_gmb_gestionnaire: false
+  capture_eatbu_faite: false
+  audit_livraison_vert: false
+  solde_encaisse: false
+
+montants:
+  acompte: 245
+  solde: 245
+  domaine_rembourse: 12
+
+liens:
+  eatbu_origine: "https://lacasatropical.eatbu.com/?lang=fr"
+  repo: null
+  prod: null
+  gmb: null
+
+notes:
+  - "2026-05-16 : cible n°1 retenue via scoring-prospects (run Chartres 5km). Choix stratégique (eatbu + centre-ville), pas au tier — tous les prospects en Tier C par biais connu du scoring auto (cf mémoire project-scoring-tiers-biais). Site eatbu charge en 10,2s sur mobile : argument béton. Adresse : 8 Rue de la Porte Cendreuse, 28000 Chartres. Tél : +33 2 37 24 56 11."
+
+pack_suivi: false
