@@ -36,6 +36,17 @@ collections:
           - { name: hero_image, label: "Photo principale", widget: image }
           - { name: hero_image_alt, label: "Description de la photo (pour Google et l'accessibilité)", widget: string }
           - { name: google_avis_url, label: "Lien vers vos avis Google", widget: string, required: false }
+          - name: combo
+            label: "Combo / Formule mise en avant"
+            widget: object
+            required: false
+            collapsed: true
+            hint: "Optionnel : une formule à mettre en avant en haut du menu (ex: Menu complet 13,90€)"
+            fields:
+              - { name: active, label: "Afficher le combo", widget: boolean, default: false }
+              - { name: tag, label: "Étiquette", widget: string, default: "★ COMBO" }
+              - { name: formule, label: "Formule (séparée par +)", widget: string, hint: "Ex: RIZ + CROQ + BOISSON" }
+              - { name: prix, label: "Prix (sans €)", widget: string, hint: "Ex: 13,90" }
           - name: reseaux
             label: "Réseaux sociaux"
             widget: object
@@ -59,3 +70,26 @@ collections:
               - { name: galerie, label: "Galerie photos", widget: boolean, default: true, hint: "Auto-cachée si moins de 4 photos" }
               - { name: localisation, label: "Où nous trouver", widget: boolean, default: true }
               - { name: reseaux, label: "Réseaux sociaux", widget: boolean, default: false }
+
+  - name: "menu"
+    label: "Carte (sections du menu)"
+    label_singular: "Section de menu"
+    description: "Une section par fichier (Entrées, Plats, Desserts, Boissons, etc.). Les sections s'affichent dans l'ordre indiqué."
+    folder: "src/content/menu/sections"
+    format: "yml"
+    extension: "yml"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: nom_section
+    fields:
+      - { name: ordre, label: "Ordre d'apparition", widget: number, default: 1, value_type: int }
+      - { name: nom_section, label: "Nom de la section", widget: string, hint: "Ex: Entrées, Plats, Desserts, Boissons" }
+      - name: items
+        label: "Plats de cette section"
+        label_singular: "Plat"
+        widget: list
+        fields:
+          - { name: nom, label: "Nom du plat", widget: string }
+          - { name: description, label: "Description courte", widget: text }
+          - { name: prix, label: "Prix (sans €)", widget: string, hint: "Ex: 10 ou 12,50" }
+          - { name: allergenes, label: "Allergènes", widget: list, default: [], required: false, hint: "Un par champ : Gluten, Lait, Œuf, Fruits à coque, etc." }

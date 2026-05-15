@@ -32,6 +32,44 @@ const bodyClass = `signature-${settings.signature}`;
 const pageTitle = `${settings.nom} — ${settings.slogan}`;
 const pageDescription = settings.baseline ?? settings.slogan;
 
+// Mapping jours FR → noms schema.org
+const JOURS_FR_TO_EN: Record<string, string> = {
+  lundi: 'Monday', mardi: 'Tuesday', mercredi: 'Wednesday', jeudi: 'Thursday',
+  vendredi: 'Friday', samedi: 'Saturday', dimanche: 'Sunday',
+};
+
+// openingHoursSpecification depuis horaires (mode fixe) OU horaires_foodtruck
+type OpeningHourSpec = { '@type': 'OpeningHoursSpecification'; dayOfWeek: string; opens: string; closes: string };
+const openingHours: OpeningHourSpec[] = [];
+if (settings.mode === 'fixe' && settings.horaires) {
+  for (const ligne of settings.horaires) {
+    for (const c of ligne.creneaux) {
+      openingHours.push({
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: JOURS_FR_TO_EN[ligne.jour],
+        opens: c.ouvre,
+        closes: c.ferme,
+      });
+    }
+  }
+} else if (settings.mode === 'foodtruck' && settings.horaires_foodtruck) {
+  for (const ligne of settings.horaires_foodtruck) {
+    for (const c of ligne.creneaux) {
+      openingHours.push({
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: JOURS_FR_TO_EN[ligne.jour],
+        opens: c.ouvre,
+        closes: c.ferme,
+      });
+    }
+  }
+}
+
+// areaServed pour foodtruck : villes uniques tirées des horaires
+const villesFoodtruck = settings.mode === 'foodtruck' && settings.horaires_foodtruck
+  ? [...new Set(settings.horaires_foodtruck.flatMap(l => l.creneaux.map(c => c.ville)))]
+  : [];
+
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'FoodEstablishment',
@@ -39,6 +77,8 @@ const schema = {
   description: pageDescription,
   url: Astro.site?.toString(),
   telephone: settings.telephone,
+  image: settings.hero_image,
+  ...(settings.prix_appel ? { priceRange: '€' } : {}),
   ...(settings.adresse ? {
     address: {
       '@type': 'PostalAddress',
@@ -53,6 +93,10 @@ const schema = {
       latitude: settings.geo.lat,
       longitude: settings.geo.lng,
     },
+  } : {}),
+  ...(openingHours.length > 0 ? { openingHoursSpecification: openingHours } : {}),
+  ...(villesFoodtruck.length > 0 ? {
+    areaServed: villesFoodtruck.map(v => ({ '@type': 'City', name: v })),
   } : {}),
   ...(settings.reseaux ? {
     sameAs: Object.values(settings.reseaux).filter(Boolean),

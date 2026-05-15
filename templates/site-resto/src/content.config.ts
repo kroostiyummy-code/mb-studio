@@ -1,5 +1,7 @@
 import { defineCollection, z } from 'astro:content';
-import { file } from 'astro/loaders';
+import { file, glob } from 'astro/loaders';
+
+const jourEnum = z.enum(['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche']);
 
 const settings = defineCollection({
   loader: file('src/content/settings/site.yml'),
@@ -22,6 +24,7 @@ const settings = defineCollection({
       lng: z.number(),
     }).optional(),
     google_avis_url: z.string().url().optional(),
+    google_maps_embed_url: z.string().url().optional(),
     reseaux: z.object({
       instagram: z.string().url().optional(),
       facebook: z.string().url().optional(),
@@ -30,6 +33,33 @@ const settings = defineCollection({
     }).optional(),
     hero_image: z.string(),
     hero_image_alt: z.string(),
+    combo: z.object({
+      active: z.boolean(),
+      tag: z.string().default('★ COMBO'),
+      formule: z.string(),
+      prix: z.string(),
+    }).optional(),
+    // Mode de localisation : "fixe" (défaut, resto avec 1 adresse) ou "foodtruck" (tournées hebdo)
+    mode: z.enum(['fixe', 'foodtruck']).default('fixe'),
+    // Mode fixe : horaires hebdomadaires (créneaux midi / soir / continu)
+    horaires: z.array(z.object({
+      jour: jourEnum,
+      creneaux: z.array(z.object({
+        ouvre: z.string().regex(/^\d{2}:\d{2}$/),
+        ferme: z.string().regex(/^\d{2}:\d{2}$/),
+      })),
+    })).optional(),
+    // Mode foodtruck : tournée hebdo avec lieux différents par créneau
+    horaires_foodtruck: z.array(z.object({
+      jour: jourEnum,
+      creneaux: z.array(z.object({
+        lieu: z.string(),
+        ville: z.string(),
+        moment: z.enum(['midi', 'soir']),
+        ouvre: z.string().regex(/^\d{2}:\d{2}$/),
+        ferme: z.string().regex(/^\d{2}:\d{2}$/),
+      })),
+    })).optional(),
     sections: z.object({
       bandeau: z.boolean().default(false),
       histoire: z.boolean().default(true),
@@ -44,4 +74,18 @@ const settings = defineCollection({
   }),
 });
 
-export const collections = { settings };
+const menu = defineCollection({
+  loader: glob({ pattern: 'sections/*.yml', base: './src/content/menu' }),
+  schema: z.object({
+    ordre: z.number(),
+    nom_section: z.string(),
+    items: z.array(z.object({
+      nom: z.string(),
+      description: z.string(),
+      prix: z.string(),
+      allergenes: z.array(z.string()).default([]),
+    })),
+  }),
+});
+
+export const collections = { settings, menu };
