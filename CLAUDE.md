@@ -50,7 +50,7 @@ Le repo héberge les skills MB Studio dans `skills/` au format SKILL.md (compati
 | `audit-eatbu` | ✅ Fait | Audit gratuit pré-rempli avant visite porte-à-porte |
 | `maquette-flash` | ✅ Fait | Génère les 3 maquettes (Brutaliste / Élégante / Tradition) depuis 1-4 liens publics du resto cible. Output : 3 PNG haute résolution pour la tablette, en mode "1 primaire + 2 backups". |
 | `brief-client` | ✅ Fait | Questionnaire interactif en 12 sujets pour le brief en 1h chez le patron. Output : `briefs/{slug}/brief.md` narratif + `briefs/{slug}/settings.yml` prêt pour `site-from-brief`. |
-| `site-from-brief` | À construire | Génère le site Astro complet depuis le brief rempli |
+| `site-from-brief` | ✅ Fait | Transforme `briefs/{slug}/` en `clients/{slug}/` : scaffolding template, injection settings, génération menu, optimisation photos, personnalisation README et incident-response, test build local. Prêt à pousser via `new-client`. |
 | `new-client` | À construire | Automatise le scaffolding par client : création repo GitHub dédié, copie du template site-resto/, setup Cloudflare Pages, init Decap CMS, premier commit. Réduit la friction du "1 repo par client". |
 | `gmb-setup` | À construire | Checklist et procédure d'optimisation de la fiche Google Business |
 | `monthly-report` | À construire | Rapport mensuel : Umami + GMB Insights + PageSpeed → 1 page patron-friendly |
@@ -91,6 +91,7 @@ Ces 4 sources alimentent `monthly-report` et justifient l'abonnement Suivi à 50
 - Template `templates/site-resto/` ✅ 12/12 composants codés en vrai, 3 signatures testées sur Kroosti + 2 fixtures non-Kroosti (gastro élégant + bistrot tradition). Dogfooding validé.
 - Skill `maquette-flash` ✅ écrit (structure complète : SKILL.md + extraction-checklist + pitch-presentation). À tester en conditions réelles sur un premier resto cible.
 - Skill `brief-client` ✅ écrit (SKILL.md + references/questionnaire (12 sujets détaillés) + templates/brief-vide.md + templates/settings-from-brief.yml). Mode interactif Claude pose les questions, Mike entre les réponses, sortie = brief.md + settings.yml.
+- Skill `site-from-brief` ✅ écrit (SKILL.md + 3 references : menu-from-brief, images-optimization, pre-deploy-checks). Transforme un brief signé en site Astro complet (8 étapes : vérif acompte, scaffolding, injection settings, génération menu, optimisation photos, personnalisation README/incident-response, test build local, récap).
 - Stratégie ciblage 5 premiers clients : **Option 1 validée** = sélection manuelle par feeling terrain (accroche relationnelle + transformation visible à raconter)
 - **Prochain jalon Mike** : construire le template `site-resto/` à partir de Kroostiyummy.fr, puis les 5 skills de production, AVANT toute visite terrain. Mike veut arriver "lancé".
 - **Cas client zéro** : Kroostiyummy.fr (le site du foodtruck de Mike, 170 avis 5 étoiles, refait avec Claude) sert de premier cas client pour la vitrine MB Studio
