@@ -171,6 +171,20 @@ En fin de run, afficher à Mike un récap :
 
 ---
 
+## 🛑 GATE D'ALERTE DÉVIATION (méta-règle — prioritaire sur tout le reste)
+
+Dès que l'exécution s'écarte de la méthode documentée de ce skill — override d'un score, exclusion/inclusion d'un prospect hors des règles d'exclusion, choix d'une cible **au jugement** au lieu du tri/tier produit par la formule, saut d'une étape du pipeline — le skill **DOIT** :
+
+1. **S'arrêter immédiatement.**
+2. **Expliquer la déviation en une phrase** (« je m'écarte de la méthode parce que X »).
+3. **Exiger un "OK Mike" explicite** avant de continuer.
+
+**Interdiction absolue tant que le "OK Mike" n'est pas donné :** aucun commit de carnet, aucune création/modification de fichier `pilote/`, aucune avancée du tunnel, aucune décision stratégique posée en fait accompli (choix de cible, archivage, passage d'étape).
+
+Une cible peut être excellente et le procédé fautif quand même : la justesse de la décision ne dispense JAMAIS de demander l'accord avant de la rendre effective. Le fait accompli sur une décision stratégique est la faute, pas l'erreur de jugement.
+
+---
+
 ## Garde-fous critiques (NON négociables)
 
 1. **Aucun email/téléphone scrappé pour du cold outreach automatisé.** Les fiches servent à des visites en personne. Pas de spam, pas d'envoi auto.

@@ -93,6 +93,20 @@ Rappel anticipé quand `J ≥ suivi_j30 − 3`. Lance `monthly-report` (1er rapp
 
 ---
 
+## 🛑 GATE D'ALERTE DÉVIATION (méta-règle — prioritaire sur tout le reste)
+
+Dès que le pilotage s'écarte de la méthode documentée — choix d'une cible **au jugement** au lieu du résultat de `scoring-prospects`, override d'un score, saut ou anticipation d'une étape, franchissement d'une gate sans sa condition réelle, toute décision stratégique non prévue par le tunnel — le skill **DOIT** :
+
+1. **S'arrêter immédiatement.**
+2. **Expliquer la déviation en une phrase.**
+3. **Exiger un "OK Mike" explicite** avant de continuer.
+
+**Interdiction absolue tant que le "OK Mike" n'est pas donné :** aucun commit ni création/modification de carnet `pilote/{slug}.yml`, aucun passage d'étape (`etape_actuelle`), aucun archivage, aucun lancement de skill aval, aucune décision stratégique en fait accompli.
+
+Le choix peut être bon ET le procédé fautif : la justesse ne dispense jamais de l'accord préalable. Sur une décision stratégique, **jamais de fait accompli** — c'est précisément ce que le tunnel existe pour empêcher, y compris vis-à-vis de lui-même.
+
+---
+
 ## Garde-fous critiques (les murs du tunnel)
 
 1. **GATE 1 acompte (3→4)** : pas de prod sans `acompte_encaisse`. Non contournable par le skill.
