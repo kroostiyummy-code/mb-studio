@@ -12,7 +12,7 @@ clients/*
 audits/
 .audit-*/
 
-# Prospects générés (données agrégées sensibles, jamais hors repo — cf scoring-prospects garde-fou #7)
+# Prospects générés (liste de prospection = donnée sensible : jamais commitée, reste en local seulement — cf scoring-prospects garde-fou #7)
 prospects/*
 !prospects/.gitkeep
 
