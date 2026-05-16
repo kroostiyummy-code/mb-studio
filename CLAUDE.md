@@ -89,6 +89,37 @@ Ces 4 sources alimentent `monthly-report` et justifient l'abonnement Suivi à 50
 - Promettre des choses qui ne seront pas dans le bon de commande (les "cadeaux surprise" se découvrent à la livraison, ne se promettent jamais)
 - Mettre un effet visuel lourd (vidéo scroll-driven, animations complexes) sur un site resto — antagonique avec "site rapide" et avec "édition autonome par le patron"
 
+## Exception scraping prospection (datée — À RÉEXAMINER)
+
+> **Décision owner explicite — Mike, 2026-05-16.** Déroge ponctuellement au garde-fou
+> #4 de `scoring-prospects/SKILL.md` (« pas de scraping Google Maps/GMB »).
+
+**Ce qui est autorisé, strictement borné :**
+- Récupération de la **note Google + du nombre d'avis** (scraping léger inclus) d'un
+  resto, **uniquement** pour le scoring interne des prospects.
+- **Phase de DÉMARRAGE uniquement** (constitution de la première liste de cibles).
+- **Données professionnelles publiques B2B** (établissement, pas personne physique).
+- Périmètre `scoring-prospects` only, niche restos agglo chartraine only.
+
+**Ce qui reste interdit (inchangé) :**
+- Publication ou diffusion de ces données hors du repo privé MB Studio.
+- `prospects/` reste LOCAL, jamais commité (garde-fou #7).
+- Aucun emailing/cold outreach automatisé — visites en personne uniquement.
+- Aucun scraping d'autres secteurs / régions / d'autres plateformes que le strict besoin.
+
+**Risques connus et assumés (notés ce 2026-05-16) :**
+- **Conditions Google** : le scraping de la recherche/Maps Google est contraire à ses
+  CGU ; risque de blocage IP / captcha. Usage maintenu volontairement faible et lent.
+- **Fragilité technique** : dépend du DOM Google (peut changer, geler — cf incident
+  du matin du 2026-05-16) ; le skill doit dégrader proprement (« non mesuré »), jamais
+  inventer un chiffre.
+- **RGPD B2B** : pour chaque donnée collectée, enregistrer **source + date de
+  collecte** ; respecter un **opt-out** ; pas de conservation au-delà du besoin
+  prospection ; jamais de revente/partage.
+
+**Statut : RÈGLE À RÉEXAMINER** au 1er client signé ou au plus tard 2026-08-16
+(3 mois), pour décider : on arrête, on restreint, ou on pérennise.
+
 ## État du projet (mai 2026)
 
 - Stratégie figée : offre, prix, process complet (`process.md`), pitchs scriptés, packs définis
