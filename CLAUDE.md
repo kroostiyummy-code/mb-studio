@@ -27,6 +27,7 @@ Lire `README.md` pour l'offre complète et `BRAND.md` pour l'identité visuelle.
    - **Implication technique** : 1 repo Git séparé par client (jamais de mono-repo, voir Stack technique). Le bon de commande engage MB Studio à fournir au patron une archive complète de son repo sous 48h sur simple demande.
 8. **Vouvoiement par défaut à l'écrit** (audit envoyé, mail, devis, support imprimé). Tutoiement possible à l'oral pendant la visite si le patron tutoie en premier.
 9. **SEO local = standard de fabrication, jamais promesse de résultat** : chaque site est rédigé optimisé pour la recherche locale (cf `checklist-seo-local.md`). C'est un engagement de moyens non-négociable appliqué à TOUS les sites. On ne garantit JAMAIS une position Google (cf anti-patterns + `process.md`). Sur-livrer sur le métier, jamais sur-promettre sur le résultat.
+10. **Unicité inter-clients = standard de fabrication non-négociable** : deux sites livrés ne doivent jamais se ressembler (même dans une petite ville où les patrons comparent). 3 signatures ne suffisent pas pour 5+ clients → modèle étendu obligatoire (variantes de structure + packs typo par signature + matrice d'attribution + garde-fou anti-jumeau). Voir `differenciation-clients.md`.
 
 ## Stack technique imposée
 
@@ -90,6 +91,7 @@ Ces 4 sources alimentent `monthly-report` et justifient l'abonnement Suivi à 50
 - Pousser l'abonnement Suivi mensuel en début de pitch (ça crée la peur de dépendance, ça casse la vente)
 - Promettre des choses qui ne seront pas dans le bon de commande (les "cadeaux surprise" se découvrent à la livraison, ne se promettent jamais)
 - Mettre un effet visuel lourd (vidéo scroll-driven, animations complexes) sur un site resto — antagonique avec "site rapide" et avec "édition autonome par le patron"
+- Livrer deux sites clients qui se ressemblent (même signature + même squelette) — l'unicité inter-clients est un standard non-négociable, cf principe #10 + `differenciation-clients.md`
 
 ## État du projet (mai 2026)
 
@@ -110,6 +112,7 @@ Ces 4 sources alimentent `monthly-report` et justifient l'abonnement Suivi à 50
   - 3 signatures typo MB Studio : Brutaliste / Élégante / Tradition (voir mémoire `project-design-system-template`)
   - Sections optionnelles = composants Astro conditionnels au build, pas du CSS display:none (voir mémoire `feedback-template-architecture`)
   - 1 repo Git par client (jamais mono-repo) — confirmé conséquence directe du principe #7
+- **Différenciation inter-clients (2026-05-16)** : 3 signatures NE SUFFISENT PAS pour garantir l'unicité sur 5+ clients. Modèle étendu décidé (variantes de structure + packs typo par signature + matrice d'attribution + garde-fou anti-jumeau dans audit-livraison). Détail et plan dans `differenciation-clients.md`. Règle + matrice posées PC éteint ; variantes/packs typo à construire PC allumé (build + test perf obligatoires).
 - Statut juridique : à régulariser (ajout activité secondaire BIC service à la micro foodtruck) **avant 1ère facture**
 
 ## TODO bloquants avant 1er client (ne pas oublier)
