@@ -32,6 +32,7 @@ Création d'un site internet professionnel pour l'établissement ci-dessus, mise
 | Site internet complet, conçu sur mesure pour l'établissement |
 | Nom de domaine pris au nom du patron, **première année réglée par MB Studio** |
 | Mise en ligne et hébergement (voir limites, article 6) |
+| Contenus rédigés optimisés pour la recherche locale (ville, type de cuisine, plats, questions fréquentes) |
 | Optimisation de la fiche Google de l'établissement (catégories, photos, description, avis) — principal levier de visibilité locale |
 | Formation de 30 minutes à la livraison : le patron réalise lui-même une modification |
 | Guide papier remis à la livraison (1 page, les 3 gestes les plus fréquents) |
@@ -62,7 +63,7 @@ Création d'un site internet professionnel pour l'établissement ci-dessus, mise
 Écrit clairement pour qu'il n'y ait aucune mauvaise surprise :
 
 - **Hébergement** : assuré gratuitement à vie via un service tiers (Cloudflare). Ce service étant gratuit, aucune disponibilité permanente ne peut être garantie contractuellement. MB Studio informe le patron en cas d'incident mais ne peut être tenu responsable d'une panne de cette infrastructure tierce.
-- **Référencement Google** : l'offre comprend les bases concrètes d'un bon référencement local — site rapide et bien structuré, et fiche Google optimisée (article 2). En revanche, **aucune position précise ni page de résultats ne peut être garantie** : le classement dépend de facteurs externes (concurrence, avis, ancienneté) et de l'algorithme de Google.
+- **Référencement Google** : l'offre comprend les bases concrètes d'un bon référencement local — site rapide et bien structuré, **contenus rédigés pour la recherche locale**, et fiche Google optimisée (article 2). C'est un engagement de moyens, fait à fond sur chaque site. En revanche, **aucune position précise ni page de résultats ne peut être garantie** : le classement dépend de facteurs externes (concurrence, avis, ancienneté) et de l'algorithme de Google.
 - **Modifications** : 1 par an incluse. Au-delà, soit le Pack Suivi (article 8), soit 50 €/heure sur devis ferme accepté avant tout travail. Une modification de structure (nouvelle section, refonte) fait l'objet d'un devis séparé.
 - **Support** : du lundi au vendredi de 9 h à 19 h, réponse dans la journée et correction d'un incident bloquant sous 24 heures. Le soir et le week-end : traitement au mieux, sans garantie de réponse immédiate. Pas de support 24 h/24.
 - **Renouvellement du domaine** : à la charge du patron les années suivantes. MB Studio le prévient 30 jours avant l'échéance, mais le renouvellement reste sous la responsabilité du patron.

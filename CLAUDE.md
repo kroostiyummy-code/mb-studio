@@ -26,6 +26,7 @@ Lire `README.md` pour l'offre complète et `BRAND.md` pour l'identité visuelle.
 7. **Patron toujours propriétaire à 100%** : domaine acheté sur SON compte registrar, fiche GMB où Mike est gestionnaire (pas propriétaire), site éditable seul. Le jour où il veut partir, il garde tout sans rien transférer.
    - **Implication technique** : 1 repo Git séparé par client (jamais de mono-repo, voir Stack technique). Le bon de commande engage MB Studio à fournir au patron une archive complète de son repo sous 48h sur simple demande.
 8. **Vouvoiement par défaut à l'écrit** (audit envoyé, mail, devis, support imprimé). Tutoiement possible à l'oral pendant la visite si le patron tutoie en premier.
+9. **SEO local = standard de fabrication, jamais promesse de résultat** : chaque site est rédigé optimisé pour la recherche locale (cf `checklist-seo-local.md`). C'est un engagement de moyens non-négociable appliqué à TOUS les sites. On ne garantit JAMAIS une position Google (cf anti-patterns + `process.md`). Sur-livrer sur le métier, jamais sur-promettre sur le résultat.
 
 ## Stack technique imposée
 
@@ -81,7 +82,8 @@ Ces 4 sources alimentent `monthly-report` et justifient l'abonnement Suivi à 50
 
 - Ajouter Next.js, React SSR, framework lourd
 - Proposer WordPress
-- Promettre du SEO garanti
+- Promettre du SEO garanti (une position, une page de résultats)
+- Livrer un site au copywriting générique / non optimisé pour la recherche locale (le SEO local est un standard de fabrication non-négociable, cf principe #9 + `checklist-seo-local.md`)
 - Ajouter des dépendances payantes (CMS payant, hébergement payant, analytics payant Google Analytics inclus)
 - Parler "agence" / "équipe" / "nous" (Mike est solo, c'est sa force)
 - Utiliser du jargon tech dans les supports clients

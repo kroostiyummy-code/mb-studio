@@ -119,10 +119,11 @@ Ce mode démontre mon expertise (j'ai choisi pour lui, je ne suis pas un prestat
 **Ce que je fais (chez moi) :**
 1. Lancer le skill `site-from-brief` pour générer le site Astro à partir du brief
 2. Personnaliser les détails (le skill génère 80% du travail, je peaufine 20%)
-3. **Ajouter le cadeau surprise** non annoncé : favicon personnalisé, animation discrète, photo retouchée, micro-interaction sympathique, message d'erreur 404 rigolo — un truc qui fera "ah, mais c'est mignon ça je m'y attendais pas"
-4. Déployer sur Cloudflare Pages (URL provisoire `nom-resto.pages.dev`)
-5. **En parallèle** : optimiser la fiche GMB du patron via skill `gmb-setup` (photos, catégorie, description, posts hebdomadaires, FAQ, attributs)
-6. Tester sur 3 navigateurs et sur mobile
+3. **Vérifier le standard SEO local** (cf `checklist-seo-local.md`) : titres + descriptions ville+cuisine, contenus calés sur les requêtes locales, NAP identique à la fiche Google, données structurées, FAQ locale, photos décrites. Engagement de moyens non-négociable, jamais une promesse de position.
+4. **Ajouter le cadeau surprise** non annoncé : favicon personnalisé, animation discrète, photo retouchée, micro-interaction sympathique, message d'erreur 404 rigolo — un truc qui fera "ah, mais c'est mignon ça je m'y attendais pas"
+5. Déployer sur Cloudflare Pages (URL provisoire `nom-resto.pages.dev`)
+6. **En parallèle** : optimiser la fiche GMB du patron via skill `gmb-setup` (photos, catégorie, description, posts hebdomadaires, FAQ, attributs)
+7. Tester sur 3 navigateurs et sur mobile
 
 **Outils :** skill `site-from-brief`, skill `gmb-setup`, template `site-resto/`
 
