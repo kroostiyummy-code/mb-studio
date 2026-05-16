@@ -100,7 +100,18 @@ Avant chaque livraison, le skill `audit-livraison` compare le nouveau site aux s
 
 ---
 
-## Ce qui est fait aujourd'hui (PC éteint) vs à câbler (PC allumé)
+## Avancement
 
-- **Fait maintenant** : ce document, la règle non-négociable dans `CLAUDE.md`, la matrice d'attribution (utilisable dès le 1er client), la spec du garde-fou dans `audit-livraison`.
-- **À construire quand le PC sera rallumé** : variantes de Hero, ordre de sections paramétrable, packs typo (build + test visuel + test perf obligatoires — rien validé sans build).
+**Fait (stratégie, PC éteint) :** ce document, la règle non-négociable dans `CLAUDE.md`, la matrice d'attribution (utilisable dès le 1er client), la spec du garde-fou dans `audit-livraison`, le mécanisme DA pilotée par mots-clés.
+
+**Fait (build, 2026-05-16) — archi packs typo, vertical slice Brutaliste :**
+- `settings.pack_typo` ajouté au schéma (optionnel, piloté Mike, jamais Decap).
+- `Layout.astro` : système de packs (registre + défaut par signature + garde-fou pack inconnu) ; attribut `data-typo-pack` sur `<body>` ; preload des polices critiques ; pont Google conservé **uniquement** pour les signatures non encore migrées.
+- Pack `brutalist-base` : polices Kroosti **rapatriées en local** (`public/fonts/`, woff2 subset latin), CSS `src/styles/typo-packs/brutalist-base.css`. **La signature Brutaliste ne touche plus Google** (0 requête tierce, 0 RGPD, plus de render-blocking externe). Build vérifié vert ; HTML/CSS générés contrôlés.
+- **Reste à valider par Mike sur son écran** : rendu visuel identique à avant + mesure Lighthouse mobile (perf inchangée ou meilleure). Rien n'est "validé" tant que ces deux-là ne sont pas faits.
+
+**À construire ensuite (PC allumé, build + visuel + perf obligatoires) :**
+- Migrer `elegant` et `tradition` sur le même schéma (packs `*-base` auto-hébergés) → supprimer le pont Google partout.
+- Ajouter les packs **alternés** par signature (`brutalist-02`, etc.) — choix des polices validé visuellement avec Mike (univers resto), chaque police admise seulement après mesure perf.
+- Variantes de Hero + ordre de sections paramétrable.
+- Matrice mots-clés → DA (primaire + alternées).

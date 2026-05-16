@@ -47,3 +47,8 @@ C'est le facteur n°1 qui bloque leur visibilité dans le Local Pack Google. Les
 - [ ] Risque Google : vérifier que les QR codes directs vers "leave a review" ne sont pas considérés comme du gating (Google a un guideline anti-incitation, à lire)
 
 ---
+
+## Reprise sélection prospects après changement de tunnel (noté 2026-05-16)
+
+- **La Casa Tropical** avait été retenu via l'**ancien tunnel** de sélection → **à refaire** avec le nouveau flux (`scoring-prospects` → `pilote-client`). Ne pas le traiter comme acquis.
+- Quand on reprendra la sélection prospects : **réinjecter les infos vues en session** (notamment **API Google Places** comme source de données prospects, en plus d'Overpass OSM / PageSpeed / Wayback déjà prévus dans `skills/scoring-prospects/SPEC.md`). À intégrer à la spec scoring quand on la code.

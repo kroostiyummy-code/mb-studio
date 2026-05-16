@@ -5,6 +5,9 @@ import '../styles/tokens.css';
 import '../styles/signatures/brutalist.css';
 import '../styles/signatures/elegant.css';
 import '../styles/signatures/tradition.css';
+// Packs typo auto-hébergés (différenciation inter-clients, cf differenciation-clients.md).
+// Le @font-face n'est chargé par le navigateur que si le pack est l'actif (data-typo-pack).
+import '../styles/typo-packs/brutalist-base.css';
 
 const entry = await getEntry('settings', 'site');
 if (!entry) throw new Error('settings/site.yml manquant');
@@ -19,14 +22,35 @@ const ACCENT_DEFAULTS = {
 
 const accent = settings.accent_override ?? ACCENT_DEFAULTS[settings.signature];
 
-// Polices Google chargées conditionnellement selon signature (pas de poids mort)
+// Pont Google : utilisé UNIQUEMENT pour les signatures pas encore migrées en pack auto-hébergé.
 const FONT_URLS = {
   brutalist: 'https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=Barlow+Condensed:wght@400;500;700;800;900&display=swap',
   elegant:   'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap',
   tradition: 'https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;700;800&family=Source+Sans+3:wght@300;400;600&family=JetBrains+Mono:wght@400;500&display=swap',
 } as const;
 
-const fontUrl = FONT_URLS[settings.signature];
+// --- Système de packs typo (différenciation inter-clients) ---
+// Un pack = un jeu de polices DANS une signature. Pack auto-hébergé = 0 requête tierce.
+// Tant qu'une signature n'a pas de pack auto-hébergé, on garde le pont Google ci-dessus.
+const TYPO_PACKS: Record<string, Record<string, { preload: string[] }>> = {
+  brutalist: {
+    // Look identique à la signature Brutaliste d'origine, mais auto-hébergé.
+    'brutalist-base': { preload: ['archivo-black-400.woff2', 'barlow-condensed-500.woff2'] },
+  },
+};
+const DEFAULT_PACK: Record<string, string | null> = {
+  brutalist: 'brutalist-base',
+  elegant: null,
+  tradition: null,
+};
+const packId = settings.pack_typo ?? DEFAULT_PACK[settings.signature] ?? null;
+const packDef = packId ? (TYPO_PACKS[settings.signature]?.[packId] ?? null) : null;
+if (settings.pack_typo && !packDef) {
+  throw new Error(`pack_typo "${settings.pack_typo}" inconnu pour la signature "${settings.signature}"`);
+}
+const selfHostedFonts = packDef !== null;                                  // pack local → pas de Google
+const fontUrl = selfHostedFonts ? null : FONT_URLS[settings.signature];    // sinon pont Google
+const fontPreloads = packDef?.preload ?? [];
 const bodyClass = `signature-${settings.signature}`;
 
 const pageTitle = `${settings.nom} — ${settings.slogan}`;
@@ -124,9 +148,17 @@ const schema = {
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content={settings.hero_image} />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href={fontUrl} />
+  {selfHostedFonts
+    ? fontPreloads.map((f) => (
+        <link rel="preload" href={`/fonts/${f}`} as="font" type="font/woff2" crossorigin />
+      ))
+    : (
+      <Fragment>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="stylesheet" href={fontUrl} />
+      </Fragment>
+    )}
 
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
@@ -140,7 +172,7 @@ const schema = {
     }
   </style>
 </head>
-<body class={bodyClass}>
+<body class={bodyClass} data-typo-pack={packId ?? undefined}>
   <slot />
 
   <script>
