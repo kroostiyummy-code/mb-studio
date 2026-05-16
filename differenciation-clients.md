@@ -20,6 +20,49 @@ Le trou réel (confirmé en lisant le code) :
 
 ---
 
+## Le moteur : la DA choisie au brief (panel de mots-clés)
+
+Décidé le 2026-05-16. C'est le **point d'entrée** qui pilote toutes les couches ci-dessous. Objectif de Mike : que la police et tout le design **collent à l'univers du resto**, choisis **par le restaurateur lui-même** au brief, et que l'audit **valide** que le site suit cette direction.
+
+### Principe
+
+La signature, le pack typo, la variante de Hero, l'ordre des sections et la dominante ne sont **pas** choisis séparément par Mike. Ils forment une **Direction Artistique (DA)** : un bundle cohérent et nommé.
+
+La DA n'est pas choisie en jargon. Elle est **déduite des mots-clés** que le restaurateur choisit lui-même pendant le brief.
+
+### Comment ça marche au brief
+
+1. Mike présente un **panel de mots-clés d'ambiance**, non-techniques, lisibles par un patron. Pistes d'axes (à figer PC allumé) :
+   - chaleureux ↔ épuré
+   - populaire ↔ raffiné
+   - traditionnel ↔ moderne
+   - brut ↔ délicat
+   - festif ↔ intime
+   - + mots d'univers : bistrot, terroir, gastro, street-food, méditerranéen, maison de famille, comptoir…
+2. Le restaurateur en choisit **3 à 5** qui sont *son* resto. (Étape à ajouter dans le skill `brief-client`, voir « Implications cross-skill ».)
+3. Une **matrice mots-clés → DA** traduit ces mots en une DA complète (signature + pack typo + Hero + ordre + guidage dominante).
+4. La DA est inscrite dans `brief.md` et `briefs/{slug}/settings.yml`. `site-from-brief` construit **en suivant la DA**.
+5. À l'audit, `audit-livraison` vérifie que le site livré **respecte la DA du brief** + applique le garde-fou anti-jumeau (Couche 4).
+
+### Résolution de la tension « restos similaires → DA jumelle »
+
+Deux restos proches (deux bistrots tradition) choisiront des mots-clés proches → même DA → sites jumeaux. C'est précisément le risque #1.
+
+Parade structurelle : **chaque grappe de mots-clés pointe vers une DA primaire + 1 à 2 DA alternées de même esprit** (même ambiance ressentie, exécution différente : autre pack typo, autre variante Hero, autre ordre). La matrice d'attribution (Couche 1) choisit une variante **encore libre dans la ville**. Le restaurateur garde l'ambiance qu'il a choisie ; deux voisins ne reçoivent jamais la même exécution.
+
+### Condition non-négociable sur la typo (rappel + renforcement)
+
+Une police n'entre dans un pack **qu'après un build de mesure prouvant qu'elle ne dégrade pas la vitesse** (Core Web Vitals). Le « large panel » que veut Mike se construit **police par police, validée une par une**, jamais en bloc. Vitesse = condition d'admission, pas un compromis négociable.
+
+### Implications cross-skill (à câbler PC allumé)
+
+- **`brief-client`** : ajouter une étape « panel de mots-clés d'ambiance » dans le questionnaire ; sortie = liste de mots + DA déduite, écrite dans `brief.md` et `settings.yml`.
+- **`site-from-brief`** : lire la DA depuis `settings.yml` et l'appliquer (signature + pack typo + Hero + ordre + dominante) au lieu de choix manuels dispersés.
+- **`audit-livraison`** : étape « cohérence DA » (le site livré applique-t-il bien la DA du brief ?) en plus du garde-fou anti-jumeau (étape 7bis déjà spécifiée).
+- **Matrice mots-clés → DA** : nouvelle ressource à créer (`differenciation/matrice-da.md` ou dans `brief-client/references/`), avec DA primaire + alternées par grappe.
+
+---
+
 ## Les 4 couches de défense
 
 ### Couche 1 — Matrice d'attribution (organisationnel, applicable AUJOURD'HUI)

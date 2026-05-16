@@ -112,7 +112,7 @@ Ces 4 sources alimentent `monthly-report` et justifient l'abonnement Suivi à 50
   - 3 signatures typo MB Studio : Brutaliste / Élégante / Tradition (voir mémoire `project-design-system-template`)
   - Sections optionnelles = composants Astro conditionnels au build, pas du CSS display:none (voir mémoire `feedback-template-architecture`)
   - 1 repo Git par client (jamais mono-repo) — confirmé conséquence directe du principe #7
-- **Différenciation inter-clients (2026-05-16)** : 3 signatures NE SUFFISENT PAS pour garantir l'unicité sur 5+ clients. Modèle étendu décidé (variantes de structure + packs typo par signature + matrice d'attribution + garde-fou anti-jumeau dans audit-livraison). Détail et plan dans `differenciation-clients.md`. Règle + matrice posées PC éteint ; variantes/packs typo à construire PC allumé (build + test perf obligatoires).
+- **Différenciation inter-clients (2026-05-16)** : 3 signatures NE SUFFISENT PAS pour garantir l'unicité sur 5+ clients. Modèle étendu décidé (variantes de structure + packs typo par signature + matrice d'attribution + garde-fou anti-jumeau dans audit-livraison). Moteur = une **Direction Artistique (DA)** déduite d'un **panel de mots-clés choisi par le restaurateur au brief** (chaque grappe → DA primaire + alternées pour éviter les jumeaux), appliquée par `site-from-brief`, validée à l'audit. Détail et plan dans `differenciation-clients.md`. Règle + matrice + mécanisme DA posés PC éteint ; variantes/packs typo + matrice mots-clés→DA à construire PC allumé (build + test perf obligatoires, vitesse = condition d'admission d'une police).
 - Statut juridique : à régulariser (ajout activité secondaire BIC service à la micro foodtruck) **avant 1ère facture**
 
 ## TODO bloquants avant 1er client (ne pas oublier)
