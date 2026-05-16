@@ -32,14 +32,14 @@ Création d'un site internet professionnel pour l'établissement ci-dessus, mise
 | Site internet complet, conçu sur mesure pour l'établissement |
 | Nom de domaine pris au nom du patron, **première année réglée par MB Studio** |
 | Mise en ligne et hébergement (voir limites, article 6) |
-| Optimisation de la fiche Google de l'établissement |
+| Optimisation de la fiche Google de l'établissement (catégories, photos, description, avis) — principal levier de visibilité locale |
 | Formation de 30 minutes à la livraison : le patron réalise lui-même une modification |
 | Guide papier remis à la livraison (1 page, les 3 gestes les plus fréquents) |
 | 1 modification gratuite par an pendant toute la durée de vie du site |
 
 ## 3. Prix et paiement
 
-- **Pack Solo : 490 € au total** (tarif de lancement).
+- **Pack Solo : 490 € au total** — tarif préférentiel de lancement (tarif courant : 890 €).
 - **Paiement en deux fois :**
   - **245 €** à la signature du présent bon de commande (acompte).
   - **245 €** le jour de la livraison du site.
@@ -62,7 +62,7 @@ Création d'un site internet professionnel pour l'établissement ci-dessus, mise
 Écrit clairement pour qu'il n'y ait aucune mauvaise surprise :
 
 - **Hébergement** : assuré gratuitement à vie via un service tiers (Cloudflare). Ce service étant gratuit, aucune disponibilité permanente ne peut être garantie contractuellement. MB Studio informe le patron en cas d'incident mais ne peut être tenu responsable d'une panne de cette infrastructure tierce.
-- **Référencement Google** : aucune position ni page de résultats ne peut être garantie. Le référencement dépend de facteurs externes (avis, photos, concurrence).
+- **Référencement Google** : l'offre comprend les bases concrètes d'un bon référencement local — site rapide et bien structuré, et fiche Google optimisée (article 2). En revanche, **aucune position précise ni page de résultats ne peut être garantie** : le classement dépend de facteurs externes (concurrence, avis, ancienneté) et de l'algorithme de Google.
 - **Modifications** : 1 par an incluse. Au-delà, soit le Pack Suivi (article 8), soit 50 €/heure sur devis ferme accepté avant tout travail. Une modification de structure (nouvelle section, refonte) fait l'objet d'un devis séparé.
 - **Support** : du lundi au vendredi de 9 h à 19 h, réponse dans la journée et correction d'un incident bloquant sous 24 heures. Le soir et le week-end : traitement au mieux, sans garantie de réponse immédiate. Pas de support 24 h/24.
 - **Renouvellement du domaine** : à la charge du patron les années suivantes. MB Studio le prévient 30 jours avant l'échéance, mais le renouvellement reste sous la responsabilité du patron.
@@ -105,9 +105,11 @@ MODE D'EMPLOI — NE PAS IMPRIMER (retirer ce bloc avant remise)
 - Imprimer en 2 exemplaires (1 patron, 1 toi). Faire signer les 2.
 - L'acompte de 245 € se prend APRÈS le brief signé, jamais avant
   d'avoir montré la maquette (cf process.md, étape 2).
-- Le tarif 490 € est le tarif de lancement. Le levier "890 € dans
-  6 mois" et le délai pour réserver le tarif se disent À L'ORAL
-  pendant la visite, ils ne figurent pas sur le contrat.
+- Le contrat affiche le tarif préférentiel 490 € avec le tarif
+  courant 890 € comme repère factuel (sans date). Le DÉLAI pour
+  réserver ce tarif et l'urgence ("avant fin [mois]") restent À
+  L'ORAL : jamais de date couperet écrite (anxiogène, contraire
+  aux principes).
 - Ne jamais ajouter de promesse non écrite ici (SEO, support 24/7,
   modifs illimitées) : cf process.md, section anti-promesses.
 - Le SIRET / l'email pro se complètent une fois le statut
