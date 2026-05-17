@@ -6,9 +6,11 @@ const s = entry!.data;
 const h = s.histoire;
 const anneeCourante = new Date().getFullYear();
 
-// Rendu de **mot** en <strong> avec couleur accent (sans bibliothèque markdown)
+// **mot** = emphase couleur accent ; ==mot== = surlignage marqueur (volontaire, parcimonieux)
 function renderEmphasis(text: string): string {
-  return text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  return text
+    .replace(/==([^=]+)==/g, '<mark class="mb-marker">$1</mark>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 }
 ---
 {h && (
@@ -59,15 +61,14 @@ function renderEmphasis(text: string): string {
     color: var(--mb-accent);
   }
 
-  /* ===== Surcharge signature Brutaliste =====
-     Accent en marqueur surligné incliné (finition Kroosti, cas client zéro).
-     100% CSS : aucune requête, aucun fichier, aucune animation → zéro impact vitesse. */
-  :global(.signature-brutalist) .statement-accent {
-    display: inline-block;
-    color: var(--mb-text-on-accent);
+  /* Marqueur surligné = emphase VOLONTAIRE (==mot== dans le texte), pas un trait
+     de signature. À utiliser avec parcimonie sur un mot/chiffre clé, jamais en
+     systématique (sinon les sites se ressemblent). 100% CSS → zéro coût vitesse. */
+  .statement-body :global(mark.mb-marker) {
     background: var(--mb-accent);
-    padding: 0.02em 0.16em;
-    transform: rotate(-2.5deg);
+    color: var(--mb-text-on-accent);
+    padding: 0.02em 0.18em;
+    border-radius: 2px;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
   }
