@@ -67,3 +67,30 @@ Carburant explicite des 2 leviers : nouveautés outils/API → enrichissent le s
 standards qui bougent + objections récurrentes → font évoluer le tunnel. À brancher
 sur le café mensuel du `monthly-report`. Décision à prendre plus tard : en faire un
 skill dédié `/veille` ou rester en routine manuelle assistée.
+
+## Add-on payant "Module Commande/Réservation" (court-list validée 2026-05-16)
+
+**Modèle décidé (principe) :** on n'héberge/ne maintient jamais la caisse du patron. Le
+patron souscrit l'outil **dans son propre compte** (il paie l'abo, il possède — cohérent
+principe #7), Mike **intègre** au site (bouton/lien/widget, maintenance ≈ 0) et facture un
+**forfait installation one-shot** en add-on du Pack Solo. Bon filtre = "est-ce que ça
+m'ajoute du travail récurrent / une responsabilité intenable solo non-dev ?" (pas "est-ce
+que ça coûte de l'argent" — l'argent investi par le patron est OK si ça rapporte).
+
+**Court-list à maîtriser (2 outils + 1 entrée 0€) :**
+- **Réservation** : *Guestonline* (~77€/mois patron, 0 commission, indépendant) en défaut ;
+  *Zenchef* (~129€/mois) en alternative "plus gros". Éviter TheFork par défaut (commission
+  par couvert + dépendance place de marché = moins "propriétaire").
+- **Commande / Click&Collect** : *Collectly* (49,99€/mois HT patron, 0% commission, marque
+  blanche, résiliable, live <24h) à tester en premier. Alternatives 0% : Clickeat,
+  Deliver by Linkeo.
+- **Entrée 0€** (resto pas prêt à payer) : formulaire de commande → mail/WhatsApp/tel,
+  intégré par Mike au template. Pas de paiement en ligne mais honnête et gratuit.
+
+**TODO avant de vendre / figer dans process.md :**
+- [ ] Tester une vraie mise en place Guestonline + Collectly (compte de test) — valider
+  intégration réelle dans le template (bouton/widget) + temps de mise en place.
+- [ ] Re-vérifier prix/fonctions auprès des éditeurs (ça bouge — honnêteté radicale).
+- [ ] Figer le **prix du forfait installation** (piste évoquée : +150–250€ one-shot).
+- [ ] Décider : add-on Pack Solo seul, ou aussi proposé dans Pack Suivi.
+- [ ] Une fois testé+tranché → graver offre + objection dans `process.md`.

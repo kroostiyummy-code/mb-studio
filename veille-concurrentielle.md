@@ -30,4 +30,4 @@ qu'on ne couvre pas.
 
 | Date | Sujet | Constat | Impact / action | Statut |
 |---|---|---|---|---|
-| _(vide — première entrée à la prochaine passe de veille)_ | | | | |
+| 2026-05-16 | SaaS commande/résa resto FR | Outils 0 commission, payés/possédés par le patron, intégrables par simple lien/widget : Guestonline (~77€/mo), Zenchef (~129€/mo), Collectly (49,99€/mo HT) | Court-list + modèle add-on payant notés dans `idees-roadmap.md` ; suivre l'évolution prix/fonctions | À tester (Guestonline + Collectly) |
