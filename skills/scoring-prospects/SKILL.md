@@ -108,8 +108,10 @@ Pour chaque resto :
 
 Buckets :
 - **`eatbu`** : URL contient `eatbu.com`
-- **`autre-site`** : URL existe, pas eatbu
-- **`pas-de-site`** : aucune URL
+- **`autre-site`** : URL existe, pas eatbu **et pas une plateforme agrégateur**
+- **`pas-de-site`** : aucune URL **OU** URL pointant uniquement vers une plateforme agrégateur/livraison/linktree
+
+> **Règle agrégateurs (décision Mike 2026-05-17).** Un lien vers UberEats, Deliveroo, Just Eat, TheFork/LaFourchette, Privateaser, linktr.ee, bento.me, beacons.ai, allmylinks, une page Facebook/Instagram… **n'est PAS un site à soi** : le patron ne possède rien, ne maîtrise rien. Ces restos vont en **`pas-de-site`** (valeur 90, cible prime), jamais en `autre-site`. Effet de bord bénéfique : corrige aussi les faux matchs Nominatim (une même URL agrégateur partagée à tort entre plusieurs restos). Liste de domaines maintenue dans le script (`AGGREGATEURS`).
 
 ### Étape 3 — Lighthouse via PageSpeed API (batch parallèle)
 
@@ -173,26 +175,32 @@ Pour chaque resto scanné :
 Puis **régénérer les vues** (toutes dérivées du YAML, jamais éditées à la main) :
 
 1. `prospects/restaurants.csv` — vue plate vivante, 1 ligne/resto, colonnes du fichier existant, prête infographie / Google Sheets.
-2. `prospects/{ville}-{YYYY-MM-DD}/` (snapshot daté de la campagne) :
-   - `prospects-avec-site-eatbu.md` — fiches bucket eatbu, triées score décroissant
-   - `prospects-avec-site-autre.md` — fiches bucket autre-site, triées score décroissant
-   - `prospects-sans-site.md` — fiches bucket pas-de-site, triées score décroissant
+2. `prospects/{ville}-{YYYY-MM-DD}/` (snapshot daté de la campagne) — **3 listes SÉPARÉES, jamais de classement global mélangé** (décision Mike 2026-05-17) :
+   - `liste-eatbu.md` + `liste-eatbu.txt` — bucket eatbu
+   - `liste-autre-site.md` + `.txt` — bucket autre-site
+   - `liste-sans-site.md` + `.txt` — bucket pas-de-site
    - `prospects-exclus.md` — exclus + raison (chaîne nationale / site custom moderne)
    - `tableau-recap.csv` — export brut riche de la campagne (colonnes = en-tête de `templates/tableau-recap.csv`)
 
-Chaque fiche suit `templates/fiche-prospect.md`. Le "Top 3 arguments" est généré en piochant dans `references/argument-library.md` selon la **pire métrique mesurée** sur CE resto (1er argument = point le plus douloureux et le plus prouvable). Drapeau rouge ajouté selon les règles de l'argument-library.
+   Chaque liste : un `.md` **et** un `.txt` lisible sans outil technique (ou `.docx` si pandoc dispo). Chaque liste s'ouvre par un bloc **« 📋 Critères de cette liste »** (définition de la catégorie + angle stratégique + **tri annoncé explicitement**) puis les fiches. **Tri propre à chaque liste :**
+   - `liste-eatbu` / `liste-autre-site` : du site **le plus mauvais au moins mauvais** (sous-score « ce qu'on peut lui apporter » décroissant).
+   - `liste-sans-site` : par **nombre d'avis Google décroissant** (popularité = resto établi + capacité à payer).
 
-En fin de run, afficher à Mike un récap :
+Le format exact de l'en-tête et des fiches est gravé dans `templates/fiche-prospect.md` (libellés français). Le "Top 3 arguments" est piochée dans `references/argument-library.md` selon la **pire métrique mesurée** sur CE resto (1er argument = point le plus douloureux et le plus prouvable). Drapeau rouge ajouté selon les règles de l'argument-library.
+
+En fin de run, afficher à Mike un récap (**une tête par liste selon son propre tri, JAMAIS de top global mélangé**) :
 ```
 ✅ Scoring terminé — {ville}, rayon {km} km
    {N} restos analysés, {X} exclus
-   eatbu : {a} fiches (top : {nom} — {score}/100)
-   autre-site : {b} fiches
-   pas-de-site : {c} fiches
+   eatbu : {a} · autre-site : {b} · pas-de-site : {c}
+   tiers : A={..} B={..} C={..}
    {mode normal | ⚠️ MODE DÉGRADÉ — clé PageSpeed absente}
-📁 prospects/{ville}-{date}/
-🎯 Top 3 cibles toutes listes : {3 noms + scores}
-👉 Prochaine action : lance `maquette-flash` sur ta cible n°1 avant d'aller la voir.
+📁 prospects/{ville}-{date}/  (3 listes séparées .md + .txt)
+🎯 Tête de chaque liste (selon le tri de la liste) :
+   [eatbu] {nom} — valeur {v}/100, proba {p}/100, Tier {t}
+   [autre-site] {nom} — …
+   [sans-site] {nom} — …
+👉 Prochaine action : choisis ta cible à la stratégie (pas au tier brut), puis lance `maquette-flash` dessus avant d'aller la voir.
 ```
 
 ---
@@ -228,6 +236,8 @@ Jamais de fait accompli **silencieux**. Une décision peut être juste ET devoir
 - Pondération : 50 % valeur + 50 % probabilité
 - Clé PageSpeed obligatoire en mode normal, mode dégradé documenté et accepté comme fallback
 - (2026-05-16) Source de vérité = liste vivante `prospects/restaurants.yml`, vues régénérées ; `prospects/` versionné dans le repo privé (sauf cache) ; Google Places API officielle ajoutée comme source d'enrichissement optionnelle
+- (2026-05-17) Lien agrégateur/livraison/linktree (UberEats, Deliveroo, Just Eat, TheFork, Privateaser, linktr.ee, bento.me, Facebook/Instagram…) = **`pas-de-site`**, jamais `autre-site` (le patron ne possède rien) — cf règle agrégateurs étape 2. Bruit OSM non-commercial (cantines scolaires, administrations) géré via `prospects/opt-out.txt` (pas de règle d'exclusion dans la spec : opt-out ponctuel suffit)
+- (2026-05-17) **Format des sorties** : 3 listes SÉPARÉES (`liste-eatbu` / `liste-autre-site` / `liste-sans-site`), `.md` + `.txt` lisible, bloc « 📋 Critères de cette liste » en tête, tri propre annoncé par liste, fiches à libellés français. **Jamais** de classement global mélangé ni de « Top 3 toutes listes ». Format gravé dans `templates/fiche-prospect.md`
 
 ---
 
