@@ -59,6 +59,19 @@ function renderEmphasis(text: string): string {
     color: var(--mb-accent);
   }
 
+  /* ===== Surcharge signature Brutaliste =====
+     Accent en marqueur surligné incliné (finition Kroosti, cas client zéro).
+     100% CSS : aucune requête, aucun fichier, aucune animation → zéro impact vitesse. */
+  :global(.signature-brutalist) .statement-accent {
+    display: inline-block;
+    color: var(--mb-text-on-accent);
+    background: var(--mb-accent);
+    padding: 0.02em 0.16em;
+    transform: rotate(-2.5deg);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
   .statement-body {
     font-family: var(--mb-sans);
     font-size: 1.15rem;
