@@ -52,3 +52,18 @@ C'est le facteur n°1 qui bloque leur visibilité dans le Local Pack Google. Les
 
 - **La Casa Tropical** avait été retenu via l'**ancien tunnel** de sélection → **à refaire** avec le nouveau flux (`scoring-prospects` → `pilote-client`). Ne pas le traiter comme acquis.
 - Quand on reprendra la sélection prospects : **réinjecter les infos vues en session** (notamment **API Google Places** comme source de données prospects, en plus d'Overpass OSM / PageSpeed / Wayback déjà prévus dans `skills/scoring-prospects/SPEC.md`). À intégrer à la spec scoring quand on la code.
+
+## Structure data prospects + veille concurrentielle (figé 2026-05-16)
+
+**Liste prospects = ressource centrale vivante.** Source de vérité unique
+`prospects/restaurants.yml` (voir `prospects/README.md`). Vues régénérées, jamais
+éditées main : `prospects/restaurants.csv` (vue plate claire pour infographie / Sheets)
++ snapshots datés `prospects/{ville}-{date}/`. Les outils écrivent `scan`/`scoring`,
+`pilote-client` écrit `tunnel`, Mike garde `notes_mike` + `mike_override` (jamais
+écrasés). SPEC `scoring-prospects` mise à jour en conséquence (Étape 7 = sync + vues).
+
+**Veille concurrentielle** = `veille-concurrentielle.md` (fichier vivant, on empile).
+Carburant explicite des 2 leviers : nouveautés outils/API → enrichissent le scan ;
+standards qui bougent + objections récurrentes → font évoluer le tunnel. À brancher
+sur le café mensuel du `monthly-report`. Décision à prendre plus tard : en faire un
+skill dédié `/veille` ou rester en routine manuelle assistée.
