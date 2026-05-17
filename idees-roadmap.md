@@ -51,7 +51,7 @@ C'est le facteur n°1 qui bloque leur visibilité dans le Local Pack Google. Les
 ## Reprise sélection prospects après changement de tunnel (noté 2026-05-16)
 
 - **La Casa Tropical** avait été retenu via l'**ancien tunnel** de sélection → **à refaire** avec le nouveau flux (`scoring-prospects` → `pilote-client`). Ne pas le traiter comme acquis.
-- Quand on reprendra la sélection prospects : **réinjecter les infos vues en session** (notamment **API Google Places** comme source de données prospects, en plus d'Overpass OSM / PageSpeed / Wayback déjà prévus dans `skills/scoring-prospects/SPEC.md`). À intégrer à la spec scoring quand on la code.
+- ~~Réinjecter l'**API Google Places** comme source de données prospects.~~ ✅ Fait (2026-05-16) : intégrée dans `scoring-prospects` (SKILL.md étape 2 + SPEC), source officielle optionnelle, plafonnée et mise en cache. **Reste à faire** : reprendre La Casa Tropical via le nouveau tunnel (`scoring-prospects` → `pilote-client`).
 
 ## Structure data prospects + veille concurrentielle (figé 2026-05-16)
 
