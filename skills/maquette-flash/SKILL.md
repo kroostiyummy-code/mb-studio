@@ -80,7 +80,9 @@ Si Mike a une intuition de couleur (ex: le logo est jaune et bleu) : le suivre.
 
 ### Étape 4 — Génération des 3 fichiers settings
 
-À partir des fixtures existantes dans `templates/site-resto/examples/`, créer **3 fichiers** dans le même dossier :
+> **⚠️ Confidentialité (corrigé 2026-05-16, validé Mike) :** un prospect est une donnée commerciale confidentielle. Les settings de maquette d'un prospect réel ne se committent JAMAIS — ils vont en **local gitignored**, comme tout le reste de la prospection (garde-fou #7, cohérent avec `scoring-prospects`). Les fixtures de DÉV génériques (`kroosti-foodtruck.yml`, `gastronomique-elegant.yml`, `bistrot-tradition.yml`) restent, elles, dans `templates/site-resto/examples/` (versionnées, ce ne sont pas des prospects). On s'en inspire pour le ton, mais on n'écrit pas la maquette prospect là.
+
+En s'inspirant des 3 fixtures de référence de `templates/site-resto/examples/`, créer **3 fichiers dans le dossier prospect local** `prospects/{ville}-{date}/preparation-visites/{slug}/` :
 
 - `maquette-{slug}-brutalist.yml`
 - `maquette-{slug}-elegant.yml`
@@ -104,13 +106,13 @@ S'inspirer des 3 fixtures existantes (`kroosti-foodtruck.yml`, `gastronomique-el
 
 Pour chaque signature, exécuter la séquence :
 
-1. Vérifier que le serveur dev Astro tourne sur `localhost:4321` (sinon le démarrer en background via `npm run dev` dans `templates/site-resto/`)
-2. Copier `templates/site-resto/examples/maquette-{slug}-{signature}.yml` vers `templates/site-resto/src/content/settings/site.yml`
-3. Attendre 3 secondes (hot-reload Astro)
-4. Lancer Chrome headless avec `--window-size=1440,7000` (assez haut pour capturer toute la page sans scroll)
-5. Sauver la capture dans `.maquettes/{slug}/{signature}.png`
+1. **Sauvegarder** l'état courant (`src/content/settings/site.yml` + `src/content/menu/sections/*`) pour restauration fidèle en fin de run.
+2. Si le menu de l'état courant ne colle pas au prospect (ex. menu Kroosti sur un resto créole), générer un menu prospect crédible (2-3 plats signatures, prix cohérents) dans le dossier prospect local et le swapper le temps des captures.
+3. Pour chaque signature : copier `prospects/{ville}-{date}/preparation-visites/{slug}/maquette-{slug}-{signature}.yml` vers `templates/site-resto/src/content/settings/site.yml`, builder (`npm run build`) et servir le `dist/` (build déterministe = plus fiable que le hot-reload pour de l'automatisation).
+4. Chrome headless `--window-size=1440,4200+` (assez haut pour toute la page).
+5. Sauver la capture dans `prospects/{ville}-{date}/preparation-visites/{slug}/maquette-{signature}.png`.
 
-**Important** : à la fin du dernier capture, **restaurer** `templates/site-resto/src/content/settings/site.yml` depuis `templates/site-resto/examples/kroosti-foodtruck.yml` pour laisser l'environnement propre.
+**Important** : en fin de run, **restaurer fidèlement** `site.yml` ET le menu depuis la sauvegarde de l'étape 1 (pas juste recopier une fixture — restaurer l'état exact d'avant), puis rebuild pour laisser l'environnement propre. Toute la mécanique de swap/restore peut être scriptée (cf le pattern éprouvé `prospects/run_maquettes.py`).
 
 ### Étape 6 — Récap pour Mike
 
@@ -118,13 +120,14 @@ Produire un récap textuel court :
 
 ```
 Maquettes prêtes pour {Nom du resto}
+(dossier local : prospects/{ville}-{date}/preparation-visites/{slug}/)
 
 Signature primaire (à montrer en 1er) : {signature_primaire}
-  → .maquettes/{slug}/{signature_primaire}.png
+  → maquette-{signature_primaire}.png
 
 Backups (à montrer si le patron hésite) :
-  → .maquettes/{slug}/{signature_2}.png ({signature_2})
-  → .maquettes/{slug}/{signature_3}.png ({signature_3})
+  → maquette-{signature_2}.png ({signature_2})
+  → maquette-{signature_3}.png ({signature_3})
 
 Données récupérées depuis : {liste des URLs sources}
 
@@ -136,13 +139,13 @@ Données récupérées depuis : {liste des URLs sources}
 
 ## Format d'output (imposé)
 
-Le skill produit **uniquement** :
+Le skill produit **uniquement**, et **tout en local gitignored** (`prospects/{ville}-{date}/preparation-visites/{slug}/`, jamais commité — confidentialité prospect, garde-fou #7) :
 
-1. Trois fichiers YAML dans `templates/site-resto/examples/maquette-{slug}-*.yml`
-2. Trois fichiers PNG dans `.maquettes/{slug}/*.png` (dossier créé si absent)
+1. Trois fichiers YAML `maquette-{slug}-{signature}.yml`
+2. Trois fichiers PNG `maquette-{signature}.png`
 3. Le récap textuel en sortie console
 
-**Aucun autre artefact**. Pas de PDF, pas de site déployé, pas de mail envoyé. Mike charge les 3 PNG sur sa tablette (via cloud sync ou câble) et c'est terminé.
+**Aucun artefact dans le dépôt versionné** (rien dans `templates/site-resto/examples/`, qui ne contient que les fixtures de dév génériques). Pas de PDF, pas de site déployé, pas de mail. Mike charge les 3 PNG sur sa tablette (cloud sync ou câble) et c'est terminé. Le template est restauré à son état exact d'avant le run.
 
 ---
 
@@ -183,4 +186,4 @@ Mike : Maquette flash pour Le Saint-Hilaire à Chartres, j'y vais jeudi.
        Mon intuition : élégant.
 ```
 
-Le skill exécute les 6 étapes et retourne 3 PNG dans `.maquettes/le-saint-hilaire/` (elegant en primaire, brutalist et tradition en backup) + un récap des données récupérées et des points à valider au brief.
+Le skill exécute les 6 étapes et retourne 3 PNG dans `prospects/{ville}-{date}/preparation-visites/le-saint-hilaire/` (elegant en primaire, brutalist et tradition en backup), en local non commité, + un récap des données récupérées et des points à valider au brief.

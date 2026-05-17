@@ -173,15 +173,11 @@ En fin de run, afficher à Mike un récap :
 
 ## 🛑 GATE D'ALERTE DÉVIATION (méta-règle — prioritaire sur tout le reste)
 
-Dès que l'exécution s'écarte de la méthode documentée de ce skill — override d'un score, exclusion/inclusion d'un prospect hors des règles d'exclusion, choix d'une cible **au jugement** au lieu du tri/tier produit par la formule, saut d'une étape du pipeline — le skill **DOIT** :
+**Tant que l'exécution suit la méthode documentée** (pipeline 7 étapes, formule de `scoring-formula.md`, règles d'exclusion, tri/tier produit) : **avancer en autonomie, sans demander de validation.** Ne pas solliciter Mike pour ce qui est conforme.
 
-1. **S'arrêter immédiatement.**
-2. **Expliquer la déviation en une phrase** (« je m'écarte de la méthode parce que X »).
-3. **Exiger un "OK Mike" explicite** avant de continuer.
+**Dès qu'on s'écarte** — override d'un score, exclusion/inclusion hors règles, choix d'une cible **au jugement** au lieu du tri/tier, saut d'étape, emplacement de sortie différent de la spec — l'**interdit n'est pas d'avancer, c'est de dévier en silence**. Le skill DOIT **informer Mike clairement** : la déviation, sa raison, sa conséquence. Pour un écart structurant (choix de cible, décision stratégique), informer **avant** d'acter pour qu'il puisse réagir ; pour un écart mineur/réversible, informer dans la foulée.
 
-**Interdiction absolue tant que le "OK Mike" n'est pas donné :** aucun commit de carnet, aucune création/modification de fichier `pilote/`, aucune avancée du tunnel, aucune décision stratégique posée en fait accompli (choix de cible, archivage, passage d'étape).
-
-Une cible peut être excellente et le procédé fautif quand même : la justesse de la décision ne dispense JAMAIS de demander l'accord avant de la rendre effective. Le fait accompli sur une décision stratégique est la faute, pas l'erreur de jugement.
+Jamais de fait accompli **silencieux**. Une décision peut être juste ET devoir être signalée : la transparence sur l'écart est non négociable, la demande de permission systématique sur le conforme ne l'est pas.
 
 ---
 

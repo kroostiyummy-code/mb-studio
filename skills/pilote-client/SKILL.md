@@ -95,15 +95,15 @@ Rappel anticipé quand `J ≥ suivi_j30 − 3`. Lance `monthly-report` (1er rapp
 
 ## 🛑 GATE D'ALERTE DÉVIATION (méta-règle — prioritaire sur tout le reste)
 
-Dès que le pilotage s'écarte de la méthode documentée — choix d'une cible **au jugement** au lieu du résultat de `scoring-prospects`, override d'un score, saut ou anticipation d'une étape, franchissement d'une gate sans sa condition réelle, toute décision stratégique non prévue par le tunnel — le skill **DOIT** :
+**Tant que le pilotage suit la méthode documentée** (étapes du tunnel, gates avec leur vraie condition, ordre des skills, résultat de `scoring-prospects`) : **avancer en pleine autonomie, sans demander de validation, sans s'arrêter.** Ne pas faire poireauter Mike pour des actions conformes.
 
-1. **S'arrêter immédiatement.**
-2. **Expliquer la déviation en une phrase.**
-3. **Exiger un "OK Mike" explicite** avant de continuer.
+**Dès qu'on s'écarte de la méthode** — choix au jugement au lieu du résultat outillé, override d'un score, saut/anticipation d'étape, franchissement d'une gate sans sa condition réelle, emplacement ou comportement différent de la spec, toute décision stratégique non prévue — l'**interdit n'est pas d'avancer, c'est de dévier en silence**. Le skill DOIT :
 
-**Interdiction absolue tant que le "OK Mike" n'est pas donné :** aucun commit ni création/modification de carnet `pilote/{slug}.yml`, aucun passage d'étape (`etape_actuelle`), aucun archivage, aucun lancement de skill aval, aucune décision stratégique en fait accompli.
+1. **Informer Mike clairement et explicitement** : quoi (la déviation), pourquoi (la raison), quelle conséquence.
+2. Pour une déviation **lourde ou difficilement réversible** (choix de cible, archivage, décision stratégique structurante) : informer **avant** d'acter, pour laisser à Mike la possibilité d'intervenir. Il n'a pas à dire « go » pour ce qui est conforme ; il doit pouvoir réagir à ce qui dévie.
+3. Pour une déviation mineure/réversible : informer dans la foulée, continuer.
 
-Le choix peut être bon ET le procédé fautif : la justesse ne dispense jamais de l'accord préalable. Sur une décision stratégique, **jamais de fait accompli** — c'est précisément ce que le tunnel existe pour empêcher, y compris vis-à-vis de lui-même.
+Jamais de fait accompli **silencieux** sur une déviation. Une décision peut être juste ET devoir être signalée : la transparence sur l'écart est non négociable, la demande de permission systématique sur le conforme ne l'est pas. Les gates métier bloquantes (acompte, audit) gardent leur logique propre (cf `references/gates.md`) — cette méta-règle ne les assouplit pas.
 
 ---
 
