@@ -104,14 +104,16 @@ Avant chaque livraison, le skill `audit-livraison` compare le nouveau site aux s
 
 **Fait (stratégie, PC éteint) :** ce document, la règle non-négociable dans `CLAUDE.md`, la matrice d'attribution (utilisable dès le 1er client), la spec du garde-fou dans `audit-livraison`, le mécanisme DA pilotée par mots-clés.
 
-**Fait (build, 2026-05-16) — archi packs typo, vertical slice Fast-food :**
+**Fait (build, 2026-05-16) — archi packs typo + auto-hébergement complet des 3 signatures :**
 - `settings.pack_typo` ajouté au schéma (optionnel, piloté Mike, jamais Decap).
-- `Layout.astro` : système de packs (registre + défaut par signature + garde-fou pack inconnu) ; attribut `data-typo-pack` sur `<body>` ; preload des polices critiques ; pont Google conservé **uniquement** pour les signatures non encore migrées.
-- Pack `fast-food-base` : polices Kroosti **rapatriées en local** (`public/fonts/`, woff2 subset latin), CSS `src/styles/typo-packs/fast-food-base.css`. **La signature Fast-food ne touche plus Google** (0 requête tierce, 0 RGPD, plus de render-blocking externe). Build vérifié vert ; HTML/CSS générés contrôlés.
-- **Reste à valider par Mike sur son écran** : rendu visuel identique à avant + mesure Lighthouse mobile (perf inchangée ou meilleure). Rien n'est "validé" tant que ces deux-là ne sont pas faits.
+- Renommage des signatures : `fast-food` / `gastro` / `traditionnel` (partout : code, config, doc, skills).
+- `Layout.astro` : système de packs (registre + défaut par signature + garde-fou pack inconnu) ; attribut `data-typo-pack` sur `<body>` ; preload des 2 polices critiques par pack.
+- Packs `fast-food-base`, `gastro-base`, `traditionnel-base` : toutes les polices **rapatriées en local** (`public/fonts/`, woff2 subset latin), CSS dans `src/styles/typo-packs/`. **Aucune signature ne touche plus Google** (0 requête tierce, 0 RGPD, plus de render-blocking externe) — pont Google supprimé du code. Build vérifié vert sur les 3 signatures ; 0 référence Google dans le HTML/CSS générés.
+- Surlignage marqueur = emphase **volontaire** (`==mot==`), pas un trait de signature (préserve l'unicité inter-clients).
+- **Reste à valider par Mike sur son écran** : rendu visuel identique à avant + Lighthouse mobile sur les 3 signatures (perf inchangée ou meilleure). Rien n'est "validé" tant que ces deux-là ne sont pas faits.
 
 **À construire ensuite (PC allumé, build + visuel + perf obligatoires) :**
-- Migrer `gastro` et `traditionnel` sur le même schéma (packs `*-base` auto-hébergés) → supprimer le pont Google partout.
 - Ajouter les packs **alternés** par signature (`fast-food-02`, etc.) — choix des polices validé visuellement avec Mike (univers resto), chaque police admise seulement après mesure perf.
+- Levier perf si besoin : alléger les packs (Inter ~235 KB sur 5 graisses, JetBrains Mono peu utilisé) — trim après mesure.
 - Variantes de Hero + ordre de sections paramétrable.
 - Matrice mots-clés → DA (primaire + alternées).
