@@ -12,9 +12,10 @@ clients/*
 audits/
 .audit-*/
 
-# Prospects générés (liste de prospection = donnée sensible : jamais commitée, reste en local seulement — cf scoring-prospects garde-fou #7)
-prospects/*
-!prospects/.gitkeep
+# Prospects = ressource centrale vivante : versionnée dans le repo MB Studio (privé).
+# Confidentialité = ne jamais publier HORS de ce repo privé (cf prospects/README.md).
+# Seuls les caches techniques d'API restent hors git (volumineux, régénérables).
+prospects/cache/
 
 # Claude Code local settings (jamais commitées, propres à chaque poste)
 .claude/settings.local.json
