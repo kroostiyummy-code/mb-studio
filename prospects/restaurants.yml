@@ -1,0 +1,45 @@
+# Liste prospects — SOURCE DE VÉRITÉ UNIQUE (voir README.md de ce dossier)
+#
+# Une entrée = un restaurant. Les outils créent/mettent à jour les blocs `scan` et
+# `scoring` ; `pilote-client` écrit `tunnel` ; toi tu écris `notes_mike` et, si tu veux
+# corriger un score, `scoring.mike_override` (jamais écrasé par les outils).
+#
+# L'entrée ci-dessous est un MODÈLE commenté (préfixe `_modele`). Ne pas la pitcher.
+# Les vrais prospects arrivent via le scan `scoring-prospects`.
+
+restaurants:
+  - id: _modele                       # slug stable et unique, jamais réutilisé/renommé
+
+    identite:
+      nom: "Nom du restaurant"
+      adresse: "12 rue Exemple"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"            # ou le numéro public
+      cuisine: "inconnue"             # ex: pizzeria, bistrot, tradition
+      site_actuel: "aucun"            # "aucun" | url eatbu | url autre
+
+    scan:                             # rempli/MAJ par scoring-prospects
+      date_scan: null                 # AAAA-MM-JJ
+      note_google: null               # ex: 4.3
+      nb_avis: null                   # ex: 87
+      gmb_completude: null            # 0-100 (photos, horaires, description, catégories)
+      lighthouse_mobile: null         # 0-100, ou null si non mesuré
+      age_site_ans: null              # ancienneté du site, ou null si inconnu
+      source_donnees: null            # osm | places | wayback | manuel
+
+    scoring:                          # rempli/MAJ par scoring-prospects
+      score: null                     # 0-100
+      tier: null                      # A | B | C
+      valeur: null                    # 0-100 (valeur qu'on peut apporter)
+      proba: null                     # 0-100 (probabilité d'accepter)
+      drapeau_rouge: "aucun"
+      mike_override: null             # null OU { score: 72, raison: "bon feeling terrain" }
+
+    tunnel:                           # écrit par pilote-client au fil du temps
+      statut: a_qualifier             # a_qualifier|a_demarcher|maquette_vue|brief|acompte|prod|livre|suivi|perdu|exclu
+      historique: []                  # liste de { date, etape, note } ajoutée à chaque passage
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""                    # libre, à toi — jamais écrasé par un outil

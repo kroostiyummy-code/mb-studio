@@ -18,7 +18,7 @@ L'output est conçu pour être consommé par le futur skill `site-from-brief`. L
 **Bons cas d'usage :**
 - "Lance le brief pour Le Saint-Hilaire, je suis chez le patron"
 - "On démarre le brief de La Vesuvio"
-- "RDV brief chez Le Comptoir, signature retenue : tradition"
+- "RDV brief chez Le Comptoir, signature retenue : traditionnel"
 
 **Mauvais cas d'usage (ne pas déclencher) :**
 - Avant signature du bon de commande (le brief est étape 2, pas étape 1)
@@ -33,7 +33,7 @@ Demander à Mike, en une seule passe d'ouverture :
 
 > "OK on lance. Donne-moi :
 > 1. Le nom du resto (qui servira de slug pour les fichiers)
-> 2. La signature retenue par le patron (brutalist / elegant / tradition)
+> 2. La signature retenue par le patron (fast-food / gastro / traditionnel)
 > 3. Sa couleur dominante (peux être déduite du logo, ou choisie au feeling)
 > 4. As-tu fait la capture eatbu ? (oui / pas encore — voir étape 0 ci-dessous)"
 

@@ -4,7 +4,7 @@
 **Lieu :** {ADRESSE_DU_RESTO}
 **Présent côté MB Studio :** Mike
 **Présent côté patron :** {NOM_DU_PATRON}, {FONCTION}
-**Signature retenue :** {brutalist | elegant | tradition}
+**Signature retenue :** {fast-food | gastro | traditionnel}
 **Dominante :** {HEX_COULEUR}
 
 ---

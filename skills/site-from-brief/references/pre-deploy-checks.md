@@ -84,21 +84,21 @@ Redimensionner le navigateur à 375×812 (taille iPhone) et vérifier :
 
 ## Validation par signature
 
-### Brutaliste
+### Fast-food
 - [ ] Fond dominante (rouge profond ou couleur logo)
 - [ ] Texte cream sur fond dominante
 - [ ] Accent jaune acide (par défaut)
 - [ ] Grain texture visible
 - [ ] Ombres brutalistes 6×6 sur les boutons/cartes
 
-### Élégante
+### Gastro
 - [ ] Fond cream lisse (pas de grain)
 - [ ] Texte slate sur fond cream
 - [ ] Accent doré champagne
 - [ ] Hairlines 1px partout
 - [ ] Italiques sur les sous-libellés
 
-### Tradition
+### Traditionnel
 - [ ] Fond ivoire jauni + grain papier
 - [ ] Texte noir, emphases en dominante
 - [ ] Accent rouille brique

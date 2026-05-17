@@ -44,9 +44,9 @@
 
 ### Stratégie maquette : 1 primaire + 2 alternatives en backup
 
-Le skill `maquette-flash` génère systématiquement les **3 signatures** (Brutaliste / Élégante / Tradition) à partir de 1 à 4 liens publics du resto cible (fiche Google Business, Facebook, Instagram, site existant). Mais en stratégie de présentation au patron, le mode est **"1 primaire + 2 alternatives en backup"** :
+Le skill `maquette-flash` génère systématiquement les **3 signatures** (Fast-food / Gastro / Traditionnel) à partir de 1 à 4 liens publics du resto cible (fiche Google Business, Facebook, Instagram, site existant). Mais en stratégie de présentation au patron, le mode est **"1 primaire + 2 alternatives en backup"** :
 
-1. **Avant la visite**, je regarde le profil visuel du resto (photos GMB, esthétique Insta, ambiance des avis) et je détermine l'intuition de la signature qui colle : urbain/street → Brutaliste, classique/familial → Tradition, raffiné/gastro → Élégante.
+1. **Avant la visite**, je regarde le profil visuel du resto (photos GMB, esthétique Insta, ambiance des avis) et je détermine l'intuition de la signature qui colle : urbain/street → Fast-food, classique/familial → Traditionnel, raffiné/gastro → Gastro.
 2. **Au rendez-vous**, je montre d'abord la maquette dans MA signature recommandée. Pitch : *"En regardant votre fiche Google, j'ai senti que vous étiez plutôt sur l'univers [X]. Voilà ce que ça donne."* Je laisse le patron réagir.
 3. **Si le patron tique ou hésite**, je ressors les 2 autres signatures. Pitch : *"Si vous préférez plus [adjectif], j'ai aussi cette version-là."*
 
@@ -119,10 +119,11 @@ Ce mode démontre mon expertise (j'ai choisi pour lui, je ne suis pas un prestat
 **Ce que je fais (chez moi) :**
 1. Lancer le skill `site-from-brief` pour générer le site Astro à partir du brief
 2. Personnaliser les détails (le skill génère 80% du travail, je peaufine 20%)
-3. **Ajouter le cadeau surprise** non annoncé : favicon personnalisé, animation discrète, photo retouchée, micro-interaction sympathique, message d'erreur 404 rigolo — un truc qui fera "ah, mais c'est mignon ça je m'y attendais pas"
-4. Déployer sur Cloudflare Pages (URL provisoire `nom-resto.pages.dev`)
-5. **En parallèle** : optimiser la fiche GMB du patron via skill `gmb-setup` (photos, catégorie, description, posts hebdomadaires, FAQ, attributs)
-6. Tester sur 3 navigateurs et sur mobile
+3. **Vérifier le standard SEO local** (cf `checklist-seo-local.md`) : titres + descriptions ville+cuisine, contenus calés sur les requêtes locales, NAP identique à la fiche Google, données structurées, FAQ locale, photos décrites. Engagement de moyens non-négociable, jamais une promesse de position.
+4. **Ajouter le cadeau surprise** non annoncé : favicon personnalisé, animation discrète, photo retouchée, micro-interaction sympathique, message d'erreur 404 rigolo — un truc qui fera "ah, mais c'est mignon ça je m'y attendais pas"
+5. Déployer sur Cloudflare Pages (URL provisoire `nom-resto.pages.dev`)
+6. **En parallèle** : optimiser la fiche GMB du patron via skill `gmb-setup` (photos, catégorie, description, posts hebdomadaires, FAQ, attributs)
+7. Tester sur 3 navigateurs et sur mobile
 
 **Outils :** skill `site-from-brief`, skill `gmb-setup`, template `site-resto/`
 

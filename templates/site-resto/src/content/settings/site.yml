@@ -11,7 +11,7 @@ site:
   region_code: "FR-28"
 
   # Signature pilotée par Mike d'après la question identité au brief
-  signature: "brutalist"
+  signature: "fast-food"
 
   # Dominante = couleur du patron (color picker Decap)
   dominante: "#8b0e0e"
@@ -53,11 +53,12 @@ site:
       - "Prêt à votre arrivée"
       - "Service rapide"
 
-  # Bloc Histoire — Le body supporte **mot** pour mettre en emphase (rendu en accent visuel).
+  # Bloc Histoire — body : **mot** = emphase couleur ; ==mot== = surlignage marqueur
+  # (à poser à la main sur UN mot/chiffre clé, avec parcimonie — jamais systématique).
   histoire:
     statement_lead: "N°1 à"
     statement_accent: "Chartres."
-    body: "On a lancé Kroosti Yummy il y a **3 ans** à Chartres, quand personne ne parlait encore du riz crousty. Aujourd'hui c'est partout. Mais à Chartres, **le 1er, c'est nous**. Et on est toujours là."
+    body: "On a lancé Kroosti Yummy il y a **3 ans** à Chartres, quand personne ne parlait encore du riz crousty. Aujourd'hui c'est partout. Mais à Chartres, le ==1er==, c'est nous. Et on est toujours là."
     lancement_year: 2023
 
   # Avis Google — Auto-hide si note < 4.0 OU count < 20 (cf lib/conditions.ts)

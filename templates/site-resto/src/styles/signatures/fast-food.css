@@ -1,10 +1,10 @@
-/* Signature Brutaliste — pizzeria, burger, foodtruck, brasserie urbaine
+/* Signature Fast-food — pizzeria, burger, foodtruck, brasserie urbaine
    Portée depuis Kroostiyummy.fr (cas client zéro MB Studio).
-   Activée par class `signature-brutalist` sur <body>.
+   Activée par class `signature-fast-food` sur <body>.
 
    Mode : texte clair sur fond foncé (dominante = fond, cream = texte). */
 
-.signature-brutalist {
+.signature-fast-food {
   /* Typographie */
   --mb-display: 'Archivo Black', sans-serif;
   --mb-condensed: 'Bebas Neue', sans-serif;
@@ -30,7 +30,7 @@
 }
 
 /* Grain overlay = signature visuelle Brutaliste (texture matière brute) */
-.signature-brutalist::before {
+.signature-fast-food::before {
   content: "";
   position: fixed;
   inset: 0;
@@ -42,7 +42,7 @@
 }
 
 /* Classes utilitaires partagées entre composants Brutalistes */
-.signature-brutalist .mb-tag {
+.signature-fast-food .mb-tag {
   border: 1.5px solid var(--mb-border);
   padding: 5px 10px;
   display: inline-flex;
@@ -54,12 +54,12 @@
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
-.signature-brutalist .mb-tag.solid {
+.signature-fast-food .mb-tag.solid {
   background: var(--mb-accent);
   color: var(--mb-text-on-accent);
   border-color: var(--mb-black);
 }
-.signature-brutalist .mb-tag .mb-blink {
+.signature-fast-food .mb-tag .mb-blink {
   display: inline-block;
   width: 6px;
   height: 6px;
@@ -68,7 +68,7 @@
   animation: mb-blink 1.4s ease-in-out infinite;
 }
 
-.signature-brutalist .mb-divider {
+.signature-fast-food .mb-divider {
   display: flex;
   align-items: center;
   border-top: 2px solid var(--mb-border);
@@ -81,7 +81,7 @@
   color: var(--mb-text-body);
   background: var(--mb-bg-section-alt);
 }
-.signature-brutalist .mb-divider::after {
+.signature-fast-food .mb-divider::after {
   content: "";
   flex: 1;
   height: 1px;
@@ -91,17 +91,17 @@
 }
 
 /* Reveal au scroll (utilisé par les sections via IntersectionObserver dans Layout.astro) */
-.signature-brutalist.js-loaded .mb-reveal {
+.signature-fast-food.js-loaded .mb-reveal {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.signature-brutalist.js-loaded .mb-reveal.show {
+.signature-fast-food.js-loaded .mb-reveal.show {
   opacity: 1;
   transform: none;
 }
 @media (prefers-reduced-motion: reduce) {
-  .signature-brutalist.js-loaded .mb-reveal {
+  .signature-fast-food.js-loaded .mb-reveal {
     opacity: 1;
     transform: none;
     transition: none;

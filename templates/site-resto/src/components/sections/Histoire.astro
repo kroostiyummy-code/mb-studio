@@ -6,9 +6,11 @@ const s = entry!.data;
 const h = s.histoire;
 const anneeCourante = new Date().getFullYear();
 
-// Rendu de **mot** en <strong> avec couleur accent (sans bibliothèque markdown)
+// **mot** = emphase couleur accent ; ==mot== = surlignage marqueur (volontaire, parcimonieux)
 function renderEmphasis(text: string): string {
-  return text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  return text
+    .replace(/==([^=]+)==/g, '<mark class="mb-marker">$1</mark>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 }
 ---
 {h && (
@@ -57,6 +59,18 @@ function renderEmphasis(text: string): string {
   }
   .statement-accent {
     color: var(--mb-accent);
+  }
+
+  /* Marqueur surligné = emphase VOLONTAIRE (==mot== dans le texte), pas un trait
+     de signature. À utiliser avec parcimonie sur un mot/chiffre clé, jamais en
+     systématique (sinon les sites se ressemblent). 100% CSS → zéro coût vitesse. */
+  .statement-body :global(mark.mb-marker) {
+    background: var(--mb-accent);
+    color: var(--mb-text-on-accent);
+    padding: 0.02em 0.18em;
+    border-radius: 2px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
 
   .statement-body {
@@ -112,68 +126,68 @@ function renderEmphasis(text: string): string {
 
   /* ===== Surcharges signature Élégante =====
      Mixed case Playfair, body italique, timeline plus aérée. */
-  :global(.signature-elegant) .huge-statement {
+  :global(.signature-gastro) .huge-statement {
     text-transform: none;
     letter-spacing: -0.01em;
     font-weight: 600;
   }
-  :global(.signature-elegant) .statement-accent {
+  :global(.signature-gastro) .statement-accent {
     color: var(--mb-dominante);
     font-style: italic;
   }
-  :global(.signature-elegant) .statement-body {
+  :global(.signature-gastro) .statement-body {
     border-left-color: var(--mb-dominante);
     font-style: italic;
     font-size: 1.1rem;
   }
-  :global(.signature-elegant) .statement-body :global(strong) {
+  :global(.signature-gastro) .statement-body :global(strong) {
     color: var(--mb-dominante);
     font-style: normal;
   }
-  :global(.signature-elegant) .timeline {
+  :global(.signature-gastro) .timeline {
     border-color: var(--mb-border-subtle);
     border-width: 1px;
   }
-  :global(.signature-elegant) .timeline-cell {
+  :global(.signature-gastro) .timeline-cell {
     padding: 22px 24px;
   }
-  :global(.signature-elegant) .timeline-cell--past {
+  :global(.signature-gastro) .timeline-cell--past {
     border-right-color: var(--mb-border-subtle);
     border-right-width: 1px;
     background: var(--mb-bg-section-alt);
   }
-  :global(.signature-elegant) .cell-value {
+  :global(.signature-gastro) .cell-value {
     font-weight: 600;
   }
 
   /* ===== Surcharges signature Tradition =====
      Bitter slab petites caps, body avec emphase dominante, timeline encadrement. */
-  :global(.signature-tradition) .huge-statement {
+  :global(.signature-traditionnel) .huge-statement {
     font-variant: small-caps;
     font-feature-settings: "smcp" 1;
     text-transform: none;
     letter-spacing: 0.02em;
   }
-  :global(.signature-tradition) .statement-accent {
+  :global(.signature-traditionnel) .statement-accent {
     color: var(--mb-dominante);
   }
-  :global(.signature-tradition) .statement-body {
+  :global(.signature-traditionnel) .statement-body {
     border-left: 4px solid var(--mb-dominante);
     font-family: var(--mb-display);
     font-size: 1.05rem;
     line-height: 1.5;
   }
-  :global(.signature-tradition) .statement-body :global(strong) {
+  :global(.signature-traditionnel) .statement-body :global(strong) {
     color: var(--mb-dominante);
     font-weight: 700;
   }
-  :global(.signature-tradition) .timeline {
+  :global(.signature-traditionnel) .timeline {
     border: 2px solid var(--mb-dominante);
   }
-  :global(.signature-tradition) .timeline-cell--past {
+  :global(.signature-traditionnel) .timeline-cell--past {
     border-right: 2px solid var(--mb-dominante);
   }
-  :global(.signature-tradition) .cell-label {
+  :global(.signature-traditionnel) .cell-label {
     font-variant: small-caps;
     text-transform: none;
     font-family: var(--mb-display);

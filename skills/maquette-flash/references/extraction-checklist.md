@@ -29,7 +29,7 @@ Que chercher dans chaque source quand Mike donne 1-4 URLs publiques d'un resto c
 | Photos | 4 à 8 photos publiques visibles dans la fiche — récupérer les URLs CDN Google `https://lh3.googleusercontent.com/...` |
 
 **Notes :**
-- Si la fiche GMB a une catégorie type "Restaurant français" → indice fort signature `tradition`. "Burger / Pizzeria / Foodtruck" → `brutalist`. "Restaurant gastronomique / Bistronomique / Étoilé" → `elegant`.
+- Si la fiche GMB a une catégorie type "Restaurant français" → indice fort signature `traditionnel`. "Burger / Pizzeria / Foodtruck" → `fast-food`. "Restaurant gastronomique / Bistronomique / Étoilé" → `gastro`.
 - Si la note < 4.0 ou count < 20, le composant Avis auto-cache. Inutile de remplir le champ `avis_google` dans ce cas.
 - Toujours vérifier si la fiche a un site web renseigné (autre source potentielle à scraper).
 

@@ -201,15 +201,25 @@ Tier dérivé :
 - **B** : 50-74 (cibles moyennes, à visiter après le rodage)
 - **C** : <50 (à laisser de côté pour l'instant, ou pitcher quand Mike sera à l'aise)
 
-### Étape 7 — Génération des 3 listes + 1 fichier d'exclusion
+### Étape 7 — Synchronisation dans la liste vivante + génération des vues
 
-Output dans `prospects/{ville}-{YYYY-MM-DD}/` :
+**Source de vérité unique : `prospects/restaurants.yml`** (voir `prospects/README.md`).
+Ce fichier persiste et s'enrichit run après run — il N'est PAS écrasé. Pour chaque resto
+scanné : créer l'entrée si elle n'existe pas, sinon mettre à jour le bloc `scan` + `scoring`
+**sans toucher** aux blocs `tunnel` et `notes_mike` (écrits par `pilote-client` / Mike), et
+**sans écraser** un `scoring.mike_override` existant.
 
-1. `prospects-avec-site-eatbu.md` — triée par score décroissant
-2. `prospects-avec-site-autre.md` — triée par score décroissant
-3. `prospects-sans-site.md` — triée par score décroissant
-4. `prospects-exclus.md` — chaînes nationales + sites custom modernes (avec raison)
-5. `tableau-recap.csv` — toutes les données brutes pour Mike (importable Google Sheets)
+Vues régénérées (jamais éditées à la main, toutes dérivées de `restaurants.yml`) :
+
+1. `prospects/restaurants.csv` — **vue plate vivante**, 1 ligne / resto, colonnes
+   resserrées et claires, prête à déposer dans un outil d'infographie ou Google Sheets.
+2. Dans `prospects/{ville}-{YYYY-MM-DD}/` (snapshot daté d'une campagne) :
+   - `prospects-avec-site-eatbu.md` — triée par score décroissant
+   - `prospects-avec-site-autre.md` — triée par score décroissant
+   - `prospects-sans-site.md` — triée par score décroissant
+   - `prospects-exclus.md` — chaînes nationales + sites custom modernes (avec raison)
+   - `tableau-recap.csv` — export **brut riche** de la campagne (toutes les sous-métriques
+     Lighthouse, drapeaux, etc.), squelette dans `templates/tableau-recap.csv`
 
 ---
 

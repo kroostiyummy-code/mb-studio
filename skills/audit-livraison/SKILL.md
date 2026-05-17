@@ -114,6 +114,19 @@ Dérouler **les 14 checks de `references/checklist-patron-facing.md`** avec leur
 
 Check 8 (placeholders `{{...}}` / lorem / TODO) et check 9 (images cassées) se font sur le `dist/` rendu, pas sur le source `.astro`. Check 10 : vérifier que les ancres du footer correspondent à des `id=` réellement rendus (l'auto-hide d'une section peut laisser un lien footer orphelin → à détecter).
 
+### Étape 7bis — Garde-fou anti-jumeau (différenciation inter-clients)
+
+Standard **non-négociable** d'unicité inter-clients (principe #10 de `CLAUDE.md` + `differenciation-clients.md`). **Interne uniquement — ne sort JAMAIS dans l'Output B.**
+
+Registre : `references/registre-differenciation.md` (1 ligne par site livré : `slug`, `ville`, `cuisine`, `signature` [fast-food/gastro/traditionnel], `variante_hero`, `pack_typo`, `dominante` hex, `ordre_sections`).
+
+Lire le `settings/site.yml` du nouveau client, extraire cette combinaison, comparer aux sites livrés **dans la même ville** :
+- **🔴 BLOQUANT** si un site livré même ville partage **`signature` + `variante_hero` + `ordre_sections` identiques** ET `dominante` proche → « Site jumeau de {slug} : changez au moins deux axes (signature, variante Hero, pack typo ou ordre des sections) avant livraison. »
+- **🟡** si seulement 2 axes/4 diffèrent, ou même cuisine + même signature même ville (air de famille).
+- **🟢** sinon → audit interne : « Différenciation OK vs {N} sites livrés ».
+
+Registre vide (1ᵉʳ client) → noter « Premier site livré, pas de comparaison » et ajouter sa ligne. **Après livraison validée** (0 🔴) → ajouter la ligne du nouveau site au registre, **commitée fichier par fichier** (mémoire de différenciation, doit toujours refléter le livré réel).
+
 ### Étape 8 — Génération des 2 rapports
 
 - `audit-interne.md` depuis `templates/audit-interne.md` — TOUTES les sections, brutal, tutoiement. Chaque écart des étapes 6-7 rangé dans 🔴 / 🟡 (taggé `[quick win]` / `[pitch suivi]` / `[backlog]`). Forces → 🟢. Manques 404/favicon → aussi 💡 idées bonus.
@@ -126,6 +139,7 @@ Récap final à Mike :
    🟡 {n} à améliorer ({q} quick wins)
    🟢 {n} points forts valorisables
    💡 {n} idées cadeau surprise
+   Différenciation : {🟢 OK vs N sites livrés | 🔴 JUMEAU de {slug} — bloquant | premier site}
    Lighthouse global : {x}/100 {| ⚠️ mode dégradé}
 📁 clients/{slug}/audit-livraison/
 👉 Prochaine action : {si bloquants : "règle les 🔴 puis relance l'audit" | "aucun bloquant — tu peux caler la visite de livraison"}
@@ -143,6 +157,7 @@ Récap final à Mike :
 6. **Cadeau surprise** : Output A propose 1-3 idées, Mike décide et implémente. Section cadeau de Output B omise si rien d'implémenté — jamais inventée.
 7. **Mode `projet`** ne produit jamais d'Output B.
 8. **Build cassé = stop immédiat.** On n'audite pas un site qui ne build pas.
+9. **Anti-jumeau (étape 7bis) = standard non-négociable.** Un site jumeau d'un site déjà livré dans la même ville est 🔴 BLOQUANT. Registre interne uniquement, jamais dans l'Output B, alimenté à chaque livraison validée.
 
 ---
 
@@ -155,6 +170,7 @@ Récap final à Mike :
 - Pas de garantie Lighthouse ≥ 90, mais si atteint = valorisé, si raté = bloquant interne (corriger ou justifier)
 - Lighthouse traduit en bénéfices patron, pas en chiffres bruts
 - Mode `projet` parallèle sans Output B
+- (2026-05-16) Garde-fou anti-jumeau (étape 7bis) : bloque un site trop proche d'un site déjà livré même ville ; registre `references/registre-differenciation.md` alimenté à chaque livraison validée
 
 ---
 
@@ -173,6 +189,7 @@ Récap final à Mike :
 - `references/eatbu-benchmarks.md` — moyennes sectorielles anonymes (statut calibration)
 - `references/benefit-translations.md` — table métrique tech → bénéfice patron
 - `references/checklist-patron-facing.md` — les 14 checks étape 7, scriptables
+- `references/registre-differenciation.md` — registre des combinaisons livrées (anti-jumeau, étape 7bis), alimenté à chaque livraison validée
 - `templates/audit-interne.md` — squelette Output A
 - `templates/rapport-mise-en-service.md` — squelette Output B
 

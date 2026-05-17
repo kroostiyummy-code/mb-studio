@@ -6,7 +6,7 @@ slug: ""                          # ex: le-saint-hilaire
 nom_resto: ""                     # ex: "Le Saint-Hilaire"
 etape_actuelle: 0                 # 0 à 7 (voir les 8 étapes du tunnel)
 sous_etape: ""                    # ex: "site-from-brief en cours"
-signature_retenue: ""             # brutalist | elegant | tradition (vide tant que pas choisie)
+signature_retenue: ""             # fast-food | gastro | traditionnel (vide tant que pas choisie)
 
 dates:
   premier_contact: null           # YYYY-MM-DD

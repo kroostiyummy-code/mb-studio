@@ -47,3 +47,50 @@ C'est le facteur n°1 qui bloque leur visibilité dans le Local Pack Google. Les
 - [ ] Risque Google : vérifier que les QR codes directs vers "leave a review" ne sont pas considérés comme du gating (Google a un guideline anti-incitation, à lire)
 
 ---
+
+## Reprise sélection prospects après changement de tunnel (noté 2026-05-16)
+
+- **La Casa Tropical** avait été retenu via l'**ancien tunnel** de sélection → **à refaire** avec le nouveau flux (`scoring-prospects` → `pilote-client`). Ne pas le traiter comme acquis.
+- ~~Réinjecter l'**API Google Places** comme source de données prospects.~~ ✅ Fait (2026-05-16) : intégrée dans `scoring-prospects` (SKILL.md étape 2 + SPEC), source officielle optionnelle, plafonnée et mise en cache. **Reste à faire** : reprendre La Casa Tropical via le nouveau tunnel (`scoring-prospects` → `pilote-client`).
+
+## Structure data prospects + veille concurrentielle (figé 2026-05-16)
+
+**Liste prospects = ressource centrale vivante.** Source de vérité unique
+`prospects/restaurants.yml` (voir `prospects/README.md`). Vues régénérées, jamais
+éditées main : `prospects/restaurants.csv` (vue plate claire pour infographie / Sheets)
++ snapshots datés `prospects/{ville}-{date}/`. Les outils écrivent `scan`/`scoring`,
+`pilote-client` écrit `tunnel`, Mike garde `notes_mike` + `mike_override` (jamais
+écrasés). SPEC `scoring-prospects` mise à jour en conséquence (Étape 7 = sync + vues).
+
+**Veille concurrentielle** = `veille-concurrentielle.md` (fichier vivant, on empile).
+Carburant explicite des 2 leviers : nouveautés outils/API → enrichissent le scan ;
+standards qui bougent + objections récurrentes → font évoluer le tunnel. À brancher
+sur le café mensuel du `monthly-report`. Décision à prendre plus tard : en faire un
+skill dédié `/veille` ou rester en routine manuelle assistée.
+
+## Add-on payant "Module Commande/Réservation" (court-list validée 2026-05-16)
+
+**Modèle décidé (principe) :** on n'héberge/ne maintient jamais la caisse du patron. Le
+patron souscrit l'outil **dans son propre compte** (il paie l'abo, il possède — cohérent
+principe #7), Mike **intègre** au site (bouton/lien/widget, maintenance ≈ 0) et facture un
+**forfait installation one-shot** en add-on du Pack Solo. Bon filtre = "est-ce que ça
+m'ajoute du travail récurrent / une responsabilité intenable solo non-dev ?" (pas "est-ce
+que ça coûte de l'argent" — l'argent investi par le patron est OK si ça rapporte).
+
+**Court-list à maîtriser (2 outils + 1 entrée 0€) :**
+- **Réservation** : *Guestonline* (~77€/mois patron, 0 commission, indépendant) en défaut ;
+  *Zenchef* (~129€/mois) en alternative "plus gros". Éviter TheFork par défaut (commission
+  par couvert + dépendance place de marché = moins "propriétaire").
+- **Commande / Click&Collect** : *Collectly* (49,99€/mois HT patron, 0% commission, marque
+  blanche, résiliable, live <24h) à tester en premier. Alternatives 0% : Clickeat,
+  Deliver by Linkeo.
+- **Entrée 0€** (resto pas prêt à payer) : formulaire de commande → mail/WhatsApp/tel,
+  intégré par Mike au template. Pas de paiement en ligne mais honnête et gratuit.
+
+**TODO avant de vendre / figer dans process.md :**
+- [ ] Tester une vraie mise en place Guestonline + Collectly (compte de test) — valider
+  intégration réelle dans le template (bouton/widget) + temps de mise en place.
+- [ ] Re-vérifier prix/fonctions auprès des éditeurs (ça bouge — honnêteté radicale).
+- [ ] Figer le **prix du forfait installation** (piste évoquée : +150–250€ one-shot).
+- [ ] Décider : add-on Pack Solo seul, ou aussi proposé dans Pack Suivi.
+- [ ] Une fois testé+tranché → graver offre + objection dans `process.md`.

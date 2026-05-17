@@ -1,6 +1,6 @@
 ---
 name: scoring-prospects
-description: "Génère 3 listes triées de prospects restaurants chartrains à démarcher en porte-à-porte (avec site eatbu / avec site autre / sans site), chacune scorée 0-100 avec tier A/B/C combinant 'valeur qu'on peut apporter' et 'probabilité que le patron accepte'. Sources publiques : Overpass OpenStreetMap + Google PageSpeed API + Wayback Machine. Output : fiches markdown avec top 3 arguments factuels à pitcher + CSV récap importable. Tourne UNE fois pour démarrer, puis ponctuellement (tous les 3-6 mois). MANDATORY TRIGGERS: 'score les prospects', 'scoring prospects', 'génère la liste des prospects', 'qui je démarche en premier', 'prospects chartres'. STRONG TRIGGERS (avec contexte): 'fais-moi la liste des restos à visiter', 'j'ai besoin de prioriser mes visites', 'qui pitcher en premier à Chartres'. Ne pas déclencher pour : audit d'un site spécifique (c'est audit-eatbu), préparation d'une visite déjà décidée (c'est maquette-flash)."
+description: "Génère 3 listes triées de prospects restaurants chartrains à démarcher en porte-à-porte (avec site eatbu / avec site autre / sans site), chacune scorée 0-100 avec tier A/B/C combinant 'valeur qu'on peut apporter' et 'probabilité que le patron accepte'. Source de vérité : prospects/restaurants.yml (liste vivante enrichie run après run). Sources de données : Overpass OpenStreetMap + Google PageSpeed API + Wayback Machine + Google Places API (officielle). Output : prospects/restaurants.yml mis à jour + vues régénérées (CSV plat + fiches markdown datées avec top 3 arguments factuels). Tourne UNE fois pour démarrer, puis ponctuellement (tous les 3-6 mois). MANDATORY TRIGGERS: 'score les prospects', 'scoring prospects', 'génère la liste des prospects', 'qui je démarche en premier', 'prospects chartres'. STRONG TRIGGERS (avec contexte): 'fais-moi la liste des restos à visiter', 'j'ai besoin de prioriser mes visites', 'qui pitcher en premier à Chartres'. Ne pas déclencher pour : audit d'un site spécifique (c'est audit-eatbu), préparation d'une visite déjà décidée (c'est maquette-flash)."
 ---
 
 # Scoring Prospects
@@ -28,7 +28,8 @@ Demander à Mike, en une passe :
 > "OK on lance le scoring. Donne-moi :
 > 1. La ville (défaut : Chartres) + rayon en km (défaut : 5 km autour du centre).
 > 2. Une clé API Google PageSpeed (procédure 1-fois ci-dessous si tu n'en as pas). Sans elle, je tourne en mode dégradé (score moins précis, pas de mesure de vitesse).
-> 3. Tu as déjà fait tourner ce skill ? Si oui je réutilise le cache."
+> 3. Une clé API Google Places, optionnelle (procédure 1-fois ci-dessous). Sans elle, pas d'enrichissement GMB auto : je te demande quelques URLs à la main.
+> 4. Tu as déjà fait tourner ce skill ? Si oui je réutilise le cache et j'enrichis la liste existante."
 
 Si Mike dit "pas de clé, tant pis" → continuer en **mode dégradé** (voir `references/scoring-formula.md` section dédiée) en l'annonçant clairement.
 
@@ -49,14 +50,28 @@ Gratuit jusqu'à 25 000 req/jour (on en utilise ~450 max).
 
 Lire la clé via : `grep GOOGLE_PAGESPEED_API_KEY ~/.mb-studio/secrets.env` (Bash) ou équivalent. Ne JAMAIS écrire la clé dans le repo, les fiches, ou un commit.
 
+### Procédure 1-fois pour la clé Google Places (optionnelle)
+
+À afficher à Mike s'il veut l'enrichissement GMB automatique :
+
+```
+1. Même projet Google Cloud que PageSpeed
+2. Activer l'API "Places API (New)"
+3. Identifiants → Créer → Clé API → restreindre à Places API
+4. La stocker dans ~/.mb-studio/secrets.env :
+   GOOGLE_PLACES_API_KEY=AIza...
+```
+
+⚠️ **Places API est facturée à l'usage** (un crédit mensuel offert existe mais évolue — **vérifier le tarif courant chez Google avant tout run en masse**, honnêteté radicale). Pour maîtriser le coût : Places n'est appelé QUE pour les restos où une donnée clé manque (URL, note, nb avis), en lot, et **mis en cache 30 j**. C'est l'API **officielle** Google (≠ scraping Maps interdit par le garde-fou #4) : autorisée.
+
 ---
 
 ## Outils à utiliser (adaptation au réel)
 
 - **Appels API JSON** (Overpass, Nominatim, PageSpeed, Wayback CDX) : utiliser **Bash `curl`** (ou PowerShell `Invoke-RestMethod`), PAS WebFetch — WebFetch résume/altère le JSON brut, on a besoin du JSON exact pour parser.
 - **Cache** : fichiers JSON sous `prospects/cache/`. Vérifier le TTL avant chaque appel réseau (si cache frais, ne pas re-appeler).
-- **Écriture des fiches** : outil Write vers `prospects/{ville}-{YYYY-MM-DD}/`.
-- `prospects/` est git-ignored (données agrégées sensibles, garde-fou #7). Ne jamais commiter le contenu généré.
+- **Écriture** : source de vérité `prospects/restaurants.yml` (upsert), puis vues régénérées (`prospects/restaurants.csv` + snapshot daté `prospects/{ville}-{YYYY-MM-DD}/`).
+- `prospects/` est **versionné** dans le repo MB Studio (privé) sauf `prospects/cache/` (gitignoré). Confidentialité = ne jamais publier HORS de ce repo. Commit **fichier par fichier**, **jamais `git add prospects/`** en bloc (garde-fou #7, cf `prospects/README.md`).
 
 ---
 
@@ -88,7 +103,8 @@ Pour chaque resto :
 2. Sinon → requête Nominatim (gratuit) sur le nom + ville pour récupérer plus de tags :
    `curl -s "https://nominatim.openstreetmap.org/search?q={nom}+{ville}&format=json&extratags=1&limit=1" -H "User-Agent: MB-Studio-Scoring/1.0"`
    (Nominatim exige un User-Agent identifiable, sinon 403.)
-3. Sinon → marquer "site inconnu". Lister ces restos et **demander à Mike** en un seul batch les URLs qu'il connaît (cap à 20 max à vérifier manuellement — au-delà, laisser en `pas-de-site`).
+3. Sinon, **si `GOOGLE_PLACES_API_KEY` présente** → Places API officielle (Text Search puis Place Details) pour récupérer `website`, `formatted_phone_number`, `rating`, `user_ratings_total`, `opening_hours`, nombre de photos, présence description/catégories. Ces signaux GMB alimentent aussi le sous-score « probabilité » (étape 6). Appels **plafonnés** aux restos sans donnée + **cache** `prospects/cache/places/{slug}.json`, TTL 30 j.
+4. Sinon (pas de clé Places, rien trouvé) → marquer "site inconnu". Lister ces restos et **demander à Mike** en un seul batch les URLs qu'il connaît (cap à 20 max à vérifier manuellement — au-delà, laisser en `pas-de-site`).
 
 Buckets :
 - **`eatbu`** : URL contient `eatbu.com`
@@ -144,15 +160,25 @@ Appliquer **strictement** `references/scoring-formula.md` :
 
 Ne PAS recopier la formule en dur ici — toujours lire `scoring-formula.md` (source unique de vérité, modifiable sans toucher au SKILL).
 
-### Étape 7 — Génération des outputs
+### Étape 7 — Sync liste vivante + génération des vues
 
-Dans `prospects/{ville}-{YYYY-MM-DD}/` :
+**Source de vérité unique : `prospects/restaurants.yml`** (cf `prospects/README.md`). Ne JAMAIS l'écraser.
 
-1. `prospects-avec-site-eatbu.md` — fiches bucket eatbu, triées score décroissant
-2. `prospects-avec-site-autre.md` — fiches bucket autre-site, triées score décroissant
-3. `prospects-sans-site.md` — fiches bucket pas-de-site, triées score décroissant
-4. `prospects-exclus.md` — exclus + raison (chaîne nationale / site custom moderne)
-5. `tableau-recap.csv` — toutes les données brutes (colonnes = en-tête de `templates/tableau-recap.csv`), importable Google Sheets
+Pour chaque resto scanné :
+- `id` = slug stable du resto (jamais renommé/réutilisé). Créer l'entrée si absente.
+- Mettre à jour **uniquement** les blocs `scan` et `scoring`.
+- **Ne jamais toucher** `tunnel` ni `notes_mike` (écrits par `pilote-client` / Mike).
+- **Ne jamais écraser** un `scoring.mike_override` existant : s'il est là, il prime ; recalculer le score à côté sans effacer l'override.
+
+Puis **régénérer les vues** (toutes dérivées du YAML, jamais éditées à la main) :
+
+1. `prospects/restaurants.csv` — vue plate vivante, 1 ligne/resto, colonnes du fichier existant, prête infographie / Google Sheets.
+2. `prospects/{ville}-{YYYY-MM-DD}/` (snapshot daté de la campagne) :
+   - `prospects-avec-site-eatbu.md` — fiches bucket eatbu, triées score décroissant
+   - `prospects-avec-site-autre.md` — fiches bucket autre-site, triées score décroissant
+   - `prospects-sans-site.md` — fiches bucket pas-de-site, triées score décroissant
+   - `prospects-exclus.md` — exclus + raison (chaîne nationale / site custom moderne)
+   - `tableau-recap.csv` — export brut riche de la campagne (colonnes = en-tête de `templates/tableau-recap.csv`)
 
 Chaque fiche suit `templates/fiche-prospect.md`. Le "Top 3 arguments" est généré en piochant dans `references/argument-library.md` selon la **pire métrique mesurée** sur CE resto (1er argument = point le plus douloureux et le plus prouvable). Drapeau rouge ajouté selon les règles de l'argument-library.
 
@@ -186,10 +212,10 @@ Jamais de fait accompli **silencieux**. Une décision peut être juste ET devoir
 1. **Aucun email/téléphone scrappé pour du cold outreach automatisé.** Les fiches servent à des visites en personne. Pas de spam, pas d'envoi auto.
 2. **Pas de comparaison nominative entre prospects** dans les listes. Chaque fiche est autonome (le n°3 ne mentionne jamais le n°1).
 3. **Le skill ne juge pas la valeur humaine d'un patron.** Score bas = "pas le bon timing/la bonne cible aujourd'hui", jamais "mauvais resto".
-4. **Sources publiques uniquement** : OSM, Wayback, PageSpeed API. **Pas de scraping Google Maps (ToS)**, pas de scraping GMB en masse. Enrichissement GMB = Mike à la main pour 5-10 cibles prioritaires max.
+4. **Sources autorisées** : OSM, Wayback, PageSpeed API, **Places API officielle Google**. **Interdit : scraping de Google Maps / scraping GMB en masse (ToS).** L'API Places sanctionnée ≠ scraping : OK, mais plafonnée et mise en cache pour le coût.
 5. **Override Mike persistant** : champ `mike_override` du CSV conservé entre runs. Mike a toujours le dernier mot.
 6. **Le score n'est pas un oracle.** Outil d'aide à la priorisation. Le dire dans le récap.
-7. **Confidentialité** : ne JAMAIS publier ces listes hors du repo MB Studio (privé). `prospects/` est git-ignored exprès. Ne jamais coller le contenu d'une fiche dans un canal externe.
+7. **Confidentialité** : ne JAMAIS publier ces données hors du repo MB Studio (privé). `prospects/` est **versionné** dans ce repo privé (sauf `prospects/cache/`) : commit **fichier par fichier**, **jamais `git add prospects/`** en bloc. Ne jamais coller le contenu d'une fiche dans un canal externe.
 
 ---
 
@@ -201,6 +227,7 @@ Jamais de fait accompli **silencieux**. Une décision peut être juste ET devoir
 - 3 listes (eatbu / autre-site / pas-de-site), pas 2
 - Pondération : 50 % valeur + 50 % probabilité
 - Clé PageSpeed obligatoire en mode normal, mode dégradé documenté et accepté comme fallback
+- (2026-05-16) Source de vérité = liste vivante `prospects/restaurants.yml`, vues régénérées ; `prospects/` versionné dans le repo privé (sauf cache) ; Google Places API officielle ajoutée comme source d'enrichissement optionnelle
 
 ---
 
@@ -221,7 +248,8 @@ Jamais de fait accompli **silencieux**. Une décision peut être juste ET devoir
 - `references/scoring-formula.md` — formule de score détaillée (source unique de vérité, mode dégradé inclus)
 - `references/argument-library.md` — bibliothèque de phrases d'arguments + drapeaux rouges
 - `templates/fiche-prospect.md` — squelette de fiche
-- `templates/tableau-recap.csv` — en-tête du CSV récap
+- `templates/tableau-recap.csv` — en-tête du CSV récap riche (snapshot campagne)
+- `prospects/README.md` + `prospects/restaurants.yml` — contrat de la liste vivante (source de vérité, ce qu'on n'écrase jamais)
 
 ---
 
@@ -231,4 +259,4 @@ Jamais de fait accompli **silencieux**. Une décision peut être juste ET devoir
 Mike : Score les prospects. Chartres, 5 km. J'ai mis ma clé PageSpeed dans secrets.env.
 ```
 
-Le skill : récupère ~110 restos via Overpass → classe en 3 buckets → lance Lighthouse sur les ~70 avec site (lots de 4) → âge via Wayback → exclut 12 chaînes + 4 sites modernes → score les ~95 restants → génère 4 fichiers .md + 1 CSV dans `prospects/chartres-2026-05-15/` → affiche le top 3 toutes listes + invite à lancer `maquette-flash` sur la cible n°1.
+Le skill : récupère ~110 restos via Overpass → classe en 3 buckets (Places API pour les URLs manquantes) → lance Lighthouse sur les ~70 avec site (lots de 4) → âge via Wayback → exclut 12 chaînes + 4 sites modernes → score les ~95 restants → **upsert dans `prospects/restaurants.yml`** (sans toucher `tunnel`/`notes_mike`/`mike_override`) → régénère `prospects/restaurants.csv` + le snapshot `prospects/chartres-2026-05-15/` (4 .md + recap CSV) → affiche le top 3 toutes listes + invite à lancer `maquette-flash` sur la cible n°1.

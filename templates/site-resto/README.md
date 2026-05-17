@@ -39,9 +39,9 @@ Pilotées par `settings.signature` dans `src/content/settings/site.yml`. Chacune
 
 | Signature | Familles ciblées | Polices |
 |---|---|---|
-| `brutalist` | pizzeria, burger, foodtruck, brasserie urbaine | Archivo Black + Bebas Neue + Barlow Condensed |
-| `elegant` | gastronomique, bistrot raffiné | Playfair Display + Inter |
-| `tradition` | crêperie, bistrot familial, terroir | Bitter + Source Sans 3 |
+| `fast-food` | pizzeria, burger, foodtruck, brasserie urbaine | Archivo Black + Bebas Neue + Barlow Condensed |
+| `gastro` | gastronomique, bistrot raffiné | Playfair Display + Inter |
+| `traditionnel` | crêperie, bistrot familial, terroir | Bitter + Source Sans 3 |
 
 Les polices Google sont chargées **conditionnellement dans le `<head>`** selon la signature active (pas de poids mort).
 

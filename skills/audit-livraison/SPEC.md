@@ -152,6 +152,24 @@ Vérifications spécifiques aux engagements MB Studio :
 - **Toutes les pages déclarées dans le menu de nav existent réellement**
 - **Métadonnées OpenGraph** : titre, description, og:image présents et corrects
 
+### Étape 7bis — Garde-fou anti-jumeau (différenciation inter-clients)
+
+Applique le standard non-négociable d'unicité inter-clients (cf principe #10 de `CLAUDE.md` + `differenciation-clients.md`).
+
+Le skill maintient un registre `skills/audit-livraison/references/registre-differenciation.md` : une ligne par site déjà livré, avec `slug`, `ville`, `cuisine`, `signature`, `variante_hero`, `pack_typo`, `dominante` (hex), `ordre_sections` (hash ou liste).
+
+À cette étape, le skill lit le `settings/site.yml` du nouveau client, en extrait la même combinaison, et la compare à tous les sites livrés **dans la même ville** :
+
+- **🔴 BLOQUANT** si un site déjà livré dans la même ville partage **`signature` + `variante_hero` + `ordre_sections` identiques** ET une `dominante` proche (écart de teinte faible). Message : "Site jumeau de {slug} : changez au moins deux axes (signature, variante Hero, pack typo ou ordre des sections) avant livraison."
+- **🟡 À AMÉLIORER** si seulement deux axes sur quatre diffèrent, ou si même cuisine + même signature dans la même ville (ressemblance de famille possible).
+- **🟢** sinon : noter dans l'audit interne "Différenciation OK vs {N} sites livrés".
+
+Si le registre est vide (premier client) : noter "Premier site livré, pas de comparaison possible" et ajouter sa ligne au registre.
+
+Après une livraison validée, le skill **ajoute la ligne du nouveau site au registre** (le registre est la mémoire de différenciation, il doit toujours refléter le livré réel).
+
+Ce garde-fou ne sort jamais dans l'Output B (interne uniquement).
+
 ### Étape 8 — Sortie : génération des deux rapports
 
 Voir sections "Output A" et "Output B" ci-dessous pour le format exact attendu.
@@ -354,6 +372,7 @@ Vous pouvez l'éditer seul. Si vous voulez un suivi mensuel (rapport visiteurs, 
 - `skills/audit-livraison/templates/audit-interne.md` — squelette de Output A
 - `skills/audit-livraison/templates/rapport-mise-en-service.md` — squelette de Output B
 - `skills/audit-livraison/references/checklist-patron-facing.md` — la liste complète de l'étape 7 (favicon, README, incident-response, 404, footer, etc.) à transformer en checks scriptables
+- `skills/audit-livraison/references/registre-differenciation.md` — registre des combinaisons (signature/Hero/typo/dominante/ordre) déjà livrées, alimenté à chaque livraison validée (cf étape 7bis + `differenciation-clients.md`)
 
 ---
 
@@ -366,6 +385,7 @@ Vous pouvez l'éditer seul. Si vous voulez un suivi mensuel (rapport visiteurs, 
 - Pas de garantie Lighthouse ≥ 90, mais si atteint, c'est valorisé. Si raté, c'est bloquant en interne (à corriger ou justifier).
 - Lighthouse rapproché à des bénéfices business en langage patron, pas en chiffres bruts.
 - Mode `projet` parallèle pour auditer MB Studio lui-même (sans Output B).
+- Garde-fou anti-jumeau (étape 7bis) : bloque la livraison d'un site trop proche d'un site déjà livré dans la même ville. Registre alimenté à chaque livraison validée. Décidé en session du 2026-05-16, cf `differenciation-clients.md`.
 
 ---
 

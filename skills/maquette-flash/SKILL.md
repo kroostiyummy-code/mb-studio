@@ -1,6 +1,6 @@
 ---
 name: maquette-flash
-description: "Génère 3 maquettes de site resto (Brutaliste / Élégante / Tradition) à partir de 1 à 4 liens publics du resto cible (fiche Google Business, Facebook, Instagram, site existant). Output unique : 3 captures PNG haute résolution prêtes à charger sur la tablette pour la visite porte-à-porte. MANDATORY TRIGGERS: 'maquette flash', 'maquette-flash', 'génère les maquettes pour', 'prépare les maquettes de'. STRONG TRIGGERS (avec contexte resto): 'prépare une maquette pour [resto]', 'fais-moi 3 maquettes du resto X', 'maquettes pour ma visite chez', 'j'ai rdv chez X, sors les maquettes'. Ne pas déclencher pour : maquettes hors-resto, sites non-Chartres prioritaires, ou demande explicite d'une seule signature (utiliser directement le template site-resto/ dans ce cas)."
+description: "Génère 3 maquettes de site resto (Fast-food / Gastro / Traditionnel) à partir de 1 à 4 liens publics du resto cible (fiche Google Business, Facebook, Instagram, site existant). Output unique : 3 captures PNG haute résolution prêtes à charger sur la tablette pour la visite porte-à-porte. MANDATORY TRIGGERS: 'maquette flash', 'maquette-flash', 'génère les maquettes pour', 'prépare les maquettes de'. STRONG TRIGGERS (avec contexte resto): 'prépare une maquette pour [resto]', 'fais-moi 3 maquettes du resto X', 'maquettes pour ma visite chez', 'j'ai rdv chez X, sors les maquettes'. Ne pas déclencher pour : maquettes hors-resto, sites non-Chartres prioritaires, ou demande explicite d'une seule signature (utiliser directement le template site-resto/ dans ce cas)."
 ---
 
 # Maquette Flash
@@ -35,12 +35,12 @@ L'utilisateur doit fournir :
    - Page Facebook
    - Profil Instagram
    - Site existant (eatbu, Wix, Shopify, etc.)
-3. **Signature primaire d'intuition** : `brutalist`, `elegant` ou `tradition`. Cette intuition se forme en regardant rapidement les photos du resto (esthétique urbain/raffiné/familial). Mike connaît son terrain, il décide.
+3. **Signature primaire d'intuition** : `fast-food`, `gastro` ou `traditionnel`. Cette intuition se forme en regardant rapidement les photos du resto (esthétique urbain/raffiné/familial). Mike connaît son terrain, il décide.
 
 Si Mike ne précise pas la signature primaire, **demander en une phrase** :
 > "Tu sens l'univers du resto plutôt urbain/moderne, élégant/raffiné, ou tradition/familial ?"
 
-Mapper : urbain → `brutalist`, élégant → `elegant`, tradition → `tradition`.
+Mapper : urbain → `fast-food`, élégant → `gastro`, tradition → `traditionnel`.
 
 ---
 
@@ -72,9 +72,9 @@ Chaque maquette aura **sa propre dominante**, pas la même partout. Heuristique 
 
 | Signature | Dominante suggérée | Logique |
 |---|---|---|
-| Brutaliste | Couleur saturée du logo / enseigne si détectée, sinon `#8b0e0e` (rouge profond) | Punchy, contraste fort |
-| Élégante | Couleur sombre du registre gastro : `#1a4d3a` (vert forêt), `#2a2825` (anthracite), ou un bordeaux sombre `#5a1f1f` selon le resto | Sobriété, contraste doux |
-| Tradition | Brun terre `#7d3c1a`, ocre `#a86d2d`, ou bordeaux profond `#6b1e1e` | Chaleur, terroir |
+| Fast-food | Couleur saturée du logo / enseigne si détectée, sinon `#8b0e0e` (rouge profond) | Punchy, contraste fort |
+| Gastro | Couleur sombre du registre gastro : `#1a4d3a` (vert forêt), `#2a2825` (anthracite), ou un bordeaux sombre `#5a1f1f` selon le resto | Sobriété, contraste doux |
+| Traditionnel | Brun terre `#7d3c1a`, ocre `#a86d2d`, ou bordeaux profond `#6b1e1e` | Chaleur, terroir |
 
 Si Mike a une intuition de couleur (ex: le logo est jaune et bleu) : le suivre.
 
@@ -84,16 +84,16 @@ Si Mike a une intuition de couleur (ex: le logo est jaune et bleu) : le suivre.
 
 En s'inspirant des 3 fixtures de référence de `templates/site-resto/examples/`, créer **3 fichiers dans le dossier prospect local** `prospects/{ville}-{date}/preparation-visites/{slug}/` :
 
-- `maquette-{slug}-brutalist.yml`
-- `maquette-{slug}-elegant.yml`
-- `maquette-{slug}-tradition.yml`
+- `maquette-{slug}-fast-food.yml`
+- `maquette-{slug}-gastro.yml`
+- `maquette-{slug}-traditionnel.yml`
 
 Chaque fichier hérite des infos communes (nom, adresse, horaires, photos, etc.) et change :
 - `signature` : la signature correspondante
 - `dominante` : la couleur choisie pour cette signature
 - Le ton des textes (kicker, baseline, headline) adapté au registre :
 
-| Champ | Brutaliste | Élégante | Tradition |
+| Champ | Fast-food | Gastro | Traditionnel |
 |---|---|---|---|
 | `reservation.kicker` | "Pas envie de faire la queue ?" | "Une table en vue ?" | "Une bonne table ?" |
 | `reservation.titre` | "Réservez votre commande." | "Réservez votre soirée." | "Réservez votre repas." |
@@ -186,4 +186,4 @@ Mike : Maquette flash pour Le Saint-Hilaire à Chartres, j'y vais jeudi.
        Mon intuition : élégant.
 ```
 
-Le skill exécute les 6 étapes et retourne 3 PNG dans `prospects/{ville}-{date}/preparation-visites/le-saint-hilaire/` (elegant en primaire, brutalist et tradition en backup), en local non commité, + un récap des données récupérées et des points à valider au brief.
+Le skill exécute les 6 étapes et retourne 3 PNG dans `prospects/{ville}-{date}/preparation-visites/le-saint-hilaire/` (gastro en primaire, fast-food et traditionnel en backup), en local non commité, + un récap des données récupérées et des points à valider au brief.
