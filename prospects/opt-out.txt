@@ -1,0 +1,13 @@
+# Opt-out RGPD — 1 nom de resto par ligne. Tout resto listé ici est EXCLU
+# du scraping Google et du scoring. Ajouté à la main par Mike sur demande
+# d'un patron, ou par prudence. Insensible casse/accents.
+
+# --- Non-commerciaux OSM (cantines / administrations) — Mike 2026-05-17 ---
+Cafétéria du lycée
+Cafeteria IND
+Restaurant scolaire
+Restaurant Scolaire Les Barres
+Maison pour tous du Pont Neuf
+Direction Départementale du Travail, de l'Emploi et de la Formation Professionnelle
+Direction générale de la solidarité et de l'action sociale
+Direction des services départementaux de l'Eure-et-Loir

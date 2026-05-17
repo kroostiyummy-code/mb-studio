@@ -43,3 +43,5331 @@ restaurants:
       raison_perte: null
 
     notes_mike: ""                    # libre, à toi — jamais écrasé par un outil
+
+  - id: la-couscoussiere
+
+    identite:
+      nom: "La Couscoussière"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "kebab"
+      site_actuel: "aucun (présence bento.me)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 150
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: babylone
+
+    identite:
+      nom: "Babylone"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "kebab"
+      site_actuel: "aucun (présence ubereats)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.3
+      nb_avis: 667
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: l-ami-temps
+
+    identite:
+      nom: "L'Ami Temps"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.9
+      nb_avis: 195
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: villa-toscane
+
+    identite:
+      nom: "Villa Toscane"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "italian"
+      site_actuel: "aucun (présence facebook.com)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.5
+      nb_avis: 282
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: festin-d-asie
+
+    identite:
+      nom: "Festin d'Asie"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "chinese"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.2
+      nb_avis: 2409
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-maunoury
+
+    identite:
+      nom: "Le Maunoury"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.4
+      nb_avis: 158
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: o-relais
+
+    identite:
+      nom: "O'Relais"
+      adresse: "42Bis Avenue d'Orléan"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 2 37 25 88 88"
+      cuisine: "french"
+      site_actuel: "aucun (présence facebook.com)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.2
+      nb_avis: 1288
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: french-chic
+
+    identite:
+      nom: "French & chic"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun (présence instagram.com)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.5
+      nb_avis: 184
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: yog-eat
+
+    identite:
+      nom: "Yog & Eat"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 561
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: o-pizza-dwich
+
+    identite:
+      nom: "O'Pizza Dwich"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "pizzeria"
+      site_actuel: "aucun (présence ubereats)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.2
+      nb_avis: 452
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-bardepoch
+
+    identite:
+      nom: "Le BarDePoch'"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun (présence facebook.com)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.7
+      nb_avis: 412
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: saint-michel
+
+    identite:
+      nom: "Saint Michel"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 5
+      nb_avis: 162
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: my-kitchen
+
+    identite:
+      nom: "My kitchen"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33951476324"
+      cuisine: "turkish"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.8
+      nb_avis: 334
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-comptoir-de-la-mairie
+
+    identite:
+      nom: "Le comptoir de la mairie"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.2
+      nb_avis: 200
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-maryland
+
+    identite:
+      nom: "Le Maryland"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun (présence facebook.com)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.2
+      nb_avis: 222
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: bob-s-foodcourt
+
+    identite:
+      nom: "Bob's Foodcourt"
+      adresse: "13 Rue des Pierres Missigault"
+      cp: "28630"
+      ville: "Barjouville"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun (présence linktr.ee)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.5
+      nb_avis: 1851
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-comptoir-de-sarah
+
+    identite:
+      nom: "Le Comptoir De Sarah"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun (présence facebook.com)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.7
+      nb_avis: 414
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: la-table-du-marche
+
+    identite:
+      nom: "La Table Du Marché"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.1
+      nb_avis: 615
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: al-badea
+
+    identite:
+      nom: "Al-Badea"
+      adresse: "9 Rue de la Porte Cendreuse"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun (présence bento.me)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 150
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: aux-delices-chez-jade
+
+    identite:
+      nom: "Aux Délices Chez Jade"
+      adresse: "3 Rue de la Pie"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33982486215"
+      cuisine: "chinese"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.4
+      nb_avis: 117
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: kebab-express
+
+    identite:
+      nom: "Kebab Express"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "kebab"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4
+      nb_avis: 227
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: big-b
+
+    identite:
+      nom: "Big.B"
+      adresse: "5 Place du Général de Gaulle"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33633888500"
+      cuisine: "burger"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.5
+      nb_avis: 420
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: mesopotamie
+
+    identite:
+      nom: "Mésopotamie"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "kebab"
+      site_actuel: "aucun (présence instagram.com)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.7
+      nb_avis: 360
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: boba-choc
+
+    identite:
+      nom: "Boba Choc"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "bubble_tea"
+      site_actuel: "aucun (présence deliveroo)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.8
+      nb_avis: 162
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-papooze
+
+    identite:
+      nom: "Le Papooze"
+      adresse: "7 Rue Denis Poisson"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+332 37 33 73 60"
+      cuisine: "inconnue"
+      site_actuel: "aucun (présence facebook.com)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.2
+      nb_avis: 381
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: o-lac
+
+    identite:
+      nom: "O'LAC"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.4
+      nb_avis: 336
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 75
+      tier: A
+      valeur: 90
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: les-4t
+
+    identite:
+      nom: "Les 4T"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun (présence privateaser)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.9
+      nb_avis: 81
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 72
+      tier: B
+      valeur: 90
+      proba: 55
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: pizza-berllardi
+
+    identite:
+      nom: "Pizza Berllardi"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "pizza"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.2
+      nb_avis: 65
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 72
+      tier: B
+      valeur: 90
+      proba: 55
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: lichette
+
+    identite:
+      nom: "Lichette"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "french"
+      site_actuel: "aucun (présence instagram.com)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.7
+      nb_avis: 75
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 72
+      tier: B
+      valeur: 90
+      proba: 55
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-xv
+
+    identite:
+      nom: "Le XV"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun (présence privateaser)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.9
+      nb_avis: 81
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 72
+      tier: B
+      valeur: 90
+      proba: 55
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: lunch-bar
+
+    identite:
+      nom: "Lunch'Bar"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "sandwich"
+      site_actuel: "aucun (présence privateaser)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.9
+      nb_avis: 81
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 72
+      tier: B
+      valeur: 90
+      proba: 55
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: speed-rabbit-pizza
+
+    identite:
+      nom: "Speed Rabbit Pizza"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "pizza"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.2
+      nb_avis: 65
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 72
+      tier: B
+      valeur: 90
+      proba: 55
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-10
+
+    identite:
+      nom: "Le 10"
+      adresse: "1 Parc de l'Equerre"
+      cp: "28630"
+      ville: "Gellainville"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun (présence privateaser)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.9
+      nb_avis: 81
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 72
+      tier: B
+      valeur: 90
+      proba: 55
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: creperie-la-poele-percee
+
+    identite:
+      nom: "Crêperie La Poële Percée"
+      adresse: "7 Rue de la Poële Percée"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33237216070"
+      cuisine: "crepe"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.7
+      nb_avis: 99
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 72
+      tier: B
+      valeur: 90
+      proba: 55
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: chat-cafeine
+
+    identite:
+      nom: "Chat caféiné"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "coffee_shop"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.9
+      nb_avis: 50
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 72
+      tier: B
+      valeur: 90
+      proba: 55
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: 18ctea
+
+    identite:
+      nom: "18CTea"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "bubble_tea"
+      site_actuel: "aucun (présence instagram.com)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.7
+      nb_avis: 78
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 72
+      tier: B
+      valeur: 90
+      proba: 55
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: chez-tonton
+
+    identite:
+      nom: "Chez Tonton"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "chicken sandwich"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 5
+      nb_avis: 60
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 72
+      tier: B
+      valeur: 90
+      proba: 55
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: cafe-marceau
+
+    identite:
+      nom: "Café Marceau"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.8
+      nb_avis: 72
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 72
+      tier: B
+      valeur: 90
+      proba: 55
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: la-civette
+
+    identite:
+      nom: "La Civette"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun (présence instagram.com)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.9
+      nb_avis: 210
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 68
+      tier: B
+      valeur: 90
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-week-end
+
+    identite:
+      nom: "Le Week-End"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.7
+      nb_avis: 122
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 68
+      tier: B
+      valeur: 90
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: brasserie-de-la-prefecture
+
+    identite:
+      nom: "Brasserie de la Préfecture"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "coffee_shop"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.2
+      nb_avis: 128
+      gmb_completude: 45
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 68
+      tier: B
+      valeur: 90
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: l-academie-de-la-biere
+
+    identite:
+      nom: "L'Académie de la Bière"
+      adresse: "8 Rue du Cheval Blanc"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33237369007"
+      cuisine: "inconnue"
+      site_actuel: "aucun (présence facebook.com)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.5
+      nb_avis: 394
+      gmb_completude: 45
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 68
+      tier: B
+      valeur: 90
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: street-food
+
+    identite:
+      nom: "Street food"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.5
+      nb_avis: 125
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 68
+      tier: B
+      valeur: 90
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-plaza-bar-live
+
+    identite:
+      nom: "Le Plaza Bar Live"
+      adresse: "33b Rue des Pierres Missigault"
+      cp: "28630"
+      ville: "Barjouville"
+      telephone: "+33 2 36 67 21 28"
+      cuisine: "inconnue"
+      site_actuel: "aucun (présence facebook.com)"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.9
+      nb_avis: 372
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 68
+      tier: B
+      valeur: 90
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: artipik
+
+    identite:
+      nom: "Artipik"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.3
+      nb_avis: 255
+      gmb_completude: 45
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 68
+      tier: B
+      valeur: 90
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: aux-comptoirs
+
+    identite:
+      nom: "Aux Comptoirs"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "seafood"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 228
+      gmb_completude: 45
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 68
+      tier: B
+      valeur: 90
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: nouvel-orient
+
+    identite:
+      nom: "Nouvel Orient"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "asian"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.5
+      nb_avis: 67
+      gmb_completude: 35
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 65
+      tier: B
+      valeur: 90
+      proba: 40
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-saint-vincent
+
+    identite:
+      nom: "Le Saint-Vincent"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 54
+      gmb_completude: 15
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 65
+      tier: B
+      valeur: 90
+      proba: 40
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: l-erfood
+
+    identite:
+      nom: "L’Erfood"
+      adresse: "29 Rue du Maréchal Leclerc"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "sandwich"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.2
+      nb_avis: 78
+      gmb_completude: 45
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 65
+      tier: B
+      valeur: 90
+      proba: 40
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: l-epsilon
+
+    identite:
+      nom: "L'Epsilon"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.5
+      nb_avis: 72
+      gmb_completude: 45
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 65
+      tier: B
+      valeur: 90
+      proba: 40
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: bar-tabac-au-pacha
+
+    identite:
+      nom: "Bar Tabac au Pacha"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.5
+      nb_avis: 96
+      gmb_completude: 35
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 65
+      tier: B
+      valeur: 90
+      proba: 40
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: l-entre-potes
+
+    identite:
+      nom: "L'Entre-potes"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.9
+      nb_avis: 10
+      gmb_completude: 35
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 60
+      tier: B
+      valeur: 90
+      proba: 30
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: l-estaminet
+
+    identite:
+      nom: "L'Estaminet"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.9
+      nb_avis: 218
+      gmb_completude: 45
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 60
+      tier: B
+      valeur: 90
+      proba: 30
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-saloon
+
+    identite:
+      nom: "Le Saloon"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 5
+      nb_avis: 1
+      gmb_completude: 35
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 60
+      tier: B
+      valeur: 90
+      proba: 30
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-jehan
+
+    identite:
+      nom: "Le Jehan"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.8
+      nb_avis: 24
+      gmb_completude: 45
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 55
+      tier: B
+      valeur: 90
+      proba: 20
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-khedive
+
+    identite:
+      nom: "Le Khedive"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.2
+      nb_avis: 97
+      gmb_completude: 35
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 52
+      tier: B
+      valeur: 90
+      proba: 15
+      drapeau_rouge: "Note Google basse : sujet sensible, ne pas aborder le site frontalement."
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: dwichee-s
+
+    identite:
+      nom: "Dwichee's"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "kebab"
+      site_actuel: "aucun"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3
+      nb_avis: 9
+      gmb_completude: 15
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 48
+      tier: C
+      valeur: 90
+      proba: 5
+      drapeau_rouge: "Note Google basse : sujet sensible, ne pas aborder le site frontalement."
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: la-casa-tropical
+
+    identite:
+      nom: "La Casa Tropical"
+      adresse: "8 Rue de la Porte Cendreuse"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 2 37245611"
+      cuisine: "inconnue"
+      site_actuel: "https://lacasatropical.eatbu.com/?lang=fr"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.4
+      nb_avis: 422
+      gmb_completude: 85
+      lighthouse_mobile: 42
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 44
+      tier: C
+      valeur: 27
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: jungle-cafe
+
+    identite:
+      nom: "Jungle Café"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://le-jungle-cafe.eatbu.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.1
+      nb_avis: 382
+      gmb_completude: 65
+      lighthouse_mobile: 43
+      age_site_ans: 1.1
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 44
+      tier: C
+      valeur: 29
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-21
+
+    identite:
+      nom: "Le 21"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "french"
+      site_actuel: "https://le-21.eatbu.com/?lang=fr"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.8
+      nb_avis: 335
+      gmb_completude: 65
+      lighthouse_mobile: 63
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 42
+      tier: C
+      valeur: 24
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: chai-laurent
+
+    identite:
+      nom: "Chai Laurent"
+      adresse: "2 Rue de la Clouterie"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 2 37 21 17 67"
+      cuisine: "french"
+      site_actuel: "https://chailaurent.eatbu.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 106
+      gmb_completude: 65
+      lighthouse_mobile: 68
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 42
+      tier: C
+      valeur: 23
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: l-isola
+
+    identite:
+      nom: "L'isola"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "pizza"
+      site_actuel: "https://l-isola-chartres.eatbu.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.7
+      nb_avis: 387
+      gmb_completude: 65
+      lighthouse_mobile: 70
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 42
+      tier: C
+      valeur: 23
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: aux-vieux-garcons
+
+    identite:
+      nom: "Aux Vieux Garçons"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://auxvieuxgarcons.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 532
+      gmb_completude: 65
+      lighthouse_mobile: 50
+      age_site_ans: 4.5
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 42
+      tier: C
+      valeur: 23
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: cobalt
+
+    identite:
+      nom: "Cobalt"
+      adresse: "1 Rue Fulbert"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 2 37 27 80 33"
+      cuisine: "inconnue"
+      site_actuel: "https://www.cobalt-chartres.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.7
+      nb_avis: 846
+      gmb_completude: 65
+      lighthouse_mobile: 34
+      age_site_ans: 3.7
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 42
+      tier: C
+      valeur: 23
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-madrigal
+
+    identite:
+      nom: "Le Madrigal"
+      adresse: "22 Place des Épars"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 2 37 18 15 07"
+      cuisine: "inconnue"
+      site_actuel: "https://www.grand-monarque.com/fr/restaurants-bar/bar-lounge-le-madrigal.html"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.5
+      nb_avis: 468
+      gmb_completude: 65
+      lighthouse_mobile: 23
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 41
+      tier: C
+      valeur: 22
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-parvis
+
+    identite:
+      nom: "Le Parvis"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "french"
+      site_actuel: "https://www.le-parvis-chartres.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.1
+      nb_avis: 162
+      gmb_completude: 65
+      lighthouse_mobile: 36
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 40
+      tier: C
+      valeur: 19
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-georges
+
+    identite:
+      nom: "Le Georges"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33237181501"
+      cuisine: "inconnue"
+      site_actuel: "https://www.bw-grand-monarque.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.8
+      nb_avis: 290
+      gmb_completude: 65
+      lighthouse_mobile: 29
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 40
+      tier: C
+      valeur: 21
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-comptoir-de-mamie-bigoude
+
+    identite:
+      nom: "Le Comptoir de Mamie  Bigoude"
+      adresse: "Place du Cygne"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "crepe"
+      site_actuel: "http://www.comptoirmamiebigoude.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.4
+      nb_avis: 725
+      gmb_completude: 65
+      lighthouse_mobile: 57
+      age_site_ans: 6.8
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 40
+      tier: C
+      valeur: 19
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: la-petite-venise
+
+    identite:
+      nom: "La Petite Venise"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://www.laguinguettedechartres.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.5
+      nb_avis: 1397
+      gmb_completude: 65
+      lighthouse_mobile: 52
+      age_site_ans: 10.2
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 40
+      tier: C
+      valeur: 20
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: b-chef
+
+    identite:
+      nom: "B-Chef"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 2 37 27 08 41"
+      cuisine: "inconnue"
+      site_actuel: "https://bchef.fr/les-restaurants-bchef/bchef-chartres-place-du-cygne/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.4
+      nb_avis: 561
+      gmb_completude: 65
+      lighthouse_mobile: 39
+      age_site_ans: 4.9
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 40
+      tier: C
+      valeur: 19
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: pizza-cosy
+
+    identite:
+      nom: "Pizza Cosy"
+      adresse: "1bis Place du Général de Gaulle"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 2 42 25 01 60"
+      cuisine: "pizza"
+      site_actuel: "https://www.pizzacosy.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.8
+      nb_avis: 914
+      gmb_completude: 65
+      lighthouse_mobile: 42
+      age_site_ans: 9.6
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 40
+      tier: C
+      valeur: 21
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: brasserie-le-repere
+
+    identite:
+      nom: "Brasserie Le Repère"
+      adresse: "33f Rue des Pierres Missigault"
+      cp: "28630"
+      ville: "Barjouville"
+      telephone: "+33 2 46 56 96 70"
+      cuisine: "inconnue"
+      site_actuel: "https://le-repere-barjouville.eatbu.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.7
+      nb_avis: 91
+      gmb_completude: 65
+      lighthouse_mobile: 60
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 40
+      tier: C
+      valeur: 26
+      proba: 55
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: l-amphitryon
+
+    identite:
+      nom: "L'Amphitryon"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "http://www.leboeufcouronne.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 2216
+      gmb_completude: 85
+      lighthouse_mobile: 30
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 39
+      tier: C
+      valeur: 18
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-francis
+
+    identite:
+      nom: "Le Francis"
+      adresse: "39 Rue des Pierres Missigault"
+      cp: "28630"
+      ville: "Barjouville"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "http://www.restaurantlefrancis.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.1
+      nb_avis: 181
+      gmb_completude: 65
+      lighthouse_mobile: 32
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 39
+      tier: C
+      valeur: 18
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: pitaya
+
+    identite:
+      nom: "Pitaya"
+      adresse: "7 Place Marceau"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 2 57 54 74 43"
+      cuisine: "thai"
+      site_actuel: "https://restaurants.pitaya-thaistreetfood.com/chartres/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4
+      nb_avis: 433
+      gmb_completude: 65
+      lighthouse_mobile: 42
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 39
+      tier: C
+      valeur: 18
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: brasserie-la-cour
+
+    identite:
+      nom: "Brasserie La Cour"
+      adresse: "22 Place des Épars"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 2 37 18 15 07"
+      cuisine: "inconnue"
+      site_actuel: "https://www.grand-monarque.com/fr/restaurants-bar/brasserie-la-cour.html"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 1823
+      gmb_completude: 65
+      lighthouse_mobile: 28
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 39
+      tier: C
+      valeur: 18
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: tomate-piment
+
+    identite:
+      nom: "Tomate & Piment"
+      adresse: "Rue Georges Fessard"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "http://www.tomate-et-piment.fr/?utm_source=gmb"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.3
+      nb_avis: 625
+      gmb_completude: 85
+      lighthouse_mobile: 17
+      age_site_ans: 0.5
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 38
+      tier: C
+      valeur: 15
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: la-chocolaterie
+
+    identite:
+      nom: "La Chocolaterie"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "coffee_shop"
+      site_actuel: "http://www.lachocolaterie-chartres.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.1
+      nb_avis: 741
+      gmb_completude: 65
+      lighthouse_mobile: 64
+      age_site_ans: 10.1
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 38
+      tier: C
+      valeur: 17
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-cafe-serpente
+
+    identite:
+      nom: "Le Café Serpente"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "french"
+      site_actuel: "https://www.cafeserpente.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.3
+      nb_avis: 2248
+      gmb_completude: 65
+      lighthouse_mobile: 36
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 38
+      tier: C
+      valeur: 17
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-medieval
+
+    identite:
+      nom: "Le Medieval"
+      adresse: "Rue Saint-Pierre"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "http://restaurant-le-medieval.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.7
+      nb_avis: 478
+      gmb_completude: 65
+      lighthouse_mobile: 57
+      age_site_ans: 8.2
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 38
+      tier: C
+      valeur: 15
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: jbj-sushi
+
+    identite:
+      nom: "JBJ Sushi"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "sushi"
+      site_actuel: "http://jbjsushi.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 317
+      gmb_completude: 65
+      lighthouse_mobile: 56
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 38
+      tier: C
+      valeur: 16
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: rive-s
+
+    identite:
+      nom: "Rive's"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 2 37 25 18 00"
+      cuisine: "inconnue"
+      site_actuel: "https://www.odyssee-chartres.fr/restaurant/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4
+      nb_avis: 217
+      gmb_completude: 65
+      lighthouse_mobile: 67
+      age_site_ans: 4.4
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 38
+      tier: C
+      valeur: 16
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: piperno
+
+    identite:
+      nom: "Piperno"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 2 52 56 42 07"
+      cuisine: "pizza"
+      site_actuel: "https://piperno.fr"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.2
+      nb_avis: 538
+      gmb_completude: 65
+      lighthouse_mobile: 59
+      age_site_ans: 5.2
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 38
+      tier: C
+      valeur: 16
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: hotel-du-prefet
+
+    identite:
+      nom: "Hôtel du préfet"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://www.grand-monarque.com/fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.4
+      nb_avis: 874
+      gmb_completude: 45
+      lighthouse_mobile: 20
+      age_site_ans: 4.5
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 38
+      tier: C
+      valeur: 31
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: courte-paille
+
+    identite:
+      nom: "Courte Paille"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://restaurants.courtepaille.com/restaurant-courtepaille-chartres-id206"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.1
+      nb_avis: 2188
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 37
+      tier: C
+      valeur: 14
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: o-tire-bouchon
+
+    identite:
+      nom: "O Tire Bouchon"
+      adresse: "12 Rue au Lait"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "Restaurant Lyonnais"
+      site_actuel: "https://otirebouchon.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 616
+      gmb_completude: 65
+      lighthouse_mobile: 92
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 37
+      tier: C
+      valeur: 14
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: l-hotel
+
+    identite:
+      nom: "L'Hôtel"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://www.grand-monarque.com/fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.4
+      nb_avis: 874
+      gmb_completude: 45
+      lighthouse_mobile: 16
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 37
+      tier: C
+      valeur: 29
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: garage
+
+    identite:
+      nom: "Garage"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "burger"
+      site_actuel: "https://www.barlegaragechartres.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4
+      nb_avis: 508
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 37
+      tier: C
+      valeur: 14
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: it
+
+    identite:
+      nom: "iT"
+      adresse: "2 Place Marceau"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33237995210"
+      cuisine: "italian"
+      site_actuel: "https://restaurants.it-trattoria.fr/chartres-place-marceau/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.3
+      nb_avis: 1376
+      gmb_completude: 65
+      lighthouse_mobile: 54
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 37
+      tier: C
+      valeur: 14
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: uzumaki
+
+    identite:
+      nom: "Uzumaki"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "sushi"
+      site_actuel: "https://uzumaki28.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.3
+      nb_avis: 163
+      gmb_completude: 65
+      lighthouse_mobile: 58
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 37
+      tier: C
+      valeur: 14
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-montescot
+
+    identite:
+      nom: "Le Montescot"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://cafe-montescot.grubkit.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.4
+      nb_avis: 622
+      gmb_completude: 65
+      lighthouse_mobile: 100
+      age_site_ans: 2.0
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 36
+      tier: C
+      valeur: 12
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: les-feuillantines
+
+    identite:
+      nom: "Les Feuillantines"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "french"
+      site_actuel: "http://restaurantlesfeuillantines.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 850
+      gmb_completude: 85
+      lighthouse_mobile: 26
+      age_site_ans: 1.1
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 36
+      tier: C
+      valeur: 13
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: cafe-bleu
+
+    identite:
+      nom: "Café Bleu"
+      adresse: "1 Cloître Notre-Dame"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "french"
+      site_actuel: "http://www.cafebleu-chartres.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.5
+      nb_avis: 2197
+      gmb_completude: 85
+      lighthouse_mobile: 52
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 36
+      tier: C
+      valeur: 12
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: ellan-vannin
+
+    identite:
+      nom: "Ellan Vannin"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "http://www.pub-ellan-vannin.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4
+      nb_avis: 384
+      gmb_completude: 65
+      lighthouse_mobile: 56
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 36
+      tier: C
+      valeur: 11
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-tres-superbe
+
+    identite:
+      nom: "Le Très Superbe"
+      adresse: "6 Rue de la Volaille"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 9 54 34 62 30"
+      cuisine: "tea"
+      site_actuel: "https://www.le-tres-superbe.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.8
+      nb_avis: 233
+      gmb_completude: 65
+      lighthouse_mobile: 52
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 36
+      tier: C
+      valeur: 12
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-kiosque-a-pizzas
+
+    identite:
+      nom: "Le Kiosque à Pizzas"
+      adresse: "30 Rue du Bois Musquet"
+      cp: "28300"
+      ville: "Champhol"
+      telephone: "+33 2 37 99 78 67"
+      cuisine: "pizza"
+      site_actuel: "https://www.le-kiosque-a-pizzas.com/commander-pizza/pizza-champhol-449-0.html"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.5
+      nb_avis: 124
+      gmb_completude: 85
+      lighthouse_mobile: 46
+      age_site_ans: 10.0
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 36
+      tier: C
+      valeur: 12
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: hot-chef
+
+    identite:
+      nom: "Hot Chef"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://bchef.fr/restaurants_bchef/bchef-chartres/burgers_chartres/?utm_source=google&utm_medium=organic&utm_campaign=mybusiness-website"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.4
+      nb_avis: 561
+      gmb_completude: 65
+      lighthouse_mobile: 44
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 36
+      tier: C
+      valeur: 13
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-rustic
+
+    identite:
+      nom: "Le Rustic"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://www.barlerustic.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.5
+      nb_avis: 284
+      gmb_completude: 65
+      lighthouse_mobile: 53
+      age_site_ans: 2.0
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 36
+      tier: C
+      valeur: 11
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: wok-d-asie
+
+    identite:
+      nom: "Wok d'Asie"
+      adresse: "30 Rue des Pierres Missigault"
+      cp: "28630"
+      ville: "Barjouville"
+      telephone: "+33 2 37 28 88 88"
+      cuisine: "chinese"
+      site_actuel: "https://restaurantwokdasie.wixsite.com/wok-dasie"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.4
+      nb_avis: 5371
+      gmb_completude: 65
+      lighthouse_mobile: 41
+      age_site_ans: 0.5
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 36
+      tier: C
+      valeur: 11
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: unyc-brasserie
+
+    identite:
+      nom: "Unyc Brasserie"
+      adresse: "33C Rue des Pierres Missigault"
+      cp: "28630"
+      ville: "Barjouville"
+      telephone: "+33 2 37 34 54 89"
+      cuisine: "brasserie"
+      site_actuel: "https://www.unycbrasserie.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 1809
+      gmb_completude: 65
+      lighthouse_mobile: 49
+      age_site_ans: 3.2
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 36
+      tier: C
+      valeur: 13
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-sully
+
+    identite:
+      nom: "Le Sully"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://www.bistrotlesullychartres.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.5
+      nb_avis: 318
+      gmb_completude: 65
+      lighthouse_mobile: 56
+      age_site_ans: 3.2
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 36
+      tier: C
+      valeur: 12
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: maleyssie
+
+    identite:
+      nom: "Maleyssie"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://www.maleyssie-chartres.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.3
+      nb_avis: 306
+      gmb_completude: 65
+      lighthouse_mobile: 49
+      age_site_ans: 1.4
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 36
+      tier: C
+      valeur: 11
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: mon-paris-iv
+
+    identite:
+      nom: "Mon Paris IV !"
+      adresse: "2 Rue Montescot"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33237272802"
+      cuisine: "brasserie"
+      site_actuel: "https://mon-paris-iv-restaurant-chartres.fr/fr"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 327
+      gmb_completude: 65
+      lighthouse_mobile: null
+      age_site_ans: 1.9
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 36
+      tier: C
+      valeur: 13
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: hanami
+
+    identite:
+      nom: "Hanami"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "japanese"
+      site_actuel: "http://www.hanamihandrolls.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.9
+      nb_avis: 251
+      gmb_completude: 65
+      lighthouse_mobile: 63
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 36
+      tier: C
+      valeur: 12
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: dawat
+
+    identite:
+      nom: "Dawat"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "indian"
+      site_actuel: "https://restaurantdawat.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.7
+      nb_avis: 279
+      gmb_completude: 65
+      lighthouse_mobile: 56
+      age_site_ans: 1.4
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 35
+      tier: C
+      valeur: 10
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: anamour-kebab
+
+    identite:
+      nom: "Anamour kebab"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "kebab"
+      site_actuel: "https://anamour-restaurant-luce.order.dish.co/contact"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 300
+      gmb_completude: 65
+      lighthouse_mobile: 68
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 35
+      tier: C
+      valeur: 10
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: la-picoterie
+
+    identite:
+      nom: "La Picoterie"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "crepe"
+      site_actuel: "http://www.picoterie.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.3
+      nb_avis: 1647
+      gmb_completude: 85
+      lighthouse_mobile: 56
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 34
+      tier: C
+      valeur: 9
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: la-passacaille
+
+    identite:
+      nom: "La Passacaille"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "pizza"
+      site_actuel: "http://www.lapassacaille.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.4
+      nb_avis: 1879
+      gmb_completude: 85
+      lighthouse_mobile: 72
+      age_site_ans: 16.4
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 34
+      tier: C
+      valeur: 7
+      proba: 60
+      drapeau_rouge: "Site deja correct : plus dur a convaincre, garder pour quand tu seras rode."
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: kyotori
+
+    identite:
+      nom: "Kyotori"
+      adresse: "13 Rue du Général Koenig"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 2 37 21 69 56"
+      cuisine: "sushi"
+      site_actuel: "https://kyotori28.com/fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 993
+      gmb_completude: 85
+      lighthouse_mobile: 69
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 34
+      tier: C
+      valeur: 9
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: brasserie-de-l-ouest
+
+    identite:
+      nom: "Brasserie de l'ouest"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33237210745"
+      cuisine: "inconnue"
+      site_actuel: "https://brasseriedelouest.wixsite.com/brasseriedelouest28"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.2
+      nb_avis: 249
+      gmb_completude: 65
+      lighthouse_mobile: 62
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 34
+      tier: C
+      valeur: 8
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-bon-coin
+
+    identite:
+      nom: "Le bon coin"
+      adresse: "30 Place Jean Moulin"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 6 74 05 60 39"
+      cuisine: "inconnue"
+      site_actuel: "https://creperie-auboncoin-chartres.eatbu.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.9
+      nb_avis: 110
+      gmb_completude: 65
+      lighthouse_mobile: 71
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 34
+      tier: C
+      valeur: 22
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: la-table-de-julie
+
+    identite:
+      nom: "La table de Julie"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33237325760"
+      cuisine: "bistro"
+      site_actuel: "http://latabledejulie.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.7
+      nb_avis: 1118
+      gmb_completude: 65
+      lighthouse_mobile: 63
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 34
+      tier: C
+      valeur: 8
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-smile
+
+    identite:
+      nom: "Le Smile"
+      adresse: "1 Rue du Bourg"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://www.lesmile28.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.7
+      nb_avis: 129
+      gmb_completude: 65
+      lighthouse_mobile: 65
+      age_site_ans: 2.9
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 34
+      tier: C
+      valeur: 8
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: pizze
+
+    identite:
+      nom: "Pizze"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "pizza"
+      site_actuel: "https://restaurantpizze.eatbu.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4
+      nb_avis: 84
+      gmb_completude: 45
+      lighthouse_mobile: 61
+      age_site_ans: 1.5
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 34
+      tier: C
+      valeur: 28
+      proba: 40
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: bistro-des-halles
+
+    identite:
+      nom: "Bistro des Halles"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://www.le-bistro-des-halles-chartres.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.7
+      nb_avis: 225
+      gmb_completude: 65
+      lighthouse_mobile: 61
+      age_site_ans: 3.4
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 34
+      tier: C
+      valeur: 9
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-marigny
+
+    identite:
+      nom: "Le Marigny"
+      adresse: "11 Place du Général de Gaulle"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33237210972"
+      cuisine: "inconnue"
+      site_actuel: "https://lemarignychartres.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4
+      nb_avis: 248
+      gmb_completude: 65
+      lighthouse_mobile: 63
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 34
+      tier: C
+      valeur: 9
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: cote-sushi
+
+    identite:
+      nom: "Côté sushi"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "japanese"
+      site_actuel: "https://restaurants.cotesushi.com/fr/restaurant-sushi/place-marceau-chartres/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.3
+      nb_avis: 914
+      gmb_completude: 65
+      lighthouse_mobile: 60
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 34
+      tier: C
+      valeur: 7
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: cabanoniers-bar-a-petanques
+
+    identite:
+      nom: "Cabanoniers Bar à Pétanques"
+      adresse: "12 Allée Prométhée"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 2 37 28 34 41"
+      cuisine: "inconnue"
+      site_actuel: "https://www.cabanoniers.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.8
+      nb_avis: 208
+      gmb_completude: 65
+      lighthouse_mobile: 57
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 34
+      tier: C
+      valeur: 9
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: l-estocade
+
+    identite:
+      nom: "L'Estocade"
+      adresse: "1 Rue de la Porte Guillaume"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 2 37 34 27 17"
+      cuisine: "french"
+      site_actuel: "https://estocade-chartres.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 858
+      gmb_completude: 65
+      lighthouse_mobile: 64
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 33
+      tier: C
+      valeur: 6
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-moulin-de-ponceau
+
+    identite:
+      nom: "Le Moulin de Ponceau"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://www.restaurant-moulin-ponceau.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 1210
+      gmb_completude: 85
+      lighthouse_mobile: 57
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 33
+      tier: C
+      valeur: 6
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: pronto-pizza
+
+    identite:
+      nom: "Pronto Pizza"
+      adresse: "Rue du Général Georges Patton"
+      cp: "28110"
+      ville: "Lucé"
+      telephone: "inconnu"
+      cuisine: "pizza"
+      site_actuel: "http://www.restaurant-presto.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.5
+      nb_avis: 251
+      gmb_completude: 65
+      lighthouse_mobile: 73
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 33
+      tier: C
+      valeur: 6
+      proba: 60
+      drapeau_rouge: "Site deja correct : plus dur a convaincre, garder pour quand tu seras rode."
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: shogun-sushi
+
+    identite:
+      nom: "Shogun Sushi"
+      adresse: "Rue du Docteur Miche Gibert"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "japanese"
+      site_actuel: "http://www.shogun-sushi.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 1087
+      gmb_completude: 85
+      lighthouse_mobile: 65
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 33
+      tier: C
+      valeur: 6
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: terra
+
+    identite:
+      nom: "Terra"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "italian"
+      site_actuel: "https://www.terrachartres.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 1230
+      gmb_completude: 85
+      lighthouse_mobile: 56
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 33
+      tier: C
+      valeur: 6
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: kim-tea
+
+    identite:
+      nom: "Kim tea"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "http://kimtea.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.9
+      nb_avis: 143
+      gmb_completude: 65
+      lighthouse_mobile: 70
+      age_site_ans: 3.0
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 33
+      tier: C
+      valeur: 6
+      proba: 60
+      drapeau_rouge: "Site deja correct : plus dur a convaincre, garder pour quand tu seras rode."
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: la-brochet-du-sud
+
+    identite:
+      nom: "La Brochet' du Sud"
+      adresse: "8 Cloître Notre-Dame"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33237223289"
+      cuisine: "french"
+      site_actuel: "https://cmdlv9.wixsite.com/labrochetdusud"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.7
+      nb_avis: 338
+      gmb_completude: 45
+      lighthouse_mobile: 86
+      age_site_ans: 4.4
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 33
+      tier: C
+      valeur: 21
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: sakura-du-paradis
+
+    identite:
+      nom: "Sakura du Paradis"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "japanese"
+      site_actuel: "http://sakuraduparadis.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.1
+      nb_avis: 632
+      gmb_completude: 65
+      lighthouse_mobile: 20
+      age_site_ans: 14.3
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 32
+      tier: C
+      valeur: 28
+      proba: 35
+      drapeau_rouge: "Note Google basse : sujet sensible, ne pas aborder le site frontalement."
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: la-cathedrale
+
+    identite:
+      nom: "La Cathédrale"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://lecathedrale-brasserie.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.4
+      nb_avis: 630
+      gmb_completude: 65
+      lighthouse_mobile: 74
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 32
+      tier: C
+      valeur: 3
+      proba: 60
+      drapeau_rouge: "Site deja correct : plus dur a convaincre, garder pour quand tu seras rode."
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: pizza-28
+
+    identite:
+      nom: "Pizza 28"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33237302632"
+      cuisine: "pizza"
+      site_actuel: "http://www.pizza-28.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.8
+      nb_avis: 255
+      gmb_completude: 65
+      lighthouse_mobile: 83
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 32
+      tier: C
+      valeur: 3
+      proba: 60
+      drapeau_rouge: "Site deja correct : plus dur a convaincre, garder pour quand tu seras rode."
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-tripot
+
+    identite:
+      nom: "Le Tripot"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "french"
+      site_actuel: "https://letripot.wixsite.com/chartres"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.7
+      nb_avis: 540
+      gmb_completude: 85
+      lighthouse_mobile: 72
+      age_site_ans: 9.1
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 32
+      tier: C
+      valeur: 4
+      proba: 60
+      drapeau_rouge: "Site deja correct : plus dur a convaincre, garder pour quand tu seras rode."
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: racines
+
+    identite:
+      nom: "Racines"
+      adresse: "49 Rue des Changes"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://www.bistrotracines.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 1629
+      gmb_completude: 65
+      lighthouse_mobile: 70
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 32
+      tier: C
+      valeur: 5
+      proba: 60
+      drapeau_rouge: "Site deja correct : plus dur a convaincre, garder pour quand tu seras rode."
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: l-annexe
+
+    identite:
+      nom: "L'Annexe"
+      adresse: "Rue du Soleil d'Or"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "burger french"
+      site_actuel: "https://www.annexe-brasserie.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.2
+      nb_avis: 1723
+      gmb_completude: 85
+      lighthouse_mobile: 81
+      age_site_ans: 10.5
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 32
+      tier: C
+      valeur: 4
+      proba: 60
+      drapeau_rouge: "Site deja correct : plus dur a convaincre, garder pour quand tu seras rode."
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: chartres-a-bloc
+
+    identite:
+      nom: "Chartres à bloc"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 2 34 40 06 32"
+      cuisine: "inconnue"
+      site_actuel: "https://chartresabloc.fr"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.6
+      nb_avis: 156
+      gmb_completude: 65
+      lighthouse_mobile: 68
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 32
+      tier: C
+      valeur: 5
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: les-3-lys
+
+    identite:
+      nom: "Les 3 Lys"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "crepe"
+      site_actuel: "http://www.creperie-chartres.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.4
+      nb_avis: 803
+      gmb_completude: 85
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 31
+      tier: C
+      valeur: 2
+      proba: 60
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-chene-fleuri
+
+    identite:
+      nom: "Le Chêne Fleuri"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33237352570"
+      cuisine: "inconnue"
+      site_actuel: "http://www.lechenefleuri.net/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.5
+      nb_avis: 105
+      gmb_completude: 45
+      lighthouse_mobile: 39
+      age_site_ans: 1.7
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 31
+      tier: C
+      valeur: 17
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: saveurs-plaisirs
+
+    identite:
+      nom: "Saveurs & Plaisirs"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "http://les-plaisirs-tropikal.sumup.link/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.9
+      nb_avis: 39
+      gmb_completude: 65
+      lighthouse_mobile: 57
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 30
+      tier: C
+      valeur: 11
+      proba: 50
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-phare-saint-louis
+
+    identite:
+      nom: "Le Phare Saint-Louis"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "breton"
+      site_actuel: "https://www.laube-creperie.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.4
+      nb_avis: 929
+      gmb_completude: 65
+      lighthouse_mobile: 83
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 30
+      tier: C
+      valeur: 1
+      proba: 60
+      drapeau_rouge: "Site deja correct : plus dur a convaincre, garder pour quand tu seras rode."
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: bar-des-sports
+
+    identite:
+      nom: "Bar des Sports"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://hotelducentre28.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.9
+      nb_avis: 137
+      gmb_completude: 35
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 30
+      tier: C
+      valeur: 31
+      proba: 30
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-shalimar
+
+    identite:
+      nom: "Le Shalimar"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "indian"
+      site_actuel: "http://leshalimar-chartres.eatbu.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.4
+      nb_avis: 1035
+      gmb_completude: 85
+      lighthouse_mobile: 58
+      age_site_ans: 0.2
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 30
+      tier: C
+      valeur: 19
+      proba: 40
+      drapeau_rouge: "Site tres recent (<6 mois) : vient d'investir, refusera. Ne pas visiter avant 12 mois."
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: bar-du-stade
+
+    identite:
+      nom: "Bar du Stade"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://cafedugeneral.fr/fr"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.8
+      nb_avis: 684
+      gmb_completude: 65
+      lighthouse_mobile: 40
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 29
+      tier: C
+      valeur: 13
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-cafe-du-general
+
+    identite:
+      nom: "Le Café du Général"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://cafedugeneral.fr/fr"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.8
+      nb_avis: 684
+      gmb_completude: 65
+      lighthouse_mobile: 47
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 28
+      tier: C
+      valeur: 11
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: l-atelier-terroir
+
+    identite:
+      nom: "L'Atelier Terroir"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "http://www.atelier-terroir.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.6
+      nb_avis: 168
+      gmb_completude: 45
+      lighthouse_mobile: null
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 28
+      tier: C
+      valeur: 25
+      proba: 30
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: oro
+
+    identite:
+      nom: "Oro"
+      adresse: "1 Rue des Orvilles"
+      cp: "28630"
+      ville: "Barjouville"
+      telephone: "+33 2 37 28 93 62"
+      cuisine: "italian"
+      site_actuel: "https://www.contedivenezia28.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.8
+      nb_avis: 428
+      gmb_completude: 65
+      lighthouse_mobile: 62
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 28
+      tier: C
+      valeur: 10
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: la-voute-romane
+
+    identite:
+      nom: "La Voûte Romane"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 2 37 36 64 23"
+      cuisine: "italian"
+      site_actuel: "https://www.roma-nostra.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.5
+      nb_avis: 1097
+      gmb_completude: 65
+      lighthouse_mobile: 65
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 26
+      tier: C
+      valeur: 8
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: roma-nostra
+
+    identite:
+      nom: "Roma Nostra"
+      adresse: "Place du Cygne"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "pizza"
+      site_actuel: "https://www.roma-nostra.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.5
+      nb_avis: 1097
+      gmb_completude: 65
+      lighthouse_mobile: 65
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 26
+      tier: C
+      valeur: 8
+      proba: 45
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: le-moliere
+
+    identite:
+      nom: "Le Molière"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "inconnue"
+      site_actuel: "https://lemolierechartres.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 4.2
+      nb_avis: 388
+      gmb_completude: 45
+      lighthouse_mobile: 70
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 26
+      tier: C
+      valeur: 8
+      proba: 45
+      drapeau_rouge: "Site deja correct : plus dur a convaincre, garder pour quand tu seras rode."
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: novotel-cafe
+
+    identite:
+      nom: "Novotel Café"
+      adresse: "5 ter Avenue Marcel Proust"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "+33 2 37 88 13 50"
+      cuisine: "inconnue"
+      site_actuel: "https://restaurantsandbars.accor.com/fr/restaurant/0413_R001"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.5
+      nb_avis: 40
+      gmb_completude: 65
+      lighthouse_mobile: 30
+      age_site_ans: 2.7
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 26
+      tier: C
+      valeur: 18
+      proba: 35
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: king-wok
+
+    identite:
+      nom: "King Wok"
+      adresse: "16 Rue Jean Perrin"
+      cp: "28000"
+      ville: "Luisant"
+      telephone: "+33237283374"
+      cuisine: "wok chinese"
+      site_actuel: "https://www.kingwok.fr/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 3.8
+      nb_avis: 247
+      gmb_completude: 45
+      lighthouse_mobile: 56
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 23
+      tier: C
+      valeur: 16
+      proba: 30
+      drapeau_rouge: "aucun"
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
+
+  - id: don-camillo
+
+    identite:
+      nom: "Don Camillo"
+      adresse: "inconnue"
+      cp: "28000"
+      ville: "Chartres"
+      telephone: "inconnu"
+      cuisine: "pizza"
+      site_actuel: "https://don-camillo-pizza-chartres.eatbu.com/"
+
+    scan:
+      date_scan: 2026-05-17
+      note_google: 2.5
+      nb_avis: 6
+      gmb_completude: 35
+      lighthouse_mobile: 72
+      age_site_ans: null
+      source_donnees: "osm+pagespeed+wayback"
+
+    scoring:
+      score: 16
+      tier: C
+      valeur: 28
+      proba: 5
+      drapeau_rouge: "Note Google basse : sujet sensible, ne pas aborder le site frontalement."
+      mike_override: null
+
+    tunnel:
+      statut: a_qualifier
+      historique: []
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: ""
