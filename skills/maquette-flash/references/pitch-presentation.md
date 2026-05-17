@@ -25,9 +25,9 @@ Regarder le profil visuel du resto via les sources publiques :
 - Avis (ton des commentaires : familial, branché, gastro…)
 
 Déterminer l'intuition de signature :
-- Urbain / moderne / street → **Brutaliste**
-- Élégant / raffiné / gastro → **Élégante**
-- Tradition / familial / terroir → **Tradition**
+- Urbain / moderne / street → **Fast-food**
+- Élégant / raffiné / gastro → **Gastro**
+- Traditionnel / familial / terroir → **Traditionnel**
 
 ### 2. Au rdv (sur la tablette)
 
@@ -51,11 +51,11 @@ Adjectifs à utiliser selon la signature primaire :
 
 | Primaire montrée | Si patron veut moins/plus | Backup à sortir |
 |---|---|---|
-| Brutaliste | "plus classique / plus chaud" | Tradition |
-| Brutaliste | "plus chic / plus sobre" | Élégante |
-| Élégante | "plus terroir / plus chaleureux" | Tradition |
-| Élégante | "plus punchy / plus jeune" | Brutaliste |
-| Tradition | "plus moderne / plus design" | Élégante ou Brutaliste selon le ton du resto |
+| Fast-food | "plus classique / plus chaud" | Traditionnel |
+| Fast-food | "plus chic / plus sobre" | Gastro |
+| Gastro | "plus terroir / plus chaleureux" | Traditionnel |
+| Gastro | "plus punchy / plus jeune" | Fast-food |
+| Traditionnel | "plus moderne / plus design" | Gastro ou Fast-food selon le ton du resto |
 
 ### 5. Sortir la 3ème uniquement si demandé
 
@@ -80,7 +80,7 @@ Cette formulation valorise l'expertise de Mike (il a JUGÉ que les 2 premières 
 
 - **Présenter les 3 simultanément** en disant "qu'est-ce qui vous parle le plus ?"
 - **Comparer entre elles** en pointant les défauts de l'une et les qualités de l'autre
-- **Hiérarchiser les signatures** entre elles ("la Brutaliste est plus moderne" — ce n'est pas un classement, c'est 3 univers distincts pour 3 types de resto)
+- **Hiérarchiser les signatures** entre elles ("la Fast-food est plus moderne" — ce n'est pas un classement, c'est 3 univers distincts pour 3 types de resto)
 - **Laisser le patron mélanger** ("vos couleurs avec ma photo et son menu") → toujours rappeler que c'est un univers cohérent, pas un menu à la carte
 
 ---

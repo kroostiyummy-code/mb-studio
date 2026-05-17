@@ -4,9 +4,9 @@ Trois jeux de settings prêts à l'emploi pour **dogfooder le template** avec de
 
 | Fixture | Signature | Mode | Dominante | Use case |
 |---|---|---|---|---|
-| `kroosti-foodtruck.yml` | Brutalist | foodtruck | `#8b0e0e` rouge profond | Cas zéro MB Studio (le foodtruck de Mike) |
-| `gastronomique-elegant.yml` | Elegant | fixe | `#1a4d3a` vert sombre forêt | Bistronomique / table raffinée |
-| `bistrot-tradition.yml` | Tradition | fixe | `#7d3c1a` brun terre cuite | Bistrot familial / terroir |
+| `kroosti-foodtruck.yml` | Fast-food | foodtruck | `#8b0e0e` rouge profond | Cas zéro MB Studio (le foodtruck de Mike) |
+| `gastronomique-elegant.yml` | Gastro | fixe | `#1a4d3a` vert sombre forêt | Bistronomique / table raffinée |
+| `bistrot-tradition.yml` | Traditionnel | fixe | `#7d3c1a` brun terre cuite | Bistrot familial / terroir |
 
 ## Comment activer une fixture
 

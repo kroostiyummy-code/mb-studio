@@ -7,7 +7,7 @@
 ## État honnête du template aujourd'hui
 
 Ce qui différencie déjà fortement deux sites :
-- **3 signatures** (Brutaliste / Élégante / Tradition) : différence profonde (polices, mode de couleur, texture, densité, formes).
+- **3 signatures** (Fast-food / Gastro / Traditionnel) : différence profonde (polices, mode de couleur, texture, densité, formes).
 - **Couleur dominante** du patron, propagée partout.
 - **Sections ON/OFF** + mode fixe/foodtruck + **contenu unique** (renforcé par le standard SEO local).
 
@@ -89,7 +89,7 @@ But : même signature ≠ même squelette.
 
 Principe : **la signature définit l'ESPRIT typographique, le pack typo varie les POLICES réelles** à l'intérieur de cet esprit.
 
-- Chaque signature reçoit un **petit pool de 3-4 paires de polices** cohérentes avec son ADN (ex. Brutaliste : Archivo Black/Bebas, mais aussi d'autres familles « display lourde » compatibles ; Élégante : plusieurs serif raffinées ; Tradition : plusieurs slab/serif chaleureuses).
+- Chaque signature reçoit un **petit pool de 3-4 paires de polices** cohérentes avec son ADN (ex. Fast-food : Archivo Black/Bebas, mais aussi d'autres familles « display lourde » compatibles ; Gastro : plusieurs serif raffinées ; Traditionnel : plusieurs slab/serif chaleureuses).
 - Mike choisit le pack par client (champ `settings`, non exposé Decap), guidé par l'identité du resto au brief.
 - **Budget performance non négociable** (car le SEO local impose la vitesse) : **2 familles maximum par site**, polices sous-ensemblées (subset latin), `preload` + `font-display: swap`, auto-hébergées (pas de chargement tiers bloquant). Un pack qui dégrade les Core Web Vitals est refusé. C'est l'anti-pattern « effet lourd » appliqué aux polices.
 - Résultat combinatoire : 3 signatures × ~3 packs typo × 3 Hero × ordre variable × dominante → l'unicité devient structurelle, plus une question de chance.
@@ -104,14 +104,14 @@ Avant chaque livraison, le skill `audit-livraison` compare le nouveau site aux s
 
 **Fait (stratégie, PC éteint) :** ce document, la règle non-négociable dans `CLAUDE.md`, la matrice d'attribution (utilisable dès le 1er client), la spec du garde-fou dans `audit-livraison`, le mécanisme DA pilotée par mots-clés.
 
-**Fait (build, 2026-05-16) — archi packs typo, vertical slice Brutaliste :**
+**Fait (build, 2026-05-16) — archi packs typo, vertical slice Fast-food :**
 - `settings.pack_typo` ajouté au schéma (optionnel, piloté Mike, jamais Decap).
 - `Layout.astro` : système de packs (registre + défaut par signature + garde-fou pack inconnu) ; attribut `data-typo-pack` sur `<body>` ; preload des polices critiques ; pont Google conservé **uniquement** pour les signatures non encore migrées.
-- Pack `brutalist-base` : polices Kroosti **rapatriées en local** (`public/fonts/`, woff2 subset latin), CSS `src/styles/typo-packs/brutalist-base.css`. **La signature Brutaliste ne touche plus Google** (0 requête tierce, 0 RGPD, plus de render-blocking externe). Build vérifié vert ; HTML/CSS générés contrôlés.
+- Pack `fast-food-base` : polices Kroosti **rapatriées en local** (`public/fonts/`, woff2 subset latin), CSS `src/styles/typo-packs/fast-food-base.css`. **La signature Fast-food ne touche plus Google** (0 requête tierce, 0 RGPD, plus de render-blocking externe). Build vérifié vert ; HTML/CSS générés contrôlés.
 - **Reste à valider par Mike sur son écran** : rendu visuel identique à avant + mesure Lighthouse mobile (perf inchangée ou meilleure). Rien n'est "validé" tant que ces deux-là ne sont pas faits.
 
 **À construire ensuite (PC allumé, build + visuel + perf obligatoires) :**
-- Migrer `elegant` et `tradition` sur le même schéma (packs `*-base` auto-hébergés) → supprimer le pont Google partout.
-- Ajouter les packs **alternés** par signature (`brutalist-02`, etc.) — choix des polices validé visuellement avec Mike (univers resto), chaque police admise seulement après mesure perf.
+- Migrer `gastro` et `traditionnel` sur le même schéma (packs `*-base` auto-hébergés) → supprimer le pont Google partout.
+- Ajouter les packs **alternés** par signature (`fast-food-02`, etc.) — choix des polices validé visuellement avec Mike (univers resto), chaque police admise seulement après mesure perf.
 - Variantes de Hero + ordre de sections paramétrable.
 - Matrice mots-clés → DA (primaire + alternées).

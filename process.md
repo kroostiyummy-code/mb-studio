@@ -44,9 +44,9 @@
 
 ### Stratégie maquette : 1 primaire + 2 alternatives en backup
 
-Le skill `maquette-flash` génère systématiquement les **3 signatures** (Brutaliste / Élégante / Tradition) à partir de 1 à 4 liens publics du resto cible (fiche Google Business, Facebook, Instagram, site existant). Mais en stratégie de présentation au patron, le mode est **"1 primaire + 2 alternatives en backup"** :
+Le skill `maquette-flash` génère systématiquement les **3 signatures** (Fast-food / Gastro / Traditionnel) à partir de 1 à 4 liens publics du resto cible (fiche Google Business, Facebook, Instagram, site existant). Mais en stratégie de présentation au patron, le mode est **"1 primaire + 2 alternatives en backup"** :
 
-1. **Avant la visite**, je regarde le profil visuel du resto (photos GMB, esthétique Insta, ambiance des avis) et je détermine l'intuition de la signature qui colle : urbain/street → Brutaliste, classique/familial → Tradition, raffiné/gastro → Élégante.
+1. **Avant la visite**, je regarde le profil visuel du resto (photos GMB, esthétique Insta, ambiance des avis) et je détermine l'intuition de la signature qui colle : urbain/street → Fast-food, classique/familial → Traditionnel, raffiné/gastro → Gastro.
 2. **Au rendez-vous**, je montre d'abord la maquette dans MA signature recommandée. Pitch : *"En regardant votre fiche Google, j'ai senti que vous étiez plutôt sur l'univers [X]. Voilà ce que ça donne."* Je laisse le patron réagir.
 3. **Si le patron tique ou hésite**, je ressors les 2 autres signatures. Pitch : *"Si vous préférez plus [adjectif], j'ai aussi cette version-là."*
 

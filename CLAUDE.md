@@ -50,7 +50,7 @@ Le repo héberge les skills MB Studio dans `skills/` au format SKILL.md (compati
 | Skill | Statut | Rôle |
 |---|---|---|
 | `audit-eatbu` | ✅ Fait | Audit gratuit pré-rempli avant visite porte-à-porte |
-| `maquette-flash` | ✅ Fait | Génère les 3 maquettes (Brutaliste / Élégante / Tradition) depuis 1-4 liens publics du resto cible. Output : 3 PNG haute résolution pour la tablette, en mode "1 primaire + 2 backups". |
+| `maquette-flash` | ✅ Fait | Génère les 3 maquettes (Fast-food / Gastro / Traditionnel) depuis 1-4 liens publics du resto cible. Output : 3 PNG haute résolution pour la tablette, en mode "1 primaire + 2 backups". |
 | `brief-client` | ✅ Fait | Questionnaire interactif en 12 sujets pour le brief en 1h chez le patron. Output : `briefs/{slug}/brief.md` narratif + `briefs/{slug}/settings.yml` prêt pour `site-from-brief`. |
 | `site-from-brief` | ✅ Fait | Transforme `briefs/{slug}/` en `clients/{slug}/` : scaffolding template, injection settings, génération menu, optimisation photos, personnalisation README et incident-response, test build local. Prêt à pousser via `new-client`. |
 | `new-client` | ✅ Fait | Ferme la boucle de production : crée repo GitHub `kroostiyummy-code/{slug}-site` (auto via gh CLI ou API ou fallback manuel), push initial, connecte Cloudflare Pages, configure le domaine custom. Output : site en ligne sur `https://{domaine}.fr` + admin Decap fonctionnel. |
@@ -109,7 +109,7 @@ Ces 4 sources alimentent `monthly-report` et justifient l'abonnement Suivi à 50
 - **Cas client zéro** : Kroostiyummy.fr (le site du foodtruck de Mike, 170 avis 5 étoiles, refait avec Claude) sert de premier cas client pour la vitrine MB Studio
 - **Décisions architecture (2026-05-15)** posées en session avant le build du template :
   - 12 sections génériques validées pour `site-resto/` (voir mémoire `project-template-sections-finales`)
-  - 3 signatures typo MB Studio : Brutaliste / Élégante / Tradition (voir mémoire `project-design-system-template`)
+  - 3 signatures typo MB Studio : Fast-food / Gastro / Traditionnel (voir mémoire `project-design-system-template`)
   - Sections optionnelles = composants Astro conditionnels au build, pas du CSS display:none (voir mémoire `feedback-template-architecture`)
   - 1 repo Git par client (jamais mono-repo) — confirmé conséquence directe du principe #7
 - **Différenciation inter-clients (2026-05-16)** : 3 signatures NE SUFFISENT PAS pour garantir l'unicité sur 5+ clients. Modèle étendu décidé (variantes de structure + packs typo par signature + matrice d'attribution + garde-fou anti-jumeau dans audit-livraison). Moteur = une **Direction Artistique (DA)** déduite d'un **panel de mots-clés choisi par le restaurateur au brief** (chaque grappe → DA primaire + alternées pour éviter les jumeaux), appliquée par `site-from-brief`, validée à l'audit. Détail et plan dans `differenciation-clients.md`. Règle + matrice + mécanisme DA posés PC éteint ; variantes/packs typo + matrice mots-clés→DA à construire PC allumé (build + test perf obligatoires, vitesse = condition d'admission d'une police).

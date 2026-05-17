@@ -70,7 +70,7 @@ slug: le-saint-hilaire
 nom_resto: "Le Saint-Hilaire"
 etape_actuelle: 4              # 0 à 7
 sous_etape: "site-from-brief en cours"
-signature_retenue: tradition
+signature_retenue: traditionnel
 
 dates:
   premier_contact: 2026-05-20
@@ -101,7 +101,7 @@ liens:
   gmb: "https://business.google.com/..."
 
 notes:
-  - "2026-05-22 : patron a choisi signature Tradition, aime le bordeaux"
+  - "2026-05-22 : patron a choisi signature Traditionnel, aime le bordeaux"
   - "2026-05-24 : brief OK, photos transférées, manque le menu desserts (à relancer)"
 ```
 
