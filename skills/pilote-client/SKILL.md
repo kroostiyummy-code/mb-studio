@@ -36,9 +36,11 @@ Une question, une réponse, on avance.
 
 Un fichier `pilote/{slug}.yml` par client, créé/maintenu **automatiquement** par le skill depuis `templates/carnet-vide.yml`. Mike n'y touche jamais (le lit s'il veut, c'est en français).
 
-**Versionné dans Git** (repo privé) — c'est la sauvegarde de l'état, on ne le perd jamais. (Contrairement à `prospects/` et `clients/` qui sont git-ignored, `pilote/*.yml` est commité : la spec l'exige pour la reprise à froid.)
+**Versionné dans Git** (repo privé) — c'est la sauvegarde de l'état, on ne le perd jamais. État réel du repo : `clients/` est git-ignored ; `prospects/` est versionné sauf `prospects/cache/` ; `pilote/*.yml` est commité (la spec l'exige pour la reprise à froid). Règle de commit : **fichier par fichier** (`pilote/{slug}.yml`, et la vue prospects concernée), **jamais `git add prospects/` ni `git add pilote/` en bloc**.
 
 Source de vérité unique : le carnet reste dans `pilote/{slug}.yml` sur tout le cycle (étapes 0→7), y compris après création de `clients/{slug}/`. On ne duplique jamais le carnet dans le dossier client (éviter deux fichiers qui divergent).
+
+**Miroir dans la liste vivante :** le carnet est la source de vérité **opérationnelle**. À chaque transition d'étape, le skill **synchronise** le bloc `tunnel` de l'entrée correspondante dans `prospects/restaurants.yml` (champ `statut` + une ligne datée dans `historique` ; `argument_qui_a_converti` / `raison_perte` en fin de tunnel). Cette synchro **ne touche jamais** `scan`, `scoring`, `notes_mike`, ni un `scoring.mike_override` (écrits par `scoring-prospects` / Mike). But : la liste vivante (ressource centrale, cf `prospects/README.md`) reflète toujours l'état réel sans devenir une 2ᵉ source de vérité.
 
 À la clôture : déplacer vers `pilote/termines/{slug}.yml`. Sur refus patron : `pilote/archive/{slug}.yml` avec la raison.
 
@@ -46,7 +48,7 @@ Source de vérité unique : le carnet reste dans `pilote/{slug}.yml` sur tout le
 
 ## Les 8 étapes du tunnel
 
-À chaque étape : (a) annonce, (b) **action unique**, (c) lance/demande de lancer le skill associé, (d) vérifie les gates de sortie (`references/gates.md`), (e) met à jour le carnet + ajoute une ligne datée dans `notes`, (f) passe à la suivante. Messages exacts dans `references/messages-tunnel.md`.
+À chaque étape : (a) annonce, (b) **action unique**, (c) lance/demande de lancer le skill associé, (d) vérifie les gates de sortie (`references/gates.md`), (e) met à jour le carnet + ajoute une ligne datée dans `notes` **et synchronise le bloc `tunnel` de `prospects/restaurants.yml`** (cf « Miroir dans la liste vivante »), (f) passe à la suivante. Messages exacts dans `references/messages-tunnel.md`.
 
 ### Étape 0 — Scoring & sélection
 Lance `scoring-prospects` (sauf si listes < 90 j → réutiliser). Aide à choisir UNE cible Tier A (« commence par le n°1, victoire facile »). Gate sortie : resto choisi → créer `pilote/{slug}.yml`, `etape_actuelle: 1`.
