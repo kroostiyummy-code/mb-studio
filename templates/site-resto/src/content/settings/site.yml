@@ -11,7 +11,7 @@ site:
   region_code: "FR-28"
 
   # Signature pilotée par Mike d'après la question identité au brief
-  signature: "brutalist"
+  signature: "fast-food"
 
   # Dominante = couleur du patron (color picker Decap)
   dominante: "#8b0e0e"

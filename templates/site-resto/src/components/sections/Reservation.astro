@@ -160,17 +160,17 @@ const perks = s.reservation?.perks?.length
   /* ===== Surcharges signature Élégante =====
      Fond dominante (au lieu d'accent jaune) avec accent doré, texte cream.
      Pas d'ombre brutaliste, bouton plus sobre. */
-  :global(.signature-elegant) .section-reserve {
+  :global(.signature-gastro) .section-reserve {
     background: var(--mb-dominante);
     color: var(--mb-cream);
     border-color: var(--mb-dominante);
   }
-  :global(.signature-elegant) .section-reserve::before,
-  :global(.signature-elegant) .section-reserve::after {
+  :global(.signature-gastro) .section-reserve::before,
+  :global(.signature-gastro) .section-reserve::after {
     background: var(--mb-accent);
     opacity: 0.12;
   }
-  :global(.signature-elegant) .reserve-kicker {
+  :global(.signature-gastro) .reserve-kicker {
     color: var(--mb-accent);
     font-style: italic;
     font-family: var(--mb-display);
@@ -178,13 +178,13 @@ const perks = s.reservation?.perks?.length
     letter-spacing: 0.06em;
     font-size: 0.95rem;
   }
-  :global(.signature-elegant) .reserve-headline {
+  :global(.signature-gastro) .reserve-headline {
     color: var(--mb-cream);
     text-transform: none;
     letter-spacing: -0.01em;
     font-weight: 600;
   }
-  :global(.signature-elegant) .reserve-phone {
+  :global(.signature-gastro) .reserve-phone {
     background: var(--mb-cream);
     color: var(--mb-dominante);
     border: 1px solid var(--mb-cream);
@@ -193,32 +193,32 @@ const perks = s.reservation?.perks?.length
     font-weight: 600;
     letter-spacing: -0.01em;
   }
-  :global(.signature-elegant) .reserve-phone:active {
+  :global(.signature-gastro) .reserve-phone:active {
     transform: none;
     opacity: 0.92;
   }
-  :global(.signature-elegant) .reserve-perks {
+  :global(.signature-gastro) .reserve-perks {
     color: var(--mb-cream);
     font-weight: 400;
   }
-  :global(.signature-elegant) .perk .check {
+  :global(.signature-gastro) .perk .check {
     color: var(--mb-accent);
   }
 
   /* ===== Surcharges signature Tradition =====
      Fond cream-dirty avec bordure dominante 2px et ombre dominante.
      Esprit "carte d'enseigne en bois". */
-  :global(.signature-tradition) .section-reserve {
+  :global(.signature-traditionnel) .section-reserve {
     background: var(--mb-bg-section-alt);
     color: var(--mb-dominante);
     border: 2px solid var(--mb-dominante);
   }
-  :global(.signature-tradition) .section-reserve::before,
-  :global(.signature-tradition) .section-reserve::after {
+  :global(.signature-traditionnel) .section-reserve::before,
+  :global(.signature-traditionnel) .section-reserve::after {
     background: var(--mb-dominante);
     opacity: 0.1;
   }
-  :global(.signature-tradition) .reserve-kicker {
+  :global(.signature-traditionnel) .reserve-kicker {
     color: var(--mb-dominante);
     font-variant: small-caps;
     font-feature-settings: "smcp" 1;
@@ -227,14 +227,14 @@ const perks = s.reservation?.perks?.length
     font-size: 0.9rem;
     letter-spacing: 0.06em;
   }
-  :global(.signature-tradition) .reserve-headline {
+  :global(.signature-traditionnel) .reserve-headline {
     color: var(--mb-dominante);
     font-variant: small-caps;
     font-feature-settings: "smcp" 1;
     text-transform: none;
     letter-spacing: 0.02em;
   }
-  :global(.signature-tradition) .reserve-phone {
+  :global(.signature-traditionnel) .reserve-phone {
     background: var(--mb-dominante);
     color: var(--mb-cream);
     border: 2px solid var(--mb-dominante);
@@ -242,11 +242,11 @@ const perks = s.reservation?.perks?.length
     text-transform: none;
     font-variant: small-caps;
   }
-  :global(.signature-tradition) .reserve-phone:active {
+  :global(.signature-traditionnel) .reserve-phone:active {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0 var(--mb-dominante);
   }
-  :global(.signature-tradition) .reserve-perks {
+  :global(.signature-traditionnel) .reserve-perks {
     color: var(--mb-dominante);
   }
 

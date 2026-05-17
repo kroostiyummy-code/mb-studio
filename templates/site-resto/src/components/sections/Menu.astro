@@ -224,69 +224,69 @@ const menuSections = (await getCollection('menu')).sort((a, b) => a.data.ordre -
   }
 
   /* Surcharges signature Élégante : titres mixed case, pas d'uppercase, plus aéré */
-  :global(.signature-elegant) .menu-title,
-  :global(.signature-elegant) .item-name,
-  :global(.signature-elegant) .combo-formula {
+  :global(.signature-gastro) .menu-title,
+  :global(.signature-gastro) .item-name,
+  :global(.signature-gastro) .combo-formula {
     text-transform: none;
     letter-spacing: -0.01em;
     font-weight: 600;
   }
-  :global(.signature-elegant) .menu-section-divider span {
+  :global(.signature-gastro) .menu-section-divider span {
     text-transform: none;
     font-style: italic;
     font-family: var(--mb-display);
     letter-spacing: 0.02em;
     border-radius: 4px;
   }
-  :global(.signature-elegant) .item-price {
+  :global(.signature-gastro) .item-price {
     color: var(--mb-dominante);
   }
-  :global(.signature-elegant) .combo {
+  :global(.signature-gastro) .combo {
     background: var(--mb-cream-dirty);
     color: var(--mb-text-body);
     border: 1px solid var(--mb-border);
     box-shadow: none;
   }
-  :global(.signature-elegant) .combo-tag {
+  :global(.signature-gastro) .combo-tag {
     background: var(--mb-dominante);
     color: var(--mb-cream);
     font-style: italic;
     text-transform: none;
     letter-spacing: 0.04em;
   }
-  :global(.signature-elegant) .combo-price {
+  :global(.signature-gastro) .combo-price {
     color: var(--mb-dominante);
   }
-  :global(.signature-elegant) .combo-formula .plus {
+  :global(.signature-gastro) .combo-formula .plus {
     color: var(--mb-dominante);
   }
 
   /* Surcharges signature Tradition : titres en petites capitales, prix en dominante */
-  :global(.signature-tradition) .menu-title,
-  :global(.signature-tradition) .item-name {
+  :global(.signature-traditionnel) .menu-title,
+  :global(.signature-traditionnel) .item-name {
     text-transform: none;
     font-variant: small-caps;
     font-feature-settings: "smcp" 1;
     letter-spacing: 0.03em;
   }
-  :global(.signature-tradition) .item-price {
+  :global(.signature-traditionnel) .item-price {
     color: var(--mb-dominante);
   }
-  :global(.signature-tradition) .combo {
+  :global(.signature-traditionnel) .combo {
     background: var(--mb-cream);
     color: var(--mb-black);
     border: 2px solid var(--mb-dominante);
     box-shadow: 4px 4px 0 var(--mb-dominante);
   }
-  :global(.signature-tradition) .combo-tag {
+  :global(.signature-traditionnel) .combo-tag {
     background: var(--mb-dominante);
     color: var(--mb-cream);
     font-variant: small-caps;
   }
-  :global(.signature-tradition) .combo-price {
+  :global(.signature-traditionnel) .combo-price {
     color: var(--mb-dominante);
   }
-  :global(.signature-tradition) .menu-section-divider span {
+  :global(.signature-traditionnel) .menu-section-divider span {
     border-color: var(--mb-dominante);
     color: var(--mb-dominante);
   }

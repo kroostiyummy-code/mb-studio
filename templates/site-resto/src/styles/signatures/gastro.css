@@ -1,10 +1,10 @@
-/* Signature Élégante — gastronomique, bistrot raffiné
-   Activée par class `signature-elegant` sur <body>.
+/* Signature Gastro — gastronomique, bistrot raffiné
+   Activée par class `signature-gastro` sur <body>.
 
    Mode : texte foncé sur fond clair (cream = fond, slate = texte, dominante = accent visuel).
    ADN : aération maximale, hairlines, italiques sobres, pas de texture, pas de capitales. */
 
-.signature-elegant {
+.signature-gastro {
   /* Typographie */
   --mb-display: 'Playfair Display', Georgia, serif;
   --mb-condensed: 'Playfair Display', Georgia, serif;
@@ -30,25 +30,25 @@
 }
 
 /* Aération : +30% sur les sections par rapport au Brutaliste */
-.signature-elegant section {
+.signature-gastro section {
   padding-block: 65px;
 }
 @media (min-width: 900px) {
-  .signature-elegant section {
+  .signature-gastro section {
     padding-block: 105px;
   }
 }
 
 /* Titres sans uppercase, en italique pour les sous-libellés */
-.signature-elegant h1,
-.signature-elegant h2 {
+.signature-gastro h1,
+.signature-gastro h2 {
   font-family: var(--mb-display);
   text-transform: none;
   letter-spacing: -0.01em;
   font-weight: 600;
 }
 
-.signature-elegant .mb-tag {
+.signature-gastro .mb-tag {
   border: 1px solid var(--mb-border);
   padding: 4px 12px;
   display: inline-flex;
@@ -62,14 +62,14 @@
   color: var(--mb-text-body);
   font-style: italic;
 }
-.signature-elegant .mb-tag.solid {
+.signature-gastro .mb-tag.solid {
   background: var(--mb-dominante);
   color: var(--mb-cream);
   border-color: var(--mb-dominante);
 }
 
 /* Divider hairline + italique discret */
-.signature-elegant .mb-divider {
+.signature-gastro .mb-divider {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,8 +82,8 @@
   background: transparent;
   text-transform: none;
 }
-.signature-elegant .mb-divider::before,
-.signature-elegant .mb-divider::after {
+.signature-gastro .mb-divider::before,
+.signature-gastro .mb-divider::after {
   content: "";
   flex: 1;
   height: 1px;
@@ -92,13 +92,13 @@
 }
 
 /* Section stubs : tout en italique, bordures hairline, contraste minimal */
-.signature-elegant .section-stub {
+.signature-gastro .section-stub {
   border-color: var(--mb-border-subtle);
   border-top-width: 1px;
   border-bottom-width: 1px;
   border-style: solid;
 }
-.signature-elegant .section-stub .stub-label {
+.signature-gastro .section-stub .stub-label {
   font-style: italic;
   text-transform: none;
   letter-spacing: 0;
@@ -107,28 +107,28 @@
   color: var(--mb-dominante);
   opacity: 0.7;
 }
-.signature-elegant .section-stub .stub-name {
+.signature-gastro .section-stub .stub-name {
   font-family: var(--mb-display);
   font-weight: 600;
   text-transform: none;
   letter-spacing: -0.01em;
 }
-.signature-elegant .section-stub p {
+.signature-gastro .section-stub p {
   font-style: italic;
   opacity: 0.6;
 }
 
-.signature-elegant.js-loaded .mb-reveal {
+.signature-gastro.js-loaded .mb-reveal {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1s ease, transform 1s ease;
 }
-.signature-elegant.js-loaded .mb-reveal.show {
+.signature-gastro.js-loaded .mb-reveal.show {
   opacity: 1;
   transform: none;
 }
 @media (prefers-reduced-motion: reduce) {
-  .signature-elegant.js-loaded .mb-reveal {
+  .signature-gastro.js-loaded .mb-reveal {
     opacity: 1;
     transform: none;
     transition: none;

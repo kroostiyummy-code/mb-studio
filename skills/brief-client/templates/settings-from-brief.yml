@@ -11,7 +11,7 @@ site:
   region_code: "{{FR-XX}}"
 
   # Choisi par Mike d'après le brief (le patron a confirmé la signature au rdv)
-  signature: "{{brutalist | elegant | tradition}}"
+  signature: "{{fast-food | gastro | traditionnel}}"
   dominante: "{{#HEXHEX}}"
 
   # Optionnel — décommenter si l'accent par défaut de la signature crée un conflit visuel

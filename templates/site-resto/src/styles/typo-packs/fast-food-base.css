@@ -1,7 +1,7 @@
-/* typo-pack: brutalist-base — polices auto-hébergées (subset latin, couvre tous les accents FR).
+/* typo-pack: fast-food-base — polices auto-hébergées (subset latin, couvre tous les accents FR).
    Rapatriées de Google Fonts le 2026-05-16 → zéro requête tierce, zéro souci RGPD,
-   pas de render-blocking externe. Look identique à la signature Brutaliste d'origine (Kroostiyummy).
-   Activé par l'attribut [data-typo-pack="brutalist-base"] posé par Layout.astro. */
+   pas de render-blocking externe. Look identique à la signature Fast-food d'origine (Kroostiyummy).
+   Activé par l'attribut [data-typo-pack="fast-food-base"] posé par Layout.astro. */
 
 @font-face {
   font-family: 'Archivo Black';
@@ -74,7 +74,7 @@
   font-display: swap;
 }
 
-[data-typo-pack="brutalist-base"] {
+[data-typo-pack="fast-food-base"] {
   --mb-display: 'Archivo Black', sans-serif;
   --mb-condensed: 'Bebas Neue', sans-serif;
   --mb-sans: 'Barlow Condensed', sans-serif;

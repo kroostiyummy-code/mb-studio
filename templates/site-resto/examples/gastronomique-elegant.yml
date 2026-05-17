@@ -10,7 +10,7 @@ site:
   est_year: 2018
   ville: "Tours"
   region_code: "FR-37"
-  signature: "elegant"
+  signature: "gastro"
   dominante: "#1a4d3a"
 
   # Pas de prix d'appel pour un gastronomique (ce serait contre-productif)

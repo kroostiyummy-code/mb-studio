@@ -12,7 +12,7 @@ const settings = defineCollection({
     est_year: z.number().int(),
     ville: z.string(),
     region_code: z.string(),
-    signature: z.enum(['brutalist', 'elegant', 'tradition']),
+    signature: z.enum(['fast-food', 'gastro', 'traditionnel']),
     // Pack typo : variante de polices DANS la signature (différenciation inter-clients).
     // Piloté par Mike (jamais exposé Decap). Optionnel → défaut par signature dans Layout.astro.
     pack_typo: z.string().optional(),
