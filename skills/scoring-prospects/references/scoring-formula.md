@@ -1,169 +1,145 @@
-# Formule de scoring détaillée
+# Formule de scoring — architecture normalisée (Rapport_classement, Mike 2026-05-18)
 
-Référence de calcul pour l'étape 6 du pipeline. Toute modification de pondération se fait ICI, jamais en dur dans le SKILL.md.
+Source unique de vérité, étape 6. `[verbatim]` = du Rapport_classement ;
+`[SPEC]` = décision de spec assumée (pas une impro de l'outil).
 
----
+Principe : chaque composante est normalisée dans **[0,1]** ; une donnée
+**inconnue → 0,50** (jamais 0) et compte comme **non observée** (baisse la
+Confidence). Classement **global unique** trié `final ↓ puis confidence ↓`.
+`source_list` (eatbu/autre/sans) = filtre/pitch only, pas un tri séparé.
 
-## Vue d'ensemble
-
-```
-score_total = 0.5 × valeur_apportée + 0.5 × probabilité_acceptation
-```
-
-- `valeur_apportée` ∈ [0, 100]
-- `probabilité_acceptation` ∈ [0, 100]
-- `score_total` ∈ [0, 100]
-
-Tiers :
-- **A** : score ≥ 75 → cibles prioritaires (visiter en premier)
-- **B** : 50 ≤ score < 75 → cibles moyennes (après rodage)
-- **C** : score < 50 → à laisser pour plus tard
-
----
-
-## Sous-score 1 — Valeur apportée (0-100)
-
-« À quel point la présence numérique du resto est en-dessous de ce que MB Studio peut livrer. »
-
-### Bucket `eatbu`
-
-| Composante | Calcul | Poids |
-|---|---|---|
-| Lenteur site | `(100 − lighthouse_perf)` | 0.30 |
-| Mauvais SEO | `(100 − lighthouse_seo)` | 0.25 |
-| Mauvaise accessibilité | `(100 − lighthouse_a11y)` | 0.10 |
-| Vieillesse du site | `min(âge_site_années × 10, 50)` | 0.15 |
-| Fiche GMB pauvre | `(100 − score_gmb_completude)` | 0.20 |
+## Normalisation [verbatim]
 
 ```
-valeur = 0.30·(100−perf) + 0.25·(100−seo) + 0.10·(100−a11y)
-       + 0.15·min(âge×10,50) + 0.20·(100−gmb)
+clip(x)            = min(max(x, 0), 1)
+inv_score(x,g,p)   = clip((g - x) / (g - p))
+log_cap(n,cap)     = clip(log(1+n) / log(1+cap))
+rating_norm(r)     = clip((r - 4.0) / 0.7)
 ```
 
-### Bucket `autre-site`
+## Composantes
 
-Identique à `eatbu`, puis **pénalité −15 points** (le patron a déjà payé un site, plus dur à déloger) :
+**business_proof** [verbatim] = `0.55·rating_norm(rating) + 0.45·log_cap(user_rating_count, 300)`
+— observé si rating ET user_rating_count présents, sinon 0,50 (non observé).
+
+**presence_gap** [verbatim] : aucun site `1.00` · plateforme/réseau/livraison
+seul `0.90` · eatbu `0.80` · SaaS/subdomain (wixsite, sitew, grubkit, jimdo,
+wordpress.com, business.site, godaddysites…) `0.65` · vrai domaine propre
+`0.35` · inconnu `0.50`. Toujours observé (bucket connu).
+
+**performance_gap** [verbatim] : pas de site `0.60` · sinon
+`inv_score(mobile_perf, 85, 40)` · inconnu `0.50`. Observé si pas-de-site ou
+(site + Lighthouse perf connu).
+
+**conversion_gap** [verbatim] :
+```
+present_conversion = 0.20·has_tel_link + 0.15·has_map_link
+                   + 0.25·has_primary_cta + 0.20·has_menu_link
+                   + 0.10·address_on_page + 0.10·hours_on_page
+conversion_gap = pas de site 0.90 · sinon 1 - present_conversion
+               · fetch échoué/inconnu 0.50
+has_primary_cta = lien/bouton dont le texte ⊃ {réserver, commander,
+                  reservation, order, booking}
+```
+Observé si pas-de-site ou (site + DOM récupéré).
+
+**seo_gap** [verbatim] :
+```
+seo_checks = moyenne([title_present_&_longueur_ok, meta_desc_present_&_ok,
+  h1_present, canonical_present, robots_indexable, sitemap_present,
+  schema_localbusiness_or_restaurant, ville_ou_categorie_dans_title_ou_h1])
+seo_gap = pas de site 0.90
+        · si seo_score connu : 0.60·(1-seo_checks) + 0.40·inv_score(seo,85,50)
+        · sinon 0.50
+```
+[SPEC] `robots_indexable` & `sitemap_present` = 2 GET (`/robots.txt`,
+`/sitemap.xml`) sur le même fetch ; **sous-signal non récupérable = 0 dans
+seo_checks ET baisse la Confidence**. Observé si pas-de-site ou (site + DOM
+récupéré + seo_score Lighthouse connu).
+
+**local_profile_gap** [verbatim] :
+```
+profile_checks = moyenne([website_on_profile, phone_on_profile,
+  hours_on_profile, photos_count>=10, rating_present, review_count_present])
+local_profile_gap = 1 - profile_checks · inconnu 0.50
+```
+[SPEC] signaux Places non persistés au cache (hours_on_profile,
+photos_count) = 0 dans profile_checks ET baisse la Confidence. Observé si
+Places a répondu (rating/avis présents).
+
+**digital_deficit** [verbatim] = `moyenne([presence_gap, performance_gap, conversion_gap])`
+**reputation_misalignment** [verbatim] = `business_proof × digital_deficit`
+
+## Valeur apportable /100 [verbatim]
 
 ```
-valeur = [même formule] − 15   (plancher 0)
+V = 25·presence_gap + 20·performance_gap + 20·conversion_gap
+  + 15·seo_gap + 10·local_profile_gap + 10·reputation_misalignment
 ```
 
-### Bucket `pas-de-site`
+## Probabilité d'acceptation /100 [verbatim]
 
-Score fixe :
+**switchability** : aucun site `1.00` · plateforme seule `0.90` · eatbu `0.85`
+· SaaS/subdomain `0.75` · vrai site faible `0.55` · vrai site déjà très
+correct `0.20` · inconnu `0.50`. [SPEC] faible vs correct : `mobile_perf < 60`
+→ faible (0.55), sinon correct (0.20) ; site sans Lighthouse → inconnu 0.50.
 
-```
-valeur = 90
-```
+**contactability** [verbatim] = `0.50·phone_known + 0.25·(email_known | neutre 0.5) + 0.25·(form | IG/FB DM | neutre 0.5)`.
 
-(Énorme valeur à apporter par définition : on part de zéro, tout est gain.)
+**timing** [verbatim] : aucun site `0.80` · eatbu `0.65` · autre-site défaut
+`0.50` · site très récent < 6 mois (Wayback) → écrase à `0.15`.
+[SPEC] valeurs discrètes (le « score continu si âge connu » n'est pas formulé).
 
-### Score GMB complétude (sous-composante)
-
-Calculé sur la fiche GMB quand accessible (sinon proxy = 50, médian) :
-
-| Critère | Points |
-|---|---|
-| ≥ 10 photos | +30 |
-| 5-9 photos | +15 |
-| < 5 photos | +0 |
-| Horaires renseignés | +20 |
-| Description présente (> 100 car.) | +20 |
-| ≥ 2 catégories | +15 |
-| Au moins 1 post < 90 jours | +15 |
-
-Total plafonné à 100. `score_gmb_completude` = ce total.
-
----
-
-## Sous-score 2 — Probabilité d'acceptation (0-100)
-
-« Signaux faibles d'un patron ouvert au numérique et capable de payer 490€. »
-
-Score additif, plancher 0, plafond 100 :
-
-| Signal | Condition | Points |
-|---|---|---|
-| Note Google | ≥ 4.0 | +25 |
-| | 3.5 – 3.99 | +10 |
-| | < 3.5 | 0 |
-| Nb d'avis | ≥ 100 | +20 |
-| | 50 – 99 | +15 |
-| | 20 – 49 | +10 |
-| | < 20 | +5 |
-| Patron répond aux avis | ≥ 30 % des avis ont une réponse propriétaire | +20 |
-| | quelques réponses (< 30 %) | +10 |
-| | jamais | 0 |
-| Fiche GMB complète | photos ≥ 10 ET horaires ET description | +15 |
-| Instagram actif | dernier post < 30 jours (si détectable) | +10 |
-| Âge site eatbu | ≥ 3 ans (patron lassé, prêt à changer) | +10 |
-| Âge site eatbu | < 6 mois (vient d'investir, refusera) | −20 |
+**independence_class** [verbatim] : indép mono-site `1.0` · petit groupe `0.7`
+· hôtel/multi-enseignes `0.4` · chaîne `0`.
+**complexity_class** [verbatim] : vitrine 1-5 pages `1.0` · résa/commande
+seule `0.7` · multi-établ/menu complexe `0.4`.
+[SPEC, résolu par les cas-test d'acceptation] : chaînes déjà exclues → quand
+le resto **a un site** à inspecter, défaut `independence=1.0`,
+`complexity=1.0` (observable proxy). Quand **pas-de-site** (rien à inspecter),
+ces deux comptent comme **non observés → 0.50** (cohérent « inconnu = 0.50 »,
+et baisse la Confidence). C'est la seule lecture qui fait tomber les 3
+cas-test pile (sinon Festin d'Asie diverge de 7,5 pts).
 
 ```
-proba = somme des points applicables
-proba = max(0, min(100, proba))
+P = 35·business_proof + 20·switchability + 15·contactability
+  + 15·timing + 10·independence_class + 5·complexity_class
 ```
 
----
-
-## Mode dégradé (sans clé Google PageSpeed)
-
-Lighthouse indisponible → `lighthouse_perf`, `lighthouse_seo`, `lighthouse_a11y` = `null`.
-
-**Recalcul de la valeur apportée** en redistribuant les poids des 3 composantes Lighthouse (0.30 + 0.25 + 0.10 = 0.65) sur les 2 composantes restantes, au prorata :
-
-- Vieillesse : poids passe de 0.15 → 0.15 / 0.35 ≈ **0.43**
-- GMB pauvre : poids passe de 0.20 → 0.20 / 0.35 ≈ **0.57**
+## Score final [verbatim]
 
 ```
-valeur_dégradée = 0.43·min(âge×10,50) + 0.57·(100−gmb)
+final = 0.55·V + 0.45·P
 ```
 
-(Bucket `pas-de-site` reste à 90, non affecté. Bucket `autre-site` garde la pénalité −15.)
+## Confidence [verbatim principe]
 
-Chaque fiche générée en mode dégradé porte l'encart :
-> ⚠️ Score approximatif — vitesse du site non mesurée (clé PageSpeed absente). Configure la clé pour un score précis au prochain run.
+`confidence = 100 · (Σ poids des composantes RÉELLEMENT observées / Σ poids total)`.
+[SPEC] poids = coefficients de V `(25,20,20,15,10,10)` + P
+`(35,20,15,15,10,5)` ; total = **200**. « Observée » = donnée source mesurée
+(Places / Lighthouse / DOM). « Non observée » = branche inconnu/0.50/défaut.
+Une composante manquante prend 0.50 dans le score (jamais 0).
 
----
+## Tiers [verbatim] & bandes d'action [SPEC validé]
 
-## Données manquantes — valeurs par défaut
-
-| Donnée absente | Valeur de remplacement | Justification |
-|---|---|---|
-| `âge_site` (Wayback vide) | 2 ans | Médian observé |
-| `score_gmb_completude` (fiche non accessible) | 50 | Médian neutre |
-| `note_google` | traiter comme < 3.5 → 0 pt | Conservateur (pas de bonus indu) |
-| `nb_avis` | traiter comme < 20 → +5 pt | Conservateur |
-| Instagram | non détecté → 0 pt | On ne suppose pas |
-
-Une fiche avec beaucoup de valeurs par défaut porte une mention « données partielles » pour que Mike sache que le score est moins fiable.
-
----
-
-## Exemple de calcul (bucket eatbu, mode normal)
-
-Resto fictif : eatbu, perf=35, seo=48, a11y=70, âge=4 ans, gmb_completude=40, note=4.3, avis=82, répond rarement aux avis, GMB incomplète, Insta inconnu.
-
-**Valeur apportée :**
 ```
-= 0.30·(100−35) + 0.25·(100−48) + 0.10·(100−70) + 0.15·min(40,50) + 0.20·(100−40)
-= 0.30·65 + 0.25·52 + 0.10·30 + 0.15·40 + 0.20·60
-= 19.5 + 13 + 3 + 6 + 12
-= 53.5
+A : final >= 75 ET confidence >= 60
+B : 65 <= final < 75   (inclut final>=75 mais confidence<60)
+C : 55 <= final < 65
+D : final < 55
 ```
 
-**Probabilité acceptation :**
-```
-note 4.3 ≥ 4.0          → +25
-avis 82 (50-99)         → +15
-répond rarement         → +10
-GMB incomplète          → +0
-Insta inconnu           → +0
-âge eatbu 4 ans ≥ 3     → +10
-= 60
-```
+Tri global : `final ↓ puis confidence ↓`. Bandes d'action par **rang** :
+- **Priorité semaine** : top ~10 du classement global
+- **Priorité mois** : ~15 suivants
+- **Réserve** : le reste
+- **À surveiller** : `confidence < 50` (écrase la bande), quel que soit le rang
 
-**Score total :**
-```
-0.5·53.5 + 0.5·60 = 26.75 + 30 = 56.75 → arrondi 57 → Tier B
-```
+## DOM fetch (conversion_gap + seo_checks + email/social) [SPEC]
+
+GET homepage (suivi des redirections) + `/robots.txt` + `/sitemap.xml`, UA
+identifiable, timeout court, taille HTML plafonnée, **caché**
+`prospects/cache/dom/{slug}.json` TTL 30 j, uniquement buckets eatbu /
+autre-site. Fetch échoué → conversion_gap = seo_gap = 0.50 + composantes non
+observées (Confidence baissée). Aucune découverte Places massive ;
+`restaurants.yml` reste la source de vérité unique.

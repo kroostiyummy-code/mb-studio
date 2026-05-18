@@ -150,17 +150,39 @@ Exclure et router vers `prospects-exclus.md` (avec la raison) :
 
 Transparent : Mike peut overrider une exclusion via `mike_override` dans le CSV (conservé entre runs).
 
-### Étape 6 — Calcul du score
+### Étape 6 — Calcul du score (architecture normalisée, refonte 2026-05-18)
 
-Appliquer **strictement** `references/scoring-formula.md` :
-- Sous-score Valeur apportée (0-100), formule selon bucket
-- Sous-score Probabilité d'acceptation (0-100), additif
-- `score_total = 0.5·valeur + 0.5·proba`, arrondi entier
-- Tier : A ≥ 75, B 50-74, C < 50
-- Mode dégradé : redistribution des poids Lighthouse documentée dans scoring-formula.md
-- Données manquantes : valeurs par défaut du tableau dédié
+Appliquer **strictement** `references/scoring-formula.md` (Rapport_classement,
+décision Mike 2026-05-18). Ne PAS recopier la formule ici — `scoring-formula.md`
+est la source unique de vérité.
 
-Ne PAS recopier la formule en dur ici — toujours lire `scoring-formula.md` (source unique de vérité, modifiable sans toucher au SKILL).
+Principe : chaque composante normalisée dans **[0,1]** ; donnée **inconnue →
+0,50** (jamais 0) et **non observée** (baisse la Confidence).
+
+- **Valeur apportable /100** = `25·presence_gap + 20·performance_gap +
+  20·conversion_gap + 15·seo_gap + 10·local_profile_gap +
+  10·reputation_misalignment`
+- **Probabilité /100** = `35·business_proof + 20·switchability +
+  15·contactability + 15·timing + 10·independence_class + 5·complexity_class`
+- **`score_final = 0,55·V + 0,45·P`** (ou `mike_override` s'il existe, qui prime)
+- **Confidence** = `100 · Σ poids observés / 200` (poids = coeffs V+P)
+- **Tiers** : A (`final≥75 ET conf≥60`) · B (`65≤final<75`) · C
+  (`55≤final<65`) · D (`final<55`)
+- **Étape 5bis — DOM fetch léger** (homepage + `/robots.txt` + `/sitemap.xml`)
+  pour `conversion_gap` + `seo_checks` + email/social, **caché 30 j**
+  (`prospects/cache/dom/`), buckets eatbu/autre-site seulement, échec → 0,50 +
+  Confidence baissée.
+- **Bandes d'action par rang** (tri global `final ↓ puis confidence ↓`) :
+  top ~10 = `Priorité semaine` · ~15 suivants = `Priorité mois` · reste =
+  `Réserve` · `confidence < 50` → `À surveiller`.
+
+> **TODO planifié (PAS fait dans le run 2026-05-18)** : re-enrichissement
+> Places **ciblé** `photos_count` + `hours` sur les ~148 restos de la liste
+> vivante (≈148 Place Details, dans le cap gratuit mensuel + plafond dur
+> 500/j ≈ 0 $). Refresh ciblé sur liste existante = **autorisé** (≠ découverte
+> massive). Objectif : fiabiliser `local_profile_gap` (aujourd'hui marqué
+> **non-observé**, honnête, car ces signaux n'étaient pas persistés au cache).
+> Ne pas perdre ce TODO.
 
 ### Étape 7 — Sync liste vivante + génération des vues
 
@@ -230,14 +252,19 @@ Jamais de fait accompli **silencieux**. Une décision peut être juste ET devoir
 ## Décisions Mike validées (NE PAS reposer ces questions)
 
 - Source : Overpass OSM auto + complément GMB manuel ciblé
-- Score 0-100, tiers A (≥75) / B (50-74) / C (<50)
+- ~~Score 0-100, tiers A (≥75)/B/C~~ → **remplacé** par archi normalisée + tiers A/B/C/D (2026-05-18, voir plus bas)
 - Exclusions auto : chaînes nationales + sites custom modernes (Lighthouse ≥85 et pas eatbu)
-- 3 listes (eatbu / autre-site / pas-de-site), pas 2
-- Pondération : 50 % valeur + 50 % probabilité
+- 3 listes (eatbu / autre-site / pas-de-site) **+ classement global** (2026-05-18)
+- ~~Pondération 50/50~~ → **remplacé** par `0,55·V + 0,45·P` (2026-05-18)
 - Clé PageSpeed obligatoire en mode normal, mode dégradé documenté et accepté comme fallback
 - (2026-05-16) Source de vérité = liste vivante `prospects/restaurants.yml`, vues régénérées ; `prospects/` versionné dans le repo privé (sauf cache) ; Google Places API officielle ajoutée comme source d'enrichissement optionnelle
 - (2026-05-17) Lien agrégateur/livraison/linktree (UberEats, Deliveroo, Just Eat, TheFork, Privateaser, linktr.ee, bento.me, Facebook/Instagram…) = **`pas-de-site`**, jamais `autre-site` (le patron ne possède rien) — cf règle agrégateurs étape 2. Bruit OSM non-commercial (cantines scolaires, administrations) géré via `prospects/opt-out.txt` (pas de règle d'exclusion dans la spec : opt-out ponctuel suffit)
-- (2026-05-17) **Format des sorties** : 3 listes SÉPARÉES (`liste-eatbu` / `liste-autre-site` / `liste-sans-site`), `.md` + `.txt` lisible, bloc « 📋 Critères de cette liste » en tête, tri propre annoncé par liste, fiches à libellés français. **Jamais** de classement global mélangé ni de « Top 3 toutes listes ». Format gravé dans `templates/fiche-prospect.md`
+- (2026-05-17) **Format des sorties** : 3 listes SÉPARÉES (`liste-eatbu` / `liste-autre-site` / `liste-sans-site`), `.md` + `.txt` lisible, bloc « 📋 Critères de cette liste » en tête, fiches à libellés français. Format gravé dans `templates/fiche-prospect.md`. _(Le « jamais de classement global » de cette décision est **levé** par 2026-05-18 ci-dessous.)_
+- **(2026-05-18) Refonte scoring — architecture normalisée (Rapport_classement).** Remplace les barèmes antérieurs. Composantes normalisées [0,1] (`presence_gap`, `performance_gap`, `conversion_gap`, `seo_gap`, `local_profile_gap`, `business_proof`, `switchability`, `contactability`, `timing`, `independence/complexity_class`, `reputation_misalignment`), `V` et `P` pondérés, **`score_final = 0,55·V + 0,45·P`**, **Confidence Score** (poids observés/200 ; inconnu = 0,50 jamais 0), **tiers A/B/C/D**, **classement global unique** trié `final ↓ puis confidence ↓` + filtres eatbu/autre/sans + quick-wins (= bande Priorité semaine). `source_list` = filtre/pitch only. DOM fetch léger caché pour conversion/seo.
+- (2026-05-18) **Téléphone OSM gardé** dans `contactability` (vrai signal de joignabilité ; un `phone_known=1` remonte légitimement la proba — assumé).
+- (2026-05-18) **eatbu = vue stratégique, formule NON distordue.** Un eatbu a un déficit brut < un sans-site → score objectif plus bas, c'est normal et assumé. On ne truque pas le score : on compense par le bloc « Critères » de `liste-eatbu` qui la cadre en cœur de cible / liste de travail 1er rang (pitch le plus fort + transformation la plus visible). À travailler EN PARALLÈLE du classement global.
+- (2026-05-18) **`independence_class`/`complexity_class`** : valent 1,0 si le resto a un site à inspecter, sinon **non-observés → 0,50** (`pas-de-site`). Seule lecture qui fait tomber les 3 cas-test d'acceptation pile.
+- (2026-05-18) **TODO planifié, PAS fait dans ce run** : re-enrich Places ciblé `photos_count`/`hours` sur la liste vivante (~148 Place Details, ≈0 $, refresh ciblé ≠ découverte massive = autorisé) pour fiabiliser `local_profile_gap` (aujourd'hui non-observé, honnête).
 
 ---
 
