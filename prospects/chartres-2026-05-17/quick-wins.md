@@ -1,0 +1,134 @@
+# Priorité semaine — top à attaquer
+
+**Chartres — rayon 5 km — 2026-05-17** · 10 restaurants
+
+## 📋 Critères de cette liste
+
+- **Ce qui définit cette liste :** La **bande « Priorité semaine »** : le top ~10 du classement global, hors confiance faible. Ta liste d'attaque immédiate.
+
+- **Angle stratégique (pourquoi / comment pitcher) :** Ce sont les cibles à voir cette semaine : meilleur score final ET confiance suffisante. Commence strictement par ici, dans l'ordre.
+
+- **Tri de cette liste :** par **score final décroissant, puis confiance décroissante**.
+
+---
+
+### 1. My kitchen — turkish — ⭐ 4.8 / 334 avis
+
+**Adresse :** Chartres · **Téléphone :** +33951476324
+**Présence web :** **Aucune présence web** (hors fiche Google)
+**Lighthouse :** — (pas de site à mesurer)
+**Ce qu'on peut apporter :** 82/100  ·  **Probabilité qu'il accepte :** 86/100
+**Score final :** 84/100 · **Confiance : 88/100** · **Tier A**
+**Pourquoi lui :** 4.8/334 avis mais aucun site à lui
+**Action :** Priorité semaine
+
+---
+
+### 2. Crêperie La Poële Percée — crepe — ⭐ 4.7 / 99 avis
+
+**Adresse :** 7 Rue de la Poële Percée, 28000 Chartres · **Téléphone :** +33237216070
+**Présence web :** **Aucune présence web** (hors fiche Google)
+**Lighthouse :** — (pas de site à mesurer)
+**Ce qu'on peut apporter :** 81/100  ·  **Probabilité qu'il accepte :** 83/100
+**Score final :** 82/100 · **Confiance : 88/100** · **Tier A**
+**Pourquoi lui :** 4.7/99 avis mais aucun site à lui
+**Action :** Priorité semaine
+
+---
+
+### 3. Big.B — burger — ⭐ 4.5 / 420 avis
+
+**Adresse :** 5 Place du Général de Gaulle, 28000 Chartres · **Téléphone :** +33633888500
+**Présence web :** **Aucune présence web** (hors fiche Google)
+**Lighthouse :** — (pas de site à mesurer)
+**Ce qu'on peut apporter :** 80/100  ·  **Probabilité qu'il accepte :** 80/100
+**Score final :** 80/100 · **Confiance : 88/100** · **Tier A**
+**Pourquoi lui :** 4.5/420 avis mais aucun site à lui
+**Action :** Priorité semaine
+
+---
+
+### 4. L'Ami Temps — cuisine non précisée — ⭐ 4.9 / 195 avis
+
+**Adresse :** Chartres · **Téléphone :** inconnu
+**Présence web :** **Aucune présence web** (hors fiche Google)
+**Lighthouse :** — (pas de site à mesurer)
+**Ce qu'on peut apporter :** 83/100  ·  **Probabilité qu'il accepte :** 77/100
+**Score final :** 80/100 · **Confiance : 80/100** · **Tier A**
+**Pourquoi lui :** 4.9/195 avis mais aucun site à lui
+**Action :** Priorité semaine
+
+---
+
+### 5. Yog & Eat — cuisine non précisée — ⭐ 4.6 / 561 avis
+
+**Adresse :** Chartres · **Téléphone :** inconnu
+**Présence web :** **Aucune présence web** (hors fiche Google)
+**Lighthouse :** — (pas de site à mesurer)
+**Ce qu'on peut apporter :** 83/100  ·  **Probabilité qu'il accepte :** 76/100
+**Score final :** 80/100 · **Confiance : 80/100** · **Tier A**
+**Pourquoi lui :** 4.6/561 avis mais aucun site à lui
+**Action :** Priorité semaine
+
+---
+
+### 6. Saint Michel — cuisine non précisée — ⭐ 5 / 162 avis
+
+**Adresse :** Chartres · **Téléphone :** inconnu
+**Présence web :** **Aucune présence web** (hors fiche Google)
+**Lighthouse :** — (pas de site à mesurer)
+**Ce qu'on peut apporter :** 83/100  ·  **Probabilité qu'il accepte :** 77/100
+**Score final :** 80/100 · **Confiance : 80/100** · **Tier A**
+**Pourquoi lui :** 5/162 avis mais aucun site à lui
+**Action :** Priorité semaine
+
+---
+
+### 7. Aux Comptoirs — seafood — ⭐ 4.6 / 228 avis
+
+**Adresse :** Chartres · **Téléphone :** inconnu
+**Présence web :** **Aucune présence web** (hors fiche Google)
+**Lighthouse :** — (pas de site à mesurer)
+**Ce qu'on peut apporter :** 83/100  ·  **Probabilité qu'il accepte :** 75/100
+**Score final :** 79/100 · **Confiance : 80/100** · **Tier A**
+**Pourquoi lui :** 4.6/228 avis mais aucun site à lui
+**Action :** Priorité semaine
+
+---
+
+### 8. Café Marceau — cuisine non précisée — ⭐ 4.8 / 72 avis
+
+**Adresse :** Chartres · **Téléphone :** inconnu
+**Présence web :** **Aucune présence web** (hors fiche Google)
+**Lighthouse :** — (pas de site à mesurer)
+**Ce qu'on peut apporter :** 83/100  ·  **Probabilité qu'il accepte :** 74/100
+**Score final :** 79/100 · **Confiance : 80/100** · **Tier A**
+**Pourquoi lui :** 4.8/72 avis mais aucun site à lui
+**Action :** Priorité semaine
+
+---
+
+### 9. Chez Tonton — chicken sandwich — ⭐ 5 / 60 avis
+
+**Adresse :** Chartres · **Téléphone :** inconnu
+**Présence web :** **Aucune présence web** (hors fiche Google)
+**Lighthouse :** — (pas de site à mesurer)
+**Ce qu'on peut apporter :** 82/100  ·  **Probabilité qu'il accepte :** 74/100
+**Score final :** 79/100 · **Confiance : 80/100** · **Tier A**
+**Pourquoi lui :** 5/60 avis mais aucun site à lui
+**Action :** Priorité semaine
+
+---
+
+### 10. Le BarDePoch' — cuisine non précisée — ⭐ 4.7 / 412 avis
+
+**Adresse :** Chartres · **Téléphone :** inconnu
+**Présence web :** **Aucun site à lui** — seulement une page **facebook.com**
+**Lighthouse :** — (pas de site à mesurer)
+**Ce qu'on peut apporter :** 81/100  ·  **Probabilité qu'il accepte :** 76/100
+**Score final :** 79/100 · **Confiance : 80/100** · **Tier A**
+**Pourquoi lui :** 4.7/412 avis mais juste une page facebook.com
+**Action :** Priorité semaine
+
+---
+

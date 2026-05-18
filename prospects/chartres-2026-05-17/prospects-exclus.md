@@ -3,7 +3,7 @@
 19 exclus.
 
 - **Au Bureau** — Chaîne nationale (pas la main sur son site)
-- **Au Royal de Chartres** — Site custom moderne (Lighthouse ≥85 perf+SEO, rien à apporter)
+- **Au Royal de Chartres** — Site custom moderne (Lighthouse ≥85, rien à apporter)
 - **Buffalo Grill** — Chaîne nationale (pas la main sur son site)
 - **Burger King** — Chaîne nationale (pas la main sur son site)
 - **Class'croute** — Chaîne nationale (pas la main sur son site)
@@ -14,7 +14,7 @@
 - **La Boucherie** — Chaîne nationale (pas la main sur son site)
 - **Léon de Bruxelles** — Chaîne nationale (pas la main sur son site)
 - **McDonald's** — Chaîne nationale (pas la main sur son site)
-- **Nopal** — Site custom moderne (Lighthouse ≥85 perf+SEO, rien à apporter)
+- **Nopal** — Site custom moderne (Lighthouse ≥85, rien à apporter)
 - **O'Tacos** — Chaîne nationale (pas la main sur son site)
 - **Paul** — Chaîne nationale (pas la main sur son site)
 - **Pizza Hut** — Chaîne nationale (pas la main sur son site)
