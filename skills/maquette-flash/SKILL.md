@@ -35,7 +35,7 @@ L'utilisateur doit fournir :
    - Page Facebook
    - Profil Instagram
    - Site existant (eatbu, Wix, Shopify, etc.)
-3. **Signature primaire d'intuition** : `fast-food`, `gastro` ou `traditionnel`. Cette intuition se forme en regardant rapidement les photos du resto (esthétique urbain/raffiné/familial). Mike connaît son terrain, il décide.
+3. **Hypothèse de segment** : `fast-food`, `gastro` ou `traditionnel`. C'est une **hypothèse de départ** (intuition terrain de Mike), **confirmée ou infirmée par la DA réelle** observée à l'étape 1 (cf règle de signature 2026-05-18 ci-dessous). Le skill ne génère qu'UNE signature, en 2-3 variantes.
 
 Si Mike ne précise pas la signature primaire, **demander en une phrase** :
 > "Tu sens l'univers du resto plutôt urbain/moderne, élégant/raffiné, ou tradition/familial ?"
@@ -43,6 +43,23 @@ Si Mike ne précise pas la signature primaire, **demander en une phrase** :
 Mapper : urbain → `fast-food`, élégant → `gastro`, tradition → `traditionnel`.
 
 ---
+
+## 🛑 Règle de signature (décision Mike 2026-05-18 — prioritaire)
+
+`maquette-flash` ne génère **JAMAIS** une maquette par signature (1 fast-food
++ 1 gastro + 1 traditionnel = absurde : on ne présente pas au patron 3
+identités contradictoires de son propre resto).
+
+Le skill **déduit LA signature/segment** qui colle réellement au resto, à
+partir de sa **DA réelle** (Instagram + Facebook + `audit-eatbu`), puis génère
+**2-3 variantes DANS cette seule signature**, différenciées par la DA de
+l'établissement et couvrant un **spectre cohérent** (ex. authentique-chaleureux
+↔ festif). L'intuition de segment donnée par Mike est une **hypothèse de
+départ**, pas une décision figée.
+
+**GATE bloquant** : si la DA réelle (photos, ton, univers observés sur
+Insta/FB) **contredit l'hypothèse de segment**, NE PAS générer — s'arrêter,
+exposer la contradiction à Mike en une phrase, attendre son arbitrage.
 
 ## Process en 6 étapes
 
@@ -78,7 +95,14 @@ Chaque maquette aura **sa propre dominante**, pas la même partout. Heuristique 
 
 Si Mike a une intuition de couleur (ex: le logo est jaune et bleu) : le suivre.
 
-### Étape 4 — Génération des 3 fichiers settings
+### Étape 4 — Génération des 2-3 variantes DANS la signature retenue
+
+> **Rappel règle de signature (2026-05-18)** : on ne génère PAS fast-food +
+> gastro + traditionnel. On génère 2-3 fichiers `maquette-{slug}-{variante}.yml`
+> **tous dans la signature déduite** (ex. `traditionnel-authentique`,
+> `traditionnel-festif`), différenciés par dominante + ton selon la DA réelle.
+> Le tableau de tons ci-dessous sert de **registre de référence par
+> signature**, plus à produire une maquette par signature.
 
 > **⚠️ Confidentialité (corrigé 2026-05-16, validé Mike) :** un prospect est une donnée commerciale confidentielle. Les settings de maquette d'un prospect réel ne se committent JAMAIS — ils vont en **local gitignored**, comme tout le reste de la prospection (garde-fou #7, cohérent avec `scoring-prospects`). Les fixtures de DÉV génériques (`kroosti-foodtruck.yml`, `gastronomique-elegant.yml`, `bistrot-tradition.yml`) restent, elles, dans `templates/site-resto/examples/` (versionnées, ce ne sont pas des prospects). On s'en inspire pour le ton, mais on n'écrit pas la maquette prospect là.
 
