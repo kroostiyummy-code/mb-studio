@@ -175,8 +175,13 @@ Remplacer `USER/REPO` (placeholder du template) par `kroostiyummy-code/{slug}-si
 > (réservation en ligne, commande/click&collect, menu en ligne…). Toute
 > fonction présente avant et absente après = **blocage livraison** (sera
 > rattrapé par `audit-livraison` étape 4, autant le faire bien ici).
-> Réservation : cf sous-règle réservation (`brief-client`) — intégration
-> légère d'un outil tiers du compte du patron, jamais un système maison.
+> **Réservation (sous-règle, décision Mike 2026-05-18)** : jamais de système
+> maison ni d'hébergement de résa. Intégrer l'outil tiers acté au brief
+> (DISH/Guestonline/Zenchef…), **dans le compte du patron** (principe #7).
+> Technique imposée : bouton « Réserver » visible qui ouvre le flux de
+> l'outil — page hébergée par l'outil **ou** fenêtre légère chargée **au
+> clic**. **Jamais d'embed/iframe lourd au chargement** (préserve l'argument
+> vitesse). Mike facture l'installation, pas l'abonnement.
 
 ### Étape 7 — Test build local
 

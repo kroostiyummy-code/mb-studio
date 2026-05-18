@@ -145,6 +145,8 @@ Voir `templates/settings-from-brief.yml` pour le squelette.
 
 11. **Parité fonctionnelle (décision Mike 2026-05-18)**. Reprendre l'inventaire des fonctions actives relevé par `audit-eatbu` (réservation en ligne, commande/click&collect, menu en ligne…) et, pour CHACUNE, **trancher au brief l'outil de remplacement** qui assure la parité. Le site livré ne doit jamais faire perdre une fonction existante. Acter le choix dans `brief.md` (c'est ce que `site-from-brief` livrera).
 
+12. **Sous-règle réservation (décision Mike 2026-05-18)**. On ne **construit ni n'héberge JAMAIS** de système de réservation. On intègre un **outil tiers que le patron possède dans SON propre compte**. Court-list à tester avant de la proposer (on ne vend que ce qu'on a vérifié) : **DISH Réservation / Guestonline / Zenchef** — le choix exact se tranche ICI, au brief. Intégration imposée : un bouton « Réserver » **visible** qui ouvre le flux de l'outil (page hébergée par l'outil **ou** fenêtre légère chargée **au clic**) — **jamais d'embed lourd au chargement** (ça tuerait l'argument vitesse, cf anti-patterns CLAUDE.md). Le patron paie l'abonnement de l'outil **dans son compte** (principe non-négociable #7) ; **Mike facture uniquement l'installation**. Acter dans `brief.md` : outil retenu + compte patron + qui paie quoi.
+
 ---
 
 ## Resources
