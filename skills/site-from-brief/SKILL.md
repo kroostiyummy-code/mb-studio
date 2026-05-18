@@ -167,6 +167,17 @@ Le template a déjà `incident-response.md` à la racine. Ajouter au TOUT DÉBUT
 #### `clients/{slug}/public/admin/config.yml`
 Remplacer `USER/REPO` (placeholder du template) par `kroostiyummy-code/{slug}-site`. Cette URL sera réelle après le passage de `new-client`.
 
+### Étape 6bis — Parité fonctionnelle (décision Mike 2026-05-18)
+
+> Le site livré ne doit **JAMAIS** faire perdre au patron une fonction qu'il
+> avait sur l'ancien site. Reprendre l'inventaire `audit-eatbu` + le choix
+> d'outil acté au `brief.md`, et **livrer chaque fonction en parité**
+> (réservation en ligne, commande/click&collect, menu en ligne…). Toute
+> fonction présente avant et absente après = **blocage livraison** (sera
+> rattrapé par `audit-livraison` étape 4, autant le faire bien ici).
+> Réservation : cf sous-règle réservation (`brief-client`) — intégration
+> légère d'un outil tiers du compte du patron, jamais un système maison.
+
 ### Étape 7 — Test build local
 
 1. `cd clients/{slug}`

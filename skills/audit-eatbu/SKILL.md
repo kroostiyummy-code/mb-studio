@@ -51,6 +51,9 @@ Pour chaque audit, collecter ces données via les outils disponibles (`WebFetch`
 - Taille des images principales (en KB)
 - Présence de HTTPS valide
 - Mentions de réseaux sociaux
+- **Fonctions actives du site (relevé obligatoire — base de la parité fonctionnelle)** : réservation en ligne, commande / click & collect, menu en ligne (carte consultable), formulaire de contact, autre brique fonctionnelle. Noter PRÉSENTE/ABSENTE pour chacune.
+
+> **Parité fonctionnelle (décision Mike 2026-05-18).** Le site livré ne doit JAMAIS faire perdre au patron une fonction qu'il a déjà. Cet inventaire est la base de référence : il est repris au brief (choix de l'outil), à la livraison (`site-from-brief`) et au contrôle anti-régression (`audit-livraison`). Cf sous-règle réservation dans `brief-client` / `maquette-flash`.
 
 **Sur Google My Business (recherche `nom_resto + ville`) :**
 - Présence d'une fiche

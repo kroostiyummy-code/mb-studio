@@ -94,6 +94,14 @@ Sauvegarder le brut dans `clients/{slug}/audit-livraison/lighthouse-new.json`. E
 Si `briefs/{slug}/eatbu-snapshot/lighthouse.json` existe → calculer Δ (perf, LCP, poids, SEO…) pour les phrases "avant/après" du rapport patron.
 Sinon → audit interne : "🟡 Snapshot eatbu absent, comparaison avant/après impossible. À documenter pour les prochains clients." Rapport patron sans section comparative.
 
+> **Check anti-régression de parité fonctionnelle (décision Mike 2026-05-18).**
+> Comparer l'inventaire des fonctions actives relevé par `audit-eatbu` (résa
+> en ligne, commande/click&collect, menu en ligne…) au site livré. Toute
+> fonction **présente avant et absente après = 🔴 BLOCAGE livraison** (le
+> patron ne doit jamais être lésé). Vérifier aussi que la réservation est une
+> intégration **légère** d'un outil tiers du compte du patron (bouton ouvrant
+> le flux), pas un embed lourd au chargement (sinon l'argument vitesse tombe).
+
 ### Étape 5 — Comparaison moyenne sectorielle
 
 Lire `references/eatbu-benchmarks.md`. Comparaison **anonyme uniquement** ("un autre restaurant local comparable" / "moyenne du secteur" — jamais de nom). Tant que le benchmark est en statut estimation : écrire "moyenne estimée". Section incluse dans le rapport patron seulement si le nouveau site bat la moyenne sur **≥ 2 métriques sur 3**.

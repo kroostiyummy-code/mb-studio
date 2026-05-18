@@ -143,6 +143,8 @@ Voir `templates/settings-from-brief.yml` pour le squelette.
 
 10. **Tout ce qui n'est pas dans le brief n'est pas dans le site**. Si le patron ajoute des demandes par SMS le lendemain, c'est en option payante hors-devis. Le brief signé = périmètre figé.
 
+11. **Parité fonctionnelle (décision Mike 2026-05-18)**. Reprendre l'inventaire des fonctions actives relevé par `audit-eatbu` (réservation en ligne, commande/click&collect, menu en ligne…) et, pour CHACUNE, **trancher au brief l'outil de remplacement** qui assure la parité. Le site livré ne doit jamais faire perdre une fonction existante. Acter le choix dans `brief.md` (c'est ce que `site-from-brief` livrera).
+
 ---
 
 ## Resources

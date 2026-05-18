@@ -167,6 +167,8 @@ Le skill produit **uniquement**, et **tout en local gitignored** (`prospects/{vi
 
 8. **Une fixture par signature, jamais 3 fichiers identiques.** Les 3 maquettes doivent être visiblement différentes (palette + signature + ton des textes), c'est ce qui donne du sens au "1 primaire + 2 alternatives".
 
+9. **Parité fonctionnelle (décision Mike 2026-05-18).** Si l'audit `audit-eatbu` a relevé une fonction active sur le site actuel (réservation en ligne, commande/click&collect, menu en ligne…), les 3 maquettes doivent la **montrer préservée** (bloc visible, ex. bouton « Réserver »). On ne fait jamais regretter au patron son ancien site. Préparer la **phrase anti-lésé** dans le récap : « Vous quittez un site loué qui rame ; votre réservation, vous ne la perdez pas — on la rebranche sur un outil qui est à VOUS, et en plus le site vous appartient et charge vite. »
+
 ---
 
 ## Resources
