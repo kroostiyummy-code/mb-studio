@@ -100,6 +100,28 @@ Avant chaque livraison, le skill `audit-livraison` compare le nouveau site aux s
 
 ---
 
+## Pivot 2026-05-19 — Stitch comme moteur du plafond créatif
+
+> Décidé en session après dogfood réel du moteur figé sur Kroosti. Le rendu était **propre et clairement plus premium que l'ancien eatbu**, mais l'œil de Mike a constaté une **perte d'énergie / de personnalité de marque** : une langue unique figée + crans bornés régresse mécaniquement vers la moyenne (plancher haut, plafond bas). Le gate « œil de Mike » a joué son rôle : il a rejeté.
+
+**Nouveau modèle de production (validé) :**
+
+`fiche d'âme → brief Stitch contraint → Stitch (Mike) → sélection à l'œil (Mike) → contrat de conversion → Claude Code → vrai site Astro → captures = maquette`
+
+- **Stitch = moteur du plafond créatif** (personnalité, énergie, marque), dans la couche visible.
+- **L'infra Astro premium + primitives + partition = le plancher technique et le garde-fou** (perf, SEO local, a11y, Decap, 1 repo/client, propriété, anti-jumeau), dans la couche invisible.
+- **L'œil de Mike = direction artistique finale**, non délégable.
+
+**Ce qui change de rôle :** la partition ne sort plus des crans CSS appliqués directement → elle alimente un **brief Stitch ultra-précis et contraint par les primitives**. La langue figée n'est plus *la sortie créative*, elle devient *le filet de sécurité* que la conversion doit honorer. La console 7-crans est rétrogradée (nourrit le brief, ne crée plus la personnalité). **Vit toujours :** fiche d'âme, spine, registre anti-jumeau (via empreinte), maquette = vrai build, infra premium, livraison 10-15 j, positionnement anti-abonnement.
+
+**Les deux pièces qui rendent le système reproductible seul** (sinon le pivot rouvre le full-custom ingérable) :
+- `skills/maquette-flash/references/stitch-brief.md` — fiche d'âme → brief Stitch contraint (Lego imposés, pas de toile blanche).
+- `skills/maquette-flash/references/conversion-contract.md` — gate dur Stitch→Astro (mapping primitives + plancher perf/SEO/a11y/Decap/propriété/anti-jumeau + lignes rouges).
+
+**Maintenance / abonnement :** discours recadré (le site reste une vitrine stable et durable ; la vie quotidienne vit sur GMB/réseaux ; modif ponctuelle à la demande ; propriété 100 %). **Compatible** avec le Pack Suivi 50 €/mois s'il est reformulé en **accompagnement visibilité** (skill `monthly-report` : Umami + GMB + Search Console + PageSpeed), **jamais** en « retouches du site » (resté anti-pattern).
+
+**Dette de cohérence (à cadrer explicitement avec Mike, pas en silence) :** `CLAUDE.md`, les couches 1-3 ci-dessus, et les skills `brief-client` / `site-from-brief` / `audit-livraison` portent encore le modèle « 3 signatures / DA par mots-clés ». À réconcilier dans un chantier dédié.
+
 ## Avancement
 
 **Fait (stratégie, PC éteint) :** ce document, la règle non-négociable dans `CLAUDE.md`, la matrice d'attribution (utilisable dès le 1er client), la spec du garde-fou dans `audit-livraison`, le mécanisme DA pilotée par mots-clés.
