@@ -14,6 +14,51 @@ Claude **génère** ce brief depuis `ame/{slug}.yml`. Mike le **colle dans Stitc
 
 ---
 
+## Directives permanentes — standard 2026-05-19 (à injecter dans TOUT prompt Stitch)
+
+> Non négociable. Ces blocs vont dans **chaque** prompt généré, quel que soit le resto. Raison : sans eux, les IA retombent en patterns SaaS / template resto / app de livraison / minimalisme agency trop propre. On ne génère pas « un site » → on génère une **mobile-first editorial brand experience**.
+
+**Reframe d'ouverture (toujours en tête de prompt) :**
+`Design a mobile-first editorial brand experience (start 390px), not a website, not a template. A living, memorable real-world food brand with identifiable energy.`
+
+**Bloc anti-minimalisme agency :**
+```
+Avoid quiet agency minimalism. Avoid luxury editorial emptiness.
+The brand must feel alive, fast, proud and commercially confident.
+Strong personality is preferred over sterile elegance.
+```
+**Bloc rythme du scroll :**
+```
+SCROLL RHYTHM: Fast rhythm. Alternate impact sections and breathing zones.
+No passive long reading blocks. Each screen must create a visual punch in
+under 2 seconds. The user must constantly feel movement and momentum.
+```
+**Bloc énergie typographique :**
+```
+TYPOGRAPHIC ENERGY: Typography is a core part of the brand identity.
+Strong scale contrast. Some headlines almost poster-like. Large confident
+type over decorative UI tricks. Bold hierarchy creates energy, not gimmicks.
+```
+**Bloc interdits app/SaaS :**
+```
+This is NOT a delivery app UI. NOT a SaaS dashboard. NOT a generic
+restaurant template. This is a real-world food brand experience.
+```
+**Bloc ancrage physique :**
+```
+The design must feel rooted in the real physical place (truck / room /
+street presence). A real local brand that already exists physically —
+not a fictional startup concept.
+```
+**Règle de priorité (toujours rappelée) :** le but n'est pas « faire beau ». Un passant doit comprendre **immédiatement** : ce que c'est · combien · pourquoi c'est spécial · comment commander. **La clarté commerciale prime sur la décoration.**
+
+**Contrainte de réalisme (toujours en fin de prompt) :** concepts réellement buildables, compatibles Astro, mobile-first réels, SEO-compatibles, performants, sans effets impossibles à maintenir. *Des marques fortes, pas des concepts Dribbble incodables.* (Le détail du plancher est gaté par `conversion-contract.md`.)
+
+**Modèle mental de raisonnement (pour générer N'IMPORTE quel prompt) :**
+`INPUTS humains` (type cuisine · gamme prix · énergie · ambiance · clientèle · ton patron · densité menu · présence Insta · niveau premium · rythme du lieu · identité implicite · présence physique · sensation émotionnelle) **→** `OUTPUTS créatifs` (rythme · DA · composition · densité · hiérarchie · structure · énergie typo · comportement du scroll · intensité commerciale). Objectif constant : **tuer la sensation « template IA »**.
+
+---
+
 ## Structure du brief généré (gabarit à remplir depuis la fiche d'âme)
 
 ### 1. Capsule identité (FAITS)
