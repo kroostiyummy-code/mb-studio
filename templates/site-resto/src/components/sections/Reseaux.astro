@@ -11,7 +11,6 @@ if (r?.facebook) reseaux.push({ type: 'facebook', label: 'Facebook', url: r.face
 if (r?.tiktok) reseaux.push({ type: 'tiktok', label: 'TikTok', url: r.tiktok });
 if (r?.snapchat) reseaux.push({ type: 'snapchat', label: 'Snapchat', url: r.snapchat });
 
-// Extraction du handle ou nom à partir de l'URL (best effort)
 function getHandle(type: string, url: string): string {
   try {
     const u = new URL(url);
@@ -28,35 +27,37 @@ function getHandle(type: string, url: string): string {
   <>
     <div class="mb-divider">Suivez le resto</div>
     <section class="section-social" id="reseaux">
-      <h2 class="social-title mb-reveal">
-        L'emplacement<br />du <span class="accent">jour.</span>
-      </h2>
-      <p class="social-sub mb-reveal">Coulisses, nouveautés, et où on est aujourd'hui. On poste tous les jours.</p>
+      <div class="social-wrap mb-wrap">
+        <h2 class="social-title mb-reveal">
+          L'emplacement du <span class="accent">jour.</span>
+        </h2>
+        <p class="social-sub mb-reveal">Coulisses, nouveautés, et où on est aujourd'hui. On poste tous les jours.</p>
 
-      <div class="social-list mb-reveal">
-        {reseaux.map(r => (
-          <a href={r.url} target="_blank" rel="noopener" class={`social-link social-link--${r.type}`}>
-            <span class="social-icon" aria-hidden="true">
-              {r.type === 'instagram' && (
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.86 5.86 0 0 0-2.13 1.38A5.86 5.86 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.73 1.46 1.38 2.13a5.86 5.86 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.86 5.86 0 0 0 2.13-1.38 5.86 5.86 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.86 5.86 0 0 0-1.38-2.13A5.86 5.86 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
-              )}
-              {r.type === 'facebook' && (
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.5h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.27h3.33l-.53 3.5h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
-              )}
-              {r.type === 'tiktok' && (
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 6.32a4.83 4.83 0 0 1-3.77-1.67V15.4a6.16 6.16 0 1 1-6.16-6.16c.13 0 .25.01.37.02v3.04a3.15 3.15 0 1 0 2.16 2.98V0h2.96a4.83 4.83 0 0 0 4.45 4.32v2z"/></svg>
-              )}
-              {r.type === 'snapchat' && (
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.06 1c2.25 0 4.42 1.13 5.55 3.04.61 1.04.65 2.16.66 3.13.01.55.02 1.16.05 1.52.05.07.27.21.83.21.45 0 .96-.16 1.32-.27.13-.04.34-.1.55-.1.41 0 .76.24.86.59.1.32-.06.66-.4.93-.21.16-.55.32-.86.45-.34.15-1.05.45-1.13.83-.03.16.07.4.27.7.45.7 1.27 1.7 2.36 2.27.32.16.52.43.5.7-.01.18-.1.43-.46.66-.86.55-2.09.55-2.36 1.13-.13.32-.06.83-.36 1.13-.27.27-.7.27-1.13.27-.4 0-.86-.04-1.32.04-.68.13-1.18.74-1.5 1.04-.45.43-1.27 1.27-2.93 1.27-.18 0-.34 0-.5-.01h-.13c-.16.01-.32.01-.5.01-1.66 0-2.48-.83-2.93-1.27-.32-.3-.83-.91-1.5-1.04-.46-.08-.93-.04-1.32-.04-.43 0-.86 0-1.13-.27-.3-.3-.23-.81-.36-1.13-.27-.59-1.5-.58-2.36-1.13-.36-.23-.45-.48-.46-.66-.02-.27.18-.55.5-.7 1.09-.58 1.91-1.58 2.36-2.27.2-.3.3-.55.27-.7-.08-.39-.79-.69-1.13-.84-.32-.13-.66-.29-.86-.45-.34-.27-.5-.61-.4-.93.1-.35.45-.59.86-.59.21 0 .42.06.55.1.36.11.87.27 1.32.27.56 0 .78-.14.83-.21.04-.36.05-.97.05-1.52.01-.97.05-2.09.66-3.13C7.64 2.13 9.81 1 12.06 1z"/></svg>
-              )}
-            </span>
-            <div class="social-text">
-              <span class="social-label">{r.label}</span>
-              <span class="social-handle">{getHandle(r.type, r.url)}</span>
-            </div>
-            <span class="arrow" aria-hidden="true">→</span>
-          </a>
-        ))}
+        <div class="social-list mb-reveal">
+          {reseaux.map(r => (
+            <a href={r.url} target="_blank" rel="noopener" class={`social-link social-link--${r.type}`}>
+              <span class="social-icon" aria-hidden="true">
+                {r.type === 'instagram' && (
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.86 5.86 0 0 0-2.13 1.38A5.86 5.86 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.73 1.46 1.38 2.13a5.86 5.86 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.86 5.86 0 0 0 2.13-1.38 5.86 5.86 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.86 5.86 0 0 0-1.38-2.13A5.86 5.86 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+                )}
+                {r.type === 'facebook' && (
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.5h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.27h3.33l-.53 3.5h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+                )}
+                {r.type === 'tiktok' && (
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 6.32a4.83 4.83 0 0 1-3.77-1.67V15.4a6.16 6.16 0 1 1-6.16-6.16c.13 0 .25.01.37.02v3.04a3.15 3.15 0 1 0 2.16 2.98V0h2.96a4.83 4.83 0 0 0 4.45 4.32v2z"/></svg>
+                )}
+                {r.type === 'snapchat' && (
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.06 1c2.25 0 4.42 1.13 5.55 3.04.61 1.04.65 2.16.66 3.13.01.55.02 1.16.05 1.52.05.07.27.21.83.21.45 0 .96-.16 1.32-.27.13-.04.34-.1.55-.1.41 0 .76.24.86.59.1.32-.06.66-.4.93-.21.16-.55.32-.86.45-.34.15-1.05.45-1.13.83-.03.16.07.4.27.7.45.7 1.27 1.7 2.36 2.27.32.16.52.43.5.7-.01.18-.1.43-.46.66-.86.55-2.09.55-2.36 1.13-.13.32-.06.83-.36 1.13-.27.27-.7.27-1.13.27-.4 0-.86-.04-1.32.04-.68.13-1.18.74-1.5 1.04-.45.43-1.27 1.27-2.93 1.27-.18 0-.34 0-.5-.01h-.13c-.16.01-.32.01-.5.01-1.66 0-2.48-.83-2.93-1.27-.32-.3-.83-.91-1.5-1.04-.46-.08-.93-.04-1.32-.04-.43 0-.86 0-1.13-.27-.3-.3-.23-.81-.36-1.13-.27-.59-1.5-.58-2.36-1.13-.36-.23-.45-.48-.46-.66-.02-.27.18-.55.5-.7 1.09-.58 1.91-1.58 2.36-2.27.2-.3.3-.55.27-.7-.08-.39-.79-.69-1.13-.84-.32-.13-.66-.29-.86-.45-.34-.27-.5-.61-.4-.93.1-.35.45-.59.86-.59.21 0 .42.06.55.1.36.11.87.27 1.32.27.56 0 .78-.14.83-.21.04-.36.05-.97.05-1.52.01-.97.05-2.09.66-3.13C7.64 2.13 9.81 1 12.06 1z"/></svg>
+                )}
+              </span>
+              <div class="social-text">
+                <span class="social-label">{r.label}</span>
+                <span class="social-handle">{getHandle(r.type, r.url)}</span>
+              </div>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   </>
@@ -64,168 +65,48 @@ function getHandle(type: string, url: string): string {
 
 <style>
   .section-social {
-    background: var(--mb-accent);
-    color: var(--mb-text-on-accent);
-    padding: 60px var(--mb-section-px);
-    border-top: 3px solid var(--mb-black);
-    border-bottom: 3px solid var(--mb-black);
-    position: relative;
-    z-index: 2;
+    padding: var(--mb-section-py) 0;
+    background: var(--mb-paper);
   }
   .social-title {
     font-family: var(--mb-display);
-    font-size: clamp(2rem, 10vw, 5rem);
-    line-height: 0.85;
-    letter-spacing: -0.04em;
-    text-transform: uppercase;
-    color: var(--mb-dominante);
-    margin-bottom: 14px;
+    font-weight: 700;
+    font-size: clamp(2rem, 8vw, 3.6rem);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    color: var(--mb-ink);
+    margin-bottom: var(--mb-s-3);
   }
-  .social-title .accent {
-    color: var(--mb-dominante);
-    font-style: italic;
-  }
+  .social-title .accent { color: var(--mb-accent); font-style: italic; }
   .social-sub {
-    font-family: var(--mb-sans);
     font-size: 1.05rem;
-    font-weight: 500;
-    line-height: 1.4;
-    margin-bottom: 30px;
-    max-width: 420px;
-    color: var(--mb-dominante);
+    line-height: 1.5;
+    color: var(--mb-ink-soft);
+    max-width: 28rem;
+    margin-bottom: var(--mb-s-7);
   }
 
-  .social-list {
-    display: flex;
-    flex-direction: column;
-  }
+  .social-list { display: flex; flex-direction: column; }
   .social-link {
     display: grid;
-    grid-template-columns: 32px 1fr auto;
-    gap: 14px;
+    grid-template-columns: 28px 1fr auto;
+    gap: var(--mb-s-4);
     align-items: center;
-    padding: 18px 4px;
-    border-top: 2px solid var(--mb-black);
-    font-family: var(--mb-display);
-    color: var(--mb-text-on-accent);
-    transition: padding-left 0.2s, background 0.2s, color 0.2s;
+    padding: var(--mb-s-5) var(--mb-s-2);
+    border-bottom: 1px solid var(--mb-line);
+    color: var(--mb-ink);
+    transition: padding-left 0.2s ease, color 0.2s ease;
   }
-  .social-link:last-child {
-    border-bottom: 2px solid var(--mb-black);
-  }
-  .social-link:hover {
-    padding-left: 18px;
-    background: var(--mb-dominante);
-    color: var(--mb-cream);
-  }
-  .social-icon svg {
-    width: 26px;
-    height: 26px;
-  }
-  .social-text {
-    display: flex;
-    flex-direction: column;
-  }
-  .social-label {
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    line-height: 1;
-  }
+  .social-link:first-child { border-top: 1px solid var(--mb-line); }
+  .social-link:hover { padding-left: var(--mb-s-5); color: var(--mb-accent); }
+  .social-icon svg { width: 24px; height: 24px; }
+  .social-text { display: flex; flex-direction: column; }
+  .social-label { font-size: 1.15rem; font-weight: 600; line-height: 1.2; }
   .social-handle {
-    font-family: var(--mb-mono);
-    font-size: 0.75rem;
-    text-transform: lowercase;
-    letter-spacing: 0.05em;
-    color: var(--mb-dominante);
-    margin-top: 4px;
+    font-size: 0.82rem;
+    color: var(--mb-ink-soft);
+    margin-top: 2px;
   }
-  .social-link:hover .social-handle {
-    color: var(--mb-accent);
-  }
-  .arrow {
-    font-family: var(--mb-mono);
-    font-size: 1.4rem;
-    transition: transform 0.2s;
-  }
-  .social-link:hover .arrow {
-    transform: translateX(6px);
-  }
-
-  /* Surcharges signature Élégante : fond cream, sobre, italique */
-  :global(.signature-gastro) .section-social {
-    background: var(--mb-bg-section-alt);
-    color: var(--mb-text-body);
-    border-top: 1px solid var(--mb-border-subtle);
-    border-bottom: 1px solid var(--mb-border-subtle);
-  }
-  :global(.signature-gastro) .social-title {
-    color: var(--mb-text-emphasis);
-    text-transform: none;
-    letter-spacing: -0.01em;
-    font-weight: 600;
-  }
-  :global(.signature-gastro) .social-title .accent {
-    color: var(--mb-dominante);
-  }
-  :global(.signature-gastro) .social-sub {
-    color: var(--mb-text-body);
-    font-style: italic;
-  }
-  :global(.signature-gastro) .social-link {
-    border-top-color: var(--mb-border-subtle);
-    border-top-width: 1px;
-    color: var(--mb-text-body);
-  }
-  :global(.signature-gastro) .social-link:last-child {
-    border-bottom-color: var(--mb-border-subtle);
-    border-bottom-width: 1px;
-  }
-  :global(.signature-gastro) .social-link:hover {
-    background: var(--mb-dominante);
-    color: var(--mb-cream);
-  }
-  :global(.signature-gastro) .social-label {
-    text-transform: none;
-    font-weight: 600;
-  }
-  :global(.signature-gastro) .social-handle {
-    color: var(--mb-dominante);
-    opacity: 0.7;
-  }
-
-  /* Surcharges signature Tradition : fond ivoire, small-caps */
-  :global(.signature-traditionnel) .section-social {
-    background: var(--mb-bg-section-alt);
-    color: var(--mb-dominante);
-    border-top: 2px solid var(--mb-dominante);
-    border-bottom: 2px solid var(--mb-dominante);
-  }
-  :global(.signature-traditionnel) .social-title {
-    color: var(--mb-dominante);
-    font-variant: small-caps;
-    text-transform: none;
-    letter-spacing: 0.02em;
-  }
-  :global(.signature-traditionnel) .social-title .accent {
-    color: var(--mb-dominante);
-  }
-  :global(.signature-traditionnel) .social-sub {
-    color: var(--mb-dominante);
-  }
-  :global(.signature-traditionnel) .social-link {
-    color: var(--mb-dominante);
-    border-top: 2px solid var(--mb-dominante);
-  }
-  :global(.signature-traditionnel) .social-link:last-child {
-    border-bottom: 2px solid var(--mb-dominante);
-  }
-  :global(.signature-traditionnel) .social-link:hover {
-    background: var(--mb-dominante);
-    color: var(--mb-cream);
-  }
-  :global(.signature-traditionnel) .social-label {
-    font-variant: small-caps;
-    text-transform: none;
-  }
+  .arrow { font-size: 1.2rem; color: var(--mb-ink-soft); transition: transform 0.2s ease; }
+  .social-link:hover .arrow { transform: translateX(5px); color: var(--mb-accent); }
 </style>

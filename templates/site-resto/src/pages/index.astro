@@ -18,22 +18,25 @@ import StickyCallBar from '../components/sections/StickyCallBar.astro';
 const entry = await getEntry('settings', 'site');
 const s = entry!.data;
 
-// Note : l'auto-hide intelligent (galerie<4 photos, avis<4.0/20) sera branché ici dans
-// la phase suivante quand on aura les collections galerie/avis. Pour l'instant on respecte
-// uniquement le ON/OFF de settings.sections.X. Le tout est compilé conditionnellement
-// (early-returns) → les sections désactivées ne sont PAS dans le HTML final.
+// L'ORCHESTRATION : l'ordre des sections vient de la partition (le moteur de
+// différenciation), plus de l'ordre figé d'autrefois. Bandeau + Hero ancrés en
+// tête ; Footer + barre d'appel ancrés en pied. Le reste = part.ordre.
+const part = s.partition ?? {
+  ordre: ['avis', 'menu', 'reservation', 'histoire', 'exigence', 'localisation'],
+};
+const REGISTRY = {
+  histoire: Histoire, avis: Avis, reservation: Reservation, menu: Menu,
+  exigence: Exigence, galerie: Galerie, localisation: Localisation, reseaux: Reseaux,
+} as const;
+const ordre = (part.ordre ?? []).filter((k): k is keyof typeof REGISTRY => k in REGISTRY);
 ---
 <Layout>
-  {s.sections.bandeau && <Bandeau />}
+  {s.sections?.bandeau && <Bandeau />}
   <Hero />
-  {s.sections.histoire && <Histoire />}
-  {s.sections.avis && <Avis />}
-  {s.sections.reservation && <Reservation />}
-  {s.sections.menu && <Menu />}
-  {s.sections.exigence && <Exigence />}
-  {s.sections.galerie && <Galerie />}
-  {s.sections.localisation && <Localisation />}
-  {s.sections.reseaux && <Reseaux />}
+  {ordre.map((key) => {
+    const Section = REGISTRY[key];
+    return <Section />;
+  })}
   <Footer />
   <StickyCallBar />
 </Layout>

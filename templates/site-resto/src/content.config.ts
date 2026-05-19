@@ -12,10 +12,26 @@ const settings = defineCollection({
     est_year: z.number().int(),
     ville: z.string(),
     region_code: z.string(),
-    signature: z.enum(['fast-food', 'gastro', 'traditionnel']),
-    // Pack typo : variante de polices DANS la signature (différenciation inter-clients).
-    // Piloté par Mike (jamais exposé Decap). Optionnel → défaut par signature dans Layout.astro.
+    // Ancien système "3 signatures" : conservé optionnel pour compat fixtures,
+    // PLUS lu par le rendu (la langue visuelle est désormais unique). Ignoré.
+    signature: z.enum(['fast-food', 'gastro', 'traditionnel']).optional(),
     pack_typo: z.string().optional(),
+    // --- Moteur de différenciation : la PARTITION ---
+    // spine = objectif commercial ; hero = variante structurelle ;
+    // crans = console d'orchestration discrète (cf differenciation-clients.md) ;
+    // ordre = sections affichées, dans l'ordre, entre le hero et le footer.
+    partition: z.object({
+      spine: z.enum(['commander', 'venir', 'desirer']),
+      hero: z.enum(['direct', 'editorial', 'cinematique']).default('direct'),
+      tempo: z.number().int().min(1).max(3).default(2),
+      densite: z.number().int().min(1).max(3).default(2),
+      media: z.number().int().min(1).max(3).default(2),
+      motion: z.number().int().min(1).max(3).default(2),
+      ordre: z.array(z.enum([
+        'avis', 'menu', 'reservation', 'histoire',
+        'exigence', 'localisation', 'galerie', 'reseaux',
+      ])).default([]),
+    }).optional(),
     dominante: z.string().regex(/^#[0-9a-fA-F]{6}$/),
     accent_override: z.string().regex(/^#[0-9a-fA-F]{6}$/).optional(),
     prix_appel: z.string().optional(),

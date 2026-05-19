@@ -22,72 +22,35 @@ const loop = [...messages, ...messages];
 
 <style>
   .ticker {
-    background: var(--mb-accent);
-    color: var(--mb-text-on-accent);
-    border-bottom: 3px solid var(--mb-black);
+    background: var(--mb-paper-2);
+    color: var(--mb-ink-soft);
+    border-bottom: 1px solid var(--mb-line);
     overflow: hidden;
     white-space: nowrap;
     position: sticky;
     top: 0;
     z-index: 30;
-    padding: 8px 0;
-    font-family: var(--mb-condensed);
-    font-size: 1.05rem;
-    letter-spacing: 0.08em;
+    padding: 9px 0;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
   .ticker-track {
     display: inline-block;
-    animation: mb-ticker 32s linear infinite;
+    animation: mb-ticker 46s linear infinite;
     padding-left: 100%;
   }
-  .ticker-track span {
-    margin: 0 22px;
-    display: inline-block;
-  }
-  .ticker-track .sep {
-    color: var(--mb-dominante);
-    font-size: 0.7rem;
-    vertical-align: middle;
-  }
+  .ticker-track span { margin: 0 18px; display: inline-block; }
+  .ticker-track .sep { color: var(--mb-accent); font-size: 0.6rem; vertical-align: middle; }
   @keyframes mb-ticker {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
   @media (prefers-reduced-motion: reduce) {
-    .ticker-track { animation-duration: 90s; }
+    .ticker-track { animation: none; padding-left: 0; text-align: center; }
   }
-
-  /* Surcharges signature Élégante : ticker plus discret sur fond cream-dirty */
-  :global(.signature-gastro) .ticker {
-    background: var(--mb-bg-section-alt);
-    color: var(--mb-dominante);
-    border-bottom: 1px solid var(--mb-border-subtle);
-    font-family: var(--mb-display);
-    font-style: italic;
-    text-transform: none;
-    letter-spacing: 0.04em;
-    font-size: 0.95rem;
-  }
-  :global(.signature-gastro) .ticker-track .sep {
-    color: var(--mb-dominante);
-    opacity: 0.4;
-  }
-
-  /* Surcharges signature Tradition : ticker chaleureux ivoire, petites caps */
-  :global(.signature-traditionnel) .ticker {
-    background: var(--mb-dominante);
-    color: var(--mb-cream);
-    border-bottom: 2px solid var(--mb-dominante);
-    font-family: var(--mb-display);
-    font-variant: small-caps;
-    font-feature-settings: "smcp" 1;
-    letter-spacing: 0.05em;
-  }
-  :global(.signature-traditionnel) .ticker-track .sep {
-    color: var(--mb-accent);
-  }
-
   @media (min-width: 900px) {
-    .ticker-track { animation-duration: 48s; }
+    .ticker-track { animation-duration: 64s; }
   }
 </style>

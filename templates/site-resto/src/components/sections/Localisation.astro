@@ -10,7 +10,6 @@ const joursLabels: Record<string, string> = {
 
 const ordreJours = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'] as const;
 
-// Pour foodtruck : on remplit les créneaux midi/soir pour chaque jour pour avoir une grille complète
 type CrenoFT = { lieu: string; ville: string; moment: 'midi'|'soir'; ouvre: string; ferme: string };
 type LigneFT = { jour: string; midi: CrenoFT | null; soir: CrenoFT | null };
 
@@ -26,7 +25,6 @@ const ligneFoodtruck: LigneFT[] = s.mode === 'foodtruck'
     })
   : [];
 
-// Pour mode fixe : récupère les créneaux par jour
 const ligneFixe = s.mode === 'fixe'
   ? ordreJours.map(jour => {
       const data = s.horaires?.find(h => h.jour === jour);
@@ -34,12 +32,12 @@ const ligneFixe = s.mode === 'fixe'
     })
   : [];
 
-// Lien itinéraire Google Maps depuis adresse
 const itineraireUrl = s.adresse
   ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(s.adresse)}`
   : null;
 ---
 <section class="section-where" id="localisation">
+  <div class="where-wrap mb-wrap">
   {s.mode === 'foodtruck' ? (
     <>
       <h2 class="where-title mb-reveal">
@@ -47,14 +45,14 @@ const itineraireUrl = s.adresse
       </h2>
       <p class="where-sub mb-reveal">Midi 11h30—13h30 · Soir 18h30—20h30</p>
 
-      <div class="schedule-grid mb-reveal">
+      <div class="schedule mb-reveal">
         {ligneFoodtruck.map(({ jour, midi, soir }) => {
           const fullClosed = !midi && !soir;
           return (
             <div class={`sched-row${fullClosed ? ' full-closed' : ''}`}>
               <div class="day">{joursLabels[jour]}</div>
               {fullClosed ? (
-                <div class="slots"><div class="slot closed">— Fermé —</div></div>
+                <div class="slots"><div class="slot closed">Fermé</div></div>
               ) : (
                 <div class="slots">
                   {midi ? (
@@ -62,13 +60,13 @@ const itineraireUrl = s.adresse
                       <strong>{midi.lieu}</strong>
                       <small>{midi.ville} · Midi</small>
                     </div>
-                  ) : <div class="slot closed">×</div>}
+                  ) : <div class="slot closed">—</div>}
                   {soir ? (
                     <div class="slot open">
                       <strong>{soir.lieu}</strong>
                       <small>{soir.ville} · Soir</small>
                     </div>
-                  ) : <div class="slot closed">×</div>}
+                  ) : <div class="slot closed">—</div>}
                 </div>
               )}
             </div>
@@ -76,14 +74,9 @@ const itineraireUrl = s.adresse
         })}
       </div>
 
-      <div class="legend">
-        <div class="legend-item"><span class="sw"></span>Ouvert</div>
-        <div class="legend-item"><span class="sw off"></span>Fermé ce créneau</div>
-      </div>
-
       <a href={`tel:${s.telephone}`} class="where-cta mb-reveal">
         Réservez au {s.telephone_display}
-        <span class="small">— Évitez la queue</span>
+        <span class="small">Évitez la queue</span>
       </a>
     </>
   ) : (
@@ -92,16 +85,16 @@ const itineraireUrl = s.adresse
         Où nous <span class="accent">trouver.</span>
       </h2>
       {s.adresse && (
-        <p class="where-address mb-reveal">{s.adresse}</p>
+        <p class="where-sub mb-reveal">{s.adresse}</p>
       )}
 
-      <div class="hours-grid mb-reveal">
+      <div class="schedule mb-reveal">
         {ligneFixe.map(({ jour, creneaux }) => (
-          <div class={`hours-row${creneaux.length === 0 ? ' closed-row' : ''}`}>
-            <div class="hours-day">{joursLabels[jour]}</div>
-            <div class="hours-slots">
+          <div class={`sched-row${creneaux.length === 0 ? ' full-closed' : ''}`}>
+            <div class="day">{joursLabels[jour]}</div>
+            <div class="hours">
               {creneaux.length === 0 ? (
-                <span class="closed-label">— Fermé —</span>
+                <span class="closed-label">Fermé</span>
               ) : (
                 creneaux.map((c, i) => (
                   <span class="hours-slot">
@@ -118,7 +111,7 @@ const itineraireUrl = s.adresse
       <div class="cta-row mb-reveal">
         {itineraireUrl && (
           <a href={itineraireUrl} target="_blank" rel="noopener" class="where-cta">
-            Itinéraire <span class="arrow">→</span>
+            Itinéraire
           </a>
         )}
         <a href={`tel:${s.telephone}`} class="where-cta secondary">
@@ -139,359 +132,135 @@ const itineraireUrl = s.adresse
       )}
     </>
   )}
+  </div>
 </section>
 
 <style>
   .section-where {
-    padding: 50px var(--mb-section-px) 60px;
-    position: relative;
-    z-index: 2;
+    padding: var(--mb-section-py) 0;
+    background: var(--mb-paper);
   }
   .where-title {
     font-family: var(--mb-display);
-    font-size: clamp(2rem, 10vw, 5.5rem);
-    line-height: 0.85;
-    letter-spacing: -0.04em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    color: var(--mb-text-emphasis);
+    font-weight: 700;
+    font-size: clamp(2.2rem, 9vw, 4.4rem);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    color: var(--mb-ink);
+    margin-bottom: var(--mb-s-3);
   }
-  .where-title .accent {
-    color: var(--mb-accent);
-  }
-  .where-sub,
-  .where-address {
-    font-family: var(--mb-mono);
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--mb-text-muted);
-    margin-bottom: 30px;
-    padding-bottom: 14px;
-    border-bottom: 2px solid var(--mb-border);
+  .where-title .accent { color: var(--mb-accent); }
+  .where-sub {
+    font-size: 0.95rem;
+    color: var(--mb-ink-soft);
+    margin-bottom: var(--mb-s-7);
   }
 
-  /* ===== MODE FOODTRUCK : grille 7j × 2 créneaux ===== */
-  .schedule-grid {
-    display: flex;
-    flex-direction: column;
-    border: 2px solid var(--mb-border);
-    border-radius: var(--mb-r-lg);
-    overflow: hidden;
-  }
+  .schedule { display: flex; flex-direction: column; }
   .sched-row {
     display: grid;
-    grid-template-columns: 54px 1fr;
-    border-bottom: 1px solid var(--mb-border-subtle);
-    min-height: 74px;
+    grid-template-columns: 64px 1fr;
+    align-items: stretch;
+    border-bottom: 1px solid var(--mb-line);
+    min-height: 70px;
   }
-  .sched-row:last-child {
-    border-bottom: none;
-  }
+  .sched-row:first-child { border-top: 1px solid var(--mb-line); }
   .sched-row .day {
-    font-family: var(--mb-display);
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-right: 2px solid var(--mb-border);
-    padding: 14px 4px;
-    background: var(--mb-bg-section-alt);
-    text-align: center;
-    color: var(--mb-text-emphasis);
+    font-family: var(--mb-display);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--mb-ink);
   }
-  .sched-row .slots {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
+  .sched-row .slots { display: grid; grid-template-columns: 1fr 1fr; gap: var(--mb-s-4); }
   .sched-row .slot {
-    padding: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-right: 1px solid var(--mb-border-subtle);
-    font-size: 0.78rem;
-    line-height: 1.2;
-    overflow: hidden;
-  }
-  .sched-row .slot:last-child {
-    border-right: none;
-  }
-  .sched-row .slot.open {
-    background: var(--mb-accent);
-    color: var(--mb-text-on-accent);
+    padding: var(--mb-s-3) 0;
   }
   .sched-row .slot.open strong {
-    display: block;
-    font-family: var(--mb-display);
-    font-size: 0.82rem;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    line-height: 1;
-    margin-bottom: 3px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--mb-ink);
+    line-height: 1.2;
   }
   .sched-row .slot.open small {
-    font-family: var(--mb-mono);
-    font-size: 0.58rem;
-    letter-spacing: 0.08em;
-    color: var(--mb-text-on-accent);
-    opacity: 0.7;
-    text-transform: uppercase;
+    font-size: 0.74rem;
+    color: var(--mb-accent);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-top: 2px;
   }
   .sched-row .slot.closed {
-    color: var(--mb-text-muted);
-    font-family: var(--mb-mono);
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
     justify-content: center;
+    color: var(--mb-ink-soft);
+    font-size: 0.9rem;
   }
-  .sched-row.full-closed .day {
-    background: transparent;
-    color: var(--mb-text-muted);
-  }
-  .sched-row.full-closed .slots {
-    grid-template-columns: 1fr;
-  }
-  .sched-row.full-closed .slots .slot {
-    font-size: 0.85rem;
-    font-family: var(--mb-mono);
-    letter-spacing: 0.1em;
-  }
+  .sched-row.full-closed .day,
+  .sched-row.full-closed .slot.closed,
+  .closed-label { color: color-mix(in oklab, var(--mb-ink-soft) 60%, transparent); }
 
-  .legend {
-    margin-top: 18px;
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    font-family: var(--mb-mono);
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--mb-text-muted);
-  }
-  .legend-item {
+  .hours {
     display: flex;
     align-items: center;
-    gap: 6px;
+    font-size: 0.95rem;
+    color: var(--mb-ink);
   }
-  .legend-item .sw {
-    width: 12px;
-    height: 12px;
-    background: var(--mb-accent);
-  }
-  .legend-item .sw.off {
-    background: transparent;
-    border: 1px solid var(--mb-border);
-  }
-
-  /* ===== MODE FIXE : grille hebdo simple + Google Maps ===== */
-  .hours-grid {
-    display: flex;
-    flex-direction: column;
-    border: 2px solid var(--mb-border);
-    border-radius: var(--mb-r-lg);
-    overflow: hidden;
-  }
-  .hours-row {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    border-bottom: 1px solid var(--mb-border-subtle);
-    min-height: 54px;
-    align-items: center;
-  }
-  .hours-row:last-child {
-    border-bottom: none;
-  }
-  .hours-day {
-    font-family: var(--mb-display);
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-    text-align: center;
-    padding: 12px 8px;
-    background: var(--mb-bg-section-alt);
-    border-right: 2px solid var(--mb-border);
-    color: var(--mb-text-emphasis);
-    align-self: stretch;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .hours-slots {
-    padding: 12px 16px;
-    font-family: var(--mb-mono);
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-    color: var(--mb-text-body);
-  }
-  .hours-slot .sep {
-    color: var(--mb-text-muted);
-    margin: 0 6px;
-  }
-  .closed-row .hours-day {
-    color: var(--mb-text-muted);
-    background: transparent;
-  }
-  .closed-label {
-    color: var(--mb-text-muted);
-    font-family: var(--mb-mono);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-  }
+  .hours .sep { color: var(--mb-ink-soft); margin: 0 6px; }
+  .closed-label { font-size: 0.9rem; }
 
   .map-wrap {
-    margin-top: 30px;
-    border: 2px solid var(--mb-border);
-    border-radius: var(--mb-r-lg);
+    margin-top: var(--mb-s-7);
+    border-radius: var(--mb-radius);
     overflow: hidden;
     aspect-ratio: 16 / 10;
+    border: 1px solid var(--mb-line);
   }
-  .map-wrap iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    display: block;
-  }
+  .map-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
 
-  /* CTAs */
   .cta-row {
-    margin-top: 24px;
+    margin-top: var(--mb-s-6);
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--mb-s-3);
   }
   .where-cta {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 8px;
+    gap: 3px;
     background: var(--mb-accent);
-    color: var(--mb-text-on-accent);
-    padding: 18px 20px;
-    font-family: var(--mb-display);
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    text-align: center;
-    border: 2px solid var(--mb-border);
-    border-radius: var(--mb-r-lg);
-    box-shadow: 6px 6px 0 var(--mb-border);
-    transition: transform 0.15s, box-shadow 0.15s;
-    margin-top: 30px;
-  }
-  .where-cta:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 8px 8px 0 var(--mb-border);
-  }
-  .where-cta .small {
-    display: block;
-    font-family: var(--mb-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--mb-text-on-accent);
-    opacity: 0.7;
-    margin-top: 4px;
-  }
-  .where-cta .arrow {
-    font-family: var(--mb-mono);
+    color: var(--mb-on-accent);
+    padding: 17px 26px;
+    border-radius: var(--mb-radius-pill);
+    font-weight: 600;
     font-size: 1rem;
+    text-align: center;
+    margin-top: var(--mb-s-7);
+    transition: transform 0.18s ease, background 0.18s ease;
+  }
+  .where-cta:hover { background: var(--mb-accent-deep); transform: translateY(-1px); }
+  .where-cta .small {
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.85;
   }
   .where-cta.secondary {
     background: transparent;
-    color: var(--mb-text-emphasis);
-    box-shadow: none;
-    border-color: var(--mb-border);
-    font-size: 1rem;
-    padding: 14px 18px;
+    color: var(--mb-ink);
+    border: 1px solid var(--mb-line-strong);
     margin-top: 0;
   }
-  .where-cta.secondary:hover {
-    background: var(--mb-bg-section-alt);
-    transform: none;
-  }
-  .cta-row .where-cta {
-    margin-top: 0;
-  }
-
-  /* Surcharges signature */
-  :global(.signature-gastro) .where-title,
-  :global(.signature-gastro) .sched-row .day,
-  :global(.signature-gastro) .hours-day {
-    text-transform: none;
-    letter-spacing: -0.01em;
-    font-weight: 600;
-  }
-  :global(.signature-gastro) .where-cta {
-    box-shadow: none;
-    border-width: 1px;
-    background: var(--mb-dominante);
-    color: var(--mb-cream);
-    text-transform: none;
-    font-weight: 600;
-  }
-  :global(.signature-gastro) .where-cta:hover {
-    transform: none;
-    opacity: 0.9;
-  }
-  :global(.signature-gastro) .sched-row .slot.open {
-    background: var(--mb-dominante);
-    color: var(--mb-cream);
-  }
-  :global(.signature-gastro) .sched-row .slot.open small {
-    color: var(--mb-cream);
-    opacity: 0.75;
-  }
-  :global(.signature-gastro) .legend-item .sw {
-    background: var(--mb-dominante);
-  }
-
-  :global(.signature-traditionnel) .where-title,
-  :global(.signature-traditionnel) .sched-row .day,
-  :global(.signature-traditionnel) .hours-day {
-    font-variant: small-caps;
-    font-feature-settings: "smcp" 1;
-    text-transform: none;
-    letter-spacing: 0.04em;
-  }
-  :global(.signature-traditionnel) .where-cta {
-    background: var(--mb-dominante);
-    color: var(--mb-cream);
-    box-shadow: 4px 4px 0 var(--mb-dominante);
-    font-variant: small-caps;
-    text-transform: none;
-  }
-  :global(.signature-traditionnel) .sched-row .slot.open {
-    background: var(--mb-dominante);
-    color: var(--mb-cream);
-  }
-  :global(.signature-traditionnel) .sched-row .slot.open strong {
-    font-variant: small-caps;
-  }
-  :global(.signature-traditionnel) .sched-row .slot.open small {
-    color: var(--mb-cream);
-    opacity: 0.75;
-  }
-  :global(.signature-traditionnel) .legend-item .sw {
-    background: var(--mb-dominante);
-  }
+  .where-cta.secondary:hover { background: var(--mb-paper-2); transform: none; }
+  .cta-row .where-cta { margin-top: 0; }
 
   @media (min-width: 900px) {
-    .section-where {
-      padding: 70px var(--mb-section-px);
-    }
-    .schedule-grid .sched-row {
-      grid-template-columns: 100px 1fr;
-    }
-    .cta-row {
-      flex-direction: row;
-    }
-    .cta-row .where-cta {
-      flex: 1;
-    }
+    .sched-row { grid-template-columns: 100px 1fr; }
+    .cta-row { flex-direction: row; }
+    .cta-row .where-cta { flex: 1; }
   }
 </style>

@@ -2,54 +2,24 @@
 import { getEntry } from 'astro:content';
 import '../styles/reset.css';
 import '../styles/tokens.css';
-import '../styles/signatures/fast-food.css';
-import '../styles/signatures/gastro.css';
-import '../styles/signatures/traditionnel.css';
-// Packs typo auto-hébergés (différenciation inter-clients, cf differenciation-clients.md).
-// Le @font-face n'est chargé par le navigateur que si le pack est l'actif (data-typo-pack).
-import '../styles/typo-packs/fast-food-base.css';
-import '../styles/typo-packs/gastro-base.css';
-import '../styles/typo-packs/traditionnel-base.css';
+import '../styles/base.css';
 
 const entry = await getEntry('settings', 'site');
 if (!entry) throw new Error('settings/site.yml manquant');
 const settings = entry.data;
 
-// Accent par défaut selon signature (Mike peut override via accent_override dans settings)
-const ACCENT_DEFAULTS = {
-  'fast-food':   '#ffec00',  // jaune acide
-  'gastro':      '#c9a961',  // doré champagne
-  'traditionnel': '#b8553a', // rouille brique
-} as const;
+// Langue visuelle unique : l'accent EST la couleur réelle du resto (dominante),
+// utilisée avec parcimonie. accent_override reste possible (pilotage Mike).
+const accent = settings.accent_override ?? settings.dominante;
 
-const accent = settings.accent_override ?? ACCENT_DEFAULTS[settings.signature];
+// La partition pilote l'orchestration. Défauts neutres si absente (compat).
+const part = settings.partition ?? {
+  spine: 'venir', hero: 'direct', tempo: 2, densite: 2, media: 2, motion: 2,
+  ordre: ['avis', 'menu', 'reservation', 'histoire', 'exigence', 'localisation'],
+};
 
-// --- Système de packs typo (différenciation inter-clients) ---
-// Un pack = un jeu de polices DANS une signature. Toutes les polices sont
-// auto-hébergées (0 requête tierce, 0 RGPD, pas de render-blocking externe).
-const TYPO_PACKS: Record<string, Record<string, { preload: string[] }>> = {
-  'fast-food': {
-    'fast-food-base': { preload: ['archivo-black-400.woff2', 'barlow-condensed-500.woff2'] },
-  },
-  'gastro': {
-    'gastro-base': { preload: ['playfair-display-700.woff2', 'inter-400.woff2'] },
-  },
-  'traditionnel': {
-    'traditionnel-base': { preload: ['bitter-700.woff2', 'source-sans-3-400.woff2'] },
-  },
-};
-const DEFAULT_PACK: Record<string, string> = {
-  'fast-food': 'fast-food-base',
-  'gastro': 'gastro-base',
-  'traditionnel': 'traditionnel-base',
-};
-const packId = settings.pack_typo ?? DEFAULT_PACK[settings.signature];
-const packDef = TYPO_PACKS[settings.signature]?.[packId] ?? null;
-if (!packDef) {
-  throw new Error(`pack_typo "${packId}" inconnu pour la signature "${settings.signature}"`);
-}
-const fontPreloads = packDef.preload;
-const bodyClass = `signature-${settings.signature}`;
+// Polices premium figées préchargées (le strict nécessaire au LCP)
+const fontPreloads = ['inter-400.woff2', 'inter-600.woff2', 'playfair-display-700.woff2'];
 
 const pageTitle = `${settings.nom} — ${settings.slogan}`;
 const pageDescription = settings.baseline ?? settings.slogan;
@@ -162,7 +132,7 @@ const schema = {
     }
   </style>
 </head>
-<body class={bodyClass} data-typo-pack={packId ?? undefined}>
+<body data-spine={part.spine} data-tempo={part.tempo} data-motion={part.motion} data-media={part.media}>
   <slot />
 
   <script>

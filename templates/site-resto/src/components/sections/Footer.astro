@@ -39,97 +39,58 @@ const annee = new Date().getFullYear();
 </footer>
 
 <style>
-  /* Le footer est en mode "always dark" indépendamment de la signature.
-     C'est un choix éditorial : tous les sites resto MB Studio ont un footer noir.
-     Donc on n'utilise PAS les variables --mb-text-* (qui dépendent de la signature)
-     mais on garde les primitifs noir/cream/accent (l'accent change déjà selon signature). */
-
   .footer {
-    background: var(--mb-black);
-    color: var(--mb-cream);
-    padding: 50px var(--mb-section-px) 130px;
-    border-top: 3px solid var(--mb-cream);
-    position: relative;
-    z-index: 2;
+    background: var(--mb-ink);
+    color: color-mix(in oklab, var(--mb-paper) 78%, var(--mb-ink));
+    padding: var(--mb-s-9) var(--mb-section-px) calc(var(--mb-s-9) + 70px);
   }
-  .footer-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
+  .footer-grid { display: flex; flex-direction: column; gap: var(--mb-s-7); max-width: var(--mb-container); margin: 0 auto; }
   .footer-tagline {
     font-family: var(--mb-display);
-    font-size: clamp(2rem, 8vw, 3.2rem);
-    line-height: 0.85;
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--mb-paper);
   }
-  .footer-tagline .accent {
-    color: var(--mb-accent);
-  }
+  .footer-tagline .accent { color: color-mix(in oklab, var(--mb-accent) 60%, var(--mb-paper)); font-style: italic; }
   .footer-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    border-top: 2px solid var(--mb-cream);
-    padding-top: 24px;
+    gap: var(--mb-s-5);
+    border-top: 1px solid rgba(247, 243, 236, 0.14);
+    padding-top: var(--mb-s-6);
   }
   .footer-info h4 {
-    font-family: var(--mb-mono);
-    font-size: 0.65rem;
+    font-size: 0.7rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.18em;
-    color: var(--mb-accent);
-    margin-bottom: 10px;
+    color: color-mix(in oklab, var(--mb-paper) 55%, var(--mb-ink));
+    margin-bottom: var(--mb-s-3);
   }
-  .footer-info ul {
-    list-style: none;
-  }
-  .footer-info li {
-    margin-bottom: 6px;
-    font-family: var(--mb-sans);
-    font-size: 0.95rem;
-  }
-  .footer-info a:hover {
-    color: var(--mb-accent);
-  }
+  .footer-info ul { list-style: none; }
+  .footer-info li { margin-bottom: 7px; font-size: 0.95rem; }
+  .footer-info a:hover { color: var(--mb-paper); }
   .footer-bottom {
-    margin-top: 24px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(244, 234, 213, 0.2);
-    font-family: var(--mb-mono);
-    font-size: 0.65rem;
+    max-width: var(--mb-container);
+    margin: var(--mb-s-6) auto 0;
+    padding-top: var(--mb-s-4);
+    border-top: 1px solid rgba(247, 243, 236, 0.14);
+    font-size: 0.7rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: rgba(244, 234, 213, 0.5);
+    letter-spacing: 0.14em;
+    color: color-mix(in oklab, var(--mb-paper) 42%, var(--mb-ink));
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  /* En signature Élégante, le footer-tagline n'est pas en uppercase (cohérence avec hero) */
-  :global(.signature-gastro) .footer-tagline {
-    text-transform: none;
-    letter-spacing: -0.01em;
-  }
-  :global(.signature-traditionnel) .footer-tagline {
-    text-transform: none;
+    gap: var(--mb-s-2);
   }
 
   @media (min-width: 900px) {
-    .footer-grid {
-      flex-direction: row;
-      gap: 60px;
-      align-items: flex-start;
-    }
-    .footer-brand-block {
-      flex: 1;
-    }
-    .footer-info {
-      flex: 1;
-      border-top: none;
-      padding-top: 0;
-    }
+    .footer-grid { flex-direction: row; gap: var(--mb-s-9); align-items: flex-start; }
+    .footer-brand-block { flex: 1; }
+    .footer-info { flex: 1; border-top: none; padding-top: 0; }
   }
 </style>

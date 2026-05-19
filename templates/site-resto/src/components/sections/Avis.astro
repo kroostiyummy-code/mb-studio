@@ -63,15 +63,10 @@ const countRound = data ? Math.floor(data.count / 10) * 10 : 0;
 
 <style>
   .section-avis {
-    background: var(--mb-cream);
-    color: var(--mb-dominante);
-    padding: 60px var(--mb-section-px);
-    border-top: 3px solid var(--mb-cream);
-    border-bottom: 3px solid var(--mb-cream);
-    position: relative;
-    overflow: hidden;
+    background: var(--mb-paper);
+    color: var(--mb-ink);
+    padding: var(--mb-section-py) var(--mb-section-px);
     text-align: center;
-    z-index: 2;
   }
 
   /* Google badge — pill blanche avec logo et texte type "Google" */
@@ -117,51 +112,50 @@ const countRound = data ? Math.floor(data.count / 10) * 10 : 0;
     align-items: flex-start;
     justify-content: center;
     gap: 0;
-    margin: 12px 0 16px;
+    margin: var(--mb-s-5) 0 var(--mb-s-3);
   }
   .avis-num {
     font-family: var(--mb-display);
-    font-size: clamp(8rem, 38vw, 18rem);
-    line-height: 0.78;
-    letter-spacing: -0.06em;
-    color: var(--mb-dominante);
+    font-weight: 700;
+    font-size: clamp(5rem, 22vw, 9rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--mb-ink);
   }
   .avis-plus {
     font-family: var(--mb-display);
-    font-size: clamp(3rem, 12vw, 6rem);
-    line-height: 0.85;
-    letter-spacing: -0.04em;
-    color: var(--mb-dominante-bright);
-    margin-top: 0.1em;
+    font-weight: 700;
+    font-size: clamp(2rem, 8vw, 3.4rem);
+    line-height: 1;
+    color: var(--mb-accent);
+    margin-top: 0.15em;
   }
   .avis-stars {
     display: flex;
     justify-content: center;
-    gap: 8px;
-    font-size: 1.6rem;
-    color: #FBBC04;
-    margin-bottom: 8px;
-    letter-spacing: 0.04em;
+    gap: 6px;
+    font-size: 1.15rem;
+    color: #e0a52a;
+    margin-bottom: var(--mb-s-3);
+    letter-spacing: 0.08em;
   }
   .avis-label {
     text-align: center;
     font-family: var(--mb-display);
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    line-height: 1;
-    margin-bottom: 6px;
-    color: var(--mb-dominante);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: var(--mb-s-2);
+    color: var(--mb-ink);
   }
   .avis-sub {
     text-align: center;
-    font-family: var(--mb-mono);
-    font-size: 0.78rem;
+    font-size: 0.8rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 30px;
-    color: var(--mb-dominante);
-    opacity: 0.7;
+    letter-spacing: 0.16em;
+    margin-bottom: var(--mb-s-7);
+    color: var(--mb-ink-soft);
   }
 
   .avis-cta-row {
@@ -186,9 +180,9 @@ const countRound = data ? Math.floor(data.count / 10) * 10 : 0;
     transition: transform 0.15s, box-shadow 0.2s;
   }
   .avis-cta:hover {
-    background: #f8f9fa;
-    transform: translate(-2px, -2px);
-    box-shadow: 4px 4px 0 var(--mb-dominante);
+    background: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(26, 23, 20, 0.12);
   }
   .avis-cta .cta-g {
     width: 18px;
@@ -200,51 +194,5 @@ const countRound = data ? Math.floor(data.count / 10) * 10 : 0;
     color: #5f6368;
   }
 
-  /* ===== Surcharges signature Élégante ===== */
-  :global(.signature-gastro) .section-avis {
-    background: var(--mb-bg-section-alt);
-  }
-  :global(.signature-gastro) .avis-label {
-    text-transform: none;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-  }
-  :global(.signature-gastro) .avis-sub {
-    font-style: italic;
-    font-family: var(--mb-display);
-    text-transform: none;
-    letter-spacing: 0.02em;
-  }
-  :global(.signature-gastro) .avis-cta {
-    border-radius: 4px;
-    text-transform: none;
-  }
-
-  /* ===== Surcharges signature Tradition ===== */
-  :global(.signature-traditionnel) .section-avis {
-    background: var(--mb-bg-section-alt);
-    border-top: 2px solid var(--mb-dominante);
-    border-bottom: 2px solid var(--mb-dominante);
-  }
-  :global(.signature-traditionnel) .avis-label {
-    font-variant: small-caps;
-    text-transform: none;
-    letter-spacing: 0.04em;
-  }
-  :global(.signature-traditionnel) .avis-sub {
-    font-variant: small-caps;
-    text-transform: none;
-    font-family: var(--mb-display);
-  }
-  :global(.signature-traditionnel) .avis-cta {
-    border-radius: 4px;
-    font-variant: small-caps;
-    border-color: var(--mb-dominante);
-  }
-
-  @media (min-width: 900px) {
-    .section-avis {
-      padding: 80px var(--mb-section-px);
-    }
-  }
+  .avis-inner { max-width: 40rem; margin: 0 auto; }
 </style>

@@ -1,40 +1,65 @@
-/* tokens.css — variables MB Studio globales
-   - Couleurs : dominante (patron) + accent (signature) + 3 neutres figés
-   - Radius, espacements
-   - Variables typo (--mb-display, --mb-condensed, --mb-sans, --mb-mono) sont définies
-     par chaque signature dans src/styles/signatures/*.css
-   - --mb-dominante et --mb-accent sont overridés par Layout.astro depuis settings/site.yml
+/* tokens.css — Langue visuelle UNIQUE MB Studio (premium, figée)
+   Remplace l'ancien système "3 signatures". La différenciation entre clients
+   ne vient PLUS de la décoration mais : (1) des actifs réels du resto,
+   (2) du spine + de l'orchestration (partition à crans), (3) de l'accent réel.
+
+   Principe : le luxe perçu vient du vide, de la photo et de la retenue.
+   - base ivoire chaud (jamais saturée)  - encre presque-noire (jamais #000)
+   - UN accent = la couleur réelle du resto, dosé (jamais en fond, jamais sur photo)
+   - hairlines, pas de cadres épais  - pas de grain  - espace généreux
 */
 
 :root {
-  /* Couleurs (overridées au build par Layout.astro depuis settings/site.yml) */
-  --mb-dominante: #8b0e0e;
-  --mb-dominante-deep: color-mix(in oklab, var(--mb-dominante) 70%, #000);
-  --mb-dominante-bright: color-mix(in oklab, var(--mb-dominante) 70%, #fff);
+  /* --- Couleurs : langue figée --- */
+  --mb-paper:        #f7f3ec;   /* ivoire chaud, fond principal */
+  --mb-paper-2:      #efe9dc;   /* alt très subtil (sections respiration) */
+  --mb-ink:          #1a1714;   /* encre presque-noire (texte) */
+  --mb-ink-soft:     #6f655a;   /* texte secondaire / muted */
+  --mb-line:         rgba(26, 23, 20, 0.12);  /* hairline (jamais 2-3px) */
+  --mb-line-strong:  rgba(26, 23, 20, 0.22);
 
-  --mb-accent: #ffec00;            /* défini par la signature, override possible Mike */
-  --mb-accent-soft: color-mix(in oklab, var(--mb-accent) 85%, #fff);
+  /* Accent = dominante réelle du resto (overridé au build par Layout.astro).
+     Utilisé avec parcimonie : petits repères, CTA, 1 mot d'emphase. */
+  --mb-accent:       #8b0e0e;
+  --mb-on-accent:    #f7f3ec;
+  --mb-accent-deep:  color-mix(in oklab, var(--mb-accent) 78%, #000);
 
-  /* Neutres MB Studio figés (jamais modifiables) */
-  --mb-cream: #f4ead5;
-  --mb-cream-dirty: #e8dcc0;
-  --mb-slate: #3a3030;
-  --mb-black: #0d0303;
+  /* --- Typographie : pair premium figée, 100% auto-hébergée --- */
+  --mb-display: 'Playfair Display', Georgia, serif;  /* moments émotionnels, dosé */
+  --mb-sans:    'Inter', system-ui, -apple-system, sans-serif; /* tout l'opérationnel */
 
-  /* Rayons */
-  --mb-r-sm: 10px;
-  --mb-r-md: 14px;
-  --mb-r-lg: 18px;
-  --mb-r-xl: 22px;
+  /* --- Échelle d'espacement (généreuse = premium) --- */
+  --mb-s-1: 4px;
+  --mb-s-2: 8px;
+  --mb-s-3: 12px;
+  --mb-s-4: 16px;
+  --mb-s-5: 24px;
+  --mb-s-6: 32px;
+  --mb-s-7: 48px;
+  --mb-s-8: 64px;
+  --mb-s-9: 96px;
+  --mb-s-10: 128px;
 
-  /* Spacings de section */
-  --mb-section-py-mobile: 50px;
-  --mb-section-py-desktop: 80px;
-  --mb-section-px: 20px;
+  /* Rythme de section — modulé par le cran "tempo" de la partition (cf base.css) */
+  --mb-section-py: 64px;
+  --mb-section-px: 22px;
+
+  /* Largeur de lecture confortable (le texte ne va jamais pleine largeur) */
+  --mb-measure: 38rem;
+  --mb-container: 64rem;
+
+  /* Rayon calme (jamais d'extrêmes) */
+  --mb-radius: 4px;
+  --mb-radius-pill: 999px;
+
+  /* Mouvement (modulé par le cran "motion") */
+  --mb-reveal-dist: 16px;
+  --mb-reveal-time: 0.7s;
 }
 
 @media (min-width: 900px) {
   :root {
+    --mb-section-py: 112px;
     --mb-section-px: 40px;
   }
 }
