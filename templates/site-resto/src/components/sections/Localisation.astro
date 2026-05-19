@@ -99,7 +99,7 @@ const itineraireUrl = s.adresse
                 creneaux.map((c, i) => (
                   <span class="hours-slot">
                     {c.ouvre.replace(':', 'h')}—{c.ferme.replace(':', 'h')}
-                    {c.ferme < c.ouvre && <span class="next-day"> (le lendemain)</span>}
+                    {c.ferme < c.ouvre && c.ferme !== '00:00' && <span class="next-day"> (le lendemain)</span>}
                     {i < creneaux.length - 1 && <span class="sep"> · </span>}
                   </span>
                 ))
