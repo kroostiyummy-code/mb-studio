@@ -69,6 +69,13 @@ Commande type (PowerShell) :
 Copy-Item -Path "templates\site-resto\*" -Destination "clients\{slug}\" -Recurse -Exclude @("node_modules", "dist", ".astro", "examples")
 ```
 
+3. **Nettoyer les contenus de démo du cas zéro (Kroosti)** qui vivent DANS le template (hors `examples/`, donc copiés par le scaffold) et ne sont PAS écrasés par les étapes suivantes :
+   - Supprimer `clients/{slug}/src/content/menu/sections/principale.yml` (menu Kroosti — sinon il coexiste avec les sections générées à l'étape 4)
+   - Supprimer `clients/{slug}/public/images/foodtruck.jpg` (photo Kroosti — sinon une image d'un autre resto est livrée)
+   - `site.yml` et `galerie.yml` contiennent aussi du Kroosti mais sont écrasés aux étapes 3 et 5 — vérifier qu'ils l'ont bien été avant le build.
+
+   > Apprentissage terrain (dry-run La Casa, 2026-05) : sans ce nettoyage, le 1ᵉʳ build sortait le menu ET une photo Kroosti dans le site client. Étape rendue systématique.
+
 ### Étape 3 — Injection du settings
 
 1. Copier `briefs/{slug}/settings.yml` vers `clients/{slug}/src/content/settings/site.yml`

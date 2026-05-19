@@ -99,6 +99,7 @@ const itineraireUrl = s.adresse
                 creneaux.map((c, i) => (
                   <span class="hours-slot">
                     {c.ouvre.replace(':', 'h')}—{c.ferme.replace(':', 'h')}
+                    {c.ferme < c.ouvre && <span class="next-day"> (le lendemain)</span>}
                     {i < creneaux.length - 1 && <span class="sep"> · </span>}
                   </span>
                 ))
@@ -209,6 +210,12 @@ const itineraireUrl = s.adresse
     color: var(--mb-ink);
   }
   .hours .sep { color: var(--mb-ink-soft); margin: 0 6px; }
+  .hours .next-day {
+    font-size: 0.78rem;
+    color: var(--mb-ink-soft);
+    font-style: italic;
+    margin-left: 3px;
+  }
   .closed-label { font-size: 0.9rem; }
 
   .map-wrap {
