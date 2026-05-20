@@ -9,7 +9,7 @@ const settings = defineCollection({
     nom: z.string(),
     slogan: z.string(),
     baseline: z.string().optional(),
-    est_year: z.number().int(),
+    est_year: z.number().int().optional(),
     ville: z.string(),
     region_code: z.string(),
     // Ancien système "3 signatures" : conservé optionnel pour compat fixtures,
@@ -69,7 +69,7 @@ const settings = defineCollection({
       statement_lead: z.string(),         // ex: "N°1 à"
       statement_accent: z.string(),       // ex: "Chartres." → rendu en accent
       body: z.string(),                   // 2-3 phrases, **mot** = emphase accent
-      lancement_year: z.number().int(),   // ex: 2023
+      lancement_year: z.number().int().optional(),   // ex: 2023 — optionnel : n'afficher la timeline que si fourni
     }).optional(),
     // Avis Google — note moyenne + nombre. Auto-hide si note < 4.0 OU count < 20
     avis_google: z.object({

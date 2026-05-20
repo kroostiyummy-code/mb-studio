@@ -34,7 +34,7 @@ const annee = new Date().getFullYear();
   </div>
   <div class="footer-bottom">
     <span>© {annee} {s.nom.toUpperCase()} · {s.ville.toUpperCase()}</span>
-    <span>EST. {s.est_year}</span>
+    {s.est_year && <span>EST. {s.est_year}</span>}
   </div>
 </footer>
 

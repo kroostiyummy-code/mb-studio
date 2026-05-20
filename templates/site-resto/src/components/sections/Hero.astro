@@ -16,7 +16,7 @@ const ctaLabel = spine === 'commander' ? 'Commander · Appeler' : 'Réserver une
   </div>
 
   <div class="hero-body mb-wrap">
-    <p class="hero-kicker">{s.ville} · Depuis {s.est_year}</p>
+    <p class="hero-kicker">{s.ville}{s.est_year && ` · Depuis ${s.est_year}`}</p>
     <h1 class="hero-name">{s.nom}</h1>
     <p class="hero-slogan">{s.slogan}</p>
 

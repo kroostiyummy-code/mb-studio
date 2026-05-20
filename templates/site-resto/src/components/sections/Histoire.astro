@@ -25,16 +25,18 @@ function renderEmphasis(text: string): string {
 
         <p class="statement-body mb-reveal" set:html={renderEmphasis(h.body)} />
 
-        <div class="timeline mb-reveal">
-          <div class="timeline-cell timeline-cell--past">
-            <div class="cell-label">Lancement</div>
-            <div class="cell-value">{h.lancement_year}</div>
+        {h.lancement_year && (
+          <div class="timeline mb-reveal">
+            <div class="timeline-cell timeline-cell--past">
+              <div class="cell-label">Lancement</div>
+              <div class="cell-value">{h.lancement_year}</div>
+            </div>
+            <div class="timeline-cell">
+              <div class="cell-label">Encore là en</div>
+              <div class="cell-value">{anneeCourante}</div>
+            </div>
           </div>
-          <div class="timeline-cell">
-            <div class="cell-label">Encore là en</div>
-            <div class="cell-value">{anneeCourante}</div>
-          </div>
-        </div>
+        )}
       </div>
     </section>
   </>
