@@ -113,6 +113,16 @@ items:
    - Copier dans `clients/{slug}/public/images/`
 3. Identifier la **photo hero** (marquée "Hero" dans le brief) et la nommer `hero.jpg` (ou `hero.webp`)
 4. Générer `clients/{slug}/src/content/galerie/galerie.yml` avec la liste des photos restantes (description + légende du brief)
+
+   **Format obligatoire** — le loader Astro `file()` exige une clé racine `galerie:` (idem `site.yml` avec `site:`) :
+   ```yaml
+   galerie:
+     photos:
+       - { src: "/images/plat-1.jpg", alt: "Description SEO", legende: "Légende courte" }
+       - ...
+   ```
+   Sans la clé racine, le build échoue avec une erreur de schéma. Apprentissage du dry-run Al Badea (2026-05).
+
 5. **Auto-décision toggle galerie** :
    - Si galerie ≥ 4 photos : `sections.galerie: true` dans settings
    - Si galerie < 4 photos : `sections.galerie: false` + noter dans le récap final que la galerie sera activée quand le patron uploadera plus de photos via Decap
