@@ -89,3 +89,17 @@ Cette doctrine doit être intégrée au process. À câbler dans un chantier dé
 - **`audit-livraison`** : vérifier que le site ne dépasse pas ses photos, que les avis ne sont pas « dashboard », qu'il existe bien une image signature.
 
 D'ici ce câblage, la doctrine s'applique **manuellement** à chaque site — `CLAUDE.md` la rend présente à chaque session.
+
+## Règles terrain — gravées au fil des sessions
+
+> Mike a posé la règle : **toute règle donnée en session doit être gravée ici** pour ne pas se répéter et progresser d'un site à l'autre. Cette section est un log vivant — on y ajoute une ligne à chaque feedback actionnable.
+
+### 2026-05-21 — Dogfood La Casa Tropical
+
+**Cassures propres dans les titres** : les `<h1>` (et `<h2>`) avec plusieurs phrases courtes doivent utiliser un `<span display:block>` par phrase, jamais `<br>` seul. Réduire la taille de police mobile si nécessaire pour que chaque phrase tienne sur une ligne. Les ruptures de mot au milieu d'une expression (`pour le / dîner.`) cassent la lecture.
+
+**Contraste garanti, pas espéré** : chaque section qui repose sur un dégradé continu doit être vérifiée sur vrai téléphone. Si le dégradé n'offre pas assez de contraste au bon endroit, ajouter un overlay sombre local (`background: linear-gradient(to bottom, rgba(...) 0%, rgba(...) 100%)`) — ne jamais supposer que le timing du dégradé sera parfait.
+
+**Couleur de nuit = DA du restaurant, jamais "tropical vert" par défaut** : la palette nocturne se déduit de l'identité visuelle réelle du lieu (auvent, logo, couleurs dominantes). La Casa Tropical a un auvent rouge → nuit en bordeaux/vin profond. Un resto bleu marine → nuit en bleu nuit. Règle : avant de choisir les couleurs de nuit, regarder les vraies photos du patron.
+
+**Format dans les prompts moodboard** : chaque prompt doit spécifier le format (ratio ex. 3:2, orientation paysage/portrait, taille minimale ex. 1080×720 px). Sans format, l'IA génère n'importe quoi — et le résultat est inutilisable pour guider les vraies photos.

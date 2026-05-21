@@ -44,6 +44,8 @@ Le process complet (5 étapes, du 1er contact au suivi mensuel) vit dans `proces
 
 Résumé : 4 visites client maximum (présentation, brief, livraison, suivi J+30), tout le reste se passe chez Mike. Pack Solo 490€ (paiement 50/50, acompte après brief). Pack Suivi mensuel optionnel 50€/mois, **jamais poussé en début de pitch**, mentionné uniquement à la fin avec emphase sur "résiliable à tout moment".
 
+**Règle de capitalisation (demande de Mike)** : chaque retour design/UI actionnable en session est immédiatement gravé dans `methode-emotionnelle.md`, section « Règles terrain ». Puis committé. Ne jamais laisser un apprentissage dans une session sans le graver — l'objectif est de progresser d'un site à l'autre sans se répéter.
+
 ## Skills (outillage Claude Code interne)
 
 Le repo héberge les skills MB Studio dans `skills/` au format SKILL.md (compatible Claude Code).
