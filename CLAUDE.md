@@ -28,6 +28,7 @@ Lire `README.md` pour l'offre complète et `BRAND.md` pour l'identité visuelle.
 8. **Vouvoiement par défaut à l'écrit** (audit envoyé, mail, devis, support imprimé). Tutoiement possible à l'oral pendant la visite si le patron tutoie en premier.
 9. **SEO local = standard de fabrication, jamais promesse de résultat** : chaque site est rédigé optimisé pour la recherche locale (cf `checklist-seo-local.md`). C'est un engagement de moyens non-négociable appliqué à TOUS les sites. On ne garantit JAMAIS une position Google (cf anti-patterns + `process.md`). Sur-livrer sur le métier, jamais sur-promettre sur le résultat.
 10. **Unicité inter-clients = standard de fabrication non-négociable** : deux sites livrés ne doivent jamais se ressembler (même dans une petite ville où les patrons comparent). 3 signatures ne suffisent pas pour 5+ clients → modèle étendu obligatoire (variantes de structure + packs typo par signature + matrice d'attribution + garde-fou anti-jumeau). Voir `differenciation-clients.md`.
+11. **Atmosphère d'abord — ATMOSPHERE FIRST, FOOD SECOND, INTERFACE THIRD** : on ne fabrique pas des sites, on traduit une présence physique réelle en expérience émotionnelle mobile. Tout (couleurs, rythme, textes, images, transitions) se construit autour de l'atmosphère du lieu. Règle photo non-négociable : **le site ne doit jamais sembler plus premium que la photographie réelle** — si les photos sont moyennes, on pousse la chaleur et l'authenticité, jamais le luxe. Doctrine complète (6 dimensions émotionnelles, cinéma émotionnel, avis éditoriaux, image signature, moodboard IA obligatoire) : voir `methode-emotionnelle.md`.
 
 ## Stack technique imposée
 
@@ -92,6 +93,10 @@ Ces 4 sources alimentent `monthly-report` et justifient l'abonnement Suivi à 50
 - Promettre des choses qui ne seront pas dans le bon de commande (les "cadeaux surprise" se découvrent à la livraison, ne se promettent jamais)
 - Mettre un effet visuel lourd (vidéo scroll-driven, animations complexes) sur un site resto — antagonique avec "site rapide" et avec "édition autonome par le patron"
 - Livrer deux sites clients qui se ressemblent (même signature + même squelette) — l'unicité inter-clients est un standard non-négociable, cf principe #10 + `differenciation-clients.md`
+- Laisser le design paraître plus premium que les vraies photos du resto — cf principe #11 + `methode-emotionnelle.md`
+- Écrire des textes qui *expliquent* l'ambiance au lieu de la faire ressentir (préférer les fragments sensoriels courts, penser cinéma)
+- Présenter les avis en cartes type dashboard/widget (notes en étoiles répétées, encadrés UI) — les avis sont des fragments de souvenirs éditoriaux
+- Lancer une production sans moodboard IA en amont et sans avoir déterminé les 6 dimensions émotionnelles du lieu
 
 ## État du projet (mai 2026)
 
