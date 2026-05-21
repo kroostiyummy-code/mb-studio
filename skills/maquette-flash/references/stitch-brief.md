@@ -55,7 +55,47 @@ not a fictional startup concept.
 **Contrainte de réalisme (toujours en fin de prompt) :** concepts réellement buildables, compatibles Astro, mobile-first réels, SEO-compatibles, performants, sans effets impossibles à maintenir. *Des marques fortes, pas des concepts Dribbble incodables.* (Le détail du plancher est gaté par `conversion-contract.md`.)
 
 **Modèle mental de raisonnement (pour générer N'IMPORTE quel prompt) :**
-`INPUTS humains` (type cuisine · gamme prix · énergie · ambiance · clientèle · ton patron · densité menu · présence Insta · niveau premium · rythme du lieu · identité implicite · présence physique · sensation émotionnelle) **→** `OUTPUTS créatifs` (rythme · DA · composition · densité · hiérarchie · structure · énergie typo · comportement du scroll · intensité commerciale). Objectif constant : **tuer la sensation « template IA »**.
+`Fiche d'âme` (les 10 axes de vérité émotionnelle, voir plus bas) **→** `OUTPUTS créatifs` (rythme · DA · composition · densité · hiérarchie · structure · énergie typo · comportement du scroll · intensité commerciale). Objectif constant : **tuer la sensation « template IA »**.
+
+---
+
+## Galerie de référence — l'étalon hospitality (ancré 2026-05-21)
+
+> Niveau cible validé par Mike. Ces sites ne sont pas « de jolis sites de resto » : ce sont des **marques hospitality** où une identité physique réelle est traduite en numérique. **Aucun** ne mise sur la techno, les animations ou les effets — tous misent sur DA + photo + rythme + projection + cohérence émotionnelle. **C'est exactement notre plancher** (Astro statique, zéro effet lourd) : le premium moderne n'est PAS de la complexité technique, c'est de la traduction d'identité. Atteignable avec Stitch + Claude Code + l'œil de Mike.
+
+Les 12 sites, rangés par **registre émotionnel** pour servir de boussole — Claude choisit le(s) registre(s) qui collent à la température de la fiche d'âme :
+
+| Registre | Sites | Ce qu'on leur emprunte |
+|---|---|---|
+| **Éditorial silencieux** (chaud élégant, lent, respiration) | Terra · Substance · Forest · Laïa Monceau | grande photo désir, vide maîtrisé, scroll lent, narratif |
+| **Théâtral vivant** (chaud populaire, personnalité, humain) | Pink Mamma · Daroco | énorme identité, storytelling, ton, chaleur humaine, mémorable sans techno |
+| **Immersif sensuel / nocturne désirable** | Coya · Gigi · Bonnie · Noto | projection du désir, ambiance du soir, restaurant-comme-marque-lifestyle |
+| **Expérientiel** (univers, architecture émotionnelle) | Ephemera · Mūn | le lieu comme univers, immersion, storytelling spatial |
+
+Règle d'usage : **1 ou 2 registres maximum par resto**, choisis d'après l'axe 1 (température) de la fiche d'âme. Jamais « fais comme Terra » à l'aveugle — on emprunte une **énergie**, pas une maquette. Deux restos d'une même ville ne convoquent jamais le même registre dominant (garde-fou anti-jumeau).
+
+---
+
+## La fiche d'âme — 10 axes de vérité émotionnelle (standard 2026-05-21)
+
+> Cadre validé avec Mike. **C'est l'input n°1.** Sans lui, Stitch produit du « restaurant générique ». Les meilleurs sites hospitality ne sont pas bien designés — ce sont des **espaces émotionnels traduits numériquement**. La fiche d'âme capture cet espace AVANT tout prompt.
+>
+> Claude **remplit** ces 10 axes depuis les sources publiques (avis verbatim, photos, façade, horaires) pour une pré-maquette, ou depuis le brief terrain pour un client signé. **L'axe 1 (température) et l'axe 7 (sensation finale) ne sont jamais tranchés par Claude seul** — ils viennent de l'œil de Mike (le ressenti ne se délègue pas, cf pivot 2026-05-19). Tout axe déduit du public est marqué `[déduit — à valider œil de Mike]`.
+
+| # | Axe | Question | Pourquoi c'est critique |
+|---|---|---|---|
+| 1 | **Température émotionnelle** | chaud / froid / nocturne + 2-3 adjectifs (ex. « chaude élégante silencieuse ») | la base absolue — change TOUT (palette, rythme, photo, densité) |
+| 2 | **Rôle social du lieu** | rendez-vous / fête / habitués / instagrammable / familial / date / quartier / gastro / immersif | guide rythme, photos, densité, hiérarchie |
+| 3 | **Densité sensorielle** | minimal / dense / immersif / chaotique / silencieux / organique | détermine la respiration de la page |
+| 4 | **Vraies photos** | lumières, tables, matières, visages, groupes, soirées, détails, imperfections, vie | **LE point le plus important** — la crédibilité physique porte tout le premium |
+| 5 | **Moment dominant** | midi / soir / tard la nuit / coucher de soleil / brunch / afterwork | pilote contrastes, couleurs, lumière des photos |
+| 6 | **Vitesse émotionnelle** | lent / énergique / dense / contemplatif / vivant / théâtral / progressif | pilote le comportement du scroll |
+| 7 | **Sensation finale recherchée** | ce que le client doit **ressentir** (pas comprendre) immédiatement | le vrai objectif du site |
+| 8 | **Références culturelles réelles** | matières, musique, objets, lumières, habitudes, gestuelle — jamais des clichés | tue le faux branding IA |
+| 9 | **Ce que le lieu N'EST PAS** | startup / luxe fake / template / café insta / SaaS hospitality / chaîne | borne anti-dérive — Stitch dérive toujours vers ces patterns |
+| 10 | **Mémoire émotionnelle** | quelle sensation mémorable le visiteur emporte en partant | la signature qui reste |
+
+Chaque axe alimente directement le prompt Stitch : axe 1 → directive émotionnelle d'ouverture · axes 3+6 → rythme du scroll · axe 4 → consignes photo · axe 5 → lumière/contraste · axe 8 → références autorisées · axe 9 → lignes rouges · axes 7+10 → la phrase d'intention en tête de prompt. **Le bloc « Capsule identité » (faits) de la structure ci-dessous ne remplace pas la fiche d'âme : il la complète.**
 
 ---
 
@@ -123,3 +163,5 @@ Faux contenu/avis inventés · clichés déco resto (fourchettes géantes, ardoi
 - **Brief flou = Stitch confiant dans le médiocre.** La rigueur de la fiche d'âme est PLUS critique ici, pas moins.
 - Le « 2 h » de Kroosti = Mike connaissait sa marque par cœur. Pour un prospect vu une fois, la fiche d'âme **remplace** ce savoir tacite. Ne pas sauter l'étape ressentis terrain.
 - Claude génère le brief, **jamais** le ressenti ni la sélection. L'œil humain reste directeur artistique.
+- **Les 10 axes d'abord, le gabarit ensuite.** Ne jamais générer un prompt Stitch sans avoir rempli la fiche d'âme. Un axe vide = une zone où Stitch inventera du générique.
+- **Emprunter une énergie, jamais une maquette.** La galerie de référence donne un niveau cible et un registre — pas un modèle à copier. Deux restos d'une même ville ne partagent jamais le registre dominant.
