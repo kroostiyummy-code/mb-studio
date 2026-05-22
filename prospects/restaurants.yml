@@ -43,3 +43,46 @@ restaurants:
       raison_perte: null
 
     notes_mike: ""                    # libre, à toi — jamais écrasé par un outil
+
+  - id: anamour-luce
+
+    identite:
+      nom: "Anamour"
+      adresse: "54 Rue du Maréchal Leclerc"
+      cp: "28110"
+      ville: "Lucé"
+      telephone: "+33237263214"
+      cuisine: "restaurant turc moderne / grillades halal"
+      site_actuel: "https://anamour-restaurant-luce.order.dish.co/menus"
+
+    scan:
+      date_scan: 2026-05-22
+      note_google: 4.6
+      nb_avis: 319
+      gmb_completude: null            # à mesurer
+      lighthouse_mobile: null         # pas mesuré (pas de clé PageSpeed)
+      age_site_ans: null              # site actuel = dish.co, pas un site propre
+      source_donnees: manuel          # ajouté manuellement par Mike, pas via scoring-prospects
+
+    scoring:
+      score: null                     # pas scoré officiellement (scan manuel)
+      tier: null
+      valeur: null
+      proba: null
+      drapeau_rouge: "aucun"
+      mike_override:
+        score: 86
+        raison: "Tier A potentiel — très forte validation locale (4.6/319), identité de marque déjà construite (chezanamour.fr), gap digital énorme (dish.co fonctionnel mais pas émotionnel), patron probable ambitieux / sensible au branding, lieu physique premium sous-exploité côté digital. Voir analyse complète dans prospects/anamour-luce/analyse-prebrief.md."
+
+    tunnel:
+      statut: a_demarcher
+      historique:
+        - { date: 2026-05-22, etape: a_demarcher, note: "Pré-brief stratégique consigné dans prospects/anamour-luce/. Maquette à produire avant porte-à-porte." }
+      argument_qui_a_converti: null
+      raison_perte: null
+
+    notes_mike: |
+      Prochaine action : décider du format de maquette pré-brief (3 PNG signatures classiques
+      maquette-flash, ou maquette HTML complète style Casa = démonstration de force).
+      DA pressentie : "Dark Mediterranean Grill Lounge" (cf analyse-prebrief.md).
+      Réseaux : Instagram @anamour28chartres ; univers marque : chezanamour.fr.
