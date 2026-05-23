@@ -5,8 +5,8 @@
 
 site:
   nom: "Anamour"
-  slogan: "Restaurant turc moderne · Grillades au feu"
-  baseline: "Lucé · 4,6★ · 319 avis Google · Ouvert 7j/7"
+  slogan: "L'âme anatolienne, l'esprit moderne."
+  baseline: "La soirée commence ici. Un voyage sensoriel au cœur de la Méditerranée, forgé par le feu et servi avec élégance — Lucé · Chartres."
   ville: "Lucé"
   region_code: "FR-28"
   # --- PARTITION : pré-brief (à confirmer avec le patron au brief signé) ---
@@ -28,7 +28,7 @@ site:
       - "histoire"
       - "localisation"
       - "reseaux"
-  dominante: "#b87333"
+  dominante: "#ffb77b"
   telephone: "+33237263214"
   telephone_display: "02 37 26 32 14"
   adresse: "54 Rue du Maréchal Leclerc, 28110 Lucé"
@@ -37,14 +37,18 @@ site:
     lng: 1.4707
   reseaux:
     instagram: "https://www.instagram.com/anamour28chartres/"
-  # Maquette pré-brief : hero pointe vers placeholder Picsum (cible 4:5 vertical).
-  # À remplacer au brief signé par /images/hero-grillades.webp (vraie photo).
-  hero_image: "https://picsum.photos/seed/anamour-hero-grill/1200/1500"
-  hero_image_alt: "Grillade au feu — Anamour, restaurant turc à Lucé (photo cible à fournir)"
+  # Maquette pré-brief : photos issues du moodboard AI (DA Dark Mediterranean
+  # Grill Lounge). À remplacer au brief signé par les vraies photos du restaurant.
+  hero_image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBPQQnvyyNKZ0dqc7hVs7sEeT6uo3mJ3gS1dbLb9BCMNtt9bIAz7P0zij5QCBFwqOwLDWY4WMGa3eAMyMtN3LHJp9vxJtOM5jmNgo2d1GvxYFgKAKViZkNfkBCWuMPGKx1wzflY4CVvkh1a98YwE1246puo9ltAVEiLjcltsCRcvg2dI9IJX-tf5wNrIZ1SYmlyMs-W5R-3jQoYNPGQl8q4AH9ZOW1nJnUD7cmNJp1nx2coquLjnjyh5HI0DzdiAg0bxsq654TixuIv"
+  hero_image_alt: "Intérieur lounge nocturne d'Anamour — banquettes velours, marbre sombre, grill à charbon en fond, lanternes dorées (photo moodboard à remplacer par photo réelle)"
   histoire:
-    statement_lead: "La braise turque,"
-    statement_accent: "à Lucé."
-    body: "Restaurant turc moderne. **Grillades au feu**, cuisine **halal faite maison** — du midi à minuit, 7 jours sur 7. Adana, Iskender, mezzés, desserts maison : une vraie maison turque à 10 minutes de Chartres."
+    kicker: "L'Héritage"
+    statement_lead: "Né du"
+    statement_accent: "Feu."
+    body: "Au cœur d'Anamour, le **gril à charbon** n'est pas un outil, c'est une âme. Chaque flamme prolonge des **traditions séculaires** où la chaleur intense sublime des viandes sélectionnées pour leur excellence. La fumée devient un ingrédient, enveloppant chaque morceau d'une signature aromatique inimitable."
+    quote: "Le feu ne se contente pas de cuire — il transforme l'ordinaire en une expérience mystique."
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC85rbej9MTOxttA8K0UZKdb7OojYy7fcQNLYBPaeLCc_Cx3biSQf4gPJ1A0VFwAG5eRjvgNVzzXP_bmOlp0WlGckWNf867XwZs-VGfoYbIyiZmhD9jebIRUhrgAlTw586TyAHrc6XdUn_ZcW2WFaEcQhpJy61D-JHorydkhvKQOs7NnSlYvOB4fekv9-rLfz9C7qbH4BavtqY2HjC7tWjJQjDI6R5kRyAydZE48s63IeBIQ6ti48EshuI0ENLDt_Am0zNZLpUh4QJY"
+    image_alt: "Côtelettes d'agneau et brochettes grésillant sur grill à charbon — braises incandescentes, fumée blanche, étincelles orange (photo moodboard à remplacer)"
   avis_google:
     note: 4.6
     count: 319
@@ -79,7 +83,7 @@ site:
       creneaux:
         - { ouvre: "11:00", ferme: "00:30" }
   sections:
-    bandeau: true
+    bandeau: false        # désactivé : le hero plein écran porte déjà l'identité
     histoire: true
     avis: true
     reservation: false

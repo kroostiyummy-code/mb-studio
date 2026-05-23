@@ -1,0 +1,67 @@
+/* tokens.css — Override Anamour : DA "Dark Mediterranean Grill Lounge"
+   Renverse le standard MB Studio ivoire → fond charbon profond, beige clair
+   pour texte, cuivre brillant + or doré en accents. Conforme à la doctrine
+   #11 (atmosphère first) : le lieu Anamour EST nocturne et lounge — le site
+   doit traduire cette présence physique en expérience émotionnelle mobile.
+*/
+
+:root {
+  /* --- Couleurs : DA dark lounge --- */
+  --mb-paper:        #131313;   /* charbon profond, fond principal */
+  --mb-paper-2:      #1c1b1b;   /* alt subtle (sections respiration) */
+  --mb-paper-3:      #201f1f;   /* surface card (avant blur) */
+  --mb-paper-warm:   #2a1d1a;   /* glass card warm (cuivre patiné) */
+  --mb-ink:          #e5e2e1;   /* texte clair, jamais blanc pur */
+  --mb-ink-soft:     #d8c3b4;   /* texte secondaire beige fumé */
+  --mb-line:         rgba(255, 255, 255, 0.10);    /* hairline clair */
+  --mb-line-strong:  rgba(255, 255, 255, 0.22);
+
+  /* Accent = cuivre chaud brillant. Surchargé par Layout.astro via
+     define:vars depuis settings.dominante. CTAs, prix, kickers, emphases. */
+  --mb-accent:       #ffb77b;
+  --mb-on-accent:    #4d2700;
+  --mb-accent-deep:  color-mix(in oklab, var(--mb-accent) 78%, #000);
+
+  /* Or doré chaud — secondaire (prix menu, highlights, accents discrets) */
+  --mb-secondary:    #f0be76;
+  --mb-tertiary:     #ffb3ad;   /* rose corail — highlights rares */
+
+  /* --- Typographie : Syne (anguleux moderne) + Hanken Grotesk (humaniste) --- */
+  --mb-display: 'Syne', 'Playfair Display', Georgia, serif;  /* display anguleux moderne, lounge */
+  --mb-sans:    'Hanken Grotesk', 'Inter', system-ui, -apple-system, sans-serif; /* body humaniste */
+
+  /* --- Échelle d'espacement (généreuse = premium) --- */
+  --mb-s-1: 4px;
+  --mb-s-2: 8px;
+  --mb-s-3: 12px;
+  --mb-s-4: 16px;
+  --mb-s-5: 24px;
+  --mb-s-6: 32px;
+  --mb-s-7: 48px;
+  --mb-s-8: 64px;
+  --mb-s-9: 96px;
+  --mb-s-10: 128px;
+
+  /* Rythme de section — modulé par le cran "tempo" de la partition (cf base.css) */
+  --mb-section-py: 64px;
+  --mb-section-px: 22px;
+
+  /* Largeur de lecture confortable (le texte ne va jamais pleine largeur) */
+  --mb-measure: 38rem;
+  --mb-container: 64rem;
+
+  /* Rayon calme (jamais d'extrêmes) */
+  --mb-radius: 4px;
+  --mb-radius-pill: 999px;
+
+  /* Mouvement (modulé par le cran "motion") */
+  --mb-reveal-dist: 16px;
+  --mb-reveal-time: 0.7s;
+}
+
+@media (min-width: 900px) {
+  :root {
+    --mb-section-py: 112px;
+    --mb-section-px: 40px;
+  }
+}

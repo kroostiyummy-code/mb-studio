@@ -1,0 +1,186 @@
+---
+import { getEntry, getCollection } from 'astro:content';
+
+const settingsEntry = await getEntry('settings', 'site');
+const s = settingsEntry!.data;
+
+const menuSections = (await getCollection('menu')).sort((a, b) => a.data.ordre - b.data.ordre);
+
+// Layout bento : section #1 = featured large, dernière = wide, milieu = small.
+function bentoClass(idx: number, total: number): string {
+  if (idx === 0) return 'card card-featured';
+  if (idx === total - 1 && total > 2) return 'card card-wide';
+  return 'card card-small';
+}
+---
+<section class="section-menu" id="menu">
+  <div class="menu-wrap">
+    <div class="menu-head mb-reveal">
+      <span class="menu-kicker">Gastronomie</span>
+      <h2 class="menu-title">La Carte Signature</h2>
+    </div>
+
+    <div class="bento">
+      {menuSections.map((section, idx) => {
+        const cls = bentoClass(idx, menuSections.length);
+        return (
+          <article class={`${cls} mb-reveal`}>
+            <h3 class="card-title">{section.data.nom_section}</h3>
+            <div class="card-items">
+              {section.data.items.map(item => (
+                <div class="card-item">
+                  <span class="card-item-name">{item.nom}</span>
+                  <span class="card-item-price">{item.prix}</span>
+                </div>
+              ))}
+            </div>
+            {cls.includes('card-featured') && (
+              <p class="card-footer">Accompagné de riz pilaf, salade et pain maison.</p>
+            )}
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-menu {
+    padding: var(--mb-section-py) 0;
+    background: var(--mb-paper-2);
+  }
+  .menu-wrap {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 var(--mb-section-px);
+  }
+  .menu-head {
+    text-align: center;
+    margin-bottom: var(--mb-s-9);
+  }
+  .menu-kicker {
+    display: block;
+    font-family: var(--mb-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--mb-accent);
+    margin-bottom: var(--mb-s-4);
+  }
+  .menu-title {
+    font-family: var(--mb-display);
+    font-weight: 700;
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+    color: var(--mb-ink);
+    margin: 0;
+  }
+
+  /* Bento grid : 1 col mobile, 2 col tablet, 4 col desktop */
+  .bento {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--mb-s-5);
+  }
+  @media (min-width: 700px) {
+    .bento { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 1024px) {
+    .bento { grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(0, auto); }
+    .card-featured { grid-column: span 2; grid-row: span 2; }
+    .card-wide     { grid-column: span 2; }
+  }
+
+  /* Carte : glass card warm (cuivre patiné, blur subtil, hairline cuivre) */
+  .card {
+    background: rgba(42, 29, 26, 0.55);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(214, 179, 138, 0.12);
+    border-radius: 12px;
+    padding: var(--mb-s-7) var(--mb-s-6);
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+  .card:hover {
+    border-color: rgba(255, 183, 123, 0.32);
+    transform: translateY(-2px);
+  }
+  .card-featured { padding: var(--mb-s-8) var(--mb-s-7); }
+
+  .card-title {
+    font-family: var(--mb-display);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    color: var(--mb-accent);
+    margin: 0 0 var(--mb-s-6);
+  }
+  .card-featured .card-title {
+    font-size: clamp(1.7rem, 3.2vw, 2.1rem);
+    margin-bottom: var(--mb-s-7);
+  }
+
+  .card-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mb-s-4);
+    flex: 1;
+  }
+  .card-featured .card-items { gap: var(--mb-s-5); }
+
+  .card-item {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--mb-s-4);
+    padding-bottom: var(--mb-s-3);
+    border-bottom: 1px solid rgba(214, 179, 138, 0.10);
+  }
+  .card-item:last-child { border-bottom: none; }
+  .card-featured .card-item {
+    padding-bottom: var(--mb-s-4);
+  }
+
+  .card-item-name {
+    font-family: var(--mb-sans);
+    font-weight: 500;
+    color: var(--mb-ink);
+    font-size: 0.98rem;
+    line-height: 1.3;
+  }
+  .card-featured .card-item-name {
+    font-family: var(--mb-display);
+    font-weight: 600;
+    font-size: 1.18rem;
+    letter-spacing: -0.005em;
+  }
+
+  .card-item-price {
+    font-family: var(--mb-sans);
+    font-weight: 600;
+    color: var(--mb-secondary);
+    font-size: 0.94rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .card-featured .card-item-price {
+    font-size: 1rem;
+  }
+
+  .card-footer {
+    margin: var(--mb-s-6) 0 0;
+    padding-top: var(--mb-s-5);
+    border-top: 1px solid rgba(214, 179, 138, 0.10);
+    font-family: var(--mb-sans);
+    font-size: 0.88rem;
+    color: var(--mb-ink-soft);
+    line-height: 1.5;
+    font-style: italic;
+    max-width: none;
+  }
+</style>

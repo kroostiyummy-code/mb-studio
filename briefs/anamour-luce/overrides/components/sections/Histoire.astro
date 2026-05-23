@@ -1,0 +1,158 @@
+---
+import { getEntry } from 'astro:content';
+const entry = await getEntry('settings', 'site');
+const s = entry!.data;
+
+const h = s.histoire;
+
+// **mot** = emphase couleur accent ; ==mot== = surlignage marqueur (volontaire, parcimonieux)
+function renderEmphasis(text: string): string {
+  return text
+    .replace(/==([^=]+)==/g, '<mark class="mb-marker">$1</mark>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+}
+---
+{h && (
+  <section class="section-histoire" id="histoire">
+    <div class="histoire-wrap">
+      <div class="histoire-text">
+        {h.kicker && <span class="histoire-kicker mb-reveal">{h.kicker}</span>}
+        <h2 class="huge-statement mb-reveal">
+          <span class="statement-lead">{h.statement_lead}</span>{' '}
+          <span class="statement-accent">{h.statement_accent}</span>
+        </h2>
+
+        <p class="statement-body mb-reveal" set:html={renderEmphasis(h.body)} />
+
+        {h.quote && (
+          <blockquote class="histoire-quote mb-reveal">
+            <p>{h.quote}</p>
+          </blockquote>
+        )}
+      </div>
+
+      {h.image && (
+        <div class="histoire-media mb-reveal">
+          <img src={h.image} alt={h.image_alt ?? ''} loading="lazy" />
+          <div class="histoire-glow" aria-hidden="true"></div>
+        </div>
+      )}
+    </div>
+  </section>
+)}
+
+<style>
+  .section-histoire {
+    padding: var(--mb-section-py) 0;
+    background: var(--mb-paper);
+  }
+  .histoire-wrap {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 var(--mb-section-px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--mb-s-7);
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .histoire-wrap {
+      grid-template-columns: 5fr 7fr;
+      gap: var(--mb-s-9);
+    }
+  }
+
+  .histoire-text { order: 2; }
+  .histoire-media { order: 1; position: relative; }
+  @media (min-width: 900px) {
+    .histoire-text { order: 1; }
+    .histoire-media { order: 2; }
+  }
+
+  .histoire-kicker {
+    display: block;
+    font-family: var(--mb-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--mb-accent);
+    margin-bottom: var(--mb-s-4);
+  }
+
+  .huge-statement {
+    font-family: var(--mb-display);
+    font-weight: 800;
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    color: var(--mb-ink);
+    margin: 0 0 var(--mb-s-6);
+  }
+  .statement-accent { color: var(--mb-accent); }
+
+  .statement-body {
+    font-family: var(--mb-sans);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--mb-ink-soft);
+    max-width: 36rem;
+    margin: 0 0 var(--mb-s-6);
+  }
+  .statement-body :global(strong) { color: var(--mb-ink); font-weight: 600; }
+  .statement-body :global(strong + strong) { display: inline; }
+
+  .histoire-quote {
+    margin: 0;
+    padding: var(--mb-s-5) var(--mb-s-6);
+    background: var(--mb-paper-2);
+    border-left: 2px solid var(--mb-accent);
+    border-radius: 0 var(--mb-radius) var(--mb-radius) 0;
+  }
+  .histoire-quote p {
+    margin: 0;
+    font-family: var(--mb-sans);
+    font-style: italic;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: var(--mb-ink);
+    max-width: none;
+  }
+
+  .histoire-media img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.7s ease;
+  }
+  .histoire-media:hover img { transform: scale(1.03); }
+
+  /* Halo cuivre discret en bas-gauche, décoratif */
+  .histoire-glow {
+    display: none;
+  }
+  @media (min-width: 900px) {
+    .histoire-glow {
+      display: block;
+      position: absolute;
+      left: -32px;
+      bottom: -32px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 183, 123, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+      animation: histoire-pulse 6s ease-in-out infinite;
+    }
+  }
+  @keyframes histoire-pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50%      { opacity: 1; transform: scale(1.08); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .histoire-glow { animation: none; }
+  }
+</style>

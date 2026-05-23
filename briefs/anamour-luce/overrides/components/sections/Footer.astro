@@ -1,0 +1,158 @@
+---
+import { getEntry } from 'astro:content';
+const entry = await getEntry('settings', 'site');
+const s = entry!.data;
+const annee = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand-block">
+        <div class="footer-mark">{s.nom}</div>
+        <p class="footer-tagline">{s.slogan}</p>
+        <p class="footer-loc">{s.ville} · Chartres</p>
+      </div>
+
+      <div class="footer-info">
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href={`tel:${s.telephone}`}>{s.telephone_display}</a></li>
+            {s.adresse && <li><span>{s.adresse}</span></li>}
+            {s.google_avis_url && (
+              <li><a href={s.google_avis_url} target="_blank" rel="noopener">Voir les avis Google</a></li>
+            )}
+          </ul>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="#top">Accueil</a></li>
+            {s.sections.menu && <li><a href="#menu">La carte</a></li>}
+            {s.sections.histoire && <li><a href="#histoire">L'héritage</a></li>}
+            {s.sections.localisation && <li><a href="#localisation">Nous trouver</a></li>}
+            <li><a href="/mentions-legales">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© {annee} {s.nom} · {s.ville}{s.est_year && ` · Depuis ${s.est_year}`}</span>
+      <span class="footer-credit">
+        Site créé par <a href="https://mb-studio.fr" target="_blank" rel="noopener">MB Studio</a> · Chartres
+      </span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: #0e0e0e;
+    color: var(--mb-ink-soft);
+    border-top: 1px solid var(--mb-line);
+    padding: var(--mb-s-9) var(--mb-section-px) calc(var(--mb-s-9) + 80px);
+    border-radius: 12px 12px 0 0;
+  }
+  .footer-inner {
+    max-width: var(--mb-container);
+    margin: 0 auto;
+  }
+  .footer-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mb-s-7);
+  }
+
+  .footer-mark {
+    font-family: var(--mb-display);
+    font-weight: 700;
+    font-size: 1.7rem;
+    letter-spacing: -0.005em;
+    color: var(--mb-accent);
+    margin-bottom: var(--mb-s-3);
+  }
+  .footer-tagline {
+    font-family: var(--mb-sans);
+    font-size: 0.96rem;
+    line-height: 1.5;
+    color: var(--mb-secondary);
+    max-width: 22rem;
+    margin: 0 0 var(--mb-s-2);
+  }
+  .footer-loc {
+    font-family: var(--mb-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mb-ink-soft);
+    margin: 0;
+  }
+
+  .footer-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--mb-s-6);
+    border-top: 1px solid var(--mb-line);
+    padding-top: var(--mb-s-6);
+  }
+  .footer-info h4 {
+    font-family: var(--mb-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--mb-accent);
+    margin: 0 0 var(--mb-s-4);
+  }
+  .footer-info ul { list-style: none; padding: 0; margin: 0; }
+  .footer-info li {
+    margin-bottom: var(--mb-s-2);
+    font-size: 0.92rem;
+    line-height: 1.4;
+  }
+  .footer-info a {
+    color: var(--mb-ink-soft);
+    text-decoration: none;
+    transition: color 0.18s ease;
+  }
+  .footer-info a:hover { color: var(--mb-accent); }
+  .footer-info span { color: var(--mb-ink-soft); }
+
+  .footer-bottom {
+    margin-top: var(--mb-s-7);
+    padding-top: var(--mb-s-5);
+    border-top: 1px solid var(--mb-line);
+    display: flex;
+    flex-direction: column;
+    gap: var(--mb-s-3);
+    font-family: var(--mb-sans);
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    color: var(--mb-ink-soft);
+  }
+  .footer-credit {
+    font-style: italic;
+    opacity: 0.7;
+  }
+  .footer-credit a {
+    color: var(--mb-ink-soft);
+    text-decoration: underline;
+    text-decoration-color: var(--mb-line-strong);
+    text-underline-offset: 3px;
+    transition: color 0.18s ease;
+  }
+  .footer-credit a:hover { color: var(--mb-accent); }
+
+  @media (min-width: 900px) {
+    .footer-grid { flex-direction: row; gap: var(--mb-s-10); align-items: flex-start; }
+    .footer-brand-block { flex: 1; }
+    .footer-info { flex: 1; border-top: none; padding-top: 0; }
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+</style>

@@ -1,0 +1,186 @@
+---
+import { getEntry } from 'astro:content';
+const entry = await getEntry('settings', 'site');
+const s = entry!.data;
+const spine = s.partition?.spine ?? 'venir';
+// CTA principal piloté par le spine. VENIR → "Découvrir la Carte" (l'envie d'abord).
+const ctaLabel =
+  spine === 'commander' ? 'Commander · Appeler' :
+  spine === 'desirer'   ? 'Réserver une table' :
+                          'Découvrir la Carte';
+const ctaHref = spine === 'commander' ? `tel:${s.telephone}` : '#menu';
+const avis = s.avis_google;
+---
+<header class="hero" id="top">
+  <div class="hero-media">
+    <img src={s.hero_image} alt={s.hero_image_alt} loading="eager" fetchpriority="high" />
+    <div class="hero-scrim"></div>
+  </div>
+
+  <div class="hero-body">
+    <p class="hero-kicker">{s.ville} · Chartres</p>
+    <h1 class="hero-name">{s.slogan}</h1>
+    {s.baseline && <p class="hero-slogan">{s.baseline}</p>}
+
+    <div class="hero-row">
+      <a href={ctaHref} class="hero-cta" aria-label={ctaLabel}>
+        {ctaLabel}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </a>
+      {avis && (
+        <div class="hero-pill" aria-label={`Note Google ${avis.note} sur 5, ${avis.count} avis`}>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2l2.9 6.9L22 10l-5.5 4.9L18 22l-6-3.6L6 22l1.5-7.1L2 10l7.1-1.1z"/>
+          </svg>
+          <span><strong>{avis.note.toString().replace('.', ',')}</strong> sur Google · {avis.count} avis</span>
+        </div>
+      )}
+    </div>
+  </div>
+
+  <a href="#menu" class="hero-down" aria-label="Découvrir la carte">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M6 9l6 6 6-6"/>
+    </svg>
+  </a>
+</header>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--mb-paper);
+  }
+
+  .hero-media { position: absolute; inset: 0; z-index: 0; }
+  .hero-media img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    animation: hero-slow-zoom 22s ease-in-out infinite alternate;
+  }
+  @keyframes hero-slow-zoom {
+    from { transform: scale(1); }
+    to   { transform: scale(1.08); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-media img { animation: none; }
+  }
+  /* Triple scrim : voile noir + gradient bottom (fond) + gradient subtle top */
+  .hero-scrim {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 30%, rgba(0,0,0,0.0) 50%, var(--mb-paper) 100%),
+      linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.0) 50%, rgba(0,0,0,0.55) 100%);
+  }
+
+  .hero-body {
+    position: relative;
+    z-index: 1;
+    padding: 0 var(--mb-section-px);
+    max-width: 56rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-kicker {
+    font-family: var(--mb-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--mb-accent);
+    margin: 0 0 var(--mb-s-5);
+  }
+
+  .hero-name {
+    font-family: var(--mb-display);
+    font-weight: 800;
+    font-size: clamp(2.6rem, 8.5vw, 5.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 0 0 30px rgba(255, 183, 123, 0.25);
+  }
+
+  .hero-slogan {
+    margin: var(--mb-s-5) auto 0;
+    font-family: var(--mb-sans);
+    font-size: clamp(1.02rem, 2.4vw, 1.18rem);
+    line-height: 1.55;
+    color: var(--mb-ink-soft);
+    max-width: 38rem;
+  }
+
+  .hero-row {
+    margin-top: var(--mb-s-7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--mb-s-5);
+    flex-wrap: wrap;
+  }
+
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--mb-accent);
+    color: var(--mb-on-accent);
+    padding: 16px 32px;
+    border-radius: var(--mb-radius-pill);
+    font-family: var(--mb-sans);
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    box-shadow: 0 0 40px -10px rgba(255, 183, 123, 0.45);
+    transition: transform 0.18s ease, filter 0.18s ease;
+  }
+  .hero-cta svg { width: 16px; height: 16px; }
+  .hero-cta:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+  .hero-pill {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 20px;
+    border-radius: var(--mb-radius-pill);
+    background: rgba(42, 29, 26, 0.55);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(214, 179, 138, 0.18);
+    color: var(--mb-ink);
+    font-family: var(--mb-sans);
+    font-size: 0.84rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .hero-pill svg { width: 16px; height: 16px; color: var(--mb-accent); }
+  .hero-pill strong { color: var(--mb-secondary); font-weight: 700; }
+
+  .hero-down {
+    position: absolute;
+    left: 50%;
+    bottom: 32px;
+    transform: translateX(-50%);
+    z-index: 1;
+    color: var(--mb-accent);
+    opacity: 0.7;
+    animation: hero-bounce 2.4s ease-in-out infinite;
+  }
+  .hero-down svg { width: 28px; height: 28px; }
+  @keyframes hero-bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(8px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-down { animation: none; }
+  }
+
+  @media (min-width: 900px) {
+    .hero-body { padding: 0 40px; }
+  }
+</style>
