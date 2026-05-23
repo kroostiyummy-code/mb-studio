@@ -1,0 +1,166 @@
+---
+// "Restez un peu plus longtemps" — background photo opacity + texte gauche + stats + photo Künefe droite
+const bgTextures = "https://lh3.googleusercontent.com/aida-public/AB6AXuC6QGz3-4W9NHr3usZV2yS6H3WJS8EgIdghkTYBY5qZ1JDT7thTtfusPvB79Z5V2j2tWrhWUPOjahUMMWuafSCO0-KHFpYqFrbXxVnprmRNE3TLFgT9js-JL7KcVG0x54ZJDEH8LebCoIpMMBf5rpxMaInFAlZLqncIhYVfX_Ba42p2d9p02GL_dyQ7OODNqP2fOCPoESqJLyogq0fMYypgnxqYNOh5PxdvOacTo7hynrBzUF21N4o11WzLqQbPL4qsqMc5FqsHZI48";
+const kunefe = "https://lh3.googleusercontent.com/aida-public/AB6AXuAAIC1LwLRA9oL1Z260pwtN-DOFrlhB5grW8JjVqOW8R83-qNifc21N6lSY4vOP6BTJDmAKtXAqpdMHBvFuCKZYFwRZWuMFJr3dp7Pun0uWEpJoVT4unhpCnjVSDgzIMmqn44Cucf5plmEjhH2bf4yLvjveyCkLuptNrTAVrRzHp2pEsjbUrRoXSlcdCz5RMhKMzSo2uVDyrPY7B1EviZLKBJQAy5p9XF5m1Bn5JkCm1ecsH2nx88oxZuqutBAA4xfU0aNurBcev7SX";
+---
+<section class="douceurs" id="douceurs">
+  <div class="douceurs-bg" aria-hidden="true">
+    <img src={bgTextures} alt="" loading="lazy" />
+  </div>
+
+  <div class="douceurs-wrap">
+    <div class="douceurs-text mb-reveal">
+      <span class="douceurs-kicker">La douceur finale</span>
+      <h2 class="douceurs-title">Restez un peu plus longtemps</h2>
+      <p class="douceurs-body">La fin du repas n'est qu'un début. Künefe servi fumant, baklavas artisanaux, thé turc dans son verre tulipe — prolongez l'expérience dans l'ambiance feutrée jusqu'au bout de la nuit.</p>
+
+      <div class="douceurs-stats">
+        <div class="stat">
+          <span class="stat-val">00:30</span>
+          <span class="stat-lbl">Fermeture tardive</span>
+        </div>
+        <div class="stat">
+          <span class="stat-val">7 / 7</span>
+          <span class="stat-lbl">Tous les jours</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="douceurs-media mb-reveal">
+      <img src={kunefe} alt="Künefe Anamour — cheveux d'ange dorés, fromage filant, sirop chaud (photo moodboard à remplacer)" loading="lazy" />
+      <div class="douceurs-media-overlay">
+        <span>Le rituel du thé et des douceurs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .douceurs {
+    position: relative;
+    padding: var(--mb-section-py) 0;
+    background: var(--mb-paper);
+    overflow: hidden;
+  }
+  .douceurs-bg {
+    position: absolute; inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .douceurs-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.18;
+    filter: grayscale(0.6);
+    display: block;
+  }
+  .douceurs-bg::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, var(--mb-paper) 0%, rgba(19,19,19,0.6) 30%, rgba(19,19,19,0.6) 70%, var(--mb-paper) 100%);
+  }
+
+  .douceurs-wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 var(--mb-section-px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--mb-s-8);
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .douceurs-wrap {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--mb-s-10);
+    }
+  }
+
+  .douceurs-kicker {
+    display: block;
+    font-family: var(--mb-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--mb-accent);
+    margin-bottom: var(--mb-s-4);
+  }
+  .douceurs-title {
+    font-family: var(--mb-display);
+    font-weight: 800;
+    font-size: clamp(2.2rem, 5.5vw, 3.2rem);
+    line-height: 1.06;
+    letter-spacing: -0.015em;
+    color: var(--mb-ink);
+    margin: 0 0 var(--mb-s-6);
+  }
+  .douceurs-body {
+    font-family: var(--mb-sans);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--mb-ink-soft);
+    max-width: 32rem;
+    margin: 0 0 var(--mb-s-7);
+  }
+
+  .douceurs-stats {
+    display: flex;
+    gap: var(--mb-s-8);
+    flex-wrap: wrap;
+  }
+  .stat { display: flex; flex-direction: column; }
+  .stat-val {
+    font-family: var(--mb-display);
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    line-height: 1;
+    color: var(--mb-secondary);
+    letter-spacing: -0.01em;
+  }
+  .stat-lbl {
+    margin-top: var(--mb-s-2);
+    font-family: var(--mb-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mb-ink-soft);
+  }
+
+  .douceurs-media {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(214, 179, 138, 0.14);
+    box-shadow: 0 30px 80px -30px rgba(0,0,0,0.6);
+  }
+  .douceurs-media img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.9s ease;
+  }
+  .douceurs-media:hover img { transform: scale(1.06); }
+  .douceurs-media-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: var(--mb-s-7);
+    background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.78) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .douceurs-media:hover .douceurs-media-overlay { opacity: 1; }
+  .douceurs-media-overlay span {
+    font-family: var(--mb-display);
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #fff;
+    letter-spacing: -0.005em;
+  }
+</style>

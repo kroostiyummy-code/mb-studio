@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
+
+import Bandeau from '../components/sections/Bandeau.astro';
+import Hero from '../components/sections/Hero.astro';
+import TrustBar from '../components/sections/TrustBar.astro';
+import Histoire from '../components/sections/Histoire.astro';
+import Avis from '../components/sections/Avis.astro';
+import Reservation from '../components/sections/Reservation.astro';
+import Menu from '../components/sections/Menu.astro';
+import Atmosphere from '../components/sections/Atmosphere.astro';
+import Douceurs from '../components/sections/Douceurs.astro';
+import Exigence from '../components/sections/Exigence.astro';
+import Galerie from '../components/sections/Galerie.astro';
+import Localisation from '../components/sections/Localisation.astro';
+import Reseaux from '../components/sections/Reseaux.astro';
+import Footer from '../components/sections/Footer.astro';
+import StickyCallBar from '../components/sections/StickyCallBar.astro';
+
+const entry = await getEntry('settings', 'site');
+const s = entry!.data;
+
+// ORCHESTRATION ANAMOUR : architecture spécifique pour matcher la DA Dark
+// Mediterranean Grill Lounge. Hero plein écran → TrustBar (preuve sociale
+// dense) → Histoire "Né du Feu" → Avis Google → Menu bento → Atmosphere
+// "L'Art de la Table" → Douceurs "Restez un peu plus longtemps" → Localisation.
+// La partition.ordre du settings reste lue par d'autres clients ; ici on
+// override l'orchestration pour le pre-brief (custom Anamour).
+---
+<Layout>
+  {s.sections?.bandeau && <Bandeau />}
+  <Hero />
+  <TrustBar />
+  {s.sections?.histoire && <Histoire />}
+  {s.sections?.avis && <Avis />}
+  {s.sections?.menu && <Menu />}
+  <Atmosphere />
+  <Douceurs />
+  {s.sections?.localisation && <Localisation />}
+  {s.sections?.reseaux && <Reseaux />}
+  <Footer />
+  <StickyCallBar />
+</Layout>

@@ -1,0 +1,254 @@
+---
+import { getEntry } from 'astro:content';
+const entry = await getEntry('settings', 'site');
+const s = entry!.data;
+
+const joursLabels: Record<string, string> = {
+  lundi: 'Lundi', mardi: 'Mardi', mercredi: 'Mercredi', jeudi: 'Jeudi',
+  vendredi: 'Vendredi', samedi: 'Samedi', dimanche: 'Dimanche',
+};
+const ordreJours = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'] as const;
+
+const ligneFixe = s.mode === 'fixe'
+  ? ordreJours.map(jour => {
+      const data = s.horaires?.find(h => h.jour === jour);
+      return { jour, creneaux: data?.creneaux ?? [] };
+    })
+  : [];
+
+const itineraireUrl = s.adresse
+  ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(s.adresse)}`
+  : null;
+
+// Vérifie si tous les jours ont le même créneau (cas Anamour : 7j/7 même horaire)
+const meme = ligneFixe.length > 0
+  && ligneFixe.every(l => l.creneaux.length === 1
+    && l.creneaux[0].ouvre === ligneFixe[0].creneaux[0]?.ouvre
+    && l.creneaux[0].ferme === ligneFixe[0].creneaux[0]?.ferme);
+
+// Photo façade/map grayscale (à remplacer par vraie photo façade Anamour)
+const mapImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuAGuCui-HTaWYuKMWfl_nXn63NE1GmUv1niHlQoJVbUXsqGC3aPjeZFjFL9melXabNALzfSS0SlV6so_23mrmNLtq_BS_LKnmbkRLnAt_WmHz2ZwYRfnU1m1COKWcJhxKbqK56Ba67CbZ__xdSIFOGjExsc81Rix7uNmvO97cIOesT9Ibh9uZOfudOA2-Get5-ugiGZ_HtWLxVXKStrEFrMl_jLJPqDxFc61h7VhRkHTblgTFWJgSqRAAi3z3Ej2A-k9XN2nJ3S5o06";
+---
+<section class="where" id="localisation">
+  <div class="where-wrap">
+    <div class="where-card mb-reveal">
+      <h2 class="where-title">Horaires &amp; Lieu</h2>
+
+      <div class="where-row">
+        <svg class="where-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <div>
+          <div class="row-title">{s.nom}</div>
+          {s.adresse && <p class="row-body">{s.adresse}</p>}
+        </div>
+      </div>
+
+      <div class="where-row">
+        <svg class="where-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 7v5l3 2"/>
+        </svg>
+        <div class="row-grow">
+          <div class="row-title">Heures d'ouverture</div>
+          {meme ? (
+            <div class="schedule-uniform">
+              <span class="day-range">Lundi → Dimanche</span>
+              <span class="hours-range">
+                {ligneFixe[0].creneaux[0].ouvre.replace(':', 'h')} — {ligneFixe[0].creneaux[0].ferme.replace(':', 'h')}
+              </span>
+            </div>
+          ) : (
+            <div class="schedule">
+              {ligneFixe.map(({ jour, creneaux }) => (
+                <div class={`sched-row${creneaux.length === 0 ? ' full-closed' : ''}`}>
+                  <span class="day">{joursLabels[jour]}</span>
+                  <span class="hours">
+                    {creneaux.length === 0 ? 'Fermé' :
+                      creneaux.map((c, i) => (
+                        <>
+                          {c.ouvre.replace(':', 'h')} — {c.ferme.replace(':', 'h')}
+                          {i < creneaux.length - 1 && <span class="sep"> · </span>}
+                        </>
+                      ))
+                    }
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+          <p class="schedule-foot">Ouvert tous les jours sans exception.</p>
+        </div>
+      </div>
+
+      <div class="where-ctas">
+        {itineraireUrl && (
+          <a href={itineraireUrl} target="_blank" rel="noopener" class="where-cta">
+            Itinéraire Google Maps
+          </a>
+        )}
+        <a href={`tel:${s.telephone}`} class="where-cta secondary">
+          Appeler · {s.telephone_display}
+        </a>
+      </div>
+    </div>
+
+    <div class="where-media mb-reveal">
+      <img src={mapImage} alt={`Façade ${s.nom} à ${s.ville} la nuit, lumière chaude depuis l'intérieur (photo moodboard à remplacer)`} loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .where {
+    padding: var(--mb-section-py) 0;
+    background: var(--mb-paper-2);
+    border-top: 1px solid var(--mb-line);
+  }
+  .where-wrap {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 var(--mb-section-px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--mb-s-6);
+  }
+  @media (min-width: 900px) {
+    .where-wrap { grid-template-columns: 1fr 1fr; gap: var(--mb-s-7); }
+  }
+
+  .where-card {
+    background: rgba(42, 29, 26, 0.55);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(214, 179, 138, 0.14);
+    border-radius: 14px;
+    padding: var(--mb-s-8) var(--mb-s-7);
+    display: flex;
+    flex-direction: column;
+    gap: var(--mb-s-7);
+  }
+
+  .where-title {
+    font-family: var(--mb-display);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3.4vw, 2rem);
+    line-height: 1.1;
+    color: var(--mb-ink);
+    margin: 0;
+  }
+
+  .where-row {
+    display: flex;
+    gap: var(--mb-s-5);
+    align-items: flex-start;
+  }
+  .where-icon {
+    width: 22px; height: 22px;
+    color: var(--mb-accent);
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .row-grow { width: 100%; }
+  .row-title {
+    font-family: var(--mb-display);
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--mb-ink);
+    margin-bottom: var(--mb-s-2);
+    letter-spacing: -0.005em;
+  }
+  .row-body {
+    font-family: var(--mb-sans);
+    font-size: 0.94rem;
+    line-height: 1.5;
+    color: var(--mb-ink-soft);
+    margin: 0;
+    max-width: none;
+  }
+
+  .schedule-uniform {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--mb-s-4);
+    padding: var(--mb-s-3) 0 var(--mb-s-4);
+    border-bottom: 1px solid rgba(214, 179, 138, 0.12);
+    font-family: var(--mb-sans);
+    font-size: 0.94rem;
+  }
+  .schedule-uniform .day-range { color: var(--mb-ink-soft); font-weight: 500; }
+  .schedule-uniform .hours-range { color: var(--mb-secondary); font-weight: 600; letter-spacing: 0.04em; }
+
+  .schedule { display: flex; flex-direction: column; }
+  .sched-row {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--mb-s-3) 0;
+    border-bottom: 1px solid rgba(214, 179, 138, 0.10);
+    font-family: var(--mb-sans);
+    font-size: 0.92rem;
+  }
+  .sched-row .day { color: var(--mb-ink-soft); font-weight: 500; }
+  .sched-row .hours { color: var(--mb-secondary); font-weight: 600; }
+  .sched-row.full-closed .hours { color: var(--mb-ink-soft); font-style: italic; font-weight: 400; }
+  .sched-row .sep { color: var(--mb-ink-soft); margin: 0 4px; }
+
+  .schedule-foot {
+    margin: var(--mb-s-3) 0 0;
+    font-family: var(--mb-sans);
+    font-style: italic;
+    font-size: 0.84rem;
+    color: var(--mb-tertiary);
+    max-width: none;
+  }
+
+  .where-ctas {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mb-s-3);
+    margin-top: auto;
+    padding-top: var(--mb-s-3);
+    border-top: 1px solid rgba(214, 179, 138, 0.12);
+  }
+  .where-cta {
+    display: block;
+    text-align: center;
+    padding: 16px 24px;
+    border-radius: var(--mb-radius-pill);
+    font-family: var(--mb-sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--mb-ink);
+    border: 1px solid rgba(255, 183, 123, 0.32);
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.18s ease;
+  }
+  .where-cta:hover { background: rgba(255, 183, 123, 0.10); color: var(--mb-accent); }
+  .where-cta.secondary {
+    background: transparent;
+    border-color: var(--mb-line-strong);
+    color: var(--mb-ink-soft);
+  }
+  .where-cta.secondary:hover { color: var(--mb-ink); background: transparent; border-color: var(--mb-accent); }
+
+  .where-media {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(214, 179, 138, 0.12);
+    min-height: 320px;
+    height: 100%;
+  }
+  .where-media img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(0.45) brightness(0.7);
+    transition: filter 0.6s ease;
+  }
+  .where-media:hover img { filter: grayscale(0) brightness(0.85); }
+</style>

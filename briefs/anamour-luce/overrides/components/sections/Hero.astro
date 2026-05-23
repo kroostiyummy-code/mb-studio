@@ -71,12 +71,13 @@ const avis = s.avis_google;
   @media (prefers-reduced-motion: reduce) {
     .hero-media img { animation: none; }
   }
-  /* Triple scrim : voile noir + gradient bottom (fond) + gradient subtle top */
+  /* Scrim allégé : voile global doux + gradient bottom vers paper. Pas de
+     gradient sombre en haut qui noierait le texte sur des images déjà dark. */
   .hero-scrim {
     position: absolute; inset: 0; pointer-events: none;
     background:
-      linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 30%, rgba(0,0,0,0.0) 50%, var(--mb-paper) 100%),
-      linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.0) 50%, rgba(0,0,0,0.55) 100%);
+      linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.0) 55%, var(--mb-paper) 100%),
+      rgba(0,0,0,0.42);
   }
 
   .hero-body {
@@ -101,21 +102,24 @@ const avis = s.avis_google;
   .hero-name {
     font-family: var(--mb-display);
     font-weight: 800;
-    font-size: clamp(2.6rem, 8.5vw, 5.4rem);
+    font-size: clamp(2.8rem, 9vw, 5.6rem);
     line-height: 1.02;
     letter-spacing: -0.02em;
     color: #ffffff;
     margin: 0;
-    text-shadow: 0 0 30px rgba(255, 183, 123, 0.25);
+    text-shadow:
+      0 2px 24px rgba(0, 0, 0, 0.55),
+      0 0 18px rgba(255, 183, 123, 0.5);
   }
 
   .hero-slogan {
     margin: var(--mb-s-5) auto 0;
     font-family: var(--mb-sans);
-    font-size: clamp(1.02rem, 2.4vw, 1.18rem);
-    line-height: 1.55;
-    color: var(--mb-ink-soft);
+    font-size: clamp(1.06rem, 2.4vw, 1.2rem);
+    line-height: 1.6;
+    color: #f0e7da;
     max-width: 38rem;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.55);
   }
 
   .hero-row {

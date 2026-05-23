@@ -23,13 +23,19 @@ function bentoClass(idx: number, total: number): string {
     <div class="bento">
       {menuSections.map((section, idx) => {
         const cls = bentoClass(idx, menuSections.length);
+        const showDesc = cls.includes('card-featured') || cls.includes('card-wide');
         return (
           <article class={`${cls} mb-reveal`}>
             <h3 class="card-title">{section.data.nom_section}</h3>
             <div class="card-items">
               {section.data.items.map(item => (
                 <div class="card-item">
-                  <span class="card-item-name">{item.nom}</span>
+                  <div class="card-item-body">
+                    <span class="card-item-name">{item.nom}</span>
+                    {showDesc && item.description && (
+                      <span class="card-item-desc">{item.description}</span>
+                    )}
+                  </div>
                   <span class="card-item-price">{item.prix}</span>
                 </div>
               ))}
@@ -135,7 +141,7 @@ function bentoClass(idx: number, total: number): string {
 
   .card-item {
     display: flex;
-    align-items: baseline;
+    align-items: flex-start;
     justify-content: space-between;
     gap: var(--mb-s-4);
     padding-bottom: var(--mb-s-3);
@@ -146,6 +152,7 @@ function bentoClass(idx: number, total: number): string {
     padding-bottom: var(--mb-s-4);
   }
 
+  .card-item-body { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0; }
   .card-item-name {
     font-family: var(--mb-sans);
     font-weight: 500;
@@ -153,12 +160,21 @@ function bentoClass(idx: number, total: number): string {
     font-size: 0.98rem;
     line-height: 1.3;
   }
+  .card-item-desc {
+    font-family: var(--mb-sans);
+    font-weight: 400;
+    color: var(--mb-ink-soft);
+    font-size: 0.84rem;
+    line-height: 1.45;
+    margin: 0;
+  }
   .card-featured .card-item-name {
     font-family: var(--mb-display);
     font-weight: 600;
     font-size: 1.18rem;
     letter-spacing: -0.005em;
   }
+  .card-featured .card-item-desc { font-size: 0.88rem; line-height: 1.5; }
 
   .card-item-price {
     font-family: var(--mb-sans);

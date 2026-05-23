@@ -89,6 +89,6 @@ site:
     reservation: false
     menu: true
     exigence: false
-    galerie: true
+    galerie: false        # remplacée par Atmosphere + Douceurs (custom Anamour)
     localisation: true
-    reseaux: true
+    reseaux: false        # icônes sociales intégrées au footer suffit
