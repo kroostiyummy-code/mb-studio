@@ -1,0 +1,25 @@
+# Maquette pré-brief Anamour — placeholders Picsum (seed déterministe)
+# À REMPLACER au brief signé par les vraies photos du restaurant :
+# - grillade au feu (cœur émotionnel), salle lounge de nuit, künefe fondant,
+#   tablée vivante, viande découpée, façade éclairée. Cf moodboard à produire.
+
+galerie:
+  photos:
+    - src: "https://picsum.photos/seed/anamour-grill-feu/1600/1200"
+      alt: "Grillade au feu — Adana au feu, fumée, braises (photo cible à fournir par le restaurant)"
+      legende: "La braise · Adana au feu"
+    - src: "https://picsum.photos/seed/anamour-salle-nuit/1600/1200"
+      alt: "Salle lounge à la tombée du soir — lumière chaude, marbre, velours (photo cible à fournir)"
+      legende: "La salle, le soir"
+    - src: "https://picsum.photos/seed/anamour-kunefe/1200/1200"
+      alt: "Künefe fondant, sirop chaud — dessert signature (photo cible à fournir)"
+      legende: "Künefe maison"
+    - src: "https://picsum.photos/seed/anamour-tablee/1600/1200"
+      alt: "Tablée vivante, plats partagés, ambiance soirée (photo cible à fournir)"
+      legende: "À partager"
+    - src: "https://picsum.photos/seed/anamour-decoupe/1200/1200"
+      alt: "Viande découpée au feu, texture brillante, vapeur (photo cible à fournir)"
+      legende: "Découpe au feu"
+    - src: "https://picsum.photos/seed/anamour-facade-nuit/1600/1200"
+      alt: "Façade Anamour éclairée la nuit, lumière chaude, présence locale (photo cible à fournir)"
+      legende: "Lucé · le soir"

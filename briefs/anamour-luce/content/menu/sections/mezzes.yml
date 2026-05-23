@@ -1,0 +1,23 @@
+ordre: 3
+nom_section: "Mezzés à partager"
+items:
+  - nom: "Houmous"
+    description: "Pois chiches, tahini, citron, huile d'olive."
+    prix: "6,90 €"
+    allergenes: ["sesame"]
+  - nom: "Cacık"
+    description: "Yaourt frais, concombre, ail, menthe — frais et acidulé."
+    prix: "5,90 €"
+    allergenes: ["lait"]
+  - nom: "Yaprak Sarma"
+    description: "Feuilles de vigne farcies au riz, herbes, citron."
+    prix: "7,90 €"
+    allergenes: []
+  - nom: "Patlıcan Ezme"
+    description: "Caviar d'aubergine fumée, ail, persil."
+    prix: "6,90 €"
+    allergenes: []
+  - nom: "Antep Ezme"
+    description: "Tomates concassées, poivrons, oignons, piment d'Antep."
+    prix: "5,90 €"
+    allergenes: []

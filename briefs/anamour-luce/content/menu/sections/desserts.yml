@@ -1,0 +1,11 @@
+ordre: 4
+nom_section: "Desserts maison"
+items:
+  - nom: "Künefe"
+    description: "Cheveux d'ange, fromage fondant, sirop — servi tiède."
+    prix: "7,90 €"
+    allergenes: ["gluten", "lait"]
+  - nom: "Baklava"
+    description: "Pâte filo, pistache d'Antep, sirop léger."
+    prix: "6,90 €"
+    allergenes: ["gluten", "lait", "fruits-a-coque"]

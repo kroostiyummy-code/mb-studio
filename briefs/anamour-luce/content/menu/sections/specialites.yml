@@ -1,0 +1,19 @@
+ordre: 2
+nom_section: "Spécialités turques"
+items:
+  - nom: "Iskender"
+    description: "Émincé de viande sur pain pide, sauce tomate, beurre, yaourt frais."
+    prix: "15,90 €"
+    allergenes: ["gluten", "lait"]
+  - nom: "Beyti Kebab"
+    description: "Viande hachée roulée dans une galette, yaourt, sauce tomate."
+    prix: "16,90 €"
+    allergenes: ["gluten", "lait"]
+  - nom: "Eli Nazik"
+    description: "Émincé d'agneau sur purée d'aubergine fumée, herbes."
+    prix: "15,90 €"
+    allergenes: ["lait"]
+  - nom: "Yogurtlu Adana"
+    description: "Adana sur pain pide, sauce tomate, yaourt, beurre noisette."
+    prix: "16,90 €"
+    allergenes: ["gluten", "lait"]

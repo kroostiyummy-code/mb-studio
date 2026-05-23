@@ -1,0 +1,24 @@
+# Maquette pré-brief — prix indicatifs à confirmer avec le patron au brief signé
+ordre: 1
+nom_section: "Grillades au feu"
+items:
+  - nom: "Adana Kebab"
+    description: "Viande hachée d'agneau, brochette épicée, grillée au feu."
+    prix: "14,90 €"
+    allergenes: []
+  - nom: "Tavuk Sis"
+    description: "Brochettes de poulet mariné, herbes, grillées minute."
+    prix: "13,90 €"
+    allergenes: []
+  - nom: "Kuzu Sis"
+    description: "Brochettes d'agneau, marinade maison, cuisson sur braise."
+    prix: "16,90 €"
+    allergenes: []
+  - nom: "Pirzola"
+    description: "Côtelettes d'agneau grillées, riz pilaf, salade."
+    prix: "19,90 €"
+    allergenes: []
+  - nom: "Grillade Mixte"
+    description: "Adana, brochette de poulet, brochette d'agneau — pour partager."
+    prix: "21,90 €"
+    allergenes: []

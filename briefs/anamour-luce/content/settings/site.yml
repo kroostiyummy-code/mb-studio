@@ -1,0 +1,90 @@
+# Anamour — restaurant turc moderne, Lucé (28110)
+# DA : "Dark Mediterranean Grill Lounge" · Spine : VENIR · Hero : éditorial
+# Accent : cuivre chaud (braise + métal) · Média 3 (intensité visuelle haute)
+# Voir prospects/anamour-luce/analyse-prebrief.md pour la doctrine complète.
+
+site:
+  nom: "Anamour"
+  slogan: "Restaurant turc moderne · Grillades au feu"
+  baseline: "Lucé · 4,6★ · 319 avis Google · Ouvert 7j/7"
+  ville: "Lucé"
+  region_code: "FR-28"
+  # --- PARTITION : pré-brief (à confirmer avec le patron au brief signé) ---
+  # spine VENIR : le lieu est plus fort que le digital → faire venir avant commander
+  # hero editorial : statement émotionnel, le lieu mérite une mise en scène
+  # media 3 : intensité visuelle haute (grillades + lounge supportent une DA forte)
+  # motion 1 : lounge calme, retenue (le mouvement vient du feu, pas des animations)
+  partition:
+    spine: "venir"
+    hero: "editorial"
+    tempo: 2
+    densite: 2
+    media: 3
+    motion: 1
+    ordre:
+      - "avis"
+      - "menu"
+      - "galerie"
+      - "histoire"
+      - "localisation"
+      - "reseaux"
+  dominante: "#b87333"
+  telephone: "+33237263214"
+  telephone_display: "02 37 26 32 14"
+  adresse: "54 Rue du Maréchal Leclerc, 28110 Lucé"
+  geo:
+    lat: 48.4419
+    lng: 1.4707
+  reseaux:
+    instagram: "https://www.instagram.com/anamour28chartres/"
+  # Maquette pré-brief : hero pointe vers placeholder Picsum (cible 4:5 vertical).
+  # À remplacer au brief signé par /images/hero-grillades.webp (vraie photo).
+  hero_image: "https://picsum.photos/seed/anamour-hero-grill/1200/1500"
+  hero_image_alt: "Grillade au feu — Anamour, restaurant turc à Lucé (photo cible à fournir)"
+  histoire:
+    statement_lead: "La braise turque,"
+    statement_accent: "à Lucé."
+    body: "Restaurant turc moderne. **Grillades au feu**, cuisine **halal faite maison** — du midi à minuit, 7 jours sur 7. Adana, Iskender, mezzés, desserts maison : une vraie maison turque à 10 minutes de Chartres."
+  avis_google:
+    note: 4.6
+    count: 319
+  bandeau:
+    messages:
+      - "★ 4,6 · 319 avis Google"
+      - "Restaurant turc moderne · halal"
+      - "Grillades au feu · faite maison"
+      - "Ouvert 7j/7 · 11h-00h30"
+      - "Lucé · à 10 min de Chartres"
+  mode: "fixe"
+  horaires:
+    - jour: "lundi"
+      creneaux:
+        - { ouvre: "11:00", ferme: "00:30" }
+    - jour: "mardi"
+      creneaux:
+        - { ouvre: "11:00", ferme: "00:30" }
+    - jour: "mercredi"
+      creneaux:
+        - { ouvre: "11:00", ferme: "00:30" }
+    - jour: "jeudi"
+      creneaux:
+        - { ouvre: "11:00", ferme: "00:30" }
+    - jour: "vendredi"
+      creneaux:
+        - { ouvre: "11:00", ferme: "00:30" }
+    - jour: "samedi"
+      creneaux:
+        - { ouvre: "11:00", ferme: "00:30" }
+    - jour: "dimanche"
+      creneaux:
+        - { ouvre: "11:00", ferme: "00:30" }
+  sections:
+    bandeau: true
+    histoire: true
+    avis: true
+    reservation: false
+    menu: true
+    exigence: false
+    galerie: true
+    localisation: true
+    reseaux: true
