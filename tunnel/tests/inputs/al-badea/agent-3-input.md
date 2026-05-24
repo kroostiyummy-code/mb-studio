@@ -1,154 +1,177 @@
-# Input Agent 3 — Al Badea (Prompt Stitch)
+# Input Agent 3 v2 — Al Badea (Prompt Stitch v2)
 
-Voici les éléments pour produire le prompt Stitch final qui générera le design Al Badea.
-
----
-
-## 1. Fiche restaurant validée (Agent 1) — déjà chargée automatiquement
-
-L'output complet d'Agent 1 est chargé en amont par le script. Tu disposes de :
-- L'identité publique complète
-- Les forces apparentes
-- Les plats signatures
-- La fiche d'âme sur 10 axes
-- La combinaison anti-jumeau validée
-- Les anti-directions (Axe 9)
+Voici les éléments pour produire le prompt Stitch v2 d'Al Badea selon la **doctrine Aération Terra**.
 
 ---
 
-## 2. Copywriting validé (Agent 2) — déjà chargé automatiquement
+## 1. Fiche restaurant (Agent 1) — chargée automatiquement
 
-L'output complet d'Agent 2 est chargé en amont par le script. Tu disposes de :
-- Le YAML settings complet avec tout le copy français à utiliser TEL QUEL
-- La section `notes_pour_agent_3` qui contient :
-  - L'atmosphère visuelle clé
-  - Les références visuelles à suivre
-  - Les anti-références
-  - La palette suggérée (codes hex précis)
-  - La typographie suggérée
+Le script charge `tests/outputs/al-badea/agent-1.md`. Tu disposes de la fiche complète.
 
-**Utilise ces éléments comme base.** Tu peux les affiner si nécessaire en t'appuyant sur la doctrine MB Studio, mais ne contredis pas les choix validés.
+## 2. Copywriting (Agent 2) — chargé automatiquement
 
----
+Le script charge `tests/outputs/al-badea/agent-2.md`. Tu disposes du YAML copy complet.
 
-## 3. Combinaison anti-jumeau confirmée par Mike
+## 3. Combinaison anti-jumeau confirmée
 
 ```yaml
 da: "Mediterraneen_Solaire"
 pack_typo: "Bistrot_Classic"  # Libre Caslon Text + Work Sans
-structure_hero: "Editorial_Photo_Equipe"  # photo dominante + texte côté
+structure_hero: "Editorial_Photo_Equipe"
 spine: "VENIR"
 ton: "Chaleureux_populaire"
 ```
 
----
+## 4. Instructions Mike — RÉVISÉES selon doctrine Aération Terra
 
-## 4. Instructions spécifiques Mike pour le prompt Stitch
+### 4.1 — Référence principale : Terra Chartres (terrachartres.com)
 
-### 4.1 — Sur la palette finale
+C'est **la référence d'aération** pour ce site. Mike a explicitement demandé :
 
-L'Agent 2 a proposé :
-- Primaire : `#1B4F8A` (Bleu Sidi Bou Said)
-- Secondaire / accent : `#C0704A` (Terre cuite)
-- Fond : `#F5F0E8` (Blanc cassé)
-- Complémentaire : `#EDE0C8` (Crème naturelle)
+> *"Je veux surtout le rendu aéré de Terra sur tous mes sites. On ne doit pas se sentir étouffé et avoir la flemme de lire ou scroller. Au contraire on se sent bien et on a envie d'aller au restaurant découvrir l'univers."*
 
-**Conserve exactement ces codes hex** dans ton prompt Stitch.
+**Métrique succès** : "Envie de découvrir le restaurant", pas "site moderne".
 
-Précise dans le prompt :
-- Le **bleu Sidi Bou Said** est l'**identité visuelle forte** (à utiliser sur le headline, certains accents, certaines bordures)
-- La **terre cuite** est la **couleur d'action** (CTAs, hover states, accents secondaires)
-- Le **blanc cassé** est le **fond dominant** (sections principales)
-- La **crème** est la **respiration** entre sections (alternance subtile blanc cassé / crème)
+### 4.2 — Performance 3 secondes max
 
-### 4.2 — Sur la photographie
+**NON-NÉGOCIABLE.** Tous les sites MB Studio chargent en moins de 3 secondes sur 4G mobile.
 
-C'est **un point critique** pour ce projet. Tu insistes dans le prompt sur :
+Contraintes spécifiques pour Al Badea :
+- 6 photos maximum sur toute la page (Stitch en met souvent 10+)
+- Toutes en WebP < 200 Ko
+- Pas de Google Maps iframe (screenshot + lien)
+- Pas de carrousel JS lourd
+- Pas d'autoplay video
+- Lazy loading partout sauf hero
 
-- **Style photo cible** : documentaire chaleureux, pas commercial. Lumière naturelle de midi (warm, directe), assiettes vues de dessus (90°) ou en 3/4 (45-60°). Pas de fond noir, pas de fond marbré, pas de chichi.
-- **Anti-stock photography absolu** : Stitch ne doit JAMAIS utiliser des photos génériques de couscous "Shutterstock". Si l'image n'existe pas, mieux vaut un placeholder texturé que du stock photo générique.
-- **Photo Hero** : assiette généreuse (idéalement couscous), vue plongeante ou 45°, lumière de jour, fond simple (table en bois ou nappe). **Pas de mise en scène cinématographique** comme pour Anamour.
+### 4.3 — Touches rouge harissa dosées
 
-### 4.3 — Sur la typographie
+Couleur exacte : `#B53527` (rouge harissa profond).
 
-**Libre Caslon Text** pour les headlines :
-- Tailles : 56-72px sur mobile, 96-128px sur desktop
-- Italic possible sur certains titres de section (effet éditorial doux)
-- Poids : Regular ou Bold selon contexte
+**1 à 3 emplacements MAXIMUM** dans le site :
+1. ✅ Un mot accent du headline (subtilement, pas comme l'ancien Al Badea qui était trop fort)
+2. ✅ La couleur du bouton CTA principal
+3. ✅ Optionnel : fine ligne séparatrice entre 2 sections (1px, opacity 60%)
 
-**Work Sans** pour le body :
-- Sizes : 16-18px body desktop, 14-15px caption
-- Regular pour body, Medium pour labels CTAs
+⚠️ **PAS** de fond de section harissa, **PAS** de plusieurs titres en harissa, **PAS** de bordures harissa partout.
 
-Précise dans le prompt que ces fonts sont **gratuites Google Fonts** (Stitch les chargera sans problème).
+### 4.4 — Éléments culturels tunisiens DOSÉS
 
-### 4.4 — Sur la structure du site
+**Maximum 2 éléments culturels** :
 
-Le site doit avoir **6 sections principales** (pas plus, pas moins) :
+1. **Petit drapeau tunisien dans le header** (20-24px, à côté du nom "Al Badea")
+2. **Photo Sidi Bou Said** (stock OK) dans la section ambiance OU dans la section terroir si elle est incluse
 
-1. **HERO** — Editorial photo + texte côté
-2. **AMBIANCE** ("Ici, ça partage les plats.")
-3. **CARTE** ("Les incontournables") avec les 6 plats signatures
-4. **AVIS** ("Ce qu'on entend souvent en sortant")
-5. **VENIR** ("À deux pas de la cathédrale")
-6. **FOOTER** avec baseline mémorable + signature MB Studio
+**Frise losanges** : OPTIONNELLE. Si incluse, 1 seule fois entre deux sections, 1px, opacity 60%, espacée — pas surchargée.
 
-⚠️ **Section "soirees" : ABSENTE.** Pas applicable à Al Badea.
+### 4.5 — Headline avec bicolore SUBTIL
 
-### 4.5 — Sur le mobile-first
+Le headline d'Agent 2 est :
 
-Le téléphone est l'écran prioritaire. La majorité des restaurateurs et leurs clients consultent depuis mobile. Précise :
-- Test du design à **375px en premier**
-- Les CTAs sont **toujours accessibles au pouce** (zone basse de l'écran sur mobile)
-- Le **tap-to-call** est obligatoire sur tous les numéros de téléphone
-- L'adresse est cliquable et ouvre Google Maps
-- Pas d'animations qui ralentissent le scroll mobile
+> "Le couscous qui fait
+> revenir les gens."
 
-### 4.6 — Sur le détail signature
+**Bicolore subtil suggéré** : le mot "revenir" en accent harissa `#B53527`, le reste en bleu Sidi Bou Said `#1B4F8A`.
 
-Pour atteindre le standing 10K€ perçu, choisis **UN détail signature visible** pour Al Badea. Suggestion (à intégrer dans le prompt) :
+⚠️ **PAS** comme l'ancien Al Badea où c'était massif et plein de mots en rouge. Juste 1 mot, subtil.
 
-> **Détail signature suggéré** : un grain de pellicule subtil (film grain) sur les photos hero et ambiance, donnant un côté "polaroid de famille" plutôt que "shooting publicitaire". Cohérent avec l'esprit documentaire/authentique du lieu.
+### 4.6 — Structure 7 sections (Al Badea n'a pas besoin de section Terroir)
 
-Tu peux proposer une alternative si tu trouves mieux, mais **un seul détail signature**, pas plusieurs.
+Pour Al Badea, les 7 sections sont :
 
-### 4.7 — Sur les anti-références à intégrer
+1. **HERO** — Photo couscous + headline bicolore + CTAs
+2. **L'ESPRIT** — 1 photo ambiance + paragraphes courts
+3. **RASSURANCE** — 3 cards discrètes (Fait maison · Halal · Sur place & à emporter)
+4. **LES INCONTOURNABLES** — 6 plats typographiques
+5. **CE QU'ON ENTEND** — Avis fond bleu Sidi Bou Said
+6. **VENIR** — Adresse, horaires, téléphone, map screenshot
+7. **FOOTER** — Baseline mémoire + coords + credit MB Studio
 
-Reprends et étoffe les anti-références d'Agent 2 :
-- Pas de fond noir lounge (= Anamour)
-- Pas de moucharabieh / zellige / décor "mille et une nuits"
-- Pas d'esthétique fast-food (rouge/jaune néon)
-- Pas de marbre, pas de blanc pur froid
-- Pas d'animations complexes (scroll-jacking, parallax intense)
-- Pas d'esthétique SaaS B2B (Stripe, Linear, Notion)
-- **Spécifique Al Badea** : pas d'iconographie kebab/shawarma générique (cuisine tunisienne ≠ cuisine kebab)
+⚠️ **PAS** de section "Soirées" ou "Privatisation" (Mike a refusé).
+⚠️ **PAS** de section "Terroir" pour Al Badea (resto populaire, pas besoin de section ville).
 
----
+### 4.7 — Section RASSURANCE (nouveau vs Agent 3 v1)
 
-## 5. Format de sortie attendu
+À ajouter entre l'ESPRIT et LES INCONTOURNABLES. Format ultra-discret :
 
-Tu produis **un seul prompt en anglais**, copier-collable dans Stitch en un seul bloc.
+3 cards horizontales (desktop) ou empilées (mobile) :
+1. 🌿 **Fait maison**
+2. 🌙 **Halal**
+3. 🍽️ **Sur place & à emporter**
 
-Suis exactement la structure définie dans `agents/agent-3-prompt-stitch.md` :
+Style : icônes monochromes (terre cuite `#C0704A`), label Work Sans Medium 14px, fond identique au fond de section, **PAS** de bordures, **PAS** d'ombres, **PAS** de cards colorées.
 
-1. PROJECT TYPE
-2. LANGUAGE REQUIREMENT — CRITICAL (instruction "All visible copy in French")
-3. THE PHILOSOPHY ("Atmosphere first..." + sensation finale en français)
-4. THE PLACE — Atmosphere
-5. THE PLACE — What it is NOT
-6. VISUAL DIRECTION (références, palette, typo, photo style)
-7. QUALITY BENCHMARK — Perceived value €10,000+
-8. STRUCTURE — Mobile-first (les 6 sections détaillées avec le copy français exact)
-9. TECHNICAL REQUIREMENTS
-10. CONTENT — All visible copy (FRENCH, USE EXACTLY) — copie complète du YAML d'Agent 2
-11. FINAL REMINDERS
+### 4.8 — Section AVIS avec fond bleu Sidi Bou Said
 
-**Important :**
-- Le prompt est **intégralement en anglais** SAUF :
-  - La sensation finale citée en français entre guillemets
-  - Tout le copy de l'Agent 2 dans la section CONTENT et dans la structure (en français, à utiliser tel quel par Stitch)
-- L'instruction **"All visible website copy MUST be in French — do not translate"** doit apparaître **deux fois** : en début (LANGUAGE REQUIREMENT) et en fin (FINAL REMINDERS)
-- Le prompt complet doit faire **moins de 8000 mots** pour ne pas être tronqué par Stitch
-- À la fin du prompt, ajoute une ligne `---END OF BRIEF---` pour signaler la fin nette
+Citations exactes (5) :
+1. "Le couscous est exactement comme à la maison."
+2. "Les bricks arrivent encore brûlantes."
+3. "Les portions sont vraiment généreuses pour le prix."
+4. "On revient régulièrement — c'est toujours bon."
+5. "Le meilleur restaurant tunisien de Chartres, sans discussion."
+
+**SANS** attribution inventée. Pas de "Marie B." ou autre prénom.
+
+### 4.9 — Section VENIR
+
+Adresse EXACTE : "9 Rue de la Porte Cendreuse, 28000 Chartres"
+(PAS "12 Rue des Oliviers, 75000 Paris" comme Stitch a halluciné la dernière fois)
+
+Téléphones tap-to-call :
+- "02 37 28 25 05" → tel:0237282505
+- "07 66 21 54 53" → tel:0766215453
+
+Map : screenshot statique (PAS iframe) + lien Google Maps cliquable.
+
+### 4.10 — Footer avec baseline mémoire
+
+Baseline exacte (texte d'Agent 2) :
+> "Une assiette généreuse, une brick brûlante,
+> et l'envie de revenir dès le lendemain."
+
+Copyright : "© 2026 Al Badea — Chartres" (PAS 2024)
+Credit : "Site créé par MB Studio · Chartres" (petit, discret)
+
+**PAS** de "Heritage in every grain" en anglais.
+
+## 5. Fidelity Check obligatoire
+
+Le prompt doit inclure une section finale qui rappelle à Stitch les données NON-NÉGOCIABLES :
+
+**Restaurant** : Al Badea (pas Saveurs de Tunis, ancien nom)
+**Adresse** : 9 Rue de la Porte Cendreuse, 28000 Chartres
+**Téléphone 1** : 02 37 28 25 05
+**Téléphone 2** : 07 66 21 54 53
+**Note Google** : 4.6 sur 151 avis (PAS 4.8 ou autre)
+**Horaires** : Tous les jours 12h-15h + 18h-00h
+
+**Prix CONFIRMÉS** :
+- Fricassé Tunisien : 4€
+- Brick Tunisienne : 5€
+- Ojja Merguez : 13€
+- Tajine à l'Agneau : 16,50€
+- Couscous Royal : 19€
+- Couscous (gamme) : à partir de 14,50€
+
+**INTERDICTIONS** explicites pour Stitch :
+- Pas de Salade Mechouia (plat inventé la dernière fois)
+- Pas de bouton "RESERVE" (le restaurant ne propose pas de réservation)
+- Pas de menu en anglais (HERITAGE/AMBIANCE/MENU/LOCATION = NON)
+- Pas d'attribution d'avis (pas de prénom fictif)
+- Pas de "passion", "authentique seul", "expérience unique", "savoureux"
+
+## 6. Format de sortie attendu
+
+Tu produis **un seul prompt en anglais**, copier-collable dans Stitch.
+
+Suis exactement le format de ton system prompt (Agent 3 v2), avec :
+- Section LANGUAGE REQUIREMENT en début ET en fin
+- Section AÉRATION TERRA en début (les 10 principes)
+- Section CULTURAL IDENTITY (drapeau + frise dosés)
+- Section FIDELITY CHECK avant CONTENT
+- Section CONTENT avec tout le copy d'Agent 2 en français
+- Section FINAL REMINDERS
+
+Le prompt doit faire moins de 8000 mots pour ne pas être tronqué par Stitch.
 
 Vas-y.
