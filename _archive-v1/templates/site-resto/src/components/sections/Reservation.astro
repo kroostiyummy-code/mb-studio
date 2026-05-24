@@ -1,0 +1,258 @@
+---
+import { getEntry } from 'astro:content';
+const entry = await getEntry('settings', 'site');
+const s = entry!.data;
+
+// Défauts si le patron n'a rien rempli (le composant fonctionne hors-Kroosti)
+const kicker = s.reservation?.kicker ?? 'Une table en vue ?';
+const titre = s.reservation?.titre ?? 'Réservez votre table.';
+const perks = s.reservation?.perks?.length
+  ? s.reservation.perks
+  : ['Service rapide', 'Accueil chaleureux', 'À votre arrivée'];
+---
+<section class="section-reserve" id="reservation">
+  <div class="reserve-inner mb-reveal">
+    <div class="reserve-kicker">— {kicker}</div>
+    <h2 class="reserve-headline" set:html={titre.replace(/ ([^ ]+\.?)$/, '<br />$1')} />
+
+    <a href={`tel:${s.telephone}`} class="reserve-phone" aria-label={`Appeler ${s.nom} au ${s.telephone_display}`}>
+      <svg class="phone-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </svg>
+      {s.telephone_display}
+    </a>
+
+    <div class="reserve-perks">
+      {perks.map(p => (
+        <span class="perk">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          {p}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-reserve {
+    background: var(--mb-accent);
+    color: var(--mb-text-on-accent);
+    padding: 50px var(--mb-section-px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-top: 3px solid var(--mb-border);
+    border-bottom: 3px solid var(--mb-border);
+    z-index: 2;
+  }
+  /* Cercles décoratifs en arrière-plan (signature Kroosti reprise) */
+  .section-reserve::before,
+  .section-reserve::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: var(--mb-dominante);
+    opacity: 0.08;
+    pointer-events: none;
+  }
+  .section-reserve::before {
+    top: -40px;
+    right: -40px;
+    width: 180px;
+    height: 180px;
+  }
+  .section-reserve::after {
+    bottom: -60px;
+    left: -60px;
+    width: 220px;
+    height: 220px;
+  }
+  .reserve-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .reserve-kicker {
+    font-family: var(--mb-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--mb-dominante);
+    margin-bottom: 14px;
+  }
+  .reserve-headline {
+    font-family: var(--mb-display);
+    font-size: clamp(2.4rem, 10vw, 4.8rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    margin-bottom: 26px;
+    color: var(--mb-dominante);
+  }
+
+  .reserve-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--mb-dominante);
+    color: var(--mb-accent);
+    padding: 22px 28px;
+    border: 3px solid var(--mb-black);
+    border-radius: var(--mb-r-lg);
+    box-shadow: 6px 6px 0 var(--mb-black);
+    font-family: var(--mb-display);
+    font-size: clamp(1.8rem, 7vw, 2.6rem);
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 22px;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .reserve-phone:active {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 var(--mb-black);
+  }
+  .reserve-phone .phone-ico {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    animation: mb-wiggle 2.4s ease-in-out infinite;
+  }
+  @keyframes mb-wiggle {
+    0%, 86%, 100% { transform: rotate(0); }
+    88% { transform: rotate(-15deg); }
+    90% { transform: rotate(15deg); }
+    92% { transform: rotate(-12deg); }
+    94% { transform: rotate(12deg); }
+    96% { transform: rotate(-6deg); }
+    98% { transform: rotate(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reserve-phone .phone-ico {
+      animation: none;
+    }
+  }
+
+  .reserve-perks {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-family: var(--mb-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--mb-dominante);
+  }
+  .perk {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .perk .check {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    color: var(--mb-dominante);
+  }
+
+  /* ===== Surcharges signature Élégante =====
+     Fond dominante (au lieu d'accent jaune) avec accent doré, texte cream.
+     Pas d'ombre brutaliste, bouton plus sobre. */
+  :global(.signature-gastro) .section-reserve {
+    background: var(--mb-dominante);
+    color: var(--mb-cream);
+    border-color: var(--mb-dominante);
+  }
+  :global(.signature-gastro) .section-reserve::before,
+  :global(.signature-gastro) .section-reserve::after {
+    background: var(--mb-accent);
+    opacity: 0.12;
+  }
+  :global(.signature-gastro) .reserve-kicker {
+    color: var(--mb-accent);
+    font-style: italic;
+    font-family: var(--mb-display);
+    text-transform: none;
+    letter-spacing: 0.06em;
+    font-size: 0.95rem;
+  }
+  :global(.signature-gastro) .reserve-headline {
+    color: var(--mb-cream);
+    text-transform: none;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+  }
+  :global(.signature-gastro) .reserve-phone {
+    background: var(--mb-cream);
+    color: var(--mb-dominante);
+    border: 1px solid var(--mb-cream);
+    box-shadow: none;
+    text-transform: none;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  :global(.signature-gastro) .reserve-phone:active {
+    transform: none;
+    opacity: 0.92;
+  }
+  :global(.signature-gastro) .reserve-perks {
+    color: var(--mb-cream);
+    font-weight: 400;
+  }
+  :global(.signature-gastro) .perk .check {
+    color: var(--mb-accent);
+  }
+
+  /* ===== Surcharges signature Tradition =====
+     Fond cream-dirty avec bordure dominante 2px et ombre dominante.
+     Esprit "carte d'enseigne en bois". */
+  :global(.signature-traditionnel) .section-reserve {
+    background: var(--mb-bg-section-alt);
+    color: var(--mb-dominante);
+    border: 2px solid var(--mb-dominante);
+  }
+  :global(.signature-traditionnel) .section-reserve::before,
+  :global(.signature-traditionnel) .section-reserve::after {
+    background: var(--mb-dominante);
+    opacity: 0.1;
+  }
+  :global(.signature-traditionnel) .reserve-kicker {
+    color: var(--mb-dominante);
+    font-variant: small-caps;
+    font-feature-settings: "smcp" 1;
+    text-transform: none;
+    font-family: var(--mb-display);
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+  }
+  :global(.signature-traditionnel) .reserve-headline {
+    color: var(--mb-dominante);
+    font-variant: small-caps;
+    font-feature-settings: "smcp" 1;
+    text-transform: none;
+    letter-spacing: 0.02em;
+  }
+  :global(.signature-traditionnel) .reserve-phone {
+    background: var(--mb-dominante);
+    color: var(--mb-cream);
+    border: 2px solid var(--mb-dominante);
+    box-shadow: 4px 4px 0 var(--mb-dominante);
+    text-transform: none;
+    font-variant: small-caps;
+  }
+  :global(.signature-traditionnel) .reserve-phone:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--mb-dominante);
+  }
+  :global(.signature-traditionnel) .reserve-perks {
+    color: var(--mb-dominante);
+  }
+
+  @media (min-width: 900px) {
+    .section-reserve {
+      padding: 80px var(--mb-section-px);
+    }
+  }
+</style>

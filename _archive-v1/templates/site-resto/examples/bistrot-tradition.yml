@@ -1,0 +1,116 @@
+# Fixture : L'Auberge du Vieux Pont (bistrot familial à Loches, fictif)
+# Signature : Tradition · Mode : fixe · Dominante : brun terre cuite
+# Cas test : bistrot familial classique avec terroir, ambiance vieille pierre.
+# Pour activer : copier le contenu de ce fichier dans src/content/settings/site.yml
+
+site:
+  nom: "L'Auberge du Vieux Pont"
+  slogan: "Bistrot familial depuis 1972"
+  baseline: "Cuisine du terroir · Produits locaux · Esprit famille"
+  est_year: 1972
+  ville: "Loches"
+  region_code: "FR-37"
+  signature: "traditionnel"
+  dominante: "#7d3c1a"
+
+  prix_appel: "16,50€"
+  telephone: "+33247591234"
+  telephone_display: "02 47 59 12 34"
+  adresse: "3 place du Pont, 37600 Loches"
+  geo:
+    lat: 47.1276
+    lng: 0.9978
+  google_avis_url: "https://maps.google.com/?cid=000"
+  reseaux:
+    facebook: "https://www.facebook.com/aubergeduvieuxpont"
+    # Pas d'Insta ni TikTok pour un bistrot familial classique
+
+  hero_image: "/images/foodtruck.jpg"
+  hero_image_alt: "L'Auberge du Vieux Pont — façade en pierre à Loches"
+
+  combo:
+    active: true
+    tag: "Menu du jour"
+    formule: "Entrée + Plat + Dessert"
+    prix: "16,50"
+
+  reservation:
+    kicker: "Une bonne table ?"
+    titre: "Réservez votre repas."
+    perks:
+      - "Cuisine maison"
+      - "Service en salle"
+      - "Terrasse aux beaux jours"
+
+  histoire:
+    statement_lead: "Depuis trois"
+    statement_accent: "générations."
+    body: "L'Auberge du Vieux Pont a été reprise par mon grand-père **Jean** en 1972, puis mon père Marcel en 1996. J'en ai pris les rênes en **2018** avec la même envie : un bistrot honnête où les habitués se reconnaissent."
+    lancement_year: 1972
+
+  avis_google:
+    note: 4.5
+    count: 134
+
+  bandeau:
+    messages:
+      - "Menu du jour à 16,50€ — du mardi au vendredi midi"
+      - "Cuisine maison · Service en salle"
+      - "Fermé dimanche soir et lundi"
+      - "Terrasse ombragée aux beaux jours"
+
+  exigence:
+    headline_parts:
+      - "Le terroir."
+      - "**Tout simplement.**"
+      - "Rien d'autre."
+    items:
+      - "Pommes de terre du maraîcher de Genillé"
+      - "Volailles fermières label rouge"
+      - "Rillons et fromage de chèvre AOP"
+      - "Pain artisan du village"
+      - "Vins de Loire exclusivement"
+    banner:
+      titre: "Maison familiale depuis 1972"
+      sub: "— 3 générations"
+
+  mode: "fixe"
+  google_maps_embed_url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2700.0!2d0.9978!3d47.1276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDA3JzM5LjQiTiAwwrA1OSczNi4xIkU!5e0!3m2!1sfr!2sfr!4v0!5m2!1sfr!2sfr"
+
+  horaires:
+    - jour: "lundi"
+      creneaux: []
+    - jour: "mardi"
+      creneaux:
+        - { ouvre: "12:00", ferme: "14:00" }
+        - { ouvre: "19:00", ferme: "21:30" }
+    - jour: "mercredi"
+      creneaux:
+        - { ouvre: "12:00", ferme: "14:00" }
+        - { ouvre: "19:00", ferme: "21:30" }
+    - jour: "jeudi"
+      creneaux:
+        - { ouvre: "12:00", ferme: "14:00" }
+        - { ouvre: "19:00", ferme: "21:30" }
+    - jour: "vendredi"
+      creneaux:
+        - { ouvre: "12:00", ferme: "14:00" }
+        - { ouvre: "19:00", ferme: "22:00" }
+    - jour: "samedi"
+      creneaux:
+        - { ouvre: "12:00", ferme: "14:30" }
+        - { ouvre: "19:00", ferme: "22:00" }
+    - jour: "dimanche"
+      creneaux:
+        - { ouvre: "12:00", ferme: "14:30" }
+
+  sections:
+    bandeau: true
+    histoire: true
+    avis: true
+    reservation: true
+    menu: true
+    exigence: true
+    galerie: true
+    localisation: true
+    reseaux: true

@@ -1,0 +1,134 @@
+# ============================================
+# MB Studio - Registre anti-jumeau
+# ============================================
+#
+# Ce fichier liste toutes les combinaisons utilisées pour garantir l'unicité.
+# Voir doctrine/02-anti-jumeau-da.md pour les règles complètes.
+#
+# Règle stricte : aucun nouveau client ne peut avoir la même combinaison
+# sur les 5 dimensions (DA + Pack typo + Hero + Spine + Ton).
+# Pour 2 restos du même type de cuisine : minimum 3/5 dimensions différentes.
+
+clients:
+
+  - slug: "al-badea-chartres"
+    nom: "Al Badea"
+    ville: "Chartres"
+    code_postal: "28000"
+    type_cuisine: "tunisien_populaire"
+    note_google: 4.6
+    nb_avis: 151
+    statut: "demo_pret"  # statuts : prospect | demo_pret | client_signe | livre
+
+    # Combinaison anti-jumeau
+    direction_artistique: "Mediterraneen_Solaire"
+    pack_typo: "Editorial_Serif_Bleu"
+    structure_hero: "Direct"
+    spine_commercial: "VENIR"
+    ton_copy: "Chaleureux_populaire"
+
+    # Métadonnées
+    references_cinematique:
+      - "Al Badea"
+      - "Bistrot familial chaleureux"
+    sensation_finale: "J'ai envie d'un couscous généreux aujourd'hui"
+    moment_dominant: "Midi solaire + soir familial"
+    date_creation: "2026-05-22"
+    date_demo_pret: "2026-05-23"
+    notes: "Premier site offert (cousin Mike). Vitrine BAO pour démarchage local."
+
+  - slug: "anamour-luce"
+    nom: "Anamour"
+    ville: "Lucé"
+    code_postal: "28110"
+    type_cuisine: "turc_moderne"
+    note_google: 4.6
+    nb_avis: 319
+    statut: "demo_pret"
+
+    direction_artistique: "Dark_Lounge"
+    pack_typo: "Lounge_Sensuel"
+    structure_hero: "Cinematique"
+    spine_commercial: "RESERVER"
+    ton_copy: "Sensoriel_premium"
+
+    references_cinematique:
+      - "Coya"
+      - "Bonnie"
+      - "Dark Mediterranean Lounge"
+    sensation_finale: "On réserve ce soir, ça a l'air stylé et vivant"
+    moment_dominant: "Soir lounge, ouverture tardive 00h30"
+    date_creation: "2026-05-XX"
+    notes: "Photos IA à finaliser. Site en attente vraies photos restaurateur."
+
+  - slug: "la-casa-tropical-chartres"
+    nom: "La Casa Tropical"
+    ville: "Chartres"
+    code_postal: "28000"
+    type_cuisine: "afro_caribeen"
+    note_google: 4.4
+    nb_avis: 422
+    statut: "demo_pret"
+
+    direction_artistique: "Tropical_Vivant"
+    pack_typo: "Editorial_Serif_Italique"
+    structure_hero: "Editorial_Photo_Equipe"
+    spine_commercial: "RESERVER"
+    ton_copy: "Chaleureux_populaire"
+
+    references_cinematique:
+      - "Pink Mamma"
+      - "Daroco"
+      - "Maison-monde afro-caribéenne"
+    sensation_finale: "Je veux passer ma soirée là-bas"
+    moment_dominant: "Dîner qui glisse vers la soirée"
+    date_creation: "2026-05-XX"
+    notes: "Ton meilleur site visuellement. Référence du portfolio MB Studio."
+
+# ============================================
+# CATALOGUE DE DIMENSIONS
+# ============================================
+# Référence des valeurs possibles pour chaque dimension.
+# Voir doctrine/02-anti-jumeau-da.md pour les détails.
+
+dimensions_catalogue:
+
+  directions_artistiques:
+    - Dark_Lounge              # Nocturne intime (Anamour)
+    - Bistrot_Patine           # Bois ancien, tradition française
+    - Mediterraneen_Solaire    # Blanc/bleu, chaleur diurne (Al Badea)
+    - Tropical_Vivant          # Saturé, festif (Casa Tropical)
+    - Gastro_Marbre            # Marbre clair, élégance contemporaine
+    - Tradition_Bois           # Rustique terroir
+    - Fast_Casual_Pop          # Dopamine, rapide
+    - Editorial_Magazine       # Contemplatif (Terra)
+
+  packs_typo:
+    - Editorial_Serif_Bleu     # Sérif éditorial + bleu profond (Al Badea)
+    - Editorial_Serif_Italique # Sérif italique magazine (Casa Tropical)
+    - Lounge_Sensuel           # Display + serif élégant (Anamour)
+    - Modern_Soft              # Sans-serif moderne adouci
+    - Bistrot_Classic          # Classique français
+    - Display_Bold             # Display impactant
+    - Pop_Energique            # Anton + Source Sans
+
+  structures_hero:
+    - Direct                   # Headline + CTA, photo background (Al Badea)
+    - Editorial_Photo_Equipe   # Photo équipe + texte (Casa Tropical)
+    - Cinematique              # Photo plein écran, texte minimal (Anamour)
+    - Split                    # 50/50 photo/texte
+    - Carrousel_Ambiance       # Plusieurs photos défilantes
+
+  spines_commerciaux:
+    - VENIR                    # Faire venir physiquement (Al Badea)
+    - RESERVER                 # Réservation (Anamour, Casa Tropical)
+    - APPELER                  # Appel téléphonique direct
+    - COMMANDER                # Vente à emporter / livraison
+    - DECOUVRIR                # Éducation marché (nouveaux)
+
+  tons_copy:
+    - Sensoriel_premium        # Phrases courtes, lexique élevé (Anamour)
+    - Chaleureux_populaire     # Quotidien, proximité (Al Badea, Casa Tropical)
+    - Editorial_discret        # Phrases longues, vocabulaire riche
+    - Pop_energique            # Court, dopamine
+    - Tradition_assumee        # Patrimonial, ancrage terroir

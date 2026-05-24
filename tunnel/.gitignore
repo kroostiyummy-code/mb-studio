@@ -1,0 +1,77 @@
+# ============================================
+# MB Studio Tunnel - .gitignore
+# ============================================
+
+# === SÉCURITÉ : Clés API et secrets ===
+.env
+.env.local
+.env.*.local
+*.key
+secrets/
+credentials.json
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# === Environnements virtuels ===
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# === IDE et éditeurs ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# === Logs et caches temporaires ===
+*.log
+logs/
+.cache/
+cache/
+
+# === Outputs temporaires ===
+prospects-outputs/*/04-stitch-output.zip
+prospects-outputs/*/05-site-astro/node_modules/
+prospects-outputs/*/05-site-astro/dist/
+prospects-outputs/*/05-site-astro/.astro/
+
+# === Builds Astro ===
+node_modules/
+.astro/
+dist/
+.output/
+
+# === Fichiers OS ===
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# === Fichiers temporaires Claude Code ===
+.claude-cache/
+*.bak

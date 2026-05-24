@@ -1,0 +1,40 @@
+/* tokens.css — variables MB Studio globales
+   - Couleurs : dominante (patron) + accent (signature) + 3 neutres figés
+   - Radius, espacements
+   - Variables typo (--mb-display, --mb-condensed, --mb-sans, --mb-mono) sont définies
+     par chaque signature dans src/styles/signatures/*.css
+   - --mb-dominante et --mb-accent sont overridés par Layout.astro depuis settings/site.yml
+*/
+
+:root {
+  /* Couleurs (overridées au build par Layout.astro depuis settings/site.yml) */
+  --mb-dominante: #8b0e0e;
+  --mb-dominante-deep: color-mix(in oklab, var(--mb-dominante) 70%, #000);
+  --mb-dominante-bright: color-mix(in oklab, var(--mb-dominante) 70%, #fff);
+
+  --mb-accent: #ffec00;            /* défini par la signature, override possible Mike */
+  --mb-accent-soft: color-mix(in oklab, var(--mb-accent) 85%, #fff);
+
+  /* Neutres MB Studio figés (jamais modifiables) */
+  --mb-cream: #f4ead5;
+  --mb-cream-dirty: #e8dcc0;
+  --mb-slate: #3a3030;
+  --mb-black: #0d0303;
+
+  /* Rayons */
+  --mb-r-sm: 10px;
+  --mb-r-md: 14px;
+  --mb-r-lg: 18px;
+  --mb-r-xl: 22px;
+
+  /* Spacings de section */
+  --mb-section-py-mobile: 50px;
+  --mb-section-py-desktop: 80px;
+  --mb-section-px: 20px;
+}
+
+@media (min-width: 900px) {
+  :root {
+    --mb-section-px: 40px;
+  }
+}

@@ -1,0 +1,300 @@
+---
+import { getEntry } from 'astro:content';
+import { shouldShowGalerie, MIN_PHOTOS_GALERIE } from '../../lib/conditions';
+
+const galerieEntry = await getEntry('galerie', 'galerie');
+const photos = galerieEntry?.data.photos ?? [];
+
+// Auto-hide intelligent : si moins de MIN_PHOTOS_GALERIE photos, le composant
+// ne rend RIEN (HTML vide). Respecte la règle "pas de poids mort au build".
+const show = shouldShowGalerie(photos.length);
+
+// Sérialise les photos pour le JS du lightbox (compact, sans le legende undefined)
+const photosJson = JSON.stringify(photos.map(p => ({
+  src: p.src,
+  alt: p.alt,
+  legende: p.legende ?? '',
+})));
+---
+{show && (
+  <section class="section-galerie" id="galerie">
+    <h2 class="galerie-title mb-reveal">
+      La <span class="accent">galerie.</span>
+    </h2>
+
+    <div class="galerie-grid mb-reveal">
+      {photos.map((p, i) => (
+        <button class="photo-thumb" data-index={i} aria-label={`Agrandir : ${p.alt}`}>
+          <img src={p.src} alt={p.alt} loading="lazy" />
+          {p.legende && <span class="photo-caption">{p.legende}</span>}
+        </button>
+      ))}
+    </div>
+
+    <dialog class="lightbox" aria-label="Galerie photo">
+      <button class="lightbox-close" aria-label="Fermer">×</button>
+      <button class="lightbox-prev" aria-label="Photo précédente">‹</button>
+      <button class="lightbox-next" aria-label="Photo suivante">›</button>
+      <figure>
+        <img class="lightbox-img" alt="" />
+        <figcaption class="lightbox-caption"></figcaption>
+      </figure>
+    </dialog>
+
+    <script is:inline define:vars={{ photosJson }}>
+      (function () {
+        const photos = JSON.parse(photosJson);
+        const dialog = document.querySelector('.section-galerie .lightbox');
+        if (!dialog) return;
+        const img = dialog.querySelector('.lightbox-img');
+        const cap = dialog.querySelector('.lightbox-caption');
+        const closeBtn = dialog.querySelector('.lightbox-close');
+        const prevBtn = dialog.querySelector('.lightbox-prev');
+        const nextBtn = dialog.querySelector('.lightbox-next');
+        let current = 0;
+
+        function render(i) {
+          current = (i + photos.length) % photos.length;
+          const p = photos[current];
+          img.src = p.src;
+          img.alt = p.alt;
+          cap.textContent = p.legende || '';
+          cap.hidden = !p.legende;
+        }
+
+        document.querySelectorAll('.section-galerie .photo-thumb').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            render(parseInt(btn.dataset.index, 10));
+            dialog.showModal();
+          });
+        });
+
+        closeBtn.addEventListener('click', () => dialog.close());
+        prevBtn.addEventListener('click', () => render(current - 1));
+        nextBtn.addEventListener('click', () => render(current + 1));
+
+        // Click sur le backdrop ferme
+        dialog.addEventListener('click', (e) => {
+          if (e.target === dialog) dialog.close();
+        });
+
+        // Flèches clavier
+        dialog.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') render(current - 1);
+          if (e.key === 'ArrowRight') render(current + 1);
+        });
+      })();
+    </script>
+  </section>
+)}
+
+<style>
+  .section-galerie {
+    padding: 50px var(--mb-section-px) 60px;
+    position: relative;
+    z-index: 2;
+  }
+  .galerie-title {
+    font-family: var(--mb-display);
+    font-size: clamp(2.4rem, 12vw, 6rem);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    color: var(--mb-text-emphasis);
+  }
+  .galerie-title .accent {
+    color: var(--mb-accent);
+  }
+
+  /* Grille 2 col mobile → 3 col tablet → 4 col desktop */
+  .galerie-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  @media (min-width: 640px) {
+    .galerie-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  }
+  @media (min-width: 1024px) {
+    .galerie-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  }
+
+  .photo-thumb {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: var(--mb-r-md);
+    border: 2px solid var(--mb-border);
+    background: var(--mb-bg-section-alt);
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .photo-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .photo-thumb:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 var(--mb-border);
+  }
+  .photo-thumb:hover img {
+    transform: scale(1.04);
+  }
+  .photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(13, 3, 3, 0.85));
+    color: #f4ead5;
+    padding: 24px 10px 10px;
+    font-family: var(--mb-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+  }
+  .photo-thumb:hover .photo-caption,
+  .photo-thumb:focus-visible .photo-caption {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ===== LIGHTBOX (HTML dialog natif) ===== */
+  .lightbox {
+    padding: 0;
+    border: none;
+    background: transparent;
+    max-width: min(95vw, 1200px);
+    max-height: 95vh;
+    color: #f4ead5;
+  }
+  .lightbox::backdrop {
+    background: rgba(13, 3, 3, 0.92);
+    backdrop-filter: blur(4px);
+  }
+  .lightbox figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .lightbox-img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: var(--mb-r-md);
+    display: block;
+  }
+  .lightbox-caption {
+    font-family: var(--mb-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    max-width: 800px;
+    color: #f4ead5;
+  }
+  .lightbox-close,
+  .lightbox-prev,
+  .lightbox-next {
+    position: fixed;
+    background: rgba(13, 3, 3, 0.7);
+    color: #f4ead5;
+    border: 2px solid #f4ead5;
+    border-radius: 999px;
+    width: 48px;
+    height: 48px;
+    font-size: 1.6rem;
+    font-family: var(--mb-display);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: background 0.15s ease;
+  }
+  .lightbox-close:hover,
+  .lightbox-prev:hover,
+  .lightbox-next:hover {
+    background: var(--mb-dominante);
+  }
+  .lightbox-close {
+    top: 16px;
+    right: 16px;
+  }
+  .lightbox-prev {
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .lightbox-next {
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* ===== Surcharges signature ===== */
+  :global(.signature-gastro) .galerie-title {
+    text-transform: none;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+  }
+  :global(.signature-gastro) .photo-thumb {
+    border-width: 1px;
+    border-radius: 8px;
+  }
+  :global(.signature-gastro) .photo-thumb:hover {
+    box-shadow: none;
+    transform: none;
+  }
+  :global(.signature-gastro) .photo-thumb:hover img {
+    transform: scale(1.06);
+  }
+  :global(.signature-gastro) .photo-caption {
+    font-style: italic;
+    font-family: var(--mb-display);
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-size: 0.8rem;
+  }
+
+  :global(.signature-traditionnel) .galerie-title {
+    font-variant: small-caps;
+    font-feature-settings: "smcp" 1;
+    text-transform: none;
+    letter-spacing: 0.04em;
+  }
+  :global(.signature-traditionnel) .photo-thumb {
+    border: 2px solid var(--mb-dominante);
+    box-shadow: 3px 3px 0 var(--mb-dominante);
+    border-radius: 4px;
+  }
+  :global(.signature-traditionnel) .photo-thumb:hover {
+    box-shadow: 5px 5px 0 var(--mb-dominante);
+    transform: translate(-2px, -2px);
+  }
+  :global(.signature-traditionnel) .photo-caption {
+    font-variant: small-caps;
+    text-transform: none;
+    font-family: var(--mb-display);
+    background: linear-gradient(transparent, rgba(139, 14, 14, 0.9));
+    letter-spacing: 0.04em;
+  }
+
+  @media (min-width: 900px) {
+    .section-galerie {
+      padding: 70px var(--mb-section-px);
+    }
+  }
+</style>

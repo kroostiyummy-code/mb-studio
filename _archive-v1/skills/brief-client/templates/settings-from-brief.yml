@@ -1,0 +1,126 @@
+# Settings YAML généré depuis le brief client
+# À copier dans src/content/settings/site.yml du futur repo client
+# Les champs {{PLACEHOLDER}} sont à remplacer par les valeurs du brief.md
+
+site:
+  nom: "{{NOM}}"
+  slogan: "{{SLOGAN}}"
+  baseline: "{{BASELINE_OU_OMETTRE_SI_VIDE}}"
+  est_year: {{YYYY}}
+  ville: "{{VILLE}}"
+  region_code: "{{FR-XX}}"
+
+  # Choisi par Mike d'après le brief (le patron a confirmé la signature au rdv)
+  signature: "{{fast-food | gastro | traditionnel}}"
+  dominante: "{{#HEXHEX}}"
+
+  # Optionnel — décommenter si l'accent par défaut de la signature crée un conflit visuel
+  # accent_override: "{{#HEXHEX}}"
+
+  prix_appel: "{{XX,XX€_OU_OMETTRE}}"
+  telephone: "{{+33XXXXXXXXX}}"
+  telephone_display: "{{XX XX XX XX XX}}"
+  adresse: "{{ADRESSE_COMPLETE}}"
+  geo:
+    lat: {{LAT}}
+    lng: {{LNG}}
+
+  google_avis_url: "{{URL_GMB_OU_OMETTRE}}"
+
+  # Seuls les réseaux renseignés au brief — omettre les autres
+  reseaux:
+    instagram: "{{URL_OU_OMETTRE}}"
+    facebook: "{{URL_OU_OMETTRE}}"
+    tiktok: "{{URL_OU_OMETTRE}}"
+    snapchat: "{{URL_OU_OMETTRE}}"
+
+  hero_image: "/images/hero.jpg"
+  hero_image_alt: "{{DESCRIPTION_PHOTO_HERO}}"
+
+  # Combo (optionnel — omettre tout l'object si pas de combo dans le brief)
+  combo:
+    active: true
+    tag: "{{TAG_OU_DEFAUT_ETOILE_COMBO}}"
+    formule: "{{COMPOSITION_AVEC_PLUS}}"
+    prix: "{{XX,XX_SANS_EURO}}"
+
+  reservation:
+    kicker: "{{KICKER_OU_DEFAUT}}"
+    titre: "{{TITRE_OU_DEFAUT}}"
+    perks:
+      - "{{PERK_1}}"
+      - "{{PERK_2}}"
+      - "{{PERK_3}}"
+
+  histoire:
+    statement_lead: "{{LEAD}}"
+    statement_accent: "{{ACCENT}}"
+    body: "{{BODY_AVEC_EMPHASES}}"
+    lancement_year: {{YYYY}}
+
+  # Avis Google — auto-hide si note < 4.0 OU count < 20 (omettre l'object dans ce cas)
+  avis_google:
+    note: {{X.X}}
+    count: {{NNN}}
+
+  # Bandeau actualités (optionnel — omettre tout l'object si patron n'en veut pas)
+  bandeau:
+    messages:
+      - "{{MESSAGE_1}}"
+      - "{{MESSAGE_2}}"
+      - "{{MESSAGE_3}}"
+
+  # Notre exigence (optionnel)
+  exigence:
+    headline_parts:
+      - "{{LIGNE_1}}"
+      - "{{LIGNE_2_AVEC_EMPHASE_OPTIONNELLE}}"
+      - "{{LIGNE_3}}"
+    items:
+      - "{{ITEM_1}}"
+      - "{{ITEM_2}}"
+      - "{{ITEM_3}}"
+    banner:
+      titre: "{{TITRE_BANNER_OU_OMETTRE}}"
+      sub: "{{SOUS_TITRE_OU_OMETTRE}}"
+
+  mode: "{{fixe | foodtruck}}"
+  google_maps_embed_url: "{{URL_EMBED_OU_OMETTRE_SI_FOODTRUCK}}"
+
+  # Mode fixe — un object par jour, créneaux vides = fermé
+  horaires:
+    - jour: "lundi"
+      creneaux: []
+    - jour: "mardi"
+      creneaux:
+        - { ouvre: "12:00", ferme: "14:00" }
+        - { ouvre: "19:00", ferme: "22:30" }
+    - jour: "mercredi"
+      creneaux: [...]
+    - jour: "jeudi"
+      creneaux: [...]
+    - jour: "vendredi"
+      creneaux: [...]
+    - jour: "samedi"
+      creneaux: [...]
+    - jour: "dimanche"
+      creneaux: []
+
+  # Mode foodtruck — utiliser horaires_foodtruck à la place de horaires
+  # horaires_foodtruck:
+  #   - jour: "mardi"
+  #     creneaux:
+  #       - { lieu: "Lieu", ville: "Ville", moment: "midi", ouvre: "11:30", ferme: "13:30" }
+  #   ...
+
+  # ON/OFF des sections — pilotage Mike d'après ce que le patron a validé au brief
+  sections:
+    bandeau: {{true_si_bandeau_rempli_sinon_false}}
+    histoire: true
+    avis: {{true_si_avis_renseignes_sinon_false}}
+    reservation: true
+    menu: true
+    exigence: {{true_si_exigence_remplie_sinon_false}}
+    galerie: {{true_si_>=4_photos_sinon_false}}
+    localisation: true
+    reseaux: {{true_si_au_moins_un_reseau_sinon_false}}

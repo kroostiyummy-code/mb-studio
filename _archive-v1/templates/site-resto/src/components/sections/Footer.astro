@@ -1,0 +1,135 @@
+---
+import { getEntry } from 'astro:content';
+const entry = await getEntry('settings', 'site');
+const s = entry!.data;
+const annee = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand-block">
+      <div class="footer-tagline">
+        {s.nom}<br /><span class="accent">{s.ville}.</span>
+      </div>
+    </div>
+    <div class="footer-info">
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href={`tel:${s.telephone}`}>{s.telephone_display}</a></li>
+          {s.google_avis_url && (
+            <li><a href={s.google_avis_url} target="_blank" rel="noopener">Avis Google</a></li>
+          )}
+        </ul>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="#top">Accueil</a></li>
+          {s.sections.menu && <li><a href="#menu">La carte</a></li>}
+          {s.sections.localisation && <li><a href="#localisation">Nous trouver</a></li>}
+          <li><a href="/mentions-legales">Mentions légales</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© {annee} {s.nom.toUpperCase()} · {s.ville.toUpperCase()}</span>
+    <span>EST. {s.est_year}</span>
+  </div>
+</footer>
+
+<style>
+  /* Le footer est en mode "always dark" indépendamment de la signature.
+     C'est un choix éditorial : tous les sites resto MB Studio ont un footer noir.
+     Donc on n'utilise PAS les variables --mb-text-* (qui dépendent de la signature)
+     mais on garde les primitifs noir/cream/accent (l'accent change déjà selon signature). */
+
+  .footer {
+    background: var(--mb-black);
+    color: var(--mb-cream);
+    padding: 50px var(--mb-section-px) 130px;
+    border-top: 3px solid var(--mb-cream);
+    position: relative;
+    z-index: 2;
+  }
+  .footer-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .footer-tagline {
+    font-family: var(--mb-display);
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+  .footer-tagline .accent {
+    color: var(--mb-accent);
+  }
+  .footer-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    border-top: 2px solid var(--mb-cream);
+    padding-top: 24px;
+  }
+  .footer-info h4 {
+    font-family: var(--mb-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--mb-accent);
+    margin-bottom: 10px;
+  }
+  .footer-info ul {
+    list-style: none;
+  }
+  .footer-info li {
+    margin-bottom: 6px;
+    font-family: var(--mb-sans);
+    font-size: 0.95rem;
+  }
+  .footer-info a:hover {
+    color: var(--mb-accent);
+  }
+  .footer-bottom {
+    margin-top: 24px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(244, 234, 213, 0.2);
+    font-family: var(--mb-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(244, 234, 213, 0.5);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* En signature Élégante, le footer-tagline n'est pas en uppercase (cohérence avec hero) */
+  :global(.signature-gastro) .footer-tagline {
+    text-transform: none;
+    letter-spacing: -0.01em;
+  }
+  :global(.signature-traditionnel) .footer-tagline {
+    text-transform: none;
+  }
+
+  @media (min-width: 900px) {
+    .footer-grid {
+      flex-direction: row;
+      gap: 60px;
+      align-items: flex-start;
+    }
+    .footer-brand-block {
+      flex: 1;
+    }
+    .footer-info {
+      flex: 1;
+      border-top: none;
+      padding-top: 0;
+    }
+  }
+</style>

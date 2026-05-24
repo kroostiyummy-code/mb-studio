@@ -1,0 +1,299 @@
+---
+import { getEntry, getCollection } from 'astro:content';
+
+const settingsEntry = await getEntry('settings', 'site');
+const s = settingsEntry!.data;
+
+const menuSections = (await getCollection('menu')).sort((a, b) => a.data.ordre - b.data.ordre);
+---
+<section class="section-menu" id="menu">
+  <h2 class="menu-title mb-reveal">
+    Le menu.<br /><span class="accent">Tout est là.</span>
+  </h2>
+
+  {s.combo?.active && (
+    <div class="combo mb-reveal">
+      <span class="combo-tag">{s.combo.tag}</span>
+      <div class="combo-formula">
+        {s.combo.formule.split('+').map((part, i, arr) => (
+          <>
+            <span class="formula-part">{part.trim()}</span>
+            {i < arr.length - 1 && <span class="plus">+</span>}
+          </>
+        ))}
+      </div>
+      <div class="combo-price">{s.combo.prix}<span class="cur">€</span></div>
+    </div>
+  )}
+
+  {menuSections.map(section => (
+    <div class="menu-section">
+      <div class="menu-section-divider mb-reveal">
+        <span>{section.data.nom_section}</span>
+      </div>
+      <div class="menu-items">
+        {section.data.items.map(item => (
+          <div class="menu-item mb-reveal">
+            <div class="item-body">
+              <div class="item-name">{item.nom}</div>
+              <div class="item-desc">{item.description}</div>
+              {item.allergenes.length > 0 && (
+                <div class="item-allergens">
+                  <span class="allergens-label">Allergènes</span>
+                  {item.allergenes.map(a => <span class="allergen-pill">{a}</span>)}
+                </div>
+              )}
+            </div>
+            <div class="item-price">{item.prix}<span class="cur">€</span></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+</section>
+
+<style>
+  .section-menu {
+    padding: 50px var(--mb-section-px) 60px;
+    position: relative;
+    z-index: 2;
+  }
+  .menu-title {
+    font-family: var(--mb-display);
+    font-size: clamp(3rem, 14vw, 7rem);
+    line-height: 0.82;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    color: var(--mb-text-emphasis);
+  }
+  .menu-title .accent {
+    color: var(--mb-accent);
+  }
+
+  /* Combo banner — façon Kroosti : jaune + ombre brute */
+  .combo {
+    background: var(--mb-accent);
+    color: var(--mb-text-on-accent);
+    border: 3px solid var(--mb-black);
+    border-radius: var(--mb-r-lg);
+    padding: 24px 22px;
+    margin-bottom: 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 6px 6px 0 var(--mb-black);
+  }
+  .combo-tag {
+    position: absolute;
+    top: -12px;
+    left: 14px;
+    background: var(--mb-black);
+    color: var(--mb-accent);
+    padding: 4px 10px;
+    font-family: var(--mb-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border-radius: var(--mb-r-sm);
+  }
+  .combo-formula {
+    font-family: var(--mb-display);
+    font-size: 1.5rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .combo-formula .formula-part {
+    display: inline-block;
+  }
+  .combo-formula .plus {
+    color: var(--mb-dominante);
+    margin: 0 4px;
+  }
+  .combo-price {
+    font-family: var(--mb-display);
+    font-size: clamp(4rem, 16vw, 7rem);
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    color: var(--mb-dominante);
+  }
+  .combo-price .cur {
+    font-size: 0.4em;
+    vertical-align: top;
+    display: inline-block;
+    margin-top: 0.3em;
+    margin-left: 4px;
+  }
+
+  /* Divider entre sections de menu */
+  .menu-section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 36px 0 18px;
+    font-family: var(--mb-mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--mb-accent);
+  }
+  .menu-section-divider::before,
+  .menu-section-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--mb-border);
+    opacity: 0.4;
+  }
+  .menu-section-divider span {
+    padding: 4px 12px;
+    border: 1.5px solid var(--mb-accent);
+    border-radius: var(--mb-r-sm);
+    flex-shrink: 0;
+  }
+
+  /* Items */
+  .menu-items {
+    display: flex;
+    flex-direction: column;
+  }
+  .menu-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 14px;
+    align-items: flex-end;
+    padding: 18px 0;
+    border-top: 2px solid var(--mb-border);
+  }
+  .menu-item:last-child {
+    border-bottom: 2px solid var(--mb-border);
+  }
+  .item-name {
+    font-family: var(--mb-display);
+    font-size: clamp(1.8rem, 7vw, 2.6rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    color: var(--mb-text-emphasis);
+  }
+  .item-desc {
+    font-family: var(--mb-sans);
+    font-size: 0.95rem;
+    line-height: 1.35;
+    color: var(--mb-text-muted);
+    font-weight: 400;
+    max-width: 360px;
+  }
+  .item-allergens {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mb-mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .item-allergens .allergens-label {
+    color: var(--mb-text-muted);
+    margin-right: 4px;
+  }
+  .item-allergens .allergen-pill {
+    padding: 2px 8px;
+    border: 1px solid var(--mb-border);
+    border-radius: 999px;
+    color: var(--mb-text-body);
+  }
+  .item-price {
+    font-family: var(--mb-display);
+    font-size: clamp(2rem, 8vw, 3rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--mb-accent);
+    text-align: right;
+  }
+  .item-price .cur {
+    font-size: 0.55em;
+    vertical-align: top;
+    margin-top: 0.2em;
+    display: inline-block;
+  }
+
+  /* Surcharges signature Élégante : titres mixed case, pas d'uppercase, plus aéré */
+  :global(.signature-gastro) .menu-title,
+  :global(.signature-gastro) .item-name,
+  :global(.signature-gastro) .combo-formula {
+    text-transform: none;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+  }
+  :global(.signature-gastro) .menu-section-divider span {
+    text-transform: none;
+    font-style: italic;
+    font-family: var(--mb-display);
+    letter-spacing: 0.02em;
+    border-radius: 4px;
+  }
+  :global(.signature-gastro) .item-price {
+    color: var(--mb-dominante);
+  }
+  :global(.signature-gastro) .combo {
+    background: var(--mb-cream-dirty);
+    color: var(--mb-text-body);
+    border: 1px solid var(--mb-border);
+    box-shadow: none;
+  }
+  :global(.signature-gastro) .combo-tag {
+    background: var(--mb-dominante);
+    color: var(--mb-cream);
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0.04em;
+  }
+  :global(.signature-gastro) .combo-price {
+    color: var(--mb-dominante);
+  }
+  :global(.signature-gastro) .combo-formula .plus {
+    color: var(--mb-dominante);
+  }
+
+  /* Surcharges signature Tradition : titres en petites capitales, prix en dominante */
+  :global(.signature-traditionnel) .menu-title,
+  :global(.signature-traditionnel) .item-name {
+    text-transform: none;
+    font-variant: small-caps;
+    font-feature-settings: "smcp" 1;
+    letter-spacing: 0.03em;
+  }
+  :global(.signature-traditionnel) .item-price {
+    color: var(--mb-dominante);
+  }
+  :global(.signature-traditionnel) .combo {
+    background: var(--mb-cream);
+    color: var(--mb-black);
+    border: 2px solid var(--mb-dominante);
+    box-shadow: 4px 4px 0 var(--mb-dominante);
+  }
+  :global(.signature-traditionnel) .combo-tag {
+    background: var(--mb-dominante);
+    color: var(--mb-cream);
+    font-variant: small-caps;
+  }
+  :global(.signature-traditionnel) .combo-price {
+    color: var(--mb-dominante);
+  }
+  :global(.signature-traditionnel) .menu-section-divider span {
+    border-color: var(--mb-dominante);
+    color: var(--mb-dominante);
+  }
+
+  @media (min-width: 900px) {
+    .section-menu {
+      padding: 70px var(--mb-section-px);
+    }
+  }
+</style>

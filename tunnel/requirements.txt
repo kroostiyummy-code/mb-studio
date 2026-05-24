@@ -1,0 +1,28 @@
+# ============================================
+# MB Studio Tunnel - Dépendances Python
+# ============================================
+# Installation : pip install -r requirements.txt
+
+# SDK officiel Anthropic pour appeler Claude via API
+anthropic>=0.40.0
+
+# Gestion des variables d'environnement (.env)
+python-dotenv>=1.0.0
+
+# Parsing et écriture YAML (pour settings.yml et registre)
+pyyaml>=6.0
+
+# Affichage terminal coloré et lisible
+rich>=13.0.0
+
+# Copie automatique dans le presse-papier (pour prompts Stitch)
+pyperclip>=1.8.0
+
+# Validation de schémas (utile pour fiches restaurant)
+pydantic>=2.0.0
+
+# Requêtes HTTP (utile si on veut scrapper GMB plus tard)
+requests>=2.31.0
+
+# Manipulation de dates (pour timestamps registre)
+python-dateutil>=2.8.0

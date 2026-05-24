@@ -1,0 +1,149 @@
+/* Signature Traditionnel — crêperie, bistrot familial, brasserie terroir, charcuterie
+   Activée par class `signature-traditionnel` sur <body>.
+
+   Mode : texte noir + dominante pour emphasis, fond ivoire jauni chaleureux, esprit artisanal.
+   ADN : motifs décoratifs ❦ entre sections, petites capitales, grain papier prononcé,
+   bordures visibles "encadrement", densité plus serrée. */
+
+.signature-traditionnel {
+  /* Typographie */
+  --mb-display: 'Bitter', Georgia, serif;
+  --mb-condensed: 'Bitter', Georgia, serif;
+  --mb-sans: 'Source Sans 3', system-ui, sans-serif;
+  --mb-mono: 'JetBrains Mono', monospace;
+
+  /* Sémantiques — fond ivoire jauni au lieu du cream lisse de l'Élégante */
+  --mb-text-emphasis: var(--mb-dominante);
+  --mb-text-body: var(--mb-black);
+  --mb-text-muted: color-mix(in oklab, var(--mb-black) 50%, transparent);
+  --mb-text-on-photo: var(--mb-cream);
+  --mb-text-on-accent: var(--mb-cream);
+  --mb-bg-body: #f5e6c0;
+  --mb-bg-section-alt: #ecd9a4;
+  --mb-bg-section-light: var(--mb-cream);
+  --mb-border: var(--mb-dominante);
+  --mb-border-subtle: rgba(139, 14, 14, 0.3);
+
+  font-family: var(--mb-sans);
+  font-weight: 400;
+  background: var(--mb-bg-body);
+  color: var(--mb-text-body);
+}
+
+/* Grain papier prononcé (signature visuelle forte de la Tradition) */
+.signature-traditionnel::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.10;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.6' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Densité plus serrée : -20% sur padding sections par rapport au Brutaliste */
+.signature-traditionnel section {
+  padding-block: 40px;
+}
+@media (min-width: 900px) {
+  .signature-traditionnel section {
+    padding-block: 65px;
+  }
+}
+
+/* Titres en serif slab avec poids fort + petites capitales sur certains éléments */
+.signature-traditionnel h1,
+.signature-traditionnel h2 {
+  font-family: var(--mb-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.signature-traditionnel .mb-tag {
+  border: 1.5px solid var(--mb-border);
+  padding: 5px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 4px;
+  font-family: var(--mb-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--mb-dominante);
+  background: transparent;
+  font-variant: small-caps;
+  font-feature-settings: "smcp" 1;
+}
+.signature-traditionnel .mb-tag.solid {
+  background: var(--mb-dominante);
+  color: var(--mb-cream);
+}
+
+/* Divider : encadrement papier + petites capitales */
+.signature-traditionnel .mb-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px var(--mb-section-px);
+  font-family: var(--mb-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  color: var(--mb-dominante);
+  background: transparent;
+  border-top: 2px solid var(--mb-dominante);
+  border-bottom: 2px solid var(--mb-dominante);
+  font-variant: small-caps;
+  font-feature-settings: "smcp" 1;
+  text-transform: none;
+}
+
+/* Section stubs : motif décoratif ❦ centré au-dessus, bordures encadrement visible */
+.signature-traditionnel .section-stub {
+  border-color: var(--mb-border-subtle);
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-style: solid;
+  position: relative;
+}
+.signature-traditionnel .section-stub::before {
+  content: "❦";
+  display: block;
+  text-align: center;
+  font-family: serif;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--mb-dominante);
+  opacity: 0.7;
+  margin-bottom: 24px;
+}
+.signature-traditionnel .section-stub .stub-label {
+  font-style: italic;
+  color: var(--mb-dominante);
+  font-family: var(--mb-display);
+  text-transform: none;
+  letter-spacing: 0.02em;
+  opacity: 0.75;
+}
+.signature-traditionnel .section-stub .stub-name {
+  font-family: var(--mb-display);
+  font-variant: small-caps;
+  font-feature-settings: "smcp" 1;
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
+.signature-traditionnel.js-loaded .mb-reveal {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.signature-traditionnel.js-loaded .mb-reveal.show {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .signature-traditionnel.js-loaded .mb-reveal {
+    opacity: 1;
+    transition: none;
+  }
+}
