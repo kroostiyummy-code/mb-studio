@@ -14,7 +14,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const SRC_DIR = './photos-source';
-const DST_DIR = './src/assets/images';
+const DST_DIR = './public/assets/images';
 
 const PIPELINE = [
   { src: 'facade-nuit-original.jpg', dst: 'hero-devanture.webp',
@@ -54,8 +54,8 @@ const PIPELINE = [
   { src: 'carte-chartres-screenshot.png', dst: 'carte-chartres.webp',
     w: 1200, h: 600, quality: 72, budget: 80, usage: 'lazy · venir section' },
 
-  { src: 'facade-nuit-original.jpg', dst: 'og-image.webp',
-    w: 1200, h: 630, quality: 80, budget: 130, usage: 'og:image · social' },
+  { src: 'comptoir-interieur-original.jpg', dst: 'og-image.webp',
+    w: 1200, h: 630, quality: 80, budget: 130, usage: 'og:image · social (fallback : comptoir tant que façade non fournie)' },
 ];
 
 async function run() {
