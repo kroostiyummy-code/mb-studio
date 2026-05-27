@@ -1,0 +1,65 @@
+---
+import carte from '../data/carte.json';
+
+const categories = [
+  {
+    label: 'ANTIPASTI',
+    teaser: carte.antipasti.slice(0, 2),
+    href: '/carte#antipasti',
+  },
+  {
+    label: 'PÂTES',
+    teaser: carte.pates.slice(0, 2),
+    href: '/carte#pates',
+  },
+  {
+    label: 'PIZZAS',
+    teaser: carte.pizzas.slice(0, 2),
+    href: '/carte#pizzas',
+  },
+  {
+    label: 'PLATS',
+    teaser: carte.plats.slice(0, 2),
+    href: '/carte#plats',
+  },
+  {
+    label: 'DESSERTS',
+    teaser: carte.desserts.slice(0, 2),
+    href: '/carte#desserts',
+  },
+];
+---
+<section id="la-carte" aria-labelledby="la-carte-titre" class="bg-surface-container border-y border-outline-variant/15">
+  <div class="mx-auto max-w-screen-xl px-5 md:px-10 py-section">
+    <div class="max-w-[640px]">
+      <p class="kicker mb-5">LA CARTE</p>
+      <h2 id="la-carte-titre" class="font-serif text-display-lg text-cream">
+        Au-delà du four.
+      </h2>
+      <p class="editorial-paragraph mt-6 text-cream-variant max-w-[520px]">
+        Antipasti, pâtes maison, escalope milanese, carpaccio, tiramisú —
+        toute la cuisine italienne, pas seulement la pizza.
+      </p>
+    </div>
+
+    <div class="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-6">
+      {categories.map((cat) => (
+        <div class="md:border-r md:border-outline-variant/20 md:last:border-r-0 md:pr-6">
+          <h3 class="micro-label text-cuivre-brule mb-4">{cat.label}</h3>
+          <ul class="space-y-3">
+            {cat.teaser.map((item) => (
+              <li>
+                <p class="font-serif italic text-cream text-body-md leading-snug">{item.nom}</p>
+                <p class="font-mono text-cream-variant/70 text-[11px] tracking-wide mt-0.5">{item.prix}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 md:mt-16">
+      <a href="/carte" class="cta-ghost">Voir la carte complète</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,356 @@
+{
+  "antipasti": [
+    {
+      "nom": "Il Piacere",
+      "prix": "17,50 €",
+      "description": "Planche de charcuteries italiennes (coppa, mortadella, salame piccante, jambon de Parme), fromages italiens et focaccia aux 4 fromages"
+    },
+    {
+      "nom": "Gran Sasso",
+      "prix": "15,90 €",
+      "description": "Planche de charcuteries italiennes : jambon de Parme, mortadella, coppa, salami épicé"
+    },
+    {
+      "nom": "Il Sorriso",
+      "prix": "15,90 €",
+      "description": "Planche de fritti mixtes : oignons rings, beignets de calamars, mozzarella sticks"
+    },
+    {
+      "nom": "Formaggi",
+      "prix": "15,90 €",
+      "description": "Planche mixte de fromages italiens"
+    }
+  ],
+  "salades": [
+    {
+      "nom": "Parma e Burrata",
+      "prix": "15,90 €",
+      "description": "Salade, œufs, oignons, parmesan, jambon de Parme, burrata, concombres, tomate cerise, olives noires, croûtons grillés"
+    },
+    {
+      "nom": "Romana",
+      "prix": "14,90 €",
+      "description": "Salade, tomate cerise, œufs, oignons, guanciale, parmesan, concombres, olives noires, focaccia au chèvre chaud"
+    },
+    {
+      "nom": "Mare Mio",
+      "prix": "15,90 €",
+      "description": "Salade, oignons, tomate cerise, saumon fumé, parmesan, concombres, olives noires, avocats, croûtons grillés"
+    }
+  ],
+  "pates": [
+    {
+      "nom": "Rigatoni Carbonara",
+      "prix": "15,50 €",
+      "description": "Guanciale de porc, pecorino romano, œuf, poivre noir"
+    },
+    {
+      "nom": "Lasagna Bolognese",
+      "prix": "15,90 €",
+      "description": "Sauce bolognaise, béchamel, parmesan, mozzarella"
+    },
+    {
+      "nom": "Parmigiana di Melanzane",
+      "prix": "15,90 €",
+      "description": "Gratin d'aubergines, sauce tomates, parmesan, mozzarella, basilic"
+    },
+    {
+      "nom": "Gnocchi aux fromages",
+      "prix": "15,50 €",
+      "description": "Sauce fromages : pecorino, gorgonzola, chèvre, parmesan, poivre noir"
+    },
+    {
+      "nom": "Tortelloni crème et jambon",
+      "prix": "15,90 €",
+      "description": "Pâtes farcies au bœuf, crème de parmesan, jambon blanc, poivre noir"
+    },
+    {
+      "nom": "Linguine saumon et gingembre",
+      "prix": "15,90 €",
+      "description": "Saumon fumé, crème fraîche, ciboulette, courgettes, gingembre"
+    },
+    {
+      "nom": "Linguine pesto et burrata",
+      "prix": "15,50 €",
+      "description": "Pâtes au pesto avec burrata, poivre noir, parmesan, pistaches"
+    },
+    {
+      "nom": "Linguine Il Piacere",
+      "prix": "15,50 €",
+      "description": "Sauce tomate, guanciale de porc, pecorino romano, piment, huile d'olive"
+    },
+    {
+      "nom": "Rigatoni gorgonzola et noix",
+      "prix": "15,50 €",
+      "description": "Crème de gorgonzola, noix, parmesan"
+    }
+  ],
+  "pizzas": [
+    {
+      "nom": "Margherita",
+      "prix": "10,90 €",
+      "description": "Sauce tomate, mozzarella fleur de lait, basilic, huile d'olive extra vierge"
+    },
+    {
+      "nom": "Regina",
+      "prix": "14,90 €",
+      "description": "Sauce tomate, champignons, jambon blanc, mozzarella, basilic, origan, huile d'olive"
+    },
+    {
+      "nom": "4 Fromages",
+      "prix": "15,50 €",
+      "description": "Base mozzarella, provolone, gorgonzola, parmesan, chèvre, basilic"
+    },
+    {
+      "nom": "Orientale",
+      "prix": "15,90 €",
+      "description": "Base tomate, mozzarella, poulet, poivrons 3 couleurs, olives, œuf, basilic"
+    },
+    {
+      "nom": "Vegetariana",
+      "prix": "15,90 €",
+      "description": "Sauce tomate, mozzarella, pomme de terre, olives taggiasche, aubergines, courgettes, poivrons grillés, roquette, tomate cerise, basilic"
+    },
+    {
+      "nom": "Mortadellina",
+      "prix": "16,50 €",
+      "description": "Base mozzarella, mortadella, burrata, pesto, pistaches, basilic"
+    },
+    {
+      "nom": "Coppa",
+      "prix": "15,90 €",
+      "description": "Base mozzarella, coppa de Parme, champignons, tomates jaunes, scamorza fumé, olives taggiasche, basilic"
+    },
+    {
+      "nom": "Tartufo",
+      "prix": "18,90 €",
+      "description": "Base mozzarella, crème de truffe, jambon de Parme, carpaccio de truffe, champignons, basilic"
+    },
+    {
+      "nom": "Gustosa",
+      "prix": "15,90 €",
+      "description": "Base tomate, mozzarella, viande hachée, merguez, poulet, oignons rouges, basilic"
+    },
+    {
+      "nom": "Salmone",
+      "prix": "16,50 €",
+      "description": "Base mozzarella, saumon fumé, tomate cerise, roquette, basilic"
+    },
+    {
+      "nom": "Calzone",
+      "prix": "14,90 €",
+      "description": "Base sauce tomate, mozzarella, jambon blanc, champignons, basilic"
+    },
+    {
+      "nom": "Gorgonzola noix et miel",
+      "prix": "16,50 €",
+      "description": "Base mozzarella, gorgonzola, noix, miel, jambon de Parme, basilic"
+    },
+    {
+      "nom": "Diavola",
+      "prix": "15,50 €",
+      "description": "Base sauce tomate, mozzarella, nduja, spianata piccante, oignon rouge, basilic"
+    },
+    {
+      "nom": "Parma",
+      "prix": "16,90 €",
+      "description": "Base sauce tomate, mozzarella, roquette, jambon de Parme, burrata, tomate cerise, basilic"
+    },
+    {
+      "nom": "Carpaccio",
+      "prix": "16,90 €",
+      "description": "Base tomate, mozzarella, carpaccio, parmesan, roquette, tomate cerise, basilic"
+    }
+  ],
+  "supplementsPizza": [
+    { "nom": "Légumes, œufs, olives, pesto, câpres, miel, crème fraîche", "prix": "1,50 €" },
+    { "nom": "Viande, charcuteries, fromages", "prix": "2,50 €" },
+    { "nom": "Burrata", "prix": "4,00 €" }
+  ],
+  "plats": [
+    {
+      "nom": "Escalope milanese",
+      "prix": "18,90 €",
+      "description": "Vraie escalope de veau panée et frite, servie avec frites et salade"
+    },
+    {
+      "nom": "Entrecôte",
+      "prix": "24,90 €",
+      "description": "Entrecôte 300 g environ, avec frites et salade"
+    },
+    {
+      "nom": "Polpette della nonna",
+      "prix": "17,90 €",
+      "description": "Boulettes de viande hachée mixtes à la sauce tomate gratinée au four, servies avec frites et salade"
+    },
+    {
+      "nom": "Saumon au four",
+      "prix": "18,90 €",
+      "description": "Saumon gratiné au four à la méditerranéenne, avec haricots verts et frites"
+    },
+    {
+      "nom": "Frittura di mare",
+      "prix": "19,90 €",
+      "description": "Friture de crevettes, calamars et petits poissons (uniquement le soir)"
+    },
+    {
+      "nom": "Carpaccio",
+      "prix": "16,90 €",
+      "description": "Salade de bœuf avec oignons, tomate cerise, concombres, câpres, olives noires, pecorino, caciocavallo, servi avec frites"
+    }
+  ],
+  "desserts": [
+    { "nom": "Tiramisú", "prix": "7,50 €", "description": "Maison au café, mascarpone, chantilly, biscuits et poudre de cacao" },
+    { "nom": "Tiramisú speculoos", "prix": "7,50 €", "description": "Mascarpone, chantilly, speculoos, caramel beurre salé" },
+    { "nom": "Panna cotta", "prix": "7,50 €", "description": "Mangue et basilic" },
+    { "nom": "Cannolo", "prix": "7,50 €", "description": "Crème de Nutella et mascarpone" },
+    { "nom": "Maxi chou à la vanille", "prix": "8,50 €", "description": "Farci avec boule de glace vanille, ganache chocolat et chantilly" },
+    { "nom": "Café gourmand", "prix": "7,90 €", "description": "" },
+    { "nom": "Millefoglie", "prix": "7,90 €", "description": "À la crème de pistaches et framboise" },
+    { "nom": "Dégustation de fromages", "prix": "8,50 €", "description": "" },
+    { "nom": "Pizza Nutella à partager", "prix": "12,50 €", "description": "" }
+  ],
+  "glaces": [
+    { "nom": "Fresh & Spritz", "prix": "7,90 €", "description": "Coupe de glace citron, sorbet orange, Aperol Spritz, prosecco et chantilly" },
+    { "nom": "Affogato", "prix": "7,90 €", "description": "Glace vanille, café ristretto, chantilly" },
+    { "nom": "Coupe Limoncello", "prix": "7,90 €", "description": "Sorbet citron, crème de limoncello et chantilly" },
+    { "nom": "Dolcezza Piemonte", "prix": "7,90 €", "description": "Glace noisette, pistache, vanille, chantilly, ganache chocolat" },
+    { "nom": "Dea Delizia", "prix": "7,90 €", "description": "Glace vanille, chocolat, caramel, chantilly, sauce caramel, speculoos" },
+    { "nom": "Foresta Incantata", "prix": "7,90 €", "description": "Glace amarena, fraise, vanille, sauce fruits rouges, chantilly" }
+  ],
+  "cocktails": [
+    { "nom": "Aperol Spritz", "prix": "8,50 €", "description": "Aperol 4 cl, prosecco 6 cl, selz, orange" },
+    { "nom": "White Spritz", "prix": "8,50 €", "description": "Martini Bianco 4 cl, prosecco 6 cl, selz, citron" },
+    { "nom": "Pink Spritz", "prix": "8,50 €", "description": "Martini Rosé 4 cl, prosecco 6 cl, selz, framboise" },
+    { "nom": "Il Piacere Spritz", "prix": "8,50 €", "description": "Limoncello 4 cl, prosecco 6 cl, crème de cassis, selz", "signature": true },
+    { "nom": "Limoncello Spritz", "prix": "8,50 €", "description": "Limoncello 4 cl, prosecco 6 cl, selz, sirop de fraise, citron" },
+    { "nom": "Saint Germain Spritz", "prix": "8,50 €", "description": "Liqueur St-Germain 4,5 cl, prosecco, selz, citron" },
+    { "nom": "Ruby Spritz", "prix": "8,50 €", "description": "Martini Rouge 4 cl, prosecco 6 cl, sirop cerise, selz" },
+    { "nom": "Ginger Spritz", "prix": "8,50 €", "description": "Ginger beer, prosecco, Martini Bianco, selz, citron" },
+    { "nom": "Campari Spritz", "prix": "8,50 €", "description": "Campari 4 cl, prosecco 6 cl, selz, orange" },
+    { "nom": "Negroni", "prix": "9,00 €", "description": "Gin 3 cl, Martini Rosso 3 cl, Campari 3 cl" },
+    { "nom": "Americano", "prix": "8,50 €", "description": "Classic, fraise, framboise — Martini Rosso 3 cl, Campari 3 cl, soda" },
+    { "nom": "Caïpirinha", "prix": "8,50 €", "description": "Sucre de canne, citron vert, cachaça 5 cl" },
+    { "nom": "Black Caïpirinha", "prix": "8,50 €", "description": "Black Vodka 6 cl, sucre de canne, citron vert" },
+    { "nom": "Amaretto Mon Amour", "prix": "8,50 €", "description": "Amaretto 2 cl, vodka 3 cl, sirop de framboise, jus de fraise" },
+    { "nom": "Mojito", "prix": "8,50 €", "description": "Classic, fraise, framboise, melon — menthe, sucre de canne, citron vert, rhum blanc 4 cl, selz" },
+    { "nom": "Mojito Italiano", "prix": "8,50 €", "description": "Menthe, sucre de canne, prosecco 4 cl, citron vert, selz" },
+    { "nom": "Gingerito", "prix": "8,50 €", "description": "Menthe, sucre de canne, ginger beer 4 cl, citron vert, rhum blanc 3 cl" },
+    { "nom": "Mojito Moretti", "prix": "8,50 €", "description": "Menthe, bière Moretti 4 cl, citron vert, sucre de canne, selz" },
+    { "nom": "Piña Colada", "prix": "8,50 €", "description": "Rhum blanc 4 cl, jus d'ananas 9 cl, noix de coco 3 cl" },
+    { "nom": "Caïpiroska", "prix": "8,50 €", "description": "Classic, fraise, melon — sucre de canne, citron vert, vodka 5 cl" },
+    { "nom": "Espresso Martini", "prix": "8,50 €", "description": "Bailey's 1 cl, vodka 5 cl, sucre de canne, café" },
+    { "nom": "Moscow Mule", "prix": "8,50 €", "description": "Vodka 4,5 cl, citron vert 0,5 cl, ginger beer 12 cl" },
+    { "nom": "Cuba Libre", "prix": "8,50 €", "description": "Rhum 5 cl, Coca-Cola 8–10 cl, citron vert 1 cl" },
+    { "nom": "Gin Tonic", "prix": "8,50 €", "description": "Gin 5 cl, Schweppes Tonic" },
+    { "nom": "Dolcetto", "prix": "8,50 €", "description": "Bailey's 2 cl, noix de coco 2 cl, rhum blanc 5 cl, sirop vanille" }
+  ],
+  "cocktailsSansAlcool": [
+    { "nom": "Caïpirinha sans alcool", "prix": "6,90 €", "description": "Citron vert, sucre de canne, sirop de rhum, limonade" },
+    { "nom": "Nojito", "prix": "6,90 €", "description": "Menthe fraîche, citron vert, sucre de canne, limonade, sirop de rhum" },
+    { "nom": "Virgin Colada", "prix": "6,90 €", "description": "Jus d'ananas, noix de coco, sucre de canne, sirop de rhum" },
+    { "nom": "Tropicale", "prix": "6,90 €", "description": "Jus de banane, jus de kiwi, noix de coco, sirop cerise" },
+    { "nom": "Spritz sans alcool", "prix": "6,90 €", "description": "Aperol sans alcool, Schweppes Tonic, selz, orange" },
+    { "nom": "Rio", "prix": "6,90 €", "description": "Jus d'orange, limonade, grenadine, sirop cassis, citron vert" }
+  ],
+  "aperitifs": [
+    { "nom": "Kir cassis / mûre / pêche", "prix": "3,90 €" },
+    { "nom": "Kir prosecco", "prix": "4,50 €" },
+    { "nom": "Verre de prosecco", "prix": "4,00 €" },
+    { "nom": "Ricard, Pastis", "prix": "2,90 €" },
+    { "nom": "Ballentine's", "prix": "6,50 €" },
+    { "nom": "Jack Daniel's", "prix": "7,00 €" },
+    { "nom": "Clan Campbell", "prix": "6,50 €" },
+    { "nom": "Chivas", "prix": "7,50 €" },
+    { "nom": "Aberlour", "prix": "7,50 €" },
+    { "nom": "Porto rouge / blanc", "prix": "4,50 €" },
+    { "nom": "Martini Bianco / Rosso / Rosé", "prix": "4,50 €" },
+    { "nom": "Campari", "prix": "4,50 €" }
+  ],
+  "softs": [
+    { "nom": "Coca-Cola / Zéro", "prix": "4,00 €" },
+    { "nom": "Schweppes", "prix": "4,00 €" },
+    { "nom": "Ice Tea", "prix": "4,00 €" },
+    { "nom": "Thé glacé pêche / citron", "prix": "4,00 €" },
+    { "nom": "Orangina", "prix": "4,00 €" },
+    { "nom": "Limonade", "prix": "3,00 €" },
+    { "nom": "Sirop à l'eau", "prix": "2,50 €" },
+    { "nom": "Jus de fruits (orange, ananas, tomate, abricot, pomme, kiwi, fraise)", "prix": "4,00 €" },
+    { "nom": "Perrier", "prix": "4,00 €" }
+  ],
+  "bieres": [
+    { "nom": "Grimbergen blonde 25 cl", "prix": "4,90 €" },
+    { "nom": "Grimbergen blonde 50 cl", "prix": "8,00 €" },
+    { "nom": "Affligem rouge 25 cl", "prix": "4,90 €" },
+    { "nom": "Affligem rouge 50 cl", "prix": "8,00 €" },
+    { "nom": "1664 — 25 cl", "prix": "4,50 €" },
+    { "nom": "1664 — 50 cl", "prix": "7,00 €" },
+    { "nom": "Moretti 25 cl", "prix": "4,00 €" },
+    { "nom": "Moretti 50 cl", "prix": "8,00 €" },
+    { "nom": "Picon bière", "prix": "4,50 €" },
+    { "nom": "Monaco", "prix": "4,50 €" },
+    { "nom": "Panaché", "prix": "4,50 €" },
+    { "nom": "Peroni bouteille 33 cl", "prix": "4,50 €" },
+    { "nom": "Desperados bouteille 33 cl", "prix": "4,90 €" },
+    { "nom": "Super Bock bouteille", "prix": "4,00 €" },
+    { "nom": "Pelforth brune bouteille 33 cl", "prix": "4,50 €" },
+    { "nom": "Corona bouteille 35,5 cl", "prix": "5,00 €" }
+  ],
+  "eaux": [
+    { "nom": "S. Pellegrino 1 L", "prix": "4,90 €" },
+    { "nom": "S. Pellegrino 50 cl", "prix": "3,90 €" },
+    { "nom": "Vittel 1 L", "prix": "4,90 €" },
+    { "nom": "Vittel 50 cl", "prix": "3,90 €" }
+  ],
+  "boissonsChaudes": [
+    { "nom": "Café", "prix": "2,10 €" },
+    { "nom": "Décaféiné", "prix": "2,10 €" },
+    { "nom": "Double café", "prix": "4,00 €" },
+    { "nom": "Cappuccino", "prix": "4,00 €" },
+    { "nom": "Caffè Latte", "prix": "4,00 €" },
+    { "nom": "Chocolat", "prix": "4,00 €" },
+    { "nom": "Chocolat viennois", "prix": "4,00 €" },
+    { "nom": "Thés et infusions", "prix": "4,00 €" }
+  ],
+  "digestifs": [
+    { "nom": "Cognac", "prix": "5,50 €" },
+    { "nom": "Armagnac", "prix": "5,50 €" },
+    { "nom": "Limoncello", "prix": "5,50 €" },
+    { "nom": "Bailey's", "prix": "5,50 €" },
+    { "nom": "Get 27 / 31", "prix": "5,50 €" },
+    { "nom": "Poire Williams", "prix": "5,50 €" },
+    { "nom": "Grappa Bianca", "prix": "5,50 €" }
+  ],
+  "vinsRouges": [
+    { "nom": "Lambrusco Rosso", "prixBouteille": "17,90 €", "prixVerre": "3,90 €" },
+    { "nom": "Nero d'Avola", "prixBouteille": "19,90 €", "prixVerre": "4,00 €" },
+    { "nom": "Primitivo di Manduria", "prixBouteille": "35,90 €", "prixVerre": "7,00 €" },
+    { "nom": "Chianti", "prixBouteille": "21,90 €", "prixVerre": "4,00 €" },
+    { "nom": "Montepulciano d'Abruzzo", "prixBouteille": "21,90 €", "prixVerre": "4,00 €" },
+    { "nom": "Negroamaro", "prixBouteille": "23,90 €", "prixVerre": "5,00 €" },
+    { "nom": "Bardolino", "prixBouteille": "18,90 €", "prixVerre": "3,90 €" },
+    { "nom": "Barolo", "prixBouteille": "70,00 €", "prixVerre": null },
+    { "nom": "Barbera", "prixBouteille": "50,00 €", "prixVerre": null }
+  ],
+  "vinsBlancs": [
+    { "nom": "Prosecco", "prixBouteille": "19,90 €", "prixVerre": "4,00 €" },
+    { "nom": "Moscato d'Asti", "prixBouteille": "22,90 €", "prixVerre": "4,50 €" },
+    { "nom": "Orvieto", "prixBouteille": "22,90 €", "prixVerre": "4,00 €" },
+    { "nom": "Pinot Grigio", "prixBouteille": "19,90 €", "prixVerre": "3,90 €" },
+    { "nom": "Greco di Tufo", "prixBouteille": "32,90 €", "prixVerre": "6,50 €" }
+  ],
+  "vinsRoses": [
+    { "nom": "Prosecco Rosé", "prixBouteille": "19,90 €", "prixVerre": "4,00 €" },
+    { "nom": "Lambrusco Rosé", "prixBouteille": "17,90 €", "prixVerre": "3,90 €" },
+    { "nom": "Pinot Grigio Rosé", "prixBouteille": "19,90 €", "prixVerre": "3,90 €" },
+    { "nom": "Bardolino", "prixBouteille": "18,90 €", "prixVerre": "3,90 €" }
+  ],
+  "vinPichet": [
+    { "nom": "Pichet 25 cl", "prix": "6,00 €" },
+    { "nom": "Pichet 50 cl", "prix": "10,00 €" }
+  ],
+  "champagne": [
+    { "nom": "Moët & Chandon", "prixBouteille": "75,00 €" },
+    { "nom": "Ruinart", "prixBouteille": "110,00 €" }
+  ]
+}

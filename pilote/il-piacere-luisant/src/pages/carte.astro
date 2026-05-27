@@ -1,0 +1,238 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import carte from '../data/carte.json';
+
+interface Item {
+  nom: string;
+  prix?: string;
+  prixBouteille?: string | null;
+  prixVerre?: string | null;
+  description?: string;
+}
+
+const mangerSections: Array<{ id: string; titre: string; items: Item[]; note?: string }> = [
+  { id: 'antipasti', titre: 'Antipasti', items: carte.antipasti },
+  { id: 'salades', titre: 'Salades', items: carte.salades },
+  { id: 'pates', titre: 'Pâtes', items: carte.pates },
+  { id: 'pizzas', titre: 'Pizzas au feu de bois', items: carte.pizzas, note: 'Sur place et à emporter.' },
+  { id: 'plats', titre: 'Les plats', items: carte.plats },
+  { id: 'desserts', titre: 'Desserts', items: carte.desserts },
+  { id: 'glaces', titre: 'Glaces', items: carte.glaces },
+];
+
+const boireSections: Array<{ id: string; titre: string; items: Item[]; note?: string }> = [
+  { id: 'cocktails', titre: 'Cocktails', items: carte.cocktails },
+  { id: 'cocktails-sans-alcool', titre: 'Cocktails sans alcool', items: carte.cocktailsSansAlcool },
+  { id: 'aperitifs', titre: 'Apéritifs', items: carte.aperitifs },
+  { id: 'softs', titre: 'Soft drinks', items: carte.softs },
+  { id: 'bieres', titre: 'Bières', items: carte.bieres },
+  { id: 'eaux', titre: 'Eaux', items: carte.eaux },
+  { id: 'boissons-chaudes', titre: 'Boissons chaudes', items: carte.boissonsChaudes },
+  { id: 'digestifs', titre: 'Digestifs', items: carte.digestifs },
+];
+
+function prixCellule(item: Item) {
+  if (item.prix) return item.prix;
+  if (item.prixBouteille && item.prixVerre) return `${item.prixBouteille} · ${item.prixVerre} le verre`;
+  if (item.prixBouteille) return `${item.prixBouteille} la bouteille`;
+  return '';
+}
+---
+<BaseLayout
+  title="La carte — Il Piacere"
+  description="Antipasti, pâtes maison, pizzas au feu de bois, plats italiens, desserts, cocktails et cave italienne. Restaurant Il Piacere, Luisant."
+  pathname="/carte"
+>
+  <Header />
+  <main class="bg-background pt-32 md:pt-40">
+    <article class="mx-auto max-w-screen-xl px-5 md:px-10">
+      <header class="max-w-[720px]">
+        <p class="kicker mb-5">LA CARTE</p>
+        <h1 class="font-serif text-display-lg text-cream">La carte.</h1>
+        <p class="editorial-paragraph mt-6 text-cream-variant max-w-[540px]">
+          Prix en euros, service compris. Carte susceptible d'évolution selon les saisons et les arrivages.
+        </p>
+        <a href="/" class="inline-block mt-8 font-serif italic text-terracotta editorial-link">← Retour à l'accueil</a>
+      </header>
+
+      <!-- BOIRE · MANGER · S'AMUSER (rappel signature) -->
+      <div class="mt-20 md:mt-section">
+        <p class="micro-label text-cuivre-brule">À MANGER</p>
+        <h2 class="font-serif text-headline-lg text-cream mt-3">La cuisine.</h2>
+      </div>
+
+      {mangerSections.map((section) => (
+        <section id={section.id} class="mt-20 md:mt-24">
+          <header class="flex items-baseline justify-between gap-6 flex-wrap border-b border-outline-variant/20 pb-4">
+            <h3 class="font-serif text-headline-md text-cream">{section.titre}</h3>
+            {section.note && (
+              <p class="font-mono text-cream-variant text-[12px] tracking-wide uppercase">{section.note}</p>
+            )}
+          </header>
+          <ul class="mt-6 space-y-6">
+            {section.items.map((item) => (
+              <li>
+                <div class="flex items-baseline justify-between gap-6 flex-wrap">
+                  <p class="font-serif italic text-cream text-body-lg">{item.nom}</p>
+                  <p class="font-mono text-cream-variant text-sm tracking-wide whitespace-nowrap">
+                    {prixCellule(item)}
+                  </p>
+                </div>
+                {item.description && (
+                  <p class="font-sans text-cream-variant/80 text-body-md mt-1 max-w-2xl leading-relaxed">
+                    {item.description}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+
+      <!-- Suppléments pizzas -->
+      <section class="mt-20 md:mt-24">
+        <header class="border-b border-outline-variant/20 pb-4">
+          <h3 class="font-serif text-headline-md text-cream">Suppléments pizzas</h3>
+        </header>
+        <ul class="mt-6 space-y-3">
+          {carte.supplementsPizza.map((item) => (
+            <li class="flex items-baseline justify-between gap-6">
+              <p class="font-sans text-cream text-body-md">{item.nom}</p>
+              <p class="font-mono text-cream-variant text-sm tracking-wide whitespace-nowrap">{item.prix}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <!-- À BOIRE -->
+      <div class="mt-section">
+        <p class="micro-label text-cuivre-brule">À BOIRE</p>
+        <h2 class="font-serif text-headline-lg text-cream mt-3">Le bar.</h2>
+      </div>
+
+      {boireSections.map((section) => (
+        <section id={section.id} class="mt-20 md:mt-24">
+          <header class="border-b border-outline-variant/20 pb-4">
+            <h3 class="font-serif text-headline-md text-cream">{section.titre}</h3>
+          </header>
+          <ul class="mt-6 space-y-6">
+            {section.items.map((item) => (
+              <li>
+                <div class="flex items-baseline justify-between gap-6 flex-wrap">
+                  <p class="font-serif italic text-cream text-body-lg">{item.nom}</p>
+                  <p class="font-mono text-cream-variant text-sm tracking-wide whitespace-nowrap">
+                    {prixCellule(item)}
+                  </p>
+                </div>
+                {item.description && (
+                  <p class="font-sans text-cream-variant/80 text-body-md mt-1 max-w-2xl leading-relaxed">
+                    {item.description}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+
+      <!-- VINS — section dédiée -->
+      <div id="vins" class="mt-section">
+        <p class="micro-label text-cuivre-brule">LA CAVE ITALIENNE</p>
+        <h2 class="font-serif text-headline-lg text-cream mt-3">Les vins.</h2>
+        <p class="editorial-paragraph mt-6 text-cream-variant max-w-[540px]">
+          Toscane, Piémont, Pouilles, Vénétie, Sicile. Au verre, en pichet ou à la bouteille.
+        </p>
+      </div>
+
+      <section id="vins-rouges" class="mt-16 md:mt-20">
+        <header class="border-b border-outline-variant/20 pb-4">
+          <h3 class="font-serif text-headline-md text-cream">Rouges</h3>
+        </header>
+        <ul class="mt-6 divide-y divide-outline-variant/20">
+          {carte.vinsRouges.map((v) => (
+            <li class="flex items-baseline justify-between gap-6 py-3 flex-wrap">
+              <span class="font-serif italic text-cream text-body-lg">{v.nom}</span>
+              <span class="font-mono text-cream-variant text-sm tracking-wide whitespace-nowrap">
+                {v.prixBouteille} la bouteille{v.prixVerre ? ` · ${v.prixVerre} le verre` : ''}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section id="vins-blancs" class="mt-16 md:mt-20">
+        <header class="border-b border-outline-variant/20 pb-4">
+          <h3 class="font-serif text-headline-md text-cream">Blancs</h3>
+        </header>
+        <ul class="mt-6 divide-y divide-outline-variant/20">
+          {carte.vinsBlancs.map((v) => (
+            <li class="flex items-baseline justify-between gap-6 py-3 flex-wrap">
+              <span class="font-serif italic text-cream text-body-lg">{v.nom}</span>
+              <span class="font-mono text-cream-variant text-sm tracking-wide whitespace-nowrap">
+                {v.prixBouteille} la bouteille · {v.prixVerre} le verre
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section id="vins-roses" class="mt-16 md:mt-20">
+        <header class="border-b border-outline-variant/20 pb-4">
+          <h3 class="font-serif text-headline-md text-cream">Rosés</h3>
+        </header>
+        <ul class="mt-6 divide-y divide-outline-variant/20">
+          {carte.vinsRoses.map((v) => (
+            <li class="flex items-baseline justify-between gap-6 py-3 flex-wrap">
+              <span class="font-serif italic text-cream text-body-lg">{v.nom}</span>
+              <span class="font-mono text-cream-variant text-sm tracking-wide whitespace-nowrap">
+                {v.prixBouteille} la bouteille · {v.prixVerre} le verre
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section id="vin-pichet" class="mt-16 md:mt-20">
+        <header class="border-b border-outline-variant/20 pb-4">
+          <h3 class="font-serif text-headline-md text-cream">Vin en pichet</h3>
+        </header>
+        <ul class="mt-6 space-y-3">
+          {carte.vinPichet.map((v) => (
+            <li class="flex items-baseline justify-between gap-6">
+              <span class="font-sans text-cream text-body-md">{v.nom}</span>
+              <span class="font-mono text-cream-variant text-sm tracking-wide whitespace-nowrap">{v.prix}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section id="champagne" class="mt-16 md:mt-20">
+        <header class="border-b border-outline-variant/20 pb-4">
+          <h3 class="font-serif text-headline-md text-cream">Champagne</h3>
+        </header>
+        <ul class="mt-6 divide-y divide-outline-variant/20">
+          {carte.champagne.map((v) => (
+            <li class="flex items-baseline justify-between gap-6 py-3">
+              <span class="font-serif italic text-cream text-body-lg">{v.nom}</span>
+              <span class="font-mono text-cream-variant text-sm tracking-wide whitespace-nowrap">
+                {v.prixBouteille} la bouteille
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <div class="mt-section mb-section text-center">
+        <p class="kicker mb-5">VENIR CE SOIR</p>
+        <h2 class="font-serif text-headline-lg text-cream">Une table vous attend.</h2>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/#reservation" class="cta-primary">Réserver une table</a>
+          <a href="/" class="cta-ghost">Retour à l'accueil</a>
+        </div>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>
