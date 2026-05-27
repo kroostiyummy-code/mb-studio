@@ -1,0 +1,60 @@
+---
+import FilmGrain from './FilmGrain.astro';
+---
+<section
+  id="hero"
+  class="relative h-[88vh] min-h-[640px] w-full overflow-hidden bg-surface-lowest"
+>
+  <picture>
+    <source media="(max-width: 768px)" srcset="/images/hero-four-piacere-mobile.webp" />
+    <img
+      src="/images/hero-four-piacere.webp"
+      alt="Four à pizza napolitain personnalisé avec le nom Il Piacere inscrit en mosaïque bleue sur la coupole, flammes orange visibles dans la gueule du four"
+      width="1600"
+      height="1067"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+    />
+  </picture>
+
+  <!-- Fire gradient overlay (justifié par le four) -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: linear-gradient(180deg, rgba(21,12,5,0.45) 0%, rgba(21,12,5,0.15) 35%, rgba(21,12,5,0.55) 75%, rgba(21,12,5,0.95) 100%);"
+  ></div>
+
+  <!-- Vignettage radial subtil -->
+  <div
+    class="absolute inset-0 pointer-events-none mix-blend-multiply"
+    style="background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%);"
+  ></div>
+
+  <FilmGrain opacity={0.18} />
+
+  <div class="relative h-full mx-auto max-w-screen-xl px-5 md:px-10 flex flex-col justify-end pb-32 md:pb-40">
+    <div class="max-w-[720px]">
+      <p class="kicker mb-5">RESTAURANT · COCKTAIL BAR · FEU DE BOIS</p>
+
+      <h1 class="font-serif text-display-lg text-cream max-w-[720px]">
+        La soirée commence quand le four s'allume.
+      </h1>
+
+      <p class="editorial-paragraph mt-6 max-w-[540px] text-cream-variant">
+        Pizzas napolitaines, cocktails du soir, vins italiens. Luisant.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+        <a href="#reservation" class="cta-primary">Réserver une table</a>
+        <a href="#triptyque" class="cta-ghost">Voir la carte</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Indicateur scroll discret -->
+  <div class="absolute bottom-6 inset-x-0 flex flex-col items-center gap-2 pointer-events-none">
+    <span class="micro-label text-cream-variant/60">FAITES DÉFILER</span>
+    <span class="font-mono text-cream-variant/60 text-base" aria-hidden="true">↓</span>
+  </div>
+</section>

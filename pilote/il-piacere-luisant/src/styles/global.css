@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #1A1209;
+  }
+
+  body {
+    font-family: '"Be Vietnam Pro"', system-ui, sans-serif;
+    color: #F2DFD1;
+    background-color: #1A1209;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: #E07140;
+    color: #1A1209;
+  }
+
+  *:focus {
+    outline: none;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #E07140;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@layer components {
+  .editorial-link {
+    text-decoration: underline;
+    text-decoration-color: rgba(86, 66, 58, 0.55);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-color 200ms ease;
+  }
+
+  .editorial-link:hover {
+    text-decoration-color: #E07140;
+  }
+
+  .cta-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E07140;
+    color: #1A1209;
+    font-family: '"Bodoni Moda"', Georgia, serif;
+    font-weight: 600;
+    font-variant: small-caps;
+    letter-spacing: 0.04em;
+    padding: 1rem 2.5rem;
+    border-radius: 0.25rem;
+    transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 200ms ease;
+  }
+
+  .cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(224, 113, 64, 0.15);
+    background-color: #f08555;
+  }
+
+  .cta-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(242, 223, 209, 0.3);
+    color: #F2DFD1;
+    font-family: '"Bodoni Moda"', Georgia, serif;
+    font-weight: 500;
+    font-variant: small-caps;
+    letter-spacing: 0.04em;
+    padding: calc(1rem - 1px) calc(2.5rem - 1px);
+    border-radius: 0.25rem;
+    transition: border-color 200ms ease, color 200ms ease;
+  }
+
+  .cta-ghost:hover {
+    border-color: #F2DFD1;
+  }
+
+  .kicker {
+    font-family: '"IBM Plex Mono"', ui-monospace, monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    color: #E07140;
+  }
+
+  .kicker-soft {
+    font-family: '"IBM Plex Mono"', ui-monospace, monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 500;
+    color: #DDC1B6;
+  }
+
+  .micro-label {
+    font-family: '"IBM Plex Mono"', ui-monospace, monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-weight: 500;
+  }
+
+  .editorial-paragraph {
+    font-family: '"Be Vietnam Pro"', system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 1.65;
+    color: #DDC1B6;
+  }
+}
+
+/* Carousel mobile pour SocialProof */
+.snap-carousel {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.snap-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.snap-carousel > * {
+  scroll-snap-align: center;
+}
+
+/* Respect du prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

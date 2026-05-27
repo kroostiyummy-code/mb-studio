@@ -1,0 +1,104 @@
+---
+import '../styles/global.css';
+import etablissement from '../data/etablissement.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  pathname?: string;
+}
+
+const {
+  title = 'Il Piacere — Restaurant italien & cocktail bar à Luisant (Chartres)',
+  description = 'Pizzas au feu de bois napolitaines, cocktails du soir, vins italiens. À Luisant, à deux pas de Chartres. Réservation : 02 37 34 44 62.',
+  ogImage = '/images/og-image.webp',
+  pathname = Astro.url.pathname,
+} = Astro.props;
+
+const canonical = new URL(pathname, Astro.site).toString();
+const ogImageUrl = new URL(ogImage, Astro.site).toString();
+
+const tel = etablissement.telephones[0].tel;
+const reseaux = etablissement.reseaux.map((r) => r.url);
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#1A1209" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="restaurant" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content="Il Piacere — La soirée italienne de Luisant" />
+    <meta property="og:description" content="Pizzas au feu de bois, cocktails, vins italiens. 30 ter avenue Maurice Maunoury, 28600 Luisant." />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fonts: preconnect + single CSS request (Bodoni Moda + Be Vietnam Pro + IBM Plex Mono) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Be+Vietnam+Pro:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Restaurant',
+        name: 'Il Piacere',
+        image: ogImageUrl,
+        '@id': canonical,
+        url: canonical,
+        telephone: tel,
+        priceRange: '€€',
+        servesCuisine: ['Italian', 'Pizza', 'Cocktail'],
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: etablissement.adresse.rue,
+          addressLocality: etablissement.adresse.ville,
+          postalCode: etablissement.adresse.codePostal,
+          addressCountry: 'FR',
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: etablissement.geo.latitude,
+          longitude: etablissement.geo.longitude,
+        },
+        openingHoursSpecification: [
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday'], opens: '07:30', closes: '15:00' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday'], opens: '18:00', closes: '22:00' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Friday', opens: '07:30', closes: '00:00' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '00:00' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Sunday', opens: '09:00', closes: '14:00' },
+        ],
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: String(etablissement.note.valeur),
+          reviewCount: String(etablissement.note.nombreAvis),
+        },
+        sameAs: reseaux,
+        hasMenu: canonical + '#carte',
+        acceptsReservations: 'True',
+      })}
+    />
+  </head>
+  <body class="bg-background text-cream antialiased">
+    <slot />
+  </body>
+</html>

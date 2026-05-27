@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import etablissement from '../data/etablissement.json';
+const adresse = etablissement.adresse;
+const telPrincipal = etablissement.telephones[0];
+---
+<BaseLayout
+  title="Mentions légales — Il Piacere"
+  description="Mentions légales du restaurant Il Piacere à Luisant."
+>
+  <Header />
+  <main class="bg-background">
+    <article class="mx-auto max-w-3xl px-5 md:px-10 pt-40 pb-section">
+      <p class="kicker mb-5">MENTIONS LÉGALES</p>
+      <h1 class="font-serif text-display-lg text-cream">Informations légales.</h1>
+
+      <div class="mt-12 space-y-10 text-cream-variant text-body-md leading-relaxed">
+        <section>
+          <h2 class="font-serif text-headline-md text-cream mb-3">Éditeur du site</h2>
+          <p>
+            Il Piacere — Restaurant<br />
+            {adresse.rue}, {adresse.codePostal} {adresse.ville}<br />
+            Téléphone : <a href={`tel:${telPrincipal.tel}`} class="editorial-link">{telPrincipal.numero}</a>
+          </p>
+          <p class="mt-2 text-cream-variant/70 text-sm">
+            Les informations de SIRET, RCS, capital social et directeur de publication seront ajoutées
+            par l'éditeur lors de la validation finale.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-headline-md text-cream mb-3">Hébergement</h2>
+          <p>
+            Cloudflare Pages — Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, USA.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-headline-md text-cream mb-3">Conception et réalisation</h2>
+          <p>
+            {etablissement.credit} — Chartres (Eure-et-Loir).
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-headline-md text-cream mb-3">Propriété intellectuelle</h2>
+          <p>
+            L'ensemble du contenu de ce site (textes, photographies, identité visuelle) est protégé
+            par le droit d'auteur. Toute reproduction sans autorisation expresse est interdite.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-headline-md text-cream mb-3">Données personnelles</h2>
+          <p>
+            Ce site ne collecte aucune donnée personnelle, n'utilise aucun cookie de traçage et
+            n'intègre aucun service tiers de mesure d'audience embarqué côté client.
+          </p>
+        </section>
+      </div>
+
+      <a href="/" class="inline-block mt-16 font-serif italic text-terracotta editorial-link">
+        ← Retour à l'accueil
+      </a>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>

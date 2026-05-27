@@ -1,0 +1,24 @@
+---
+interface Props {
+  opacity?: number;
+  blend?: 'overlay' | 'multiply' | 'soft-light';
+}
+const { opacity = 0.12, blend = 'overlay' } = Astro.props;
+const blendClass = blend === 'overlay'
+  ? 'mix-blend-overlay'
+  : blend === 'multiply'
+    ? 'mix-blend-multiply'
+    : 'mix-blend-soft-light';
+---
+<svg
+  class={`absolute inset-0 w-full h-full pointer-events-none ${blendClass}`}
+  style={`opacity: ${opacity}`}
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <filter id="grain-filter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
+    <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" />
+  </filter>
+  <rect width="100%" height="100%" filter="url(#grain-filter)" />
+</svg>

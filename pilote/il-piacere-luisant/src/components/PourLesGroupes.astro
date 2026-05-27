@@ -1,0 +1,42 @@
+---
+import etablissement from '../data/etablissement.json';
+const tel = etablissement.telephones[0];
+---
+<section id="pour-les-groupes" aria-labelledby="groupes-titre" class="bg-surface-lowest">
+  <div class="relative w-full h-[55vh] md:h-[60vh] overflow-hidden">
+    <img
+      src="/images/groupes-terrasse.webp"
+      alt="Terrasse extérieure d'Il Piacere avec treillis en bois, chaises rotin et tables alignées en perspective sous la lumière du jour"
+      width="1920"
+      height="1080"
+      loading="lazy"
+      decoding="async"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+    />
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background: linear-gradient(180deg, rgba(21,12,5,0.2) 0%, rgba(21,12,5,0) 50%, rgba(21,12,5,0.85) 100%);"
+    ></div>
+  </div>
+
+  <div class="mx-auto max-w-screen-xl px-5 md:px-10 py-24 md:py-32 border-t border-b border-outline-variant/15">
+    <div class="max-w-[640px] mx-auto text-center">
+      <p class="kicker mb-5" style="color: #B8763D;">GROUPES · AFTERWORKS · ANNIVERSAIRES</p>
+      <h2 id="groupes-titre" class="font-serif text-headline-lg text-cream">
+        Vingt couverts sans prévenir. Ça arrive.
+      </h2>
+      <p class="editorial-paragraph mt-6 text-cream-variant max-w-[540px] mx-auto">
+        Une équipe qui rentre du bureau, un anniversaire surprise,
+        une réunion qui finit autour de pizzas et de bouteilles.
+        Appelez avant 17h pour les groupes de plus de 10.
+      </p>
+      <a
+        href={`tel:${tel.tel}`}
+        class="inline-block mt-8 font-serif italic text-cream text-headline-md editorial-link"
+        style="text-decoration-color: rgba(224,113,64,0.6);"
+      >
+        {tel.numero}
+      </a>
+    </div>
+  </div>
+</section>

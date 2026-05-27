@@ -1,0 +1,94 @@
+---
+import etablissement from '../data/etablissement.json';
+const telPrincipal = etablissement.telephones[0];
+const telMobile = etablissement.telephones[1];
+const horaires = etablissement.horaires;
+const adresse = etablissement.adresse;
+const mapsUrl = etablissement.mapsUrl;
+const instagramUrl = etablissement.reseaux.find((r) => r.label.startsWith('Instagram'))?.url ?? '#';
+---
+<section
+  id="reservation"
+  aria-labelledby="reservation-titre"
+  class="relative bg-surface-lowest overflow-hidden"
+>
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse at 50% 30%, rgba(224,113,64,0.07) 0%, transparent 60%);"
+  ></div>
+
+  <div class="relative mx-auto max-w-screen-xl px-5 md:px-10 py-section">
+    <div class="text-center max-w-[720px] mx-auto">
+      <p class="kicker mb-5">VENIR CE SOIR</p>
+      <h2 id="reservation-titre" class="font-serif text-display-lg text-cream">
+        Une table vous attend.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mt-16 md:mt-20 max-w-4xl mx-auto">
+      <div>
+        <p class="micro-label text-cuivre-brule mb-4">ADRESSE</p>
+        <p class="font-serif text-cream text-body-lg leading-relaxed">
+          {adresse.rue}<br />
+          {adresse.codePostal} {adresse.ville}
+        </p>
+        <a
+          href={mapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block mt-3 font-serif italic text-terracotta editorial-link text-body-md"
+        >
+          Voir sur la carte →
+        </a>
+      </div>
+
+      <div>
+        <p class="micro-label text-cuivre-brule mb-4">HORAIRES</p>
+        <ul class="space-y-1.5 text-cream font-sans text-body-md">
+          {horaires.map((h) => (
+            <li>
+              <span class="text-cream">{h.jours}</span>
+              <span class="text-cream-variant"> · {h.creneaux}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <p class="micro-label text-cuivre-brule mb-4">RÉSERVATION</p>
+        <ul class="space-y-2 font-serif text-cream text-body-lg">
+          <li>
+            <a href={`tel:${telPrincipal.tel}`} class="editorial-link">
+              {telPrincipal.numero}
+            </a>
+          </li>
+          <li>
+            <a href={`tel:${telMobile.tel}`} class="editorial-link">
+              {telMobile.numero}
+            </a>
+          </li>
+        </ul>
+        <a
+          href={instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block mt-3 font-serif italic text-terracotta editorial-link text-body-md"
+        >
+          Ou par message Instagram →
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-16 md:mt-20 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href={`tel:${telPrincipal.tel}`} class="cta-primary">Réserver une table</a>
+      <a
+        href={mapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cta-ghost"
+      >
+        Voir l'itinéraire
+      </a>
+    </div>
+  </div>
+</section>

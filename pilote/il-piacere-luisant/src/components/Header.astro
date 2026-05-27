@@ -1,0 +1,49 @@
+---
+import etablissement from '../data/etablissement.json';
+const telPrincipal = etablissement.telephones[0];
+---
+<header
+  id="site-header"
+  class="fixed top-0 inset-x-0 z-50 transition-[background-color,backdrop-filter] duration-[400ms] ease-soft-out"
+>
+  <div class="mx-auto max-w-screen-xl px-5 md:px-10 py-3 flex items-center justify-between">
+    <a
+      href="#hero"
+      class="font-serif text-cream text-xl md:text-2xl tracking-[0.18em] hover:text-terracotta transition-colors duration-200"
+      aria-label="Il Piacere — retour en haut"
+    >
+      IL PIACERE
+    </a>
+
+    <div class="flex items-center gap-6">
+      <a
+        href={`tel:${telPrincipal.tel}`}
+        class="hidden md:inline-flex font-mono text-[12px] tracking-[0.15em] text-cream-variant hover:text-terracotta transition-colors duration-200"
+      >
+        {telPrincipal.numero}
+      </a>
+      <a
+        href="#reservation"
+        class="font-serif text-cream text-sm md:text-base tracking-wide hover:text-terracotta transition-colors duration-200 editorial-link"
+        style="font-variant: small-caps; letter-spacing: 0.08em;"
+      >
+        Réserver
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header');
+  if (header) {
+    const onScroll = () => {
+      if (window.scrollY > 50) {
+        header.classList.add('bg-background/90', 'backdrop-blur-xl', 'border-b', 'border-outline-variant/20');
+      } else {
+        header.classList.remove('bg-background/90', 'backdrop-blur-xl', 'border-b', 'border-outline-variant/20');
+      }
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+</script>

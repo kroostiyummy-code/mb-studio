@@ -1,0 +1,71 @@
+---
+import etablissement from '../data/etablissement.json';
+
+const note = etablissement.note;
+const fullStars = Math.floor(note.valeur);
+const halfStar = note.valeur - fullStars >= 0.3 && note.valeur - fullStars < 0.8;
+const totalStars = 5;
+
+const verbatims = [
+  "On y est entrés à 20, sans réserver. On nous a installés en quinze minutes. Comme si c'était normal.",
+  "La pizza, c'est exactement celle de Naples. La chaleur du four se sent dans la pâte.",
+  "On dîne, on commande un spritz, et la soirée continue toute seule.",
+];
+---
+<section
+  aria-label="Avis et note Google"
+  class="bg-surface-low border-y border-outline-variant/20"
+>
+  <div class="mx-auto max-w-screen-xl px-5 md:px-10 py-section">
+    <div class="flex flex-col items-center text-center mb-12 md:mb-16">
+      <div class="flex items-center gap-1 mb-3" aria-hidden="true">
+        {Array.from({ length: fullStars }).map(() => (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#E07140">
+            <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+          </svg>
+        ))}
+        {halfStar && (
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <defs>
+              <linearGradient id="halfGrad">
+                <stop offset="50%" stop-color="#E07140" />
+                <stop offset="50%" stop-color="#56423A" />
+              </linearGradient>
+            </defs>
+            <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#halfGrad)" />
+          </svg>
+        )}
+        {Array.from({ length: totalStars - fullStars - (halfStar ? 1 : 0) }).map(() => (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#56423A">
+            <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+          </svg>
+        ))}
+      </div>
+      <p class="kicker-soft">
+        {note.valeur.toString().replace('.', ',')} / 5 SUR {note.nombreAvis} AVIS GOOGLE
+      </p>
+    </div>
+
+    <!-- Desktop : grille 3 colonnes avec séparateurs verticaux -->
+    <div class="hidden md:grid md:grid-cols-3 md:gap-0">
+      {verbatims.map((verbatim, i) => (
+        <blockquote class={`px-8 py-6 ${i > 0 ? 'border-l border-outline-variant/25' : ''}`}>
+          <p class="font-serif italic text-body-lg leading-relaxed text-cream">
+            « {verbatim} »
+          </p>
+        </blockquote>
+      ))}
+    </div>
+
+    <!-- Mobile : carousel CSS scroll-snap natif -->
+    <div class="md:hidden snap-carousel flex overflow-x-auto gap-6 -mx-5 px-5">
+      {verbatims.map((verbatim) => (
+        <blockquote class="flex-shrink-0 w-[85%] py-6">
+          <p class="font-serif italic text-body-lg leading-relaxed text-cream">
+            « {verbatim} »
+          </p>
+        </blockquote>
+      ))}
+    </div>
+  </div>
+</section>

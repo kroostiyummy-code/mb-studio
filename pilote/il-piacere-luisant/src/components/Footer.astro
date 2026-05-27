@@ -1,0 +1,72 @@
+---
+import etablissement from '../data/etablissement.json';
+const adresse = etablissement.adresse;
+const tels = etablissement.telephones;
+const horaires = etablissement.horairesFooter;
+const reseaux = etablissement.reseaux;
+const annee = etablissement.annee;
+---
+<footer class="bg-surface-lowest border-t border-outline-variant/15">
+  <div class="mx-auto max-w-screen-xl px-5 md:px-10 py-20 md:py-24">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+      <!-- Colonne 1 : Identité -->
+      <div>
+        <p class="font-serif text-cream text-2xl tracking-[0.18em]">IL PIACERE</p>
+        <p class="font-serif italic text-terracotta mt-3 text-body-md">
+          {etablissement.baselineCourte}
+        </p>
+        <address class="not-italic font-sans text-cream-variant text-body-md mt-6 leading-relaxed">
+          {adresse.rue}<br />
+          {adresse.codePostal} {adresse.ville}
+        </address>
+      </div>
+
+      <!-- Colonne 2 : Contact + Horaires -->
+      <div>
+        <p class="micro-label text-terracotta mb-3">CONTACT</p>
+        <ul class="font-sans text-cream text-body-md space-y-1">
+          {tels.map((t) => (
+            <li>
+              <a href={`tel:${t.tel}`} class="editorial-link">{t.numero}</a>
+            </li>
+          ))}
+        </ul>
+
+        <p class="micro-label text-terracotta mb-3 mt-8">HORAIRES</p>
+        <ul class="font-sans text-cream-variant text-body-md space-y-1">
+          {horaires.map((h) => (
+            <li>
+              <span class="text-cream">{h.jours}</span>
+              <span> · {h.creneaux}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Colonne 3 : Réseaux + Mentions -->
+      <div>
+        <p class="micro-label text-terracotta mb-3">RÉSEAUX</p>
+        <ul class="font-sans text-cream text-body-md space-y-1">
+          {reseaux.map((r) => (
+            <li>
+              <a
+                href={r.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="editorial-link"
+              >
+                {r.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <div class="mt-12 pt-6 border-t border-outline-variant/15 text-cream-variant text-sm space-y-1">
+          <p>© {annee} IL PIACERE</p>
+          <p><a href="/mentions-legales" class="editorial-link">Mentions légales</a></p>
+          <p>{etablissement.credit}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

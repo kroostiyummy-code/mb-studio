@@ -1,0 +1,73 @@
+---
+const blocs = [
+  {
+    numeroRomain: 'I',
+    titre: 'BOIRE',
+    src: '/images/triptyque-boire.webp',
+    alt: 'Verre de spritz sur le comptoir du bar avec lumière chaude',
+    width: 600,
+    height: 750,
+    ratio: 'aspect-[4/5]',
+    align: 'mt-0',
+    copy: 'Apéritif spritz, vin italien au verre,\ncocktail après dîner. On reste.',
+  },
+  {
+    numeroRomain: 'II',
+    titre: 'MANGER',
+    src: '/images/triptyque-manger.webp',
+    alt: 'Pizza burrata jambon de Parme vue de biais, photographie éditoriale',
+    width: 800,
+    height: 600,
+    ratio: 'aspect-[4/3]',
+    align: 'md:mt-24',
+    copy: 'Pizzas au feu de bois, pâtes maison,\nplanches italiennes. Pas de demi-mesure.',
+  },
+  {
+    numeroRomain: 'III',
+    titre: 'S’AMUSER',
+    src: '/images/triptyque-samuser.webp',
+    alt: 'Terrasse au soir avec tables occupées par des groupes',
+    width: 700,
+    height: 700,
+    ratio: 'aspect-square',
+    align: 'mt-0',
+    copy: 'Tables de vingt, anniversaires, afterworks.\nLa soirée continue tant qu’on est là.',
+  },
+];
+---
+<section id="triptyque" aria-label="Boire, manger, s’amuser" class="bg-background">
+  <div class="mx-auto max-w-screen-xl px-5 md:px-10 py-section">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-y-32 md:gap-y-0 md:gap-x-16">
+      {blocs.map((bloc, i) => (
+        <div class={`relative md:col-span-4 ${bloc.align}`}>
+          <span
+            aria-hidden="true"
+            class="absolute -top-12 -left-2 md:-top-16 md:-left-4 font-serif text-[140px] md:text-[180px] leading-none text-cream/10 select-none pointer-events-none"
+            style="font-weight: 200;"
+          >
+            {bloc.numeroRomain}
+          </span>
+
+          <div class="relative">
+            <img
+              src={bloc.src}
+              alt={bloc.alt}
+              width={bloc.width}
+              height={bloc.height}
+              loading="lazy"
+              decoding="async"
+              class={`w-full ${bloc.ratio} object-cover`}
+            />
+          </div>
+
+          <h3 class="font-serif font-semibold text-headline-md text-terracotta mt-6 tracking-wide">
+            {bloc.titre}
+          </h3>
+          <p class="font-sans text-body-md text-cream-variant mt-3 whitespace-pre-line leading-relaxed">
+            {bloc.copy}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

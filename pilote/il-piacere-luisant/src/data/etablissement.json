@@ -1,0 +1,56 @@
+{
+  "nom": "Il Piacere",
+  "baselineCourte": "Cocktail bar · Restaurant · Four napolitain",
+  "adresse": {
+    "rue": "30 ter avenue Maurice Maunoury",
+    "codePostal": "28600",
+    "ville": "Luisant",
+    "pays": "France"
+  },
+  "geo": {
+    "latitude": 48.4239,
+    "longitude": 1.4762
+  },
+  "telephones": [
+    { "label": "Restaurant", "numero": "02 37 34 44 62", "tel": "+33237344462" },
+    { "label": "Mobile", "numero": "06 22 39 56 91", "tel": "+33622395691" }
+  ],
+  "horaires": [
+    { "jours": "Mardi – Jeudi", "creneaux": "7h30–15h, 18h–22h" },
+    { "jours": "Vendredi", "creneaux": "7h30–00h" },
+    { "jours": "Samedi", "creneaux": "9h–00h" },
+    { "jours": "Dimanche", "creneaux": "9h–14h" },
+    { "jours": "Lundi", "creneaux": "fermé" }
+  ],
+  "horairesFooter": [
+    { "jours": "Mardi – Jeudi", "creneaux": "7h30–22h" },
+    { "jours": "Vendredi", "creneaux": "7h30–00h" },
+    { "jours": "Samedi", "creneaux": "9h–00h" },
+    { "jours": "Dimanche", "creneaux": "9h–14h" },
+    { "jours": "Lundi", "creneaux": "fermé" }
+  ],
+  "reseaux": [
+    { "label": "Instagram @il_piacere28", "url": "https://www.instagram.com/il_piacere28/" },
+    { "label": "Facebook ilpiacere28", "url": "https://www.facebook.com/ilpiacere28/" },
+    { "label": "Site Eatbu", "url": "https://il-piacere.eatbu.com/?lang=fr" }
+  ],
+  "note": {
+    "valeur": 4.7,
+    "nombreAvis": 497
+  },
+  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=30+ter+avenue+Maurice+Maunoury+28600+Luisant",
+  "carteVinsRouges": [
+    { "nom": "Lambrusco Rosso", "prixVerre": "3,90 €" },
+    { "nom": "Chianti", "prixVerre": "4,00 €" },
+    { "nom": "Montepulciano d'Abruzzo", "prixVerre": "4,00 €" },
+    { "nom": "Primitivo di Manduria", "prixVerre": "7,00 €" },
+    { "nom": "Barolo", "prixVerre": "bouteille uniquement" }
+  ],
+  "carteVinsBlancs": [
+    { "nom": "Prosecco", "prixVerre": "4,00 €" },
+    { "nom": "Pinot Grigio", "prixVerre": "3,90 €" },
+    { "nom": "Greco di Tufo", "prixVerre": "6,50 €" }
+  ],
+  "credit": "Site conçu par MB Studio",
+  "annee": 2026
+}
