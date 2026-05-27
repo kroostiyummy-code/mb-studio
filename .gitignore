@@ -4,9 +4,11 @@ dist/
 .next/
 .astro/
 
-# Données clients (jamais commitées)
+# Données clients (jamais commitées par défaut)
 clients/*
 !clients/.gitkeep
+# Exception : maquette commerciale Le Cochon Dingue V2 (projet Astro versionné)
+!clients/le-cochon-dingue-chartres/
 
 # Audits générés
 audits/

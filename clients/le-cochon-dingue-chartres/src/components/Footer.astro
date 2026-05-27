@@ -1,0 +1,54 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="relative bg-cellar px-6 py-32 md:px-[8vw] md:py-40">
+  <div class="mx-auto max-w-5xl">
+    <h2
+      class="display-italic text-copper fade-in-up"
+      style="font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1;"
+    >
+      Le pâté refroidit.<br />
+      La cave, <span style="color: var(--neon);">jamais</span> vraiment.
+    </h2>
+
+    <div class="mt-24 grid grid-cols-1 gap-12 border-t border-bone/10 pt-16 md:grid-cols-2">
+      <div class="fade-in-up">
+        <p class="display text-bone" style="font-size: 2rem;">Le Cochon Dingue</p>
+        <p class="kicker mt-3">Charcuterie · Traiteur · Restaurant · Salon de thé</p>
+      </div>
+
+      <div class="space-y-3 text-sm text-bone/80 md:text-right fade-in-up delay-150">
+        <p>5 Rue de la Pie · 28000 Chartres</p>
+        <p>
+          <a href="tel:+33237213098" class="link-underline">02 37 21 30 98</a>
+        </p>
+        <p class="pt-2">
+          <a
+            href="https://www.facebook.com/lecochondingue28"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="kicker"
+          >
+            Facebook
+          </a>
+        </p>
+        <p>
+          <a
+            href="https://le-cochon-dingue.eatbu.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="kicker"
+          >
+            Réserver une table
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-16 border-t border-bone/10 pt-8 text-center">
+      <p class="kicker text-bone/25">© {year} Le Cochon Dingue — Chartres</p>
+      <p class="kicker mt-2 text-bone/25">Site créé par MB Studio · Chartres</p>
+    </div>
+  </div>
+</footer>

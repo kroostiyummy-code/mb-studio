@@ -1,0 +1,61 @@
+---
+const mapsUrl = 'https://www.google.com/maps/place/5+Rue+de+la+Pie,+28000+Chartres';
+---
+
+<section class="bg-ink px-6 py-32 md:px-12 md:py-40">
+  <div class="mx-auto max-w-3xl text-center">
+    <p class="kicker fade-in-up">Le Cochon Dingue · Chartres</p>
+
+    <h2 class="display mt-8 text-bone fade-in-up delay-150" style="font-size: clamp(2rem, 5vw, 3.5rem);">
+      À deux pas de la cathédrale. Et franchement ailleurs.
+    </h2>
+
+    <div class="mt-16 space-y-2 fade-in-up delay-300">
+      <p class="text-lg text-bone">5 Rue de la Pie</p>
+      <p class="text-lg text-bone/75">28000 Chartres</p>
+    </div>
+
+    <div class="mt-8 fade-in-up delay-300">
+      <a href="tel:+33237213098" class="venir-phone" aria-label="Appeler le Cochon Dingue au 02 37 21 30 98">
+        02 37 21 30 98
+      </a>
+    </div>
+
+    <pre class="font-mono mx-auto mt-8 inline-block whitespace-pre text-left text-[13px] leading-[1.7] text-bone/75 fade-in-up delay-450" style="font-family: 'IBM Plex Mono', ui-monospace, monospace;">
+MARDI – VENDREDI    9H – 19H
+SAMEDI               9H – 20H30
+DIMANCHE & LUNDI    FERMÉ</pre>
+
+    <p class="display-italic mt-10 text-copper fade-in-up delay-450" style="font-size: 0.95rem;">
+      Charcuterie · Traiteur · Restaurant · Salon de thé en sous-sol
+    </p>
+
+    <div class="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6 fade-in-up delay-600">
+      <a href="tel:+33237213098" class="btn-ghost">Nous appeler</a>
+      <a
+        href="https://le-cochon-dingue.eatbu.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-ghost"
+      >
+        Réserver
+      </a>
+    </div>
+
+    <a
+      href={mapsUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-16 block fade-in-up delay-600"
+      aria-label="Ouvrir l'emplacement du Cochon Dingue dans Google Maps"
+    >
+      <div class="placeholder-frame h-64 w-full md:h-80">
+        <span>Carte · 5 Rue de la Pie · Chartres</span>
+      </div>
+    </a>
+
+    <p class="display-italic mt-16 text-bone/75 fade-in-up" style="font-size: 1.5rem;">
+      On entre pour regarder. On finit souvent par descendre.
+    </p>
+  </div>
+</section>

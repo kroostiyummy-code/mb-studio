@@ -1,0 +1,8 @@
+node_modules
+dist
+.astro
+.env*
+photos-source/*
+!photos-source/.gitkeep
+.DS_Store
+*.log

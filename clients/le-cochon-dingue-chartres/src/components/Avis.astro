@@ -1,0 +1,31 @@
+---
+const avis = [
+  { texte: 'Je pensais entrer dans une simple charcuterie.', large: true },
+  { texte: 'La cave vaut le détour à elle seule.', large: false },
+  { texte: 'Le pâté mérite largement sa réputation.', large: true },
+  { texte: 'On reste beaucoup plus longtemps que prévu.', large: false },
+  { texte: "Le genre d'adresse qu'on recommande discrètement.", large: true },
+];
+---
+
+<section class="bg-ink px-6 py-32 md:px-12 md:py-40">
+  <div class="mx-auto max-w-3xl">
+    <p class="kicker mb-16 text-center fade-in-up">Ce qu'on entend souvent en repartant</p>
+
+    <div class="space-y-12 md:space-y-16">
+      {avis.map((a, i) => (
+        <>
+          <blockquote
+            class={`avis-block ${a.large ? 'avis-large' : 'avis-small'} fade-in-up`}
+            style={`transition-delay: ${i * 150}ms;`}
+          >
+            <p>« {a.texte} »</p>
+          </blockquote>
+          {i < avis.length - 1 && <hr class="avis-rule" />}
+        </>
+      ))}
+    </div>
+
+    <p class="avis-footer fade-in-up">4,7 / 5 · 143 avis Google</p>
+  </div>
+</section>

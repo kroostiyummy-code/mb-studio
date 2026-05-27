@@ -1,0 +1,53 @@
+---
+const vignettes = [
+  { src: '/placeholders/comptoir-charcuterie.svg', alt: "Comptoir charcuterie du Cochon Dingue, tranches et terrines à Chartres" },
+  { src: '/placeholders/tourte-chaude.svg', alt: "Tourte feuilletée tiède sortie du four, gros plan" },
+  { src: '/placeholders/terrines-vitrine.svg', alt: "Alignement de terrines maison derrière la vitrine réfrigérée" },
+  { src: '/placeholders/ardoise-craie.svg', alt: "Ardoise du plat du jour écrite à la craie" },
+];
+---
+
+<section class="bg-ink px-6 py-32 md:px-12 md:py-40">
+  <div class="mx-auto max-w-7xl">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="kicker fade-in-up">Derrière la vitrine</p>
+      <h2 class="display mt-8 text-bone fade-in-up delay-150" style="font-size: clamp(1.75rem, 4vw, 2.5rem);">
+        Le comptoir donne faim avant même la carte.
+      </h2>
+
+      <div class="mt-10 space-y-3 text-lg leading-relaxed text-bone fade-in-up delay-300">
+        <p>Tourtes encore tièdes.</p>
+        <p>Terrines alignées derrière la vitre.</p>
+        <p>Ardoises écrites à la craie.</p>
+        <p>Lumières cuivre au-dessus du comptoir.</p>
+      </div>
+
+      <div class="mt-10 space-y-2 italic text-bone/80 fade-in-up delay-450">
+        <p>On entre parfois juste pour regarder.</p>
+        <p>Puis quelqu'un finit toujours par commander quelque chose.</p>
+      </div>
+    </div>
+
+    <div class="comptoir-scroll mt-20 md:mt-24 fade-in-up delay-600">
+      {vignettes.map((v) => (
+        <figure>
+          <img
+            src={v.src}
+            alt={v.alt}
+            class="w-full"
+            width="800"
+            height="600"
+            loading="lazy"
+            style="aspect-ratio: 4 / 3; object-fit: cover;"
+          />
+        </figure>
+      ))}
+    </div>
+
+    <div class="mt-16 text-center fade-in-up">
+      <a href="#specialites" class="link-underline text-sm uppercase tracking-[0.16em]">
+        Découvrir les spécialités
+      </a>
+    </div>
+  </div>
+</section>

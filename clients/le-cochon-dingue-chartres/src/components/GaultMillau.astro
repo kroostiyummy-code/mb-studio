@@ -1,0 +1,39 @@
+---
+const medals = [
+  { src: '/placeholders/gm-2023.svg', alt: 'Médaille Gault & Millau Artisan 2023, attribuée au Cochon Dingue', year: '2023' },
+  { src: '/placeholders/gm-2024.svg', alt: 'Médaille Gault & Millau Artisan 2024, attribuée au Cochon Dingue', year: '2024' },
+  { src: '/placeholders/gm-2025.svg', alt: 'Médaille Gault & Millau Artisan 2025, attribuée au Cochon Dingue', year: '2025' },
+];
+---
+
+<section class="border-y border-copper/20 bg-ink px-6 py-32 md:px-12 md:py-40">
+  <div class="mx-auto max-w-4xl text-center">
+    <p class="kicker fade-in-up">Maison artisanale · Reconnaissance Gault & Millau</p>
+
+    <h2 class="display mt-8 text-bone fade-in-up delay-150" style="font-size: clamp(2rem, 5vw, 3rem);">
+      Trois années de suite, <em class="display-italic">le pâté</em> est resté dans les mémoires.
+    </h2>
+
+    <blockquote class="mx-auto mt-12 max-w-2xl fade-in-up delay-300">
+      <p class="display-italic text-bone" style="font-size: clamp(1.375rem, 3vw, 1.625rem);">
+        « L'une des grandes références chartraines en matière de charcuterie. »
+      </p>
+      <footer class="kicker mt-4">— Gault &amp; Millau</footer>
+    </blockquote>
+
+    <div class="gm-medals">
+      {medals.map((m, i) => (
+        <figure class={`flex flex-col items-center fade-in-up delay-${(i + 1) * 150}`}>
+          <img src={m.src} alt={m.alt} class="medal-placeholder" width="320" height="320" loading="lazy" />
+          <figcaption class="kicker mt-4 text-copper" style="font-size: 13px;">{m.year}</figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <p class="display-italic mx-auto mt-12 max-w-xl text-bone/75 fade-in-up delay-600" style="font-size: 1.125rem;">
+      Le feuilletage dore le matin. À midi, certains viennent déjà spécialement pour ça.
+    </p>
+
+    <p class="kicker mt-12 fade-in-up delay-600">Trois ans de suite. Demandez aux habitués pourquoi.</p>
+  </div>
+</section>

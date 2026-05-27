@@ -1,0 +1,42 @@
+---
+const plats = [
+  { nom: 'Jambon persillé', detail: 'Classique préparé à la main' },
+  { nom: 'Andouillette au cidre', detail: 'Recette régionale, sauce maison' },
+  { nom: 'Tête de veau sauce ravigote', detail: 'Pièce de patience, sauce relevée' },
+  { nom: 'Tourte charcutière', detail: 'Feuilletage doré, garniture maison' },
+  { nom: 'Coquilles Saint-Jacques à la normande', detail: 'Crème et beurre, recette d’hiver' },
+  { nom: 'Feuilleté de jambon', detail: 'Pâte feuilletée, jambon supérieur' },
+  { nom: 'Desserts traditionnels', detail: 'Selon le marché. Demandez en passant.' },
+];
+---
+
+<section id="specialites" class="bg-ink px-6 py-32 md:px-12 md:py-40">
+  <div class="mx-auto max-w-5xl">
+    <div class="max-w-3xl fade-in-up">
+      <p class="kicker">La carte</p>
+      <h2 class="display mt-8 text-bone" style="font-size: clamp(1.75rem, 4vw, 2.5rem);">
+        La maison cuisine. Tous les jours.
+      </h2>
+    </div>
+
+    <ul class="mt-16 grid grid-cols-1 gap-x-12 md:grid-cols-2">
+      {plats.map((p, i) => (
+        <li
+          class={`fade-in-up border-b border-copper/15 py-6 ${i % 2 === 1 ? 'md:mt-12' : ''}`}
+          style={`transition-delay: ${Math.min(i * 80, 480)}ms;`}
+        >
+          <h3 class="display-italic text-bone" style="font-size: clamp(1.5rem, 2.5vw, 1.75rem);">
+            {p.nom}
+          </h3>
+          <p class="mt-2 text-sm text-bone/70" style="font-family: 'Inter Tight', system-ui, sans-serif;">
+            {p.detail}
+          </p>
+        </li>
+      ))}
+    </ul>
+
+    <p class="display-italic mt-16 text-bone/50 fade-in-up" style="font-size: 1.25rem;">
+      Carte saisonnière complète au comptoir.
+    </p>
+  </div>
+</section>

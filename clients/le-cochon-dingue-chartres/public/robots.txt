@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://le-cochon-dingue-chartres.pages.dev/sitemap-index.xml

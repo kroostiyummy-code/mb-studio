@@ -1,0 +1,50 @@
+---
+import Nav from './Nav.astro';
+---
+
+<section id="hero" class="relative bg-ink">
+  <Nav />
+
+  <div class="relative h-[70vh] w-full overflow-hidden md:h-[85vh]">
+    <picture>
+      <source media="(max-width: 767px)" srcset="/placeholders/hero-devanture-mobile.svg" />
+      <img
+        src="/placeholders/hero-devanture.svg"
+        alt="Devanture du Cochon Dingue, rue de la Pie à Chartres, néon rose visible au-dessus du comptoir"
+        class="hero-image h-full w-full object-cover"
+        width="1920"
+        height="1280"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </picture>
+    <div
+      class="pointer-events-none absolute inset-0"
+      style="background: linear-gradient(to top, rgba(17,17,17,0.85), transparent); box-shadow: inset 0 0 200px 80px rgba(17,17,17,0.6);"
+    >
+    </div>
+  </div>
+
+  <div class="px-6 py-32 md:px-12 md:py-40">
+    <div class="mx-auto max-w-4xl text-left">
+      <p class="kicker fade-in-up">Charcuterie · Restaurant · Salon de thé en sous-sol</p>
+      <h1 class="hero-h1 mt-8 text-bone fade-in-up delay-150">
+        Charcuterie au comptoir. Salon de thé en sous-sol. On vous laisse <em class="accent">découvrir</em> le reste.
+      </h1>
+      <p class="mt-10 max-w-2xl text-lg leading-relaxed text-bone/85 fade-in-up delay-300">
+        Pâté de Chartres primé trois années de suite. Comptoir vivant, salon de thé en sous-sol, fauteuils où le temps ralentit.
+      </p>
+      <div class="mt-12 flex flex-col items-start gap-6 sm:flex-row sm:items-center fade-in-up delay-450">
+        <a href="#carte" class="btn-ghost">Voir la carte</a>
+        <a
+          href="https://le-cochon-dingue.eatbu.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-underline text-sm uppercase tracking-[0.16em]"
+        >
+          Réserver
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
