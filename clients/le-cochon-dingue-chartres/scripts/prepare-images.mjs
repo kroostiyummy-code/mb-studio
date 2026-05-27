@@ -18,15 +18,15 @@ const DST_DIR = './public/assets/images';
 
 const PIPELINE = [
   { src: 'facade-nuit-original.jpg', dst: 'hero-devanture.webp',
-    w: 1920, h: 1280, quality: 78, budget: 180, usage: 'hero · eager · fetchpriority high' },
+    w: 1920, h: 1280, quality: 68, budget: 180, usage: 'hero · eager · fetchpriority high' },
   { src: 'facade-nuit-original.jpg', dst: 'hero-devanture-mobile.webp',
-    w: 800, h: 1067, quality: 75, budget: 110, usage: 'hero mobile · eager' },
+    w: 800, h: 1067, quality: 70, budget: 110, usage: 'hero mobile · eager' },
 
-  { src: 'gm-2023-original.png', dst: 'gm-2023.webp',
+  { src: 'gm-2023-original.jpg', dst: 'gm-2023.webp',
     w: 320, h: 320, quality: 85, budget: 40, usage: 'lazy' },
-  { src: 'gm-2024-original.png', dst: 'gm-2024.webp',
+  { src: 'gm-2024-original.jpg', dst: 'gm-2024.webp',
     w: 320, h: 320, quality: 85, budget: 40, usage: 'lazy' },
-  { src: 'gm-2025-original.png', dst: 'gm-2025.webp',
+  { src: 'gm-2025-original.jpg', dst: 'gm-2025.webp',
     w: 320, h: 320, quality: 85, budget: 40, usage: 'lazy' },
 
   { src: 'comptoir-interieur-original.jpg', dst: 'boutique-interieur.webp',
@@ -54,8 +54,8 @@ const PIPELINE = [
   { src: 'carte-chartres-screenshot.png', dst: 'carte-chartres.webp',
     w: 1200, h: 600, quality: 72, budget: 80, usage: 'lazy · venir section' },
 
-  { src: 'comptoir-interieur-original.jpg', dst: 'og-image.webp',
-    w: 1200, h: 630, quality: 80, budget: 130, usage: 'og:image · social (fallback : comptoir tant que façade non fournie)' },
+  { src: 'facade-nuit-original.jpg', dst: 'og-image.webp',
+    w: 1200, h: 630, quality: 80, budget: 130, usage: 'og:image · social (façade)' },
 ];
 
 async function run() {
