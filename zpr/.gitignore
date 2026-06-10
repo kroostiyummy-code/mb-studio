@@ -1,0 +1,9 @@
+# Caches techniques des API (DVF/DPE/geo) — volumineux, régénérables
+cache/
+
+# Sorties de campagne datées (régénérées par run_zpr.py)
+20*/
+
+# Python
+__pycache__/
+*.pyc

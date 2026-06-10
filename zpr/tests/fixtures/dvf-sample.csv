@@ -1,0 +1,9 @@
+id_mutation,date_mutation,nature_mutation,valeur_fonciere,code_commune,type_local,surface_reelle_bati,nombre_pieces_principales
+2023-1,2023-02-10,Vente,210000,28085,Maison,82,4
+2023-2,2023-03-01,Vente,260000,28085,Maison,95,5
+2023-2,2023-03-01,Vente,260000,28085,Dépendance,18,0
+2023-3,2023-04-15,Vente,15000,28085,Dépendance,14,0
+2023-4,2023-05-20,Vente,140000,28085,Appartement,44,2
+2023-5,2023-06-01,Donation,0,28085,Maison,110,5
+2023-6,2023-07-12,Vente,320000,28085,Local industriel. commercial ou assimilé,200,0
+2023-7,2023-09-09,Vente,175000,28085,Maison,78,3

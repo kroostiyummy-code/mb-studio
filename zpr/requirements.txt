@@ -1,0 +1,4 @@
+# Moteur ZPR — dépendances minimales (Python 3.11+).
+# Les appels réseau passent par `curl` (comme prospects/run_scoring.py),
+# donc la seule dépendance Python est le parseur YAML.
+PyYAML>=6.0

@@ -1,0 +1,67 @@
+# zones.yml — SOURCE DE VERITE du moteur ZPR (Zone de Prospection Rentable).
+#
+# C'est le SEUL fichier que tu edites a la main. Tout le reste (zones.csv,
+# {date}/comparatif-villes.md) est REGENERE par run_zpr.py a partir d'ici.
+#
+# Pour comparer des villes : ajoute une entree par commune sous "villes:".
+# Le seul champ obligatoire est `code_insee`. run_zpr.py remplit le reste.
+#
+# IMPORTANT — le denominateur du taux de rotation :
+#   tau_R = (mutations annuelles moyennes / NB LOGEMENTS) x 100.
+#   Le nb de logements officiel ne s'expose pas en API keyless. Renseigne-le
+#   a la main dans `insee_filosofi.nb_logements` depuis l'INSEE "Dossier complet"
+#   (https://www.insee.fr/fr/statistiques -> Dossier complet -> ta commune ->
+#    Logement -> "Nombre total de logements"). A defaut, run_zpr derive une
+#   ESTIMATION (population/2,2) clairement taggee [ESTIME] — bon pour degrossir,
+#   a remplacer par le vrai chiffre avant toute decision d'implantation.
+#
+# Memes sources pour la sociodemo (Etape 2, leviers des "3D") :
+#   - part_proprietaires_occ : % de proprietaires occupants
+#   - revenu_median          : revenu median disponible (€)
+#   - part_60_ans_plus       : % de 60 ans et + (proxy succession/mobilite)
+# Laisse a null si inconnu : le score s'adapte, rien n'est invente.
+
+villes:
+
+  # --- MODELE (ne pas supprimer, sert de gabarit ; ignore par le moteur) ---
+  - code_insee: "_modele"
+    identite:
+      nom: "Nom commune"
+      departement: "00"
+      population: null
+    insee_filosofi:
+      nb_logements: null
+      part_proprietaires_occ: null
+      revenu_median: null
+      part_60_ans_plus: null
+    notes: ""
+
+  # --- Communes candidates (EXEMPLES — edite/complete a ta guise) -----------
+  # Base actuelle MB Studio.
+  - code_insee: "28085"          # Chartres
+    identite:
+      nom: "Chartres"
+      departement: "28"
+      population: null
+    insee_filosofi:
+      nb_logements: null         # <- INSEE Dossier complet (Chartres, Logement)
+      part_proprietaires_occ: null
+      revenu_median: null
+      part_60_ans_plus: null
+    notes: "Point de depart logistique (regle des 20 min de trajet)."
+
+  # Metropoles a forte rotation citees dans la strategie (a verifier en DVF reel).
+  - code_insee: "76540"          # Rouen
+    identite: { nom: "Rouen", departement: "76", population: null }
+    insee_filosofi: { nb_logements: null, part_proprietaires_occ: null, revenu_median: null, part_60_ans_plus: null }
+    notes: "Cite dans le tableau ZPR (~11,8 % — maison < 90 m2)."
+
+  - code_insee: "33063"          # Bordeaux
+    identite: { nom: "Bordeaux", departement: "33", population: null }
+    insee_filosofi: { nb_logements: null, part_proprietaires_occ: null, revenu_median: null, part_60_ans_plus: null }
+    notes: "Cite dans le tableau ZPR (~10,2 % — maison < 90 m2)."
+
+  - code_insee: "69386"          # Lyon 6e (Lyon = arrondissements 69381-69389 en DVF)
+    identite: { nom: "Lyon 6e", departement: "69", population: null }
+    insee_filosofi: { nb_logements: null, part_proprietaires_occ: null, revenu_median: null, part_60_ans_plus: null }
+    notes: "Lyon n'a pas de fichier DVF global : utiliser les arrondissements 6938x."
