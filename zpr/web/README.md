@@ -11,8 +11,8 @@ ligne de commande, aucune installation.
    Edge, Firefox…).
 3. C'est tout. Tu peux mettre la page en favori.
 
-> Astuce : pour t'en servir sur ton téléphone ou la partager, on peut la mettre en
-> ligne gratuitement (Cloudflare Pages, comme les sites MB Studio). Demande-moi.
+> 📲 **Pour avoir un lien à cliquer** (utilisable sur téléphone, à partager) :
+> suis [`MISE-EN-LIGNE.md`](MISE-EN-LIGNE.md) — 2 minutes, gratuit, sans coder.
 
 ## Onglet « 🧭 Où prospecter ? »
 
