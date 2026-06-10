@@ -36,7 +36,7 @@
       '<div class="grille">' +
       '  <div><label>Ville</label><input class="f-nom" placeholder="ex. Rouen" value="' + (d.nom || '') + '"></div>' +
       '  <div><label>Code INSEE</label><input class="f-insee" placeholder="ex. 76540" value="' + (d.insee || '') + '"></div>' +
-      '  <div><label>Nombre de logements</label><input class="f-log" type="number" placeholder="INSEE" value="' + (d.log != null ? d.log : '') + '"></div>' +
+      '  <div><label>Nombre de logements</label><input class="f-log" type="number" placeholder="INSEE (ou ⚡ estime)" value="' + (d.log != null ? d.log : '') + '"></div>' +
       '  <div><label>Ventes / an (résidentiel)</label><input class="f-mut" type="number" placeholder="DVF" value="' + (d.mut != null ? d.mut : '') + '"></div>' +
       '  <div><label>% propriétaires occ. <span class="opt">(opt.)</span></label><input class="f-prop" type="number" value="' + (d.prop != null ? d.prop : '') + '"></div>' +
       '  <div><label>% de 60 ans + <span class="opt">(opt.)</span></label><input class="f-senior" type="number" value="' + (d.senior != null ? d.senior : '') + '"></div>' +
@@ -48,8 +48,11 @@
       '<a class="btn fantome mini" href="https://www.insee.fr/fr/statistiques?debut=0&theme=1&categorie=3" target="_blank" rel="noopener">INSEE (logements)</a></div>' +
       '<div class="statut"></div>';
     zprRoot.appendChild(card);
+    if (d.log != null) card.dataset.logSource = 'saisi';
     $('.sup', card).addEventListener('click', function () { card.remove(); });
     $('.f-nom', card).addEventListener('change', function () { $('.vnom', card).textContent = this.value || 'Nouvelle ville'; });
+    // Si l'utilisateur tape lui-même le nombre de logements -> ce n'est plus une estimation.
+    $('.f-log', card).addEventListener('input', function () { card.dataset.logSource = 'saisi'; });
     $('.auto', card).addEventListener('click', function () { zprAuto(card); });
     return card;
   }
@@ -70,10 +73,20 @@
       }
       if (!insee) { st.textContent = '⚠️ Indique le nom ou le code INSEE de la ville.'; return; }
       st.textContent = 'Récupération des données publiques…';
+      var popMsg = '';
       try {
         var c = await ZPRDATA.fetchCommune(insee);
         if (c && c.nom && !$('.f-nom', card).value) { $('.f-nom', card).value = c.nom; $('.vnom', card).textContent = c.nom; }
-      } catch (e) { /* population non bloquante */ }
+        // Logements : pas d'API exacte gratuite -> estimation depuis la population
+        // officielle (≈ pop / 1,8), clairement marquée. À remplacer par le vrai
+        // chiffre INSEE pour une décision serrée.
+        var logInput = $('.f-log', card);
+        if (c && c.population && !logInput.value) {
+          logInput.value = Math.round(c.population / 1.8);
+          card.dataset.logSource = 'estime';
+          popMsg = ' · logements estimés ≈' + logInput.value + ' (pop. ' + c.population + ')';
+        }
+      } catch (e) { /* commune non bloquante */ }
       // DVF (ventes/an) — via relais si le direct est bloqué. Peut être un peu long.
       try {
         st.textContent = 'Lecture des ventes (DVF), patiente (~10-30 s)…';
@@ -82,14 +95,14 @@
         });
         if (rot.mut_an != null) $('.f-mut', card).value = rot.mut_an;
         if (rot.segment) card.dataset.segment = rot.segment;
-        st.textContent = rot.mut_an != null
+        st.textContent = (rot.mut_an != null
           ? '✅ Ventes : ' + rot.mut_an + '/an (moyenne ' + rot.annees.join(', ') + ')' +
             (rot.segment ? ' · segment ' + rot.segment : '')
-          : 'ℹ️ Aucune vente trouvée pour cette commune sur la période.';
+          : 'ℹ️ Aucune vente trouvée pour cette commune sur la période.') + popMsg;
       } catch (e) {
         st.innerHTML = '⚠️ Récupération des ventes indisponible pour le moment. ' +
           'Ouvre la <a href="https://app.dvf.etalab.gouv.fr/" target="_blank" rel="noopener">carte DVF</a>, ' +
-          'compte les ventes de maisons/appartements sur 1 an et saisis le nombre dans « Ventes / an ».';
+          'compte les ventes de maisons/appartements sur 1 an et saisis le nombre dans « Ventes / an ».' + popMsg;
       }
       // DPE
       try {
@@ -115,7 +128,8 @@
       senior: num($('.f-senior', card).value),
       fg: num($('.f-fg', card).value),
       rec: num($('.f-rec', card).value),
-      segment: card.dataset.segment || null
+      segment: card.dataset.segment || null,
+      logEstime: card.dataset.logSource === 'estime'
     };
   }
 
@@ -143,15 +157,23 @@
     res.forEach(function (r, i) {
       var cls = r.verdict === 'GO' ? 'go' : (r.verdict === 'NO-GO' ? 'nogo' : '');
       var b = r.verdict === 'GO' ? 'b-go' : (r.verdict === 'NO-GO' ? 'b-nogo' : 'b-ind');
+      var tauxTxt = r.taux == null ? '—' : (r.logEstime ? '≈ ' : '') + r.taux + ' %';
       html += '<tr class="' + cls + '"><td>' + (i + 1) + '</td><td><strong>' + r.nom + '</strong>' +
         (r.insee ? ' <span style="color:#8a94a6">(' + r.insee + ')</span>' : '') + '</td>' +
-        '<td>' + (r.taux == null ? '—' : r.taux + ' %') + '</td>' +
+        '<td>' + tauxTxt + '</td>' +
         '<td><span class="badge ' + b + '">' + r.verdict + '</span></td>' +
         '<td>' + (r.segment || '—') + '</td>' +
         '<td>' + (r.fg == null ? '—' : r.fg + ' %') + '</td>' +
         '<td>' + r.score + '</td></tr>';
       if (r.verdict === 'INDÉTERMINÉ')
         html += '<tr><td></td><td colspan="6" class="statut">❔ Renseigne « logements » et « ventes/an » pour calculer la rotation.</td></tr>';
+      else if (r.logEstime) {
+        var proche = r.taux != null && Math.abs(r.taux - ZPR.SEUIL_ROTATION) <= 1;
+        html += '<tr><td></td><td colspan="6" class="statut">' +
+          (proche ? '⚠️ Tout près du seuil ET ' : 'ℹ️ ') +
+          'logements <strong>estimés</strong> (depuis la population). ' +
+          'Pour confirmer, saisis le vrai nombre via le lien INSEE de la ville.</td></tr>';
+      }
     });
     html += '</tbody></table>' +
       '<p class="aide" style="margin-top:10px">⛔ Sous 4 % : ne pas prospecter (présence non rentabilisable). ' +
