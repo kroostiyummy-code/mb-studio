@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZPR — Prospection immobilière ciblée</title>
+<style>
+  :root{
+    --vert:#1f9d55; --rouge:#d64545; --gris:#8a94a6; --bleu:#2a6df4;
+    --fond:#f5f7fb; --carte:#ffffff; --txt:#1c2433; --doux:#5b6577; --bord:#e2e7f0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--fond);color:var(--txt);line-height:1.5}
+  header{background:linear-gradient(120deg,#1c2433,#2a3550);color:#fff;padding:22px 18px}
+  header h1{margin:0;font-size:21px}
+  header p{margin:6px 0 0;color:#c3ccdd;font-size:13.5px;max-width:760px}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+  .tabs{display:flex;gap:8px;margin:16px 0;flex-wrap:wrap}
+  .tab{flex:1;min-width:200px;border:1px solid var(--bord);background:var(--carte);
+       padding:12px 14px;border-radius:12px;cursor:pointer;font-size:15px;font-weight:600;
+       color:var(--doux);text-align:left}
+  .tab small{display:block;font-weight:400;font-size:12px;color:var(--doux)}
+  .tab.actif{border-color:var(--bleu);color:var(--bleu);box-shadow:0 2px 10px rgba(42,109,244,.12)}
+  .panel{display:none}
+  .panel.actif{display:block}
+  .carte{background:var(--carte);border:1px solid var(--bord);border-radius:14px;padding:16px;margin:0 0 14px}
+  h2{font-size:17px;margin:2px 0 4px}
+  .aide{color:var(--doux);font-size:13px;margin:0 0 12px}
+  .grille{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+  label{display:block;font-size:12px;color:var(--doux);margin:0 0 3px;font-weight:600}
+  label .opt{color:var(--gris);font-weight:400}
+  input,select{width:100%;padding:8px 10px;border:1px solid var(--bord);border-radius:9px;font-size:14px;background:#fff}
+  input:focus,select:focus{outline:none;border-color:var(--bleu)}
+  .btn{border:none;border-radius:10px;padding:10px 14px;font-size:14px;font-weight:600;cursor:pointer}
+  .btn.primaire{background:var(--bleu);color:#fff}
+  .btn.doux{background:#eef2fb;color:var(--bleu)}
+  .btn.fantome{background:transparent;color:var(--doux);border:1px solid var(--bord)}
+  .btn.mini{padding:6px 10px;font-size:12.5px}
+  .barre{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:6px}
+  .ville-carte{border:1px solid var(--bord);border-radius:12px;padding:12px;margin-bottom:10px;background:#fcfdff}
+  .ville-tete{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+  .ville-tete strong{font-size:15px}
+  .statut{font-size:12px;color:var(--doux);min-height:16px;margin-top:6px}
+  .badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:700;color:#fff}
+  .b-go{background:var(--vert)} .b-nogo{background:var(--rouge)} .b-ind{background:var(--gris)}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--bord)}
+  th{color:var(--doux);font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+  tr.go td:first-child{box-shadow:inset 4px 0 0 var(--vert)}
+  tr.nogo td:first-child{box-shadow:inset 4px 0 0 var(--rouge)}
+  .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0}
+  .kpi .b{background:#fcfdff;border:1px solid var(--bord);border-radius:12px;padding:12px}
+  .kpi .b .v{font-size:22px;font-weight:700}
+  .kpi .b .l{font-size:12px;color:var(--doux)}
+  .ok{color:var(--vert);font-weight:700}.warn{color:#c77700;font-weight:700}
+  .alerte{background:#fff6f5;border:1px solid #f3c9c4;color:#a32b22;padding:10px 12px;border-radius:10px;font-size:13.5px}
+  .info{background:#eef6ff;border:1px solid #c6e0ff;color:#1c4e9c;padding:10px 12px;border-radius:10px;font-size:13px}
+  .funnel{margin:10px 0}
+  .funnel .row{display:flex;align-items:center;gap:10px;margin:4px 0}
+  .funnel .bar{height:26px;background:var(--bleu);border-radius:6px;min-width:2px;opacity:.85}
+  .funnel .lab{width:130px;font-size:13px;color:var(--doux)}
+  .funnel .val{font-weight:700;width:38px;text-align:right}
+  a{color:var(--bleu)}
+  footer{color:var(--doux);font-size:12px;text-align:center;padding:18px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>🏠 ZPR — Prospection immobilière ciblée</h1>
+    <p>Deux calculatrices, zéro installation. <strong>« Où prospecter ? »</strong> compare des
+    villes selon le taux de rotation (seuil de rentabilité 4&nbsp;%). <strong>« Où j'en suis ? »</strong>
+    pilote ton activité vers l'objectif&nbsp;: 100&nbsp;000&nbsp;€ et 10&nbsp;mandats en 6&nbsp;mois.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="tabs">
+    <button class="tab actif" data-tab="zpr">🧭 Où prospecter&nbsp;?
+      <small>Comparer des villes, décider où s'implanter</small></button>
+    <button class="tab" data-tab="tunnel">📊 Où j'en suis&nbsp;?
+      <small>Suivre l'objectif 100&nbsp;000&nbsp;€ / 10&nbsp;mandats</small></button>
+  </div>
+
+  <!-- ============ ONGLET ZPR ============ -->
+  <section id="panel-zpr" class="panel actif">
+    <div class="carte">
+      <h2>Comparer des villes</h2>
+      <p class="aide">Ajoute des villes, renseigne au minimum le <strong>nombre de logements</strong> et le
+      <strong>nombre de ventes par an</strong>. Le bouton <em>⚡ Récupérer</em> tente de remplir les ventes,
+      le segment et les DPE automatiquement&nbsp;; sinon, saisis-les à la main (liens fournis sous chaque ville).</p>
+      <div class="barre">
+        <button class="btn doux" id="zpr-demo">▶︎ Voir un exemple (démo)</button>
+        <button class="btn fantome" id="zpr-add">＋ Ajouter une ville</button>
+        <button class="btn primaire" id="zpr-calc">Calculer le classement</button>
+      </div>
+    </div>
+
+    <div class="carte">
+      <h2>Villes à comparer</h2>
+      <div id="zpr-rows"></div>
+    </div>
+
+    <div id="zpr-results"></div>
+  </section>
+
+  <!-- ============ ONGLET TUNNEL ============ -->
+  <section id="panel-tunnel" class="panel">
+    <div class="carte">
+      <h2>Mon objectif</h2>
+      <div class="grille">
+        <div><label>CA cible (€)</label><input type="number" id="o-ca" value="100000"></div>
+        <div><label>Mandats cibles</label><input type="number" id="o-mandats" value="10"></div>
+        <div><label>Horizon (mois)</label><input type="number" id="o-horizon" value="6"></div>
+        <div><label>Date de début</label><input type="date" id="o-debut" value="2026-01-01"></div>
+        <div><label>Honoraires moyens / mandat (€) <span class="opt">(optionnel)</span></label>
+          <input type="number" id="o-hono" placeholder="déduit : CA / mandats"></div>
+      </div>
+      <div class="barre">
+        <button class="btn doux" id="t-demo">▶︎ Charger les prospects d'exemple</button>
+        <button class="btn fantome" id="t-add">＋ Ajouter un prospect</button>
+      </div>
+    </div>
+
+    <div class="carte">
+      <h2>Mes prospects</h2>
+      <p class="aide">Mets à jour le statut au fil de l'eau&nbsp;: contact → qualifié → estimation → mandat.</p>
+      <div id="t-rows"></div>
+    </div>
+
+    <div id="t-dashboard"></div>
+  </section>
+</div>
+
+<footer>Outil MB Studio — données publiques (DVF, DPE/ADEME, INSEE). Ne pas publier hors de l'agence.</footer>
+
+<script src="zpr-core.js"></script>
+<script src="zpr-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

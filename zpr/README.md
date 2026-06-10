@@ -1,5 +1,10 @@
 # ZPR — Moteur de Zone de Prospection Rentable
 
+> 🖱️ **Pas développeur ?** Ouvre simplement [`web/index.html`](web/README.md) dans
+> ton navigateur (double-clic) : les deux calculatrices, sans rien installer ni
+> taper de commande. Le reste de ce document décrit les versions « pro » en ligne de commande.
+
+
 Outil de **prospection immobilière ciblée** (Étapes 1 & 2 de la Stratégie ZPR) :
 il décide, chiffres à l'appui, **où prospecter** et **où ne jamais aller**.
 
