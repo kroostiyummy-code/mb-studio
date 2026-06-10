@@ -1,0 +1,74 @@
+# pipeline.yml — SOURCE DE VERITE du tunnel de prospection.
+#
+# Tu remplis ce fichier a la main au fil des contacts. run_tunnel.py en derive
+# le tableau de bord ({date}/tableau-de-bord.md) et pipeline.csv.
+#
+# Cycle de vie d'un prospect (statut) :
+#   contact -> qualifie -> estimation -> mandat   (ou : perdu)
+# Pour un 'perdu', precise jusqu'ou il etait monte via 'stade_atteint'.
+
+objectif:
+  ca_cible: 100000               # €
+  mandats_cibles: 10             # mandats exclusifs
+  horizon_mois: 6
+  date_debut: "2026-01-01"
+  honoraires_moyens: 10000       # € / mandat (sinon deduit = ca_cible/mandats)
+  ratio_cible:                   # 30 contacts -> 5 qualifies -> 2 estim. -> 1 mandat
+    contact: 30
+    qualifie: 5
+    estimation: 2
+    mandat: 1
+
+prospects:
+
+  # --- MODELE (gabarit, ignore par le moteur) ---
+  - id: _modele
+    nom: "Nom / adresse"
+    commune: "28085"             # code INSEE (lien avec le moteur ZPR)
+    source: terrain              # terrain | pige | warm_list | recommandation | inbound
+    statut: contact              # contact | qualifie | estimation | mandat | perdu
+    stade_atteint: null          # pour un 'perdu' : etape max atteinte
+    segment: "Maison < 90 m²"
+    signal_3d: aucun             # divorce | deces | demenagement | aucun
+    date_contact: null
+    date_mandat: null
+    honoraires_estimes: null     # € (sinon honoraires_moyens)
+    consentement_rgpd: false     # opt-in explicite (garde-fou Bloctel)
+    notes: ""
+
+  # --- EXEMPLES (a remplacer par tes vrais prospects) ---
+  - id: dupont-rue-des-lilas
+    nom: "M. Dupont — 12 rue des Lilas"
+    commune: "28085"
+    source: terrain
+    statut: estimation
+    segment: "Maison < 90 m²"
+    signal_3d: demenagement
+    date_contact: "2026-05-12"
+    honoraires_estimes: 9500
+    consentement_rgpd: true
+    notes: "Mutation pro à Rennes, veut vendre avant septembre."
+
+  - id: succession-martin
+    nom: "Succession Martin — 4 place du Marché"
+    commune: "28085"
+    source: recommandation
+    statut: mandat
+    segment: "Appartement T3"
+    signal_3d: deces
+    date_contact: "2026-03-02"
+    date_mandat: "2026-04-18"
+    honoraires_estimes: 11000
+    consentement_rgpd: true
+    notes: "Mandat exclusif signé via notaire."
+
+  - id: leroy-pige
+    nom: "Annonce PAP — 7 av. Jean Moulin"
+    commune: "28085"
+    source: pige
+    statut: qualifie
+    segment: "Maison 90-130 m²"
+    signal_3d: aucun
+    date_contact: "2026-05-28"
+    consentement_rgpd: false
+    notes: "A rappeler — vérifier consentement avant relance téléphonique."

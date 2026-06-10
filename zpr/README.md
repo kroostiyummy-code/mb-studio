@@ -54,6 +54,13 @@ python zpr/run_zpr.py
 | `{date}/zones.csv` | Vue plate 1 ligne/commune (Google Sheets) | Régénéré, ne pas éditer |
 | `cache/` | Caches API (gitignored) | Ignorer |
 
+## Et après ? Le tunnel de conversion
+
+Le moteur ZPR dit **où** prospecter. Pour piloter ensuite l'activité vers l'objectif
+(100 000 € / 10 mandats en 6 mois) avec le ratio 30 → 5 → 2 → 1, voir
+[`tunnel/`](tunnel/README.md) : entonnoir réel vs cible, projection à l'échéance,
+volume de contacts à produire, et contrôle de conformité Bloctel/RGPD.
+
 ## Le dénominateur (à renseigner à la main)
 
 `τ_R` a besoin du **nombre total de logements** de la commune. Ce chiffre officiel
