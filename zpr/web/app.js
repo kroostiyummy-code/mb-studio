@@ -74,16 +74,20 @@
         var c = await ZPRDATA.fetchCommune(insee);
         if (c && c.nom && !$('.f-nom', card).value) { $('.f-nom', card).value = c.nom; $('.vnom', card).textContent = c.nom; }
       } catch (e) { /* population non bloquante */ }
-      // DVF (ventes/an) — peut échouer (protection navigateur) -> saisie manuelle
+      // DVF (ventes/an) — via relais si le direct est bloqué. Peut être un peu long.
       try {
-        st.textContent = 'Téléchargement des ventes (DVF), patiente…';
-        var rot = await ZPRDATA.fetchRotationDVF(insee, 5, null);
+        st.textContent = 'Lecture des ventes (DVF), patiente (~10-30 s)…';
+        var rot = await ZPRDATA.fetchRotationDVF(insee, 5, function (an, ok) {
+          st.textContent = 'Lecture des ventes ' + an + (ok === null ? ' …' : (ok ? ' ✓' : ' (rien)'));
+        });
         if (rot.mut_an != null) $('.f-mut', card).value = rot.mut_an;
         if (rot.segment) card.dataset.segment = rot.segment;
-        st.textContent = '✅ Ventes : ' + (rot.mut_an != null ? rot.mut_an + '/an (' + rot.annees.join(', ') + ')' : 'non trouvées') +
-          (rot.segment ? ' · segment ' + rot.segment : '');
+        st.textContent = rot.mut_an != null
+          ? '✅ Ventes : ' + rot.mut_an + '/an (moyenne ' + rot.annees.join(', ') + ')' +
+            (rot.segment ? ' · segment ' + rot.segment : '')
+          : 'ℹ️ Aucune vente trouvée pour cette commune sur la période.';
       } catch (e) {
-        st.innerHTML = '⚠️ Récupération auto des ventes impossible (souvent une protection du navigateur). ' +
+        st.innerHTML = '⚠️ Récupération des ventes indisponible pour le moment. ' +
           'Ouvre la <a href="https://app.dvf.etalab.gouv.fr/" target="_blank" rel="noopener">carte DVF</a>, ' +
           'compte les ventes de maisons/appartements sur 1 an et saisis le nombre dans « Ventes / an ».';
       }

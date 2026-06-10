@@ -58,32 +58,59 @@
     return r.json();
   }
 
+  // Certains fichiers publics (DVF) ne sont pas accessibles en direct depuis un
+  // navigateur (protection « CORS »). On tente le direct, puis un « relais »
+  // public qui, lui, est autorisé. Données 100 % publiques (open data) -> OK.
+  var RELAIS = [
+    function (u) { return 'https://corsproxy.io/?url=' + encodeURIComponent(u); },
+    function (u) { return 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u); }
+  ];
+  // Renvoie {status, text}. status 404 = absent (à ignorer), throw = inaccessible.
+  async function fetchText(url) {
+    try {
+      var r = await fetch(url);
+      if (r.status === 404) return { status: 404, text: '' };
+      if (r.ok) return { status: 200, text: await r.text() };
+    } catch (e) { /* CORS/réseau -> on tente les relais */ }
+    for (var i = 0; i < RELAIS.length; i++) {
+      try {
+        var r2 = await fetch(RELAIS[i](url));
+        if (r2.ok) { var t = await r2.text(); if (t && t.length) return { status: 200, text: t }; }
+      } catch (e2) { /* relais suivant */ }
+    }
+    throw new Error('inaccessible');
+  }
+  async function fetchJSON(url) {
+    var res = await fetchText(url);
+    try { return JSON.parse(res.text); } catch (e) { throw new Error('réponse illisible'); }
+  }
+
   // Télécharge + compte les mutations résidentielles sur N années (geo-dvf).
-  // onProgress(year, dispo) appelé pour le retour visuel.
+  // onProgress(année, dispo) pour le retour visuel.
   async function fetchRotationDVF(insee, nbAnnees, onProgress) {
     var dep = depFromInsee(insee);
     var cur = new Date().getFullYear();
     var anneesOk = [], total = 0, types = [], surf = [], pieces = [];
+    var erreurDure = null;
     for (var an = cur - 1; an > cur - 1 - (nbAnnees + 2) && anneesOk.length < nbAnnees; an--) {
       var url = 'https://files.data.gouv.fr/geo-dvf/latest/csv/' + an +
         '/communes/' + dep + '/' + insee + '.csv';
-      var rows = null;
+      var res;
       try {
-        var r = await fetch(url);
-        if (r.status === 404) { if (onProgress) onProgress(an, false); continue; }
-        if (!r.ok) throw new Error('dvf ' + r.status);
-        rows = parseCSV(await r.text());
-      } catch (e) {
-        if (onProgress) onProgress(an, false, e);
-        throw e;                          // remonte l'erreur (souvent CORS) -> bascule manuelle
-      }
-      if (!rows.length) { if (onProgress) onProgress(an, false); continue; }
+        if (onProgress) onProgress(an, null);     // "en cours"
+        res = await fetchText(url);
+      } catch (e) { erreurDure = e; break; }       // ni direct ni relais -> on arrête
+      if (res.status === 404 || !res.text) { if (onProgress) onProgress(an, false); continue; }
+      var rows = parseCSV(res.text);
+      // Garde-fou : ignore une page d'erreur renvoyée par un relais (pas du DVF).
+      if (!rows.length || !('id_mutation' in rows[0])) { if (onProgress) onProgress(an, false); continue; }
       var c = ZPR.compteMutations(rows);
       total += c.n_mutations; types = types.concat(c.types);
       surf = surf.concat(c.surfaces); pieces = pieces.concat(c.pieces);
       anneesOk.push(an);
       if (onProgress) onProgress(an, true);
     }
+    if (!anneesOk.length && erreurDure) throw erreurDure;   // déclenche le message manuel
     var mutAn = anneesOk.length ? Math.round(total / anneesOk.length * 10) / 10 : null;
     return {
       annees: anneesOk, total: total, mut_an: mutAn,
@@ -95,9 +122,7 @@
     var qs = 'code_insee_ban:"' + insee + '"' + (extra ? (' AND ' + extra) : '');
     var url = 'https://data.ademe.fr/data-fair/api/v1/datasets/' +
       'dpe-v2-logements-existants/lines?size=0&qs=' + encodeURIComponent(qs);
-    var r = await fetch(url);
-    if (!r.ok) throw new Error('dpe ' + r.status);
-    var j = await r.json();
+    var j = await fetchJSON(url);
     return j.total;
   }
 
